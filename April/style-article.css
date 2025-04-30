@@ -41,9 +41,9 @@ a {
     color: ColorValues;
     text-decoration: none;
 }
-header, main {
+/* header, main {
         max-width: 1440px;
-}
+} */
 header,
 main {
     max-width: 1440px;
@@ -55,7 +55,7 @@ header {
     right: 0; /* 先固定不用 vw */
     left: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 main {
@@ -64,7 +64,7 @@ main {
 }
 
 .navbar {
-    padding-bottom: 130px; /* 單位別忘記 */
+    padding-top: 15px; /* 單位別忘記 */
     display: flex;
     justify-content: space-between;
     align-items: center;
