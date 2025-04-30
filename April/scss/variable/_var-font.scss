@@ -1,0 +1,28 @@
+// font family
+$font-en: "Noto senif Bengali Bold", sans-serif;
+$font-tc: "Noto Sans TC", sans-serif;
+$font-title: "Noto Sans TC", cursive;
+    
+
+
+// font-size
+$font-size: ( /*map-get($font-size,*/
+xssss:.75rem,
+xsss:.87rem,
+xss:1rem,
+xs: 1.1rem,
+s: 1.25rem,
+m: 1.5rem,
+l: 2.5rem,
+xl: 3rem,
+xxl: 3.75rem,
+xxxl: 4rem,
+xxxxl: 5rem,
+xxxxxl: 6rem,
+xxxxxxl: 8rem, 
+);
+
+//行高
+$line-h-s:1;
+$line-h-m:1.2;
+$line-h-l:1.5;

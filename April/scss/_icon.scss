@@ -1,0 +1,9 @@
+@each $social in fb, ig, line, {
+    .icon-#{$social} {
+        background-image: url(../img/images/icon-#{$social}.svg);
+
+        &:hover {
+            background-image: url(../img/images/icon-#{$social}-hover.svg);
+        }
+    }
+}
