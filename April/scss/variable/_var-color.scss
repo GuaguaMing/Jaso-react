@@ -1,16 +1,13 @@
 // 變數 Color var
-$color-black: #222;
-$color-deep: #444;
-$color-deep: #666 !default; // !default 預設值改444
-$color-gray: #999;
-$color-light: #f1f1f1;
-$color-bg1: #f2edf0;
-$color-bg2: #e6ece5;
-$color-bg3: #ecf0f4;
-$color-lesser1: #f3e4e4;
-$color-lesser2: #efdbdb;
-$color-lesser3: #cdaaab;
-$color-lesser4: #8f6b6d;
+$color-white: #ffffff;
+$color-gray: #AAA6A8;
+$color-darkgray: #2A2324; // !default 預設值改444
+$color-lightgray: #D4D4D4;
+$color-light: #8FE3C1;
+$color-deep: #3DCE94;
+$color-level1: #B28247;
+$color-level2: #909090;
+$color-level3: #BBA435;
 
 // alpha透明度
 $alpha: transparent;
