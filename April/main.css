@@ -41,37 +41,100 @@ a {
     color: var(--primary-color);
     text-decoration: none;
 }         
+
+header {
+    width: 1440px;
+    display: block;
+    padding: 0 240px;
+}
+main {
+    width: 1440px;
+    display: block;
+    padding: 0 240px;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    padding-left: 35%;
+}
+
+.nav-center ul{
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+    margin: 30px 0;
+    gap: 5vw;
+    font-weight: bold;
+}
+.nav-right {
+    display: flex;
+    align-items: center;
+    margin-right: 78px;
+}
+.member {
+    padding: 4px 20px;
+    margin: 30px 0px;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    align-items: center;
+}
+.bean-shape {
+    margin:5px;
+    align-items: center;
+    background-color: #6dd6a7;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    -webkit-mask-image: url(./img/0.png);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+    
+    mask-image: url(./img/0.png);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+}
+.go-to-shop {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .container{
     width: 347px;
     padding: 15% 60px;
 }
-.dialog_box{
-    width: 347px;
-    height: 190px;
-    border-radius: 25px;
-    background-color: #3DCE94;
+.dialog {
+    background: #3DCE94;
+        width: 160px;
+      border-radius: 25px;
+    padding: 20px 20px;
+    border-radius: 20px;
     position: relative;
-
-    
-}
-.dialog_box::after{
-    content: '';
-    position: absolute;
-    border-top: 30px solid #3DCE94;
-    border-right: 0px solid transparent;
-    border-left: 30px solid transparent;
-    border-bottom: 0px solid #3DCE94;
-    bottom: -30px;
-    left: 180px;
-}
-.dialog_box p{
-    color: #FFF;
-    font-family: "Noto Sans TC";
-    font-size: 24px;
-    letter-spacing: 2.16px;
-    padding: 40px 40px;
-    
-}
+    color: white;
+    display: inline-block;
+  } 
+  .rounded-triangle {
+      position: relative;
+      bottom: 70px;
+      left:30px; 
+      background-color: #3DCE94;
+      transform: rotate(-60deg) skewX(-35deg) scale(1,.95);
+  }
+    .rounded-triangle:after {
+      content: '';
+      position:absolute;
+      background-color: inherit;
+      width:  20px;
+      height: 25px;
+      border-top-right-radius: 30%;
+      transform: rotate(150deg) skewY(-45deg) scale(.780, 1.9) translate(50%);
+    }
 .card{
     display: flex;
     align-items: center;
