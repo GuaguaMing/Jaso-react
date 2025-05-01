@@ -41,25 +41,29 @@ a {
     color: var(--primary-color);
     text-decoration: none;
 } 
-header,
+
 main {
     max-width: 1440px;
-    margin: 0 auto;
+    margin: 115px auto;
 }
 
 header {
+    max-width: 1440px;
+    margin: 0 auto;
     position: fixed;
-    right: 0; /* 先固定不用 vw */
+    right: 0;
     left: 0;
+    top: 0;
     display: flex;
     justify-content: flex-end;
 }
-
-main {
-    display: block;
-    padding: 0; /* 預設不要用 vw，固定不變 */
+.navigation {
+    border-radius: 50px;
+    border: 1px solid rgba(200, 200, 200, 0.40);
+    background: rgba(226, 226, 226, 0.25);
+    box-shadow: 2px 2px 2px 0px rgba(255, 255, 255, 0.25) inset, 1px 5px 5.5px 0px rgba(0, 0, 0, 0.02);
+    backdrop-filter: blur(7.5px);
 }
-
 .navbar {
     padding-top: 15px; /* 單位別忘記 */
     display: flex;
@@ -118,11 +122,114 @@ main {
     font-size: 20px;
     font-weight: bold;
 }
+#banner{
+    padding-top: 10rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
+}
+.title-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 230px;
+    align-items: flex-end;
+}
+.banner-left {
+    display: block;
+    color: var(--Neutrue-Dark-gray, #2A2324);
+    font-family: "Noto Sans TC";
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 127.638%;
+    letter-spacing: 5.4px;
+}
+.line1 {
+    display: flex;
+    align-items: flex-end;
+    font-size: 60px;
+}
+.banner-logo {
+    width: 308px;
+}
+.line2 {
+    display: flex;
+    align-items: flex-end;
+    font-size: 60px;
+}
+.banner-emoji {
+    padding: 1rem 0;
+}
+.banner-right {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    align-items: center;
+    justify-content: flex-end;
+}
+.banner-right .en {
+    color: var(--Green-deep, #3DCE94);
+    font-family: "Noto Sans TC";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 145.842%; /* 20.418px */
+    width: 18rem;
 
-.container{
-    width: 347px;
-    padding: 15% 60px;
+}
+.banner-right .ch {
+    color: #000;
+    text-align: center;
+    font-family: "Noto Sans TC";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 350;
+    line-height: 3rem; /* 22.971px */
+    letter-spacing: 0.9px;
+
+}
+.update {
+    margin: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--Green-deep, #3DCE94);
+    width: 1210px;
+    height: 49px;
+    color: var(--Neutrue-White, #FFF);
+
+    /* 段落1-18px */
+    font-family: "Noto Sans TC";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 132%; /* 23.76px */
+    letter-spacing: 2.52px;
+ 
+}
+.update .fixed {
+    padding: 0 2rem;
+
+}
+.title-bottom {
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./img/background1.png);
+    background-repeat: no-repeat;
+    width: 1440px;
+    height: 455px;
+
+}
+#product {
+    padding: 2rem 0;
+}
+.container {
+    padding:5rem;
 }
 .dialog {
     background: #3DCE94;
