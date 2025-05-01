@@ -41,49 +41,63 @@ a {
     color: ColorValues;
     text-decoration: none;
 }
-header, main {
-    display: flex;
-    justify-content:center ;
-}
-header {
-    width: 1440px;
-    display: block;
-    padding: 0 240px;
-}
+/* header, main {
+        max-width: 1440px;
+} */
+header,
 main {
-    width: 1440px;
-    display: block;
-    padding: 0 240px;
-}
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    background-color: #FFFFFF;
-    padding-left: 35%;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
-.nav-center ul{
+header {
+    position: fixed;
+    right: 0; /* 先固定不用 vw */
+    left: 0;
     display: flex;
-    align-items: center;
-    padding: 4px 0;
-    margin: 30px 0;
-    gap: 5vw;
-    font-weight: bold;
+    justify-content: flex-end;
 }
+
+main {
+    display: block;
+    padding: 0; /* 預設不要用 vw，固定不變 */
+}
+
+.navbar {
+    padding-top: 15px; /* 單位別忘記 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-center ul {
+    display: flex;
+    gap: 80px; /* 改為固定距離 */
+    font-weight: bold;
+    list-style: none;
+}
+
 .nav-right {
     display: flex;
     align-items: center;
-    margin-right: 78px;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-left: 259px;
 }
 .member {
-    padding: 4px 20px;
-    margin: 30px 0px;
-    border: 1px solid #000000;
-    border-radius: 50px;
-    align-items: center;
+    padding: 0px 15px;
+    border: 1px solid;
+    border-radius: 999px;
+    font-weight: bold;
+    font-size: 16px;
 }
 .bean-shape {
-    margin:5px;
     align-items: center;
     background-color: #6dd6a7;
     width: 200px;

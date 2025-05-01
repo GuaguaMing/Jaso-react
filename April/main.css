@@ -40,38 +40,116 @@ img {
 a {
     color: var(--primary-color);
     text-decoration: none;
-}         
+} 
+header,
+main {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+header {
+    position: fixed;
+    right: 0; /* 先固定不用 vw */
+    left: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+main {
+    display: block;
+    padding: 0; /* 預設不要用 vw，固定不變 */
+}
+
+.navbar {
+    padding-top: 15px; /* 單位別忘記 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-center ul {
+    display: flex;
+    gap: 80px; /* 改為固定距離 */
+    font-weight: bold;
+    list-style: none;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-left: 259px;
+}
+.member {
+    padding: 0px 15px;
+    border: 1px solid;
+    border-radius: 999px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.bean-shape {
+    align-items: center;
+    background-color: #6dd6a7;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    -webkit-mask-image: url(./img/0.png);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+    
+    mask-image: url(./img/0.png);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+}
+.go-to-shop {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
 .container{
     width: 347px;
     padding: 15% 60px;
 }
-.dialog_box{
-    width: 347px;
-    height: 190px;
-    border-radius: 25px;
-    background-color: #3DCE94;
+.dialog {
+    background: #3DCE94;
+        width: 160px;
+      border-radius: 25px;
+    padding: 20px 20px;
+    border-radius: 20px;
     position: relative;
-
-    
-}
-.dialog_box::after{
-    content: '';
-    position: absolute;
-    border-top: 30px solid #3DCE94;
-    border-right: 0px solid transparent;
-    border-left: 30px solid transparent;
-    border-bottom: 0px solid #3DCE94;
-    bottom: -30px;
-    left: 180px;
-}
-.dialog_box p{
-    color: #FFF;
-    font-family: "Noto Sans TC";
-    font-size: 24px;
-    letter-spacing: 2.16px;
-    padding: 40px 40px;
-    
-}
+    color: white;
+    display: inline-block;
+  } 
+  .rounded-triangle {
+      position: relative;
+      bottom: 70px;
+      left:30px; 
+      background-color: #3DCE94;
+      transform: rotate(-60deg) skewX(-35deg) scale(1,.95);
+  }
+    .rounded-triangle:after {
+      content: '';
+      position:absolute;
+      background-color: inherit;
+      width:  20px;
+      height: 25px;
+      border-top-right-radius: 30%;
+      transform: rotate(150deg) skewY(-45deg) scale(.780, 1.9) translate(50%);
+    }
 .card{
     display: flex;
     align-items: center;
