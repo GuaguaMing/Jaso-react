@@ -297,19 +297,19 @@ main.index section {
 #banner {
   background-color: #f3e4e4;
 }
-
+/*最新消息*/
 #news {
   background-color: #f2edf0;
 }
-
+/*服務項目*/
 #service {
   background-color: #e6ece5;
 }
-
+/*相關影片*/
 #video {
   background-color: #ecf0f4;
 }
-
+/*聯絡表單*/
 #contact #contact-form {
   width: 30%;
   font-size: 1.1rem;
