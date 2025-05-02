@@ -28,7 +28,7 @@
     }
 }
 
-@each $numeric in milti, minus, plus, {
+@each $numeric in milti_a, minus_a, plus_a, milti_b, minus_b, plus_b, {
     .icon-#{$numeric} {
         background-image: url(../img/icons/j_numeric_#{$numeric}.svg);
 
