@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap");
+
 /* reset CSS */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
     margin: 0;
@@ -13,11 +15,12 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 body {
     font-family:
         /*西文*/
-        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial,
+        "Noto Serif",
         /*中文*/
-        "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+        "Noto Sans TC";
     font-size: 100%;
     line-height: 1.5;
+ 
 }
 
 /* 重置標題 */
@@ -43,6 +46,7 @@ a {
 } 
 
 main {
+    width: 100%;
     max-width: 1440px;
     margin: 115px auto;
 }
@@ -57,20 +61,12 @@ header {
     display: flex;
     justify-content: flex-end;
 }
-.navigation {
-    border-radius: 50px;
-    border: 1px solid rgba(200, 200, 200, 0.40);
-    background: rgba(226, 226, 226, 0.25);
-    box-shadow: 2px 2px 2px 0px rgba(255, 255, 255, 0.25) inset, 1px 5px 5.5px 0px rgba(0, 0, 0, 0.02);
-    backdrop-filter: blur(7.5px);
-}
 .navbar {
     padding-top: 15px; /* 單位別忘記 */
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .nav-center {
     display: flex;
     justify-content: center;
@@ -82,14 +78,15 @@ header {
     gap: 80px; /* 改為固定距離 */
     font-weight: bold;
     list-style: none;
+    flex-shrink: 0;
 }
 
 .nav-right {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 1rem;
     padding-left: 259px;
+    padding-right: 1rem;
 }
 .member {
     padding: 0px 15px;
@@ -97,6 +94,7 @@ header {
     border-radius: 999px;
     font-weight: bold;
     font-size: 16px;
+    flex-shrink: 0;
 }
 .bean-shape {
     align-items: center;
@@ -122,10 +120,10 @@ header {
     font-size: 20px;
     font-weight: bold;
 }
-#banner{
+#banner-1{
+    max-width: 1440px;
+    margin: 115px auto 0 auto;
     padding-top: 10rem;
-    display:flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -135,6 +133,8 @@ header {
     justify-content: space-between;
     gap: 230px;
     align-items: flex-end;
+    padding:0 5rem;
+
 }
 .banner-left {
     display: block;
@@ -171,7 +171,7 @@ header {
 }
 .banner-right .en {
     color: var(--Green-deep, #3DCE94);
-    font-family: "Noto Sans TC";
+    font-family: "Noto Serif";
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -190,11 +190,34 @@ header {
     letter-spacing: 0.9px;
 
 }
-.update {
-    margin: 3rem;
+#banner-2 {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 455px;
+    overflow: hidden;
+}
+.title-bottom{
+    position: relative;
+    width: 100%;
+    height: 455px;
+    max-width: 1325px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-family: "Noto Serif";
+}    
+.update {
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    margin: 3rem;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
 
     background: var(--Green-deep, #3DCE94);
     width: 1210px;
@@ -208,23 +231,245 @@ header {
     font-weight: 500;
     line-height: 132%; /* 23.76px */
     letter-spacing: 2.52px;
+    z-index: 1;
  
 }
+.update-left {
+    display: flex;
+    justify-content:  flex-start;
+}
 .update .fixed {
+    font-family: "Noto Serif";
+    display: flex;
     padding: 0 2rem;
+}
+.update-right {
+    padding: 0 5rem;
+    display: flex;
+    justify-content:  flex-end;
+    font-family: "Noto Serif";
 
 }
-.title-bottom {
-    margin-left: auto;
+.update-left .content {
+    font-family: "Noto Sans TC";
+}
+
+.background-logo {
+    position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+    width: 1325px;
+    height: 455px;
+    color: #F2F2F2;
+font-family: "Noto Serif";
+font-size: 500px;
+font-style: normal;
+font-weight: 700;
+line-height: 120%; 
+letter-spacing: 45px;
+letter-spacing: 45px;
+pointer-events: none;
+white-space: nowrap;
+z-index: 0;
+
+
+}
+#chart {
+    position: relative;
+    height: 927px;    
+
+}
+
+.background-color{
+    position: relative;
+    height: 927px;    
+    background:linear-gradient(180deg, #3DCE94 57.21%, #F9FFFA 100%);
+    background-position: center center;
+    margin: 0 auto;   
+    background-size: cover; /* 填滿且保持比例，會裁切溢出的部分 */
+    overflow: hidden; /* 確保內容不超出區塊 */ 
+    z-index: 0;
+    display: flex;
+    justify-content: space-between;
+}
+.chart-left { 
+    font-family: "Noto Sans TC";
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(./img/background1.png);
-    background-repeat: no-repeat;
-    width: 1440px;
-    height: 455px;
+    flex: 1;
+    z-index: 1;
+}
+.chart-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1; /* 讓右側自動占滿可用空間 */
+    z-index: 1;
+    position: relative; /* 讓 ul.score 的絕對定位以這裡為參考 */
+}
+
+.calc {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start ;
 
 }
+.calc h3 {
+    color: var(--Neutrue-White, #FFF);
+font-size: 60px;
+font-style: normal;
+font-weight: 500;
+line-height: 127.638%; /* 76.583px */
+letter-spacing: 5.4px;
+padding: 5rem 0;
+}
+.calc p {
+    color: var(--Neutrue-White, #FFF);
+
+/* 段落1-18px */
+font-family: "Noto Sans TC";
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 132%; /* 23.76px */
+letter-spacing: 2.52px;
+display: flex;
+padding-bottom: 5rem;
+
+
+}
+.calc-btn {
+    z-index: 1;
+    color: var(--Green-deep, #3DCE94);
+text-align: center;
+font-family: Inter;
+font-size: 15px;
+font-style: normal;
+font-weight: 700;
+line-height: 150%; /* 22.5px */
+letter-spacing: -0.33px;
+ border-color: #FFF;
+    border-radius: 99px;
+background: var(--Neutrue-White, #FFF);
+
+width: 133px;
+height: 38px;
+align-items: center;
+flex-shrink: 0;
+    
+}
+/* .chart-right { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20rem;
+    z-index: 1;
+} */
+#netWrapper {
+    background-color: #FFF;
+    z-index: 1;
+    width: 600px;
+    height: 300px;
+    position: relative; /* 原本是 absolute，改為 relative */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+ #about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ } 
+.about-content {
+    margin-top: 3rem;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+} 
+.about-left {
+    display: flex;
+    width: 311px;
+height: 345px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-left:15rem ;
+
+}
+.about-right {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end ;
+    gap: 1.5rem;
+    margin-right: 15rem;
+}
+.about-right h1 {
+color: rgba(61, 206, 148, 0.59);
+text-align: right;
+font-family: "Noto Serif";
+font-size: 128px;
+font-style: normal;
+font-weight: 700;
+line-height: 96%; /* 122.88px */
+}
+.about-right .p{
+    font-family: "Noto Sans TC";
+}
+.about-btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 1.5rem;
+    margin-right:15rem ;
+    
+}
+.about-btn .plus {
+    padding: 0 1rem;
+    width: 17.56px;
+    height: 17.56px;
+    flex-shrink: 0;
+}
+.about-btn p {
+    color: var(--Green-deep, #3DCE94);
+text-align: justify;
+font-family: "Noto Serif";
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: 186%; /* 37.2px */
+letter-spacing: 1px;
+}
+#people {
+    font-family: "Noto Sans TC";
+}
+#people title {
+    color: #000;
+    text-align: center;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 120px */
+    letter-spacing: 1.6px;
+}
+#people h3 {
+    color: var(--Green-deep, #3DCE94);
+
+/* 標題3-40px */
+font-family: "Noto Sans TC";
+font-size: 40px;
+font-style: normal;
+font-weight: 500;
+line-height: 150%; /* 60px */
+letter-spacing: 0.8px;
+}
+
+
+
 #product {
     padding: 2rem 0;
 }
@@ -240,6 +485,8 @@ header {
     position: relative;
     color: white;
     display: inline-block;
+    font-family: "Noto Sans TC";
+
   } 
   .rounded-triangle {
       position: relative;

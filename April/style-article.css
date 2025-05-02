@@ -154,7 +154,7 @@ main {
     background: rgba(226, 226, 226, 0.25);
     box-shadow: 2px 2px 2px 0px rgba(255, 255, 255, 0.25) inset, 1px 5px 5.5px 0px rgba(0, 0, 0, 0.02);
     backdrop-filter: blur(7.5px);
-
+    flex-shrink: 0;
 }
 
 main {
@@ -202,6 +202,7 @@ main {
     border-radius: 999px;
     font-weight: bold;
     font-size: 16px;
+    
 }
 
 .bean-shape {
