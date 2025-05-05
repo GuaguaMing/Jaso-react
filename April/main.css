@@ -47,7 +47,7 @@ a {
 
 main {
     width: 100%;
-    max-width: 1440px;
+    /* max-width: 1440px; */
     margin: 115px auto;
 }
 
@@ -244,7 +244,7 @@ header {
     padding: 0 2rem;
 }
 .update-right {
-    padding: 0 5rem;
+    padding: 0 2rem;
     display: flex;
     justify-content:  flex-end;
     font-family: "Noto Serif";
@@ -252,6 +252,10 @@ header {
 }
 .update-left .content {
     font-family: "Noto Sans TC";
+    white-space: nowrap;          /* 不換行 */
+    overflow: hidden;             /* 隱藏溢出文字 */
+    text-overflow: ellipsis;      /* 超出顯示 ... */
+    width: 900px;   
 }
 
 .background-logo {
@@ -280,8 +284,14 @@ z-index: 0;
     height: 927px;    
 
 }
-
-.background-color{
+.background {
+    display: flex;
+    justify-content: space-between;
+    width: 1440px;
+    margin: 0 auto; 
+}
+.background-color {
+    max-width: 1920px;
     position: relative;
     height: 927px;    
     background:linear-gradient(180deg, #3DCE94 57.21%, #F9FFFA 100%);
@@ -297,17 +307,17 @@ z-index: 0;
     font-family: "Noto Sans TC";
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex: 1;
     z-index: 1;
 }
 .chart-right {
+    padding: 5rem 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex: 1; /* 讓右側自動占滿可用空間 */
     z-index: 1;
-    position: relative; /* 讓 ul.score 的絕對定位以這裡為參考 */
 }
 
 .calc {
@@ -382,13 +392,21 @@ flex-shrink: 0;
     display: flex;
     justify-content: center;
     align-items: center;
- } 
+    margin: 0 auto;
+
+ }
+ .about-all {
+  display: block;  
+  width: 1440px;
+  margin: 0 auto;
+ }  
 .about-content {
     margin-top: 3rem;
-    
+    width: 1440px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    gap: 203px;
 
 } 
 .about-left {
@@ -419,13 +437,15 @@ line-height: 96%; /* 122.88px */
 }
 .about-right .p{
     font-family: "Noto Sans TC";
+
 }
 .about-btn {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-top: 1.5rem;
-    margin-right:15rem ;
+    padding-top: 1.5rem;
+    padding-right:15rem ;
+    margin: 0 auto;
     
 }
 .about-btn .plus {
@@ -444,21 +464,27 @@ font-weight: 700;
 line-height: 186%; /* 37.2px */
 letter-spacing: 1px;
 }
-#people {
-    font-family: "Noto Sans TC";
+
+.p-title {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: center;
 }
-#people title {
+.p-title h1 {
     color: #000;
-    text-align: center;
+    font-family: "Noto Sans TC";
     font-size: 80px;
     font-style: normal;
     font-weight: 500;
     line-height: 150%; /* 120px */
     letter-spacing: 1.6px;
 }
-#people h3 {
+.p-title h3 {
     color: var(--Green-deep, #3DCE94);
-
 /* 標題3-40px */
 font-family: "Noto Sans TC";
 font-size: 40px;
@@ -467,8 +493,55 @@ font-weight: 500;
 line-height: 150%; /* 60px */
 letter-spacing: 0.8px;
 }
+.doc {   
+width: 414px;
+height: 633px;
+padding: 139px 29.728px 460.728px 351px;
 
+}
+.team-left {   
+    width: 425px;
+    height: 360px;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='425' height='360' viewBox='0 0 425 360' fill='none'><path d='M325.428 180C325.428 279.411 620 360 191.428 360C85.7052 360 0 279.411 0 180C0 80.5887 85.7052 0 191.428 0C297.151 0 325.428 80.5887 325.428 180Z' fill='url(%23paint0_linear_1807_337)' fill-opacity='0.77'/><defs><linearGradient id='paint0_linear_1807_337' x1='210.5' y1='0' x2='210.5' y2='360' gradientUnits='userSpaceOnUse'><stop stop-color='%233DCE94'/><stop offset='1' stop-color='%23F9FFFA'/></linearGradient></defs></svg>");
+    background-size: cover;
+    display: flex;
 
+}
+.intro-1 span {
+    color: #000;
+text-align: center;
+
+/* 副標-24px */
+font-family: "Noto Sans TC";
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: 132%; /* 31.68px */
+letter-spacing: 2.16px;
+}
+.intro-1 p {
+    color: #000;
+text-align: center;
+
+/* 內文1-14px */
+font-family: "Noto Sans TC";
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 177%; /* 24.78px */
+letter-spacing: 1.96px;
+}
+.intro-2 {
+    color: #000;
+
+    /* 內文2-12px */
+    font-family: "Noto Sans TC";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 167%; /* 20.04px */
+    letter-spacing: 1.08px;
+}
 
 #product {
     padding: 2rem 0;
