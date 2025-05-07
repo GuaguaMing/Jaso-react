@@ -254,7 +254,7 @@ main {
 
 .faq {
   margin-top: 348px;
-  margin-bottom: 885px;
+  margin-bottom: 100px;
 }
 
 .cta {
@@ -385,25 +385,17 @@ main {
 /* Footer */
 footer.footer-container {
   position: relative;
-  width: 1920px; /* 設定 footer 寬度 */
-  height: 1023px; /* 設定 footer 高度 */
+  width: 1920px;
+  height: 1023px;
   background-color: #333;
   color: #fff;
   padding: 60px 20px;
-  text-align: center;
-}
-
-.footer-logo img {
-  width: 100%;
-  max-width: 1920px;
-  height: auto;
-  margin-bottom: 20px;
+  text-align: left; /* 文字對齊方式改為左對齊 */
 }
 
 .footer-content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 40px;
   max-width: 1440px;
   margin: 0 auto;
@@ -412,25 +404,31 @@ footer.footer-container {
 
 .footer-main {
   width: 100%;
-  margin-bottom: 40px; /* 添加間距 */
+  margin-bottom: 40px;
 }
 
 .footer-main-heading {
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 20px;
+  display: block;
+  text-align: left;
+  margin-left: 80.05px; /* 大標題與按鈕之間的間距 */
 }
 
+/* 調整每一個主題區塊的間距 */
 .footer-section {
   flex: 1;
   max-width: 300px;
   margin: 10px;
+  margin-bottom: 118.8px; /* 設置主題區塊間距 */
 }
 
 .footer-heading {
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 10px;
+  text-align: left; /* 左對齊標題 */
 }
 
 .footer-section p {
@@ -441,6 +439,8 @@ footer.footer-container {
 .footer-section ul {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-direction: column; /* 垂直排列列表項目 */
 }
 
 .footer-section ul li {
@@ -488,39 +488,36 @@ footer.footer-container {
   transform: rotate(-270deg); /* 使按鈕垂直排列 */
   flex-shrink: 0;
   border-radius: 50px;
-  /* flex-direction: column; */
 }
 
 .cta-button-text {
-  /* writing-mode: vertical-lr; 文字垂直顯示（從上到下） */
-  transform: rotate(270deg); /*讓文字正面顯示 */
+  transform: rotate(270deg); /* 讓文字正面顯示 */
   font-size: 30px;
   font-weight: 500;
   letter-spacing: 2.7px;
   color: white;
   text-align: center;
   line-height: normal; /* 設置文字行高，確保每個字之間有間隔 */
-  
 }
 
 .cta-subtext {
-  color: var(--Neutrue-White, #FFF); 
+  color: var(--Neutrue-White, #FFF);
   font-family: "Noto Sans TC";
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 1.8px;
   margin-top: 0px;
   margin-left: 300px;
-  /*writing-mode: vertical-lr; /* 文字垂直顯示（從上到下） */
   transform: rotate(270deg); /* 讓文字正面顯示 */
-  line-height: 1.5; /* 設置文字行高，確保每個字之間有間隔 */
-  
+  line-height: 1.5;
 }
 
+/* 社交圖標排列 */
 .social-links {
   display: flex;
   flex-direction: column; /* 社交圖標垂直排列 */
   align-items: center; /* 居中顯示圖標 */
+  margin-top: 68.73px; /* 社交圖標和按鈕間距 */
 }
 
 .social-link {
