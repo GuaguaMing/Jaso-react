@@ -6,97 +6,6 @@
   padding: 0;
 }
 
-
-/* reset CSS */
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
 html,
 body {
   height: 100%;
@@ -131,23 +40,26 @@ img {
 
 /* 重置連接 */
 a {
-  color: ColorValues;
+  color: inherit;
   text-decoration: none;
 }
 
-/* header, main {
-        max-width: 1440px;
-} */
-main {
-  max-width: 1440px;
-  margin: 0 auto;
-}
+
 
 button {
   font: inherit;
   cursor: pointer;
   border: none;
   background: none;
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
 
 h1,
@@ -160,35 +72,53 @@ h6 {
   line-height: 1.4;
   color: #111;
   font-size: 64px;
+  margin-bottom: 1.5rem;
+  /* 加大標題底部間距 */
 }
 
-.section-green-title {
-  color: #3DCE94;
-  font-family: "Noto Serif Bengali", serif;
-  font-weight: 700;
+/* layout & 通用 */
+
+main {
+  max-width: 1440px;  /* 限制最大寬度為 1440px */
+  width: 100%;  /* 保證寬度不超過 100% */
+  margin-left: auto; /* 左邊距自動 */
+  margin-right: auto; /* 右邊距自動 */
+  padding-top: 120px;
+  padding-left: 20px; /* 增加一些內邊距，避免內容過於擁擠 */
+  padding-right: 20px; /* 同上，避免內容靠邊 */
+}
+.section-container,
+.about-simple,
+.certifications-content,
+.vegan-content,
+.faq-content {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: flex-start;
+  margin-bottom: 20px;  /* 增加區塊間距 */
 }
 
-input,
-textarea,
-select {
-  font: inherit;
-  border: none;
-  outline: none;
-  background-color: transparent;
+
+.section-text {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
 }
 
-section {
-  margin-bottom: 4rem;
-}
-
+/* ABOUT區塊 */
 .hero img {
-
   width: 900px;
   height: auto;
   flex-shrink: 0;
   display: block;
   margin: 0 auto;
-
+  margin-bottom: 113px;
   margin-top: 120px;
   /* 或依你需求調整距離，例如 32px、64px */
 
@@ -202,8 +132,36 @@ section {
   font-weight: 700;
   line-height: 96%;
   margin: 0.5rem auto 2rem auto;
-  max-width: 900px; /* 對齊圖片寬度 */
-  padding-right: 1rem; /* 再微調靠右縮排 */
+  max-width: 960px;
+  /* 跟其他區塊一致 */
+  padding-right: 1rem;
+  /* 再微調靠右縮排 */
+}
+
+/* 關於LOGO區塊 */
+.section-green-title {
+  flex-shrink: 0;
+  color: #3DCE94;
+  font-family: "Noto Serif Bengali", serif;
+  font-weight: 500;
+  font-size: 64px;
+  font-style: normal;
+  line-height: 138%;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  display: block;
+}
+
+.section-green-about {
+  color: var(--Green-deep, #3DCE94);
+  text-align: auto;
+  font-family: "Noto Sans TC";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 157%;
+  /* 100.48px */
+  letter-spacing: 8.96px;
 }
 
 .about-simple {
@@ -225,45 +183,38 @@ section {
   line-height: 1.8;
   font-size: 1rem;
   flex: 1;
+  margin-bottom: 488px;
 }
 
-.certifications {
-  padding-left: 115px;
-  padding-right: 115px;
-}
-
+/* 認證圖區塊 */
 .section-container {
   max-width: 960px;
-  margin-left: 115px; /* 與 LOGO 對齊 */
+  margin-left: 115px;
+  /* 與 LOGO 對齊 */
   margin-right: auto;
-  
+  box-sizing: border-box;
 }
 
-.section-green-title {
-  color: #3DCE94;
-  font-family: "Noto Serif Bengali", serif;
-  font-weight: 700;
-  font-size: 64px;
-  line-height: 1.2;
-  margin-bottom: 0.5rem;
-}
-
-.about-subtitle {
+/* 副標題下移 */
+.about-subtitle, .section-h3 {
   color: #252527;
-  font-family: 'Inter', sans-serif;
+  text-align: center;
+  font-family: Inter;
   font-size: 20px;
   font-weight: 500;
   line-height: 180%;
   letter-spacing: 2px;
-  margin-bottom: 1.5rem;
+  margin-top: 2rem; /* 保證副標題與標題之間有間隔 */
 }
 
+/* 常見問題、素食認證、JaSo+食品安全的核心的副標題放到標題下方 */
+
+
 .certifications p {
-  font-size: 1rem;
+  max-width: 858px;
   line-height: 1.8;
-  color: #333;
-  text-align: left;
-  margin-top: 1rem;
+  font-size: 1rem;
+  flex: 1;
 }
 
 /* LOGO TITLE
@@ -283,16 +234,57 @@ section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
+  margin-top: 2rem;
+  justify-items: start;
   max-width: 960px;
-  margin: 2rem auto 0;
-  justify-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 267px;
+
+}
+
+.cert-vegan-grid {
+  margin-bottom: 150px;
+}
+
+.vegan {
+  margin-top: 267px;
+  margin-bottom: 130px;
+}
+
+.faq {
+  margin-top: 348px;
+  margin-bottom: 885px;
+}
+
+.cta {
+  display: flex; /* 使用 Flexbox 進行布局 */
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  height: 100vh; /* 確保 cta 區塊佔滿整個視窗的高度 */
+  text-align: center; /* 文字也保持居中 */
+  flex-direction: column; /* 讓子元素垂直排列 */
+  padding: 20px; /* 添加內邊距，避免內容靠邊 */
+  margin-left: auto; 
+  margin-right: auto; 
 }
 
 
 /* FAQ LIST */
 .faq-list li {
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
+  margin-bottom: 1rem;
+  /* 增加FAQ項目的底部間距 */
+  font-size: 1.2rem;
+  /* 增加字體大小 */
+}
+
+.section-h3 {
+  color: #252527;
+  font-family: "Noto Sans TC";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 138%;
 }
 
 /* BUTTONS */
@@ -304,8 +296,9 @@ section {
   border-radius: 999px;
   background-color: #3dce94;
   color: white;
-  font-weight: bold;
   font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
 }
 
 .more-btn span,
@@ -314,13 +307,7 @@ section {
 }
 
 /* HEADER BASIC */
-main {
-  max-width: 1440px;
-  margin: 0 auto;
-  display: block;
-  /* 預設不要用 vw，固定不變 */
-  padding-top: 120px;
-}
+
 
 .nav-hidden {
   position: fixed;
@@ -353,12 +340,6 @@ main {
   justify-content: space-between;
   align-items: center;
 }
-
-/* .nav-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 
 .nav-center ul {
   display: flex;
@@ -400,6 +381,177 @@ main {
   color: white;
   font-size: 20px;
   font-weight: bold;
+}
+/* Footer */
+footer.footer-container {
+  position: relative;
+  width: 1920px; /* 設定 footer 寬度 */
+  height: 1023px; /* 設定 footer 高度 */
+  background-color: #333;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.footer-logo img {
+  width: 100%;
+  max-width: 1920px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.footer-main {
+  width: 100%;
+  margin-bottom: 40px; /* 添加間距 */
+}
+
+.footer-main-heading {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.footer-section {
+  flex: 1;
+  max-width: 300px;
+  margin: 10px;
+}
+
+.footer-heading {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 5px 0;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+/* CTA按鈕和社交圖標 */
+.cta-container {
+  position: absolute;
+  right: 500px; /* 設定右邊間距 */
+  top: 400px; /* 設定上邊間距 */
+  bottom: 365px; /* 設定底部間距 */
+  left: 1200px; /* 設定左邊間距 */
+  text-align: center;
+  flex-direction: column; /* 讓按鈕和文字垂直排列 */
+  align-items: flex-end; /* 讓內容靠右對齊 */
+  z-index: 10;
+}
+
+.cta-button {
+  width: 520px; /* 設定按鈕寬度 */
+  height: 66px; /* 設定按鈕高度 */
+  background-color: #3DCE94; /* 綠色背景 */
+  color: var(--Neutrue-White, #FFF); /* 白色文字 */
+  font-family: "Noto Sans TC";
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 2.7px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-bottom: 10px; /* 按鈕和下面文字之間的間距 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform: rotate(-270deg); /* 使按鈕垂直排列 */
+  flex-shrink: 0;
+  border-radius: 50px;
+  /* flex-direction: column; */
+}
+
+.cta-button-text {
+  /* writing-mode: vertical-lr; 文字垂直顯示（從上到下） */
+  transform: rotate(270deg); /*讓文字正面顯示 */
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 2.7px;
+  color: white;
+  text-align: center;
+  line-height: normal; /* 設置文字行高，確保每個字之間有間隔 */
+  
+}
+
+.cta-subtext {
+  color: var(--Neutrue-White, #FFF); 
+  font-family: "Noto Sans TC";
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1.8px;
+  margin-top: 0px;
+  margin-left: 300px;
+  /*writing-mode: vertical-lr; /* 文字垂直顯示（從上到下） */
+  transform: rotate(270deg); /* 讓文字正面顯示 */
+  line-height: 1.5; /* 設置文字行高，確保每個字之間有間隔 */
+  
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column; /* 社交圖標垂直排列 */
+  align-items: center; /* 居中顯示圖標 */
+}
+
+.social-link {
+  margin: 10px 0; /* 每個社交圖標之間的間距 */
+}
+
+.social-icon {
+  width: 40px; /* 設置社交圖標大小 */
+  height: auto;
+}
+
+/* 回到頁首箭頭按鈕 */
+.back-to-top {
+  position: fixed;
+  right: 130px; /* 固定在右側 */
+  bottom: 50px; /* 讓它位於 footer 上方 */
+  background-color: transparent; /* 背景透明 */
+  padding: 0; /* 去掉內邊距 */
+  border: none; /* 去掉邊框 */
+  display: inline-block;
+  z-index: 10; /* 確保它不被其他元素擋住 */
+}
+
+.back-to-top img {
+  width: 100px; /* 設置圖標大小 */
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.back-to-top:hover img {
+  transform: translateY(-5px); /* 懸停時的輕微浮動效果 */
 }
 
 /* RESPONSIVE */
