@@ -1,0 +1,45 @@
+        /* 設定網頁背景色與字型 */
+        body {
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 設定主要容器的樣式 */
+        .container {
+            width: 80%;
+            margin: 24px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 按鈕樣式 */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3DCE94;
+            color: white;
+            border: none;
+            border-radius: 0 0 99px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #37b683;
+        }
+
+        /* 顯示與隱藏內容區域 */
+        .content {
+            display: none;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+        }
+
+        /* 顯示內容區域 */
+        .content.visible {
+            display: block;
+        }

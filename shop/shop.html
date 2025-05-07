@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../April/main.css">
+    <link rel="stylesheet" href="./shop.css">
+</head>
+
+<body>
+    <header>
+        <!-- 隱藏式導覽列 -->
+         <div class="nav-hidden">
+            <div class="logo" href="./article-main.html"><img src="./img/nav-logo.svg" alt="">
+            </div>
+            <div class="navbar">
+                <div class="nav-center">
+                    <ul>
+                        <li>食物庫</li>
+                        <li>素食知識</li>
+                        <li>營養素算</li>
+                    </ul>
+                </div>
+                <div class="nav-right">
+                    <div class="member">會員</div>
+                    <div class="bean-shape">
+                        <div class="go-to-shop">素購</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <div class="container">
+        <button data-target="product1">Product1</button>
+        <div id="product1" class="content">
+            <p>This is product1. Click outside to hide me.</p>
+        </div>
+
+        <button data-target="product2">Product2</button>
+        <div id="product2" class="content">
+            <p>This is product2. Click outside to hide me too!</p>
+        </div>
+        
+        <button data-target="product3">Product3</button>
+        <div id="product3" class="content">
+            <p>This is product3. Click outside to hide me too!</p>
+        </div>
+        
+        <button data-target="product4">Product4</button>
+        <div id="product4" class="content">
+            <p>This is product4. Click outside to hide me too!</p>
+        </div>
+        
+        <button data-target="product5">Product5</button>
+        <div id="product5" class="content">
+            <p>This is product5. Click outside to hide me too!</p>
+        </div>
+    </div>
+
+    <script>
+        function handleClickOutside(e) {
+            const postActionsControllers = document.querySelectorAll("[data-target]");
+
+            postActionsControllers.forEach((btn) => {
+                const targetId = btn.getAttribute("data-target");
+                const postActionsContent = document.getElementById(targetId);
+
+                if(
+                    postActionsContent && postActionsContent.getAttribute("data-visible") === "true"
+                ){
+                    if(!postActionsContent.contains(e.target 
+                    && e.target !==btn)){
+                        postActionsContent.setAttribute("data-visible","false");
+                        postActionsContent.setAttribute("data-visible","true");
+                        btn.setAttribute("aria-expanded","false");
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
