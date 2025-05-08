@@ -7,6 +7,7 @@
     color: #fff;
     padding: 60px 20px;
     text-align: left;
+   
     /* 文字對齊方式改為左對齊 */
   }
   
@@ -75,8 +76,9 @@
     /* align-items: left; */
     gap: 118px;
     flex-shrink: 0;
+    margin:0 auto;
     margin-left: 398px;
-    margin-top: -125px;
+    margin-top: 0px;
     /* margin-bottom: 20px; */
   
   }
@@ -90,7 +92,7 @@
   
   }
   
-  /* .footer-section p {
+  .footer-section p {
     font-size: 22px;
     line-height: 1.6;
   }
@@ -110,7 +112,7 @@
   .footer-section ul li a {
     color: #fff;
     text-decoration: none;
-  } */
+  }
   
   .footer-section ul li a:hover {
     text-decoration: underline;
@@ -249,15 +251,3 @@
     color: inherit;
     text-decoration: none;
   }
-
-  /* 重置列表 */
-ul,
-ol {
-  list-style: none;
-}
-
-/* 重置圖片 */
-img {
-  display: block;
-  width: 100%;
-}
