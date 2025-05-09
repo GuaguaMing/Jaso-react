@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>會員資料 | JaSo+素</title>
+  <link rel="stylesheet" href="member.css">
+</head>
+<body>
+    <section class="tab-bar">
+        <button class="tab-btn active">個人資料</button>
+        <button class="tab-btn">會員點數</button>
+        <button class="tab-btn">我的指南</button>
+        <button class="tab-btn">訂單</button>
+        <button class="tab-btn">素清單</button>
+      </section>
+
+      <div class="consumption-summary">
+        <div class="summary-header">
+          <img src="../img/icons/j_icon_gift.svg" alt="gift" class="gift-icon" />
+          <span class="summary-title">12 個月累計消費</span>
+        </div>
+      
+        <div class="progress-container">
+          <span class="current-amount">NT$2000</span>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 28%;"></div>
+          </div>
+          <span class="upgrade-info">差 NT$5000 升級</span>
+        </div>
+      </div>
+
+  <section class="member-form">
+    <h2>編輯個人資料</h2>
+    <form>
+      <label for="name">姓名</label>
+      <input type="text" id="name" placeholder="請輸入您的姓名">
+
+      <label for="email">電子郵件</label>
+      <input type="email" id="email" placeholder="請輸入您的電子郵件">
+
+      <label for="phone">手機號碼</label>
+      <input type="tel" id="phone" placeholder="請輸入手機號碼">
+
+      <label for="password">密碼</label>
+      <input type="password" id="password" placeholder="設定新密碼">
+
+      <button type="submit" class="save-btn">儲存修改</button>
+    </form>
+  </section>
+</body>
+</html>
