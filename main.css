@@ -201,12 +201,12 @@ footer {
     align-items: center;
     justify-content: center;
 
-    -webkit-mask-image: url(./img/0.svg);
+    -webkit-mask-image: url(./assets/img/0.svg);
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
     -webkit-mask-size: contain;
 
-    mask-image: url(./img/0.svg);
+    mask-image: url(./assets/img/0.svg);
     mask-repeat: no-repeat;
     mask-position: center;
     mask-size: contain;
@@ -399,7 +399,7 @@ footer {
     position: absolute;
     bottom: 0;
     right: 0;
-    background-image: url(./img/logo-bg.svg);
+    background-image: url(./assets/img/logo-bg.svg);
     background-repeat: no-repeat;
     overflow: hidden;
     width: 1325px;
