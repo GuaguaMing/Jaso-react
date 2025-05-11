@@ -1,0 +1,45 @@
+.footer-container {
+  position: relative;
+  width: 1920px;
+  height: 1024px;
+  background-color: #363638;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: left;
+}
+
+.footer-main-heading {
+  font-size: 64px;
+  font-weight: bold;
+  margin: 250px 0 20px 200px;
+  display: block;
+  text-align: center;
+}
+
+.footer-Jaso {
+  position: absolute;
+  right: 520px;
+  bottom: 197px;
+  gap: 50px;
+}
+
+.footer-jaso1,
+.footer-jaso2 {
+  margin: 0;
+  line-height: 1.2;
+  margin-right: 20px;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+  margin: -60px auto 0 398px;
+}
+
+.footer-heading {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left;
+}

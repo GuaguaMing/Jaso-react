@@ -1,0 +1,67 @@
+.profile-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 40px;
+  max-width: 1560px;
+  padding: 40px;
+  background: #fff;
+  position: relative;
+}
+
+.profile-left-top,
+.profile-right-top,
+.profile-left-bottom,
+.profile-right-bottom {
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.rounded-input {
+  border-radius: 50px;
+  background: #F4EFEF;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  appearance: none;
+  background-color: #F4EFEF;
+  border: 2px solid #F4EFEF;
+  cursor: pointer;
+  position: relative;
+
+  &:checked::before {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #3DCE94;
+  }
+}
+
+.edit-button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1560px;
+  margin: 20px auto 80px;
+  padding-right: 40px;
+}
+
+.edit-button {
+  background-color: #3DCE94;
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 60px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
