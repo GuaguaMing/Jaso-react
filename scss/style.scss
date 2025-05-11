@@ -2,16 +2,16 @@
 @use "function" as *;
 @use "reset";
 @use "icon";
+@use "pages/quiz/quiz" as *;
 
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 /*google fonts長在第二行，只允許編碼在上面*/
 @font-face {
     //字體需要上傳到自己的伺服器
-    font-family: "Sakitu Baelah";
-    src: url(../webfont/Sakitu\ Baelah.otf);
+    font-family: "Noto Sans TC";
+    src: url();
 }
-
 /* 導覽列 */
 #navbar {
     position: fixed;

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>營養素算</title>
+    <link rel="stylesheet" href="./scss/pages/css/quiz.css">
+    <style>
+        .quiz__step {
+            display: none;
+        }
+
+        .quiz__step.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="questionWrapper"></div>
+
+    <div class="navigation-buttons">
+      <button onclick="prevQuestion()">上一題</button>
+      <button onclick="nextQuestion()">下一題</button>
+    </div>
+    
+    <div class="progress-bar">
+      <div class="progress" id="progress"></div>
+    </div>
+    
+    <script>
+    const questions = [
+      {
+        title: "飲食習慣",
+        question: "你每週是否攝取含鐵食物（如黑豆、紅莧菜、南瓜籽）？",
+        options: ["是", "否"],
+        image: "./assets/img/omega@3x.svg"
+      },
+      {
+        title: "飲食習慣",
+        question: "你每天是否有攝取富含維生素B12的食物或補充劑？",
+        options: ["每天都有", "偶爾有", "很少或沒有"],
+        image: "https://i.imgur.com/sA3e2Ah.png"
+      },
+      {
+        title: "飲食習慣",
+        question: "你每天攝取的蛋白質主要來自哪類食物？",
+        options: ["豆類及其製品", "穀物", "堅果與種子", "蔬菜"],
+        image: "https://i.imgur.com/GNj2aHo.png"
+      },
+      {
+        title: "飲食習慣",
+        question: "你是否每天攝取富含鈣質的食物或補充劑？",
+        options: ["每餐都有", "每天有", "很少或沒有"],
+        image: "https://i.imgur.com/sUcyKJf.png"
+      },
+      {
+        title: "飲食習慣",
+        question: "你的日常飲食中，攝取的熱量大多來自哪種食物？",
+        options: ["蔬菜和水果（低熱量）", "穀物（中等熱量）", "豆類和堅果（較高熱量）", "高加工食物或甜食（高熱量）"],
+        image: "https://i.imgur.com/dz0lOBc.png"
+      },
+      {
+        title: "病痛症狀",
+        question: "你是否經常感到疲倦、虛弱或容易氣喘？",
+        options: ["是", "否"],
+        image: "https://i.imgur.com/UYXqvOB.png"
+      },
+      {
+        title: "病痛症狀",
+        question: "你是否有經常性的偏頭痛或頭痛？",
+        options: ["是", "否"],
+        image: "https://i.imgur.com/hKYzqJ9.png"
+      },
+      {
+        title: "病痛症狀",
+        question: "你是否經常感到飢餓，或吃不飽？",
+        options: ["是", "否"],
+        image: "https://i.imgur.com/Zjowti7.png"
+      },
+      {
+        title: "病痛症狀",
+        question: "你是否經常感到便秘或腸胃不適？",
+        options: ["是", "否"],
+        image: "https://i.imgur.com/ykF9EZY.png"
+      },
+      {
+        title: "病痛症狀",
+        question: "你是否經常感到肌肉抽筋或手腳發麻？",
+        options: ["是", "否"],
+        image: "https://i.imgur.com/BYjRxl3.png"
+      }
+    ];
+    
+    let currentQuestion = 0;
+    
+    function renderQuestion() {
+      const q = questions[currentQuestion];
+      const wrapper = document.getElementById("questionWrapper");
+    
+      wrapper.innerHTML = `
+        <div class="question-container">
+          <div class="question-left">
+            <h4>➕ ${q.title}</h4>
+            <h2>${q.question}</h2>
+            <div class="options">
+              ${q.options.map((opt, i) => `
+                <label class="option">
+                  <input type="radio" name="q${currentQuestion}" value="${opt}"> ${opt}
+                </label>
+              `).join('')}
+            </div>
+          </div>
+          <div class="question-right">
+            <img src="${q.image}" alt="illustration" />
+          </div>
+        </div>
+      `;
+    
+      // 更新進度條
+      document.getElementById("progress").style.width = `${((currentQuestion + 1) / questions.length) * 100}%`;
+    }
+    
+    function nextQuestion() {
+      if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        renderQuestion();
+      }
+    }
+    
+    function prevQuestion() {
+      if (currentQuestion > 0) {
+        currentQuestion--;
+        renderQuestion();
+      }
+    }
+    
+    // 初始載入第一題
+    renderQuestion();
+    </script>
+    
+    </body>
+    </html>
+    
