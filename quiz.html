@@ -31,6 +31,23 @@
     
     <script>
     const questions = [
+    {
+    title: "基本資料",
+    question: "請填寫以下基本資料",
+    type: "form",
+    fields: [
+      { label: "年齡", name: "age", type: "number", placeholder: "請輸入年齡" },
+      { label: "性別", name: "gender", type: "radio", options: ["男", "女"] },
+      { label: "身高 (cm)", name: "height", type: "number", placeholder: "請輸入身高" },
+      { label: "體重 (kg)", name: "weight", type: "number", placeholder: "請輸入體重" },
+      {
+        label: "運動量",
+        name: "activity",
+        type: "select",
+        options: ["幾乎不動", "輕度", "中度", "高度"]
+      }
+    ]
+  },
       {
         title: "飲食習慣",
         question: "你每週是否攝取含鐵食物（如黑豆、紅莧菜、南瓜籽）？",
@@ -96,31 +113,75 @@
     let currentQuestion = 0;
     
     function renderQuestion() {
-      const q = questions[currentQuestion];
-      const wrapper = document.getElementById("questionWrapper");
-    
-      wrapper.innerHTML = `
-        <div class="question-container">
-          <div class="question-left">
-            <h4>➕ ${q.title}</h4>
-            <h2>${q.question}</h2>
-            <div class="options">
-              ${q.options.map((opt, i) => `
-                <label class="option">
-                  <input type="radio" name="q${currentQuestion}" value="${opt}"> ${opt}
-                </label>
-              `).join('')}
-            </div>
-          </div>
-          <div class="question-right">
-            <img src="${q.image}" alt="illustration" />
+  const q = questions[currentQuestion];
+  const wrapper = document.getElementById("questionWrapper");
+
+  if (q.type === "form") {
+    wrapper.innerHTML = `
+      <div class="question-container">
+        <div class="question-left">
+          <h4>➕ ${q.title}</h4>
+          <h2>${q.question}</h2>
+          <div class="form-fields">
+            ${q.fields.map(field => {
+              if (field.type === "radio") {
+                return `
+                  <div class="form-group">
+                    <label>${field.label}</label>
+                    ${field.options.map(opt => `
+                      <label><input type="radio" name="${field.name}" value="${opt}"> ${opt}</label>
+                    `).join('')}
+                  </div>
+                `;
+              } else if (field.type === "select") {
+                return `
+                  <div class="form-group">
+                    <label>${field.label}</label>
+                    <select name="${field.name}">
+                      ${field.options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+                    </select>
+                  </div>
+                `;
+              } else {
+                return `
+                  <div class="form-group">
+                    <label>${field.label}</label>
+                    <input type="${field.type}" name="${field.name}" placeholder="${field.placeholder || ''}">
+                  </div>
+                `;
+              }
+            }).join('')}
           </div>
         </div>
-      `;
-    
-      // 更新進度條
-      document.getElementById("progress").style.width = `${((currentQuestion + 1) / questions.length) * 100}%`;
-    }
+        <div class="question-right">
+          <!-- 無圖可省略或放個空白區 -->
+        </div>
+      </div>
+    `;
+  } else {
+    wrapper.innerHTML = `
+      <div class="question-container">
+        <div class="question-left">
+          <h4>➕ ${q.title}</h4>
+          <h2>${q.question}</h2>
+          <div class="options">
+            ${q.options.map((opt, i) => `
+              <label class="option">
+                <input type="radio" name="q${currentQuestion}" value="${opt}"> ${opt}
+              </label>
+            `).join('')}
+          </div>
+        </div>
+        <div class="question-right">
+          <img src="${q.image}" alt="illustration" />
+        </div>
+      </div>
+    `;
+  }
+
+  document.getElementById("progress").style.width = `${((currentQuestion + 1) / questions.length) * 100}%`;
+}
+
     
     function nextQuestion() {
       if (currentQuestion < questions.length - 1) {
