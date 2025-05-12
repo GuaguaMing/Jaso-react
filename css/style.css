@@ -1,327 +1,130 @@
-@charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
-main.index section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#contact #contact-form input,
-#contact #contact-form textarea {
-  border: 1px solid #cdaaab;
-  border-radius: 3px;
-  padding: 4px;
-  font-size: 1.25rem;
-}
-#contact #contact-form input::placeholder,
-#contact #contact-form textarea::placeholder {
-  color: #efdbdb;
-  font-size: 1.1rem;
-}
-
-#contact #contact-form button {
-  position: relative;
-  outline: none;
-  text-decoration: none;
-  border-radius: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  text-transform: uppercase;
-  height: 60px;
-  width: 210px;
-  opacity: 1;
-  background-color: #ffffff;
-  border: 1px solid rgba(22, 76, 167, 0.6);
-}
-#contact #contact-form button span {
-  color: #164ca7;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.7px;
-}
-
-/* reset CSS */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap");
 * {
   box-sizing: border-box;
-  /*不要家邊框及內鉅*/
 }
 
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-/* 重置字體 */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
-  line-height: 1.5;
-  background: bisque;
+  font-family: "Noto Sans TC";
+  margin: 0;
+  background: #fff;
 }
 
-/* 重置標題 */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: normal;
-}
-
-/* 重置列表 */
-ul,
-ol {
-  list-style: none;
-}
-
-/* 重置圖片1 */
-img {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-}
-
-/* 重置連接1 */
-a {
-  display: block;
-  /* a預設的行內元素，不支援約寬高及上下間距，通常會改為區塊 */
-  color: var(--color-deep);
-  text-decoration: none;
-}
-
-.icon-fb {
-  background-image: url(../img/images/icon-fb.svg);
-}
-.icon-fb:hover {
-  background-image: url(../img/images/icon-fb-hover.svg);
-}
-
-.icon-ig {
-  background-image: url(../img/images/icon-ig.svg);
-}
-.icon-ig:hover {
-  background-image: url(../img/images/icon-ig-hover.svg);
-}
-
-.icon-line {
-  background-image: url(../img/images/icon-line.svg);
-}
-.icon-line:hover {
-  background-image: url(../img/images/icon-line-hover.svg);
-}
-
-/*google fonts長在第二行，只允許編碼在上面*/
-@font-face {
-  font-family: "Sakitu Baelah";
-  src: url(../webfont/Sakitu\ Baelah.otf);
-}
-/* 導覽列 */
-#navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
+.question-container {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-  /*內鉅*/
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  min-height: 80vh;
 }
-#navbar .logo {
-  width: 65px;
+.question-container .question-left {
+  flex: 1;
 }
-#navbar .navigation ul {
+.question-container .question-left h4 {
+  color: #38a169;
+  font-weight: bold;
+}
+.question-container .question-left h2 {
+  font-size: 24px;
+  margin-top: 10px;
+}
+.question-container .question-left .options {
+  margin-top: 30px;
+}
+.question-container .question-left .options .option {
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  background-color: #f3f3f3;
+  border-radius: 25px;
   display: flex;
-  justify-self: flex-end;
-  /*控制孩子li*/
+  align-items: center;
+  cursor: pointer;
+  width: fit-content;
 }
-#navbar .navigation .icon a {
-  width: 35px;
-  height: 35px;
-  margin: 0 5px;
-  transition: 0.35s;
+.question-container .question-left .options .option input {
+  margin-right: 10px;
 }
-#navbar .navigation .menu {
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(25px);
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15), inset 2px 2px 5px rgba(255, 255, 255, 0.4);
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 99px;
-}
-#navbar .navigation .menu a.active {
-  /* <a> 同時有.active不要空格，有空格是下一層*/
-  color: var(--color-black);
-}
-#navbar .navigation .menu a {
-  /*行內元素不支援寬高*/
-  margin: 10px;
-  /*行內元素，抓不到上下margin*/
-  padding: 5 0px;
-  /*行內元素，padding完全支援*/
-  border-bottom: 2px solid transparent;
-  transition: 0.35s;
-  /*延遲*/
-}
-#navbar .navigation .menu ahover {
-  border-bottom: 2px solid #444;
-}
-
-/* 共用標題*/
-.title h2 {
-  position: relative;
-  font-family: "Noto senif Bengali Bold", sans-serif;
-  font-size: 5rem;
-  /*權重 !important>id>class>element*/
-  line-height: 1 !important;
-  border-bottom: 3px solid #222;
-}
-.title h2::before {
-  content: "";
-  position: absolute;
-  left: -8;
-  top: 10;
-  display: block;
-  width: 10px;
-  height: 10px;
-  border-radius: 99px;
-  background-color: #8f6b6d;
-}
-.title h2::after {
-  content: "";
-  position: absolute;
-  right: -10px;
-  bottom: 5px;
-  display: block;
-  width: 8px;
-  height: 8px;
-  border-radius: 99px;
-  background-color: #8f6b6d;
-}
-.title h3 {
-  font-family: "Noto Sans TC", cursive;
-  font-size: 1.5rem;
+.question-container .question-right {
+  flex: 0 0 300px;
   text-align: center;
-  /*文字水平置中*/
+}
+.question-container .question-right img {
+  width: 200px;
 }
 
-main.index section {
-  flex-direction: column;
-  height: 100vh;
+.navigation-buttons {
+  text-align: center;
+  margin: 30px auto 10px;
+}
+.navigation-buttons button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #38a169;
+  color: white;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-#banner {
-  background-color: #f3e4e4;
+.progress-bar {
+  height: 8px;
+  background-color: #eee;
+  margin: 0 auto 40px;
+  width: 80%;
+  border-radius: 5px;
+  overflow: hidden;
 }
-/*最新消息*/
-#news {
-  background-color: #f2edf0;
+.progress-bar .progress {
+  height: 100%;
+  background-color: #38a169;
+  width: 0%;
+  transition: width 0.3s;
 }
-/*服務項目*/
-#service {
-  background-color: #e6ece5;
+
+.footer-container {
+  position: relative;
+  width: 1920px;
+  height: 1024px;
+  background-color: #363638;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: left;
 }
-/*相關影片*/
-#video {
-  background-color: #ecf0f4;
-}
-/*聯絡表單*/
-#contact #contact-form {
-  width: 30%;
-  font-size: 1.1rem;
-}
-#contact #contact-form * {
+
+.footer-main-heading {
+  font-size: 64px;
+  font-weight: bold;
+  margin: 250px 0 20px 200px;
   display: block;
-  width: 100%;
+  text-align: center;
 }
-#contact #contact-form label {
-  font-size: 1.1rem;
-  padding-top: 20px;
+
+.footer-Jaso {
+  position: absolute;
+  right: 520px;
+  bottom: 197px;
+  gap: 50px;
 }
-#contact #contact-form small {
-  font-size: 1.1rem;
+
+.footer-jaso1,
+.footer-jaso2 {
+  margin: 0;
+  line-height: 1.2;
+  margin-right: 20px;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+  margin: -60px auto 0 398px;
+}
+
+.footer-heading {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left;
 }
