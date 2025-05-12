@@ -1,25 +1,22 @@
 // font family
-$font-en: 'Noto Sans', sans-serif;
-$font-zh: "Noto Sans TC", sans-serif;
-$font-title: "Noto Sans TC", cursive;
+$font-all: "Noto Sans TC", sans-serif;
     
-
-
 // font-size
 $font-size: ( /*map-get($font-size,*/
-xssss:.75rem,
-xsss:.87rem,
-xss:1rem,
-xs: 1.1rem,
-s: 1.25rem,
-m: 1.5rem,
-l: 2.5rem,
-xl: 3rem,
-xxl: 3.75rem,
-xxxl: 4rem,
-xxxxl: 5rem,
-xxxxxl: 6rem,
-xxxxxxl: 8rem, 
+  5xs: 0.75rem,    // 12px
+  4xs: 0.87rem,     // 13.92px
+  3xs: 0.875rem,     // 14px
+  2xs: 1rem,         // 16px
+  xs: 1.1rem,        // 17.6px
+  s: 1.25rem,        // 20px
+  m: 1.5rem,         // 24px
+  l: 2.5rem,         // 40px
+  xl: 3rem,          // 48px
+  2xl: 3.75rem,      // 60px
+  3xl: 4rem,        // 64px
+  4xl: 5rem,       // 80px
+  5xl: 6rem,      // 96px
+  6xl: 8rem      // 128px
 );
 
 //行高

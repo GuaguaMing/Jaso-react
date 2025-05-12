@@ -1,13 +1,22 @@
-// 變數 Color var
+//主色 
+$color-primary: #3DCE94;
+$color-primary-light1: #6dd6a7;
+$color-primary-light2: #8FE3C1;
+// 輔色
 $color-white: #ffffff;
-$color-gray: #AAA6A8;
-$color-darkgray: #2A2324; // !default 預設值改444
 $color-lightgray: #D4D4D4;
-$color-light: #8FE3C1;
-$color-deep: #3DCE94;
+
+$color-gray: #AAA6A8;
+$color-dark: #2A2324; // !default 預設值改444
+
+// 等級色
 $color-level1: #B28247;
 $color-level2: #909090;
 $color-level3: #BBA435;
+
+
+$color-dark-gray: #2A2324;
+$color-black: #000;
 
 // alpha透明度
 $alpha: transparent;
