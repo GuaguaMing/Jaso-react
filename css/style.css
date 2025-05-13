@@ -1,6 +1,43 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap");
+/* reset CSS */
 * {
   box-sizing: border-box;
+  /*不要家邊框及內鉅*/
+}
+
+/* reset CSS */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* 重置字體 */
+body {
+  font-family: "Noto Sans TC", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
 }
 
 body {
@@ -23,10 +60,11 @@ body {
 }
 .question-container .question-left h4 {
   color: #3DCE94;
+  font-size: 1.125rem;
   font-weight: bold;
 }
 .question-container .question-left h2 {
-  font-size: 24px;
+  font-size: 1.875rem;
   margin-top: 10px;
   color: #2A2324;
 }
@@ -43,14 +81,32 @@ body {
   cursor: pointer;
   width: 40rem;
 }
-.question-container .question-left .options .option input {
+.question-container .question-left .options .option:hover {
+  background-color: #3DCE94;
+}
+.question-container .question-left .options .option:hover input {
   margin-right: 10px;
+}
+.question-container .question-left .title {
+  display: flex;
+}
+.question-container .question-left .intro-title {
+  display: flex;
+  font-weight: bold;
+  font-size: 2.25rem;
+  color: #3DCE94;
+}
+.question-container .question-left .intro-question {
+  font-size: 1.25rem;
+  margin-top: 10px;
+  color: #424242;
 }
 .question-container .question-left .form-fields .form-group {
   margin-bottom: 20px;
+  color: #424242;
 }
 .question-container .question-left .form-fields .form-group label {
-  display: block;
+  display: flex;
   margin-bottom: 5px;
 }
 .question-container .question-left .form-fields .form-group input, .question-container .question-left .form-fields .form-group select {
@@ -70,6 +126,8 @@ body {
 }
 
 .navigation-buttons {
+  display: flex;
+  justify-content: center;
   text-align: center;
   margin: 30px auto 10px;
 }
@@ -154,4 +212,162 @@ body {
   font-weight: bold;
   margin-bottom: 10px;
   text-align: left;
+}
+
+footer {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.footer-bg {
+  margin: auto;
+  overflow: hidden;
+  color: #ffffff;
+  font-family: "Noto Sans TC", sans-serif;
+  background-size: cover;
+  background-color: #2A2324;
+  position: relative;
+  width: 100%;
+}
+.footer-bg a,
+.footer-bg a:link,
+.footer-bg a:visited,
+.footer-bg a:hover,
+.footer-bg a:active {
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+.back-to-top {
+  background-color: transparent;
+  position: fixed;
+  right: 130px;
+  bottom: 50px;
+  z-index: 999;
+}
+.back-to-top img {
+  width: 100px;
+  padding: 0;
+  border: none;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+.back-to-top img:hover {
+  transform: translateY(-5px);
+}
+
+.footer-grid {
+  padding: 10rem;
+  width: 10rem;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  width: 480px;
+}
+
+.footer-heading {
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.footer-grid li {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.footer-cta {
+  width: 600px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20rem;
+}
+
+.cta {
+  padding: 5rem;
+  font-family: "Noto Sans TC";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta h3 {
+  color: #676767;
+  font-size: 64px;
+  letter-spacing: 14.08px;
+}
+
+.join-btn {
+  margin: 2rem;
+  width: 520px;
+  height: 66px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  background: var(--main-deep, #3DCE94);
+}
+
+.join-btn p {
+  color: var(--Neutrue-White, #FFF);
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 2.7px;
+}
+
+.join-btn span {
+  color: var(--Neutrue-White, #FFF);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1.8px;
+}
+
+.footer-slogan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-slogan span {
+  font-size: 5rem;
+  font-family: "Noto Sans TC", sans-serif;
+}
+.footer-slogan p {
+  font-size: 1.25rem;
+  font-family: "Noto Sans TC", sans-serif;
+}
+.footer-slogan .icon {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75px;
+  padding: 1rem;
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 1440px) {
+  main,
+  footer {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
 }

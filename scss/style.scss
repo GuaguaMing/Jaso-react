@@ -1,2 +1,5 @@
-@use "./pages/quiz/quiz";
-@use "./layout/footer";
+@use "function/reset";
+@use "pages/quiz/quiz";
+@use "layout/footer";
+@use "layout/footer2";
+@use "variable";

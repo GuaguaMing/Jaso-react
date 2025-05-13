@@ -520,15 +520,16 @@ footer {
     z-index: 1;
 } */
 .netWrapper {
-    background-color: #FFF;
     z-index: 1;
-    width: 600px;
-    height: 300px;
-    position: relative;
+    width: 700px;
+    height: 600px;
+    /* position: relative; */
     /* 原本是 absolute，改為 relative */
     display: flex;
     justify-content: center;
     align-items: center;
+    background-repeat: no-repeat;
+    background-image: url(./assets/img/chart.svg);
 }
 
 #about {

@@ -1,13 +1,14 @@
+@use "../../variable/var-color" as *;
+@use "../../variable/var-font" as *;
 /* Footer */
 .footer-container {
   position: relative;
   width: 1920px;
-  height: 1023px;
+  height: 1024px;
   background-color: #363638;
   color: #fff;
   padding: 60px 20px;
   text-align: left;
-
   /* 文字對齊方式改為左對齊 */
 }
 
