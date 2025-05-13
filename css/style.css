@@ -462,22 +462,26 @@ input[type=checkbox] {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  vertical-align: middle;
   appearance: none;
   background-color: #F4EFEF;
   border: 2px solid #F4EFEF;
   cursor: pointer;
   position: relative;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 input[type=checkbox]:checked::before {
   content: "";
+  position: absolute;
   width: 28px;
   height: 28px;
   border-radius: 50%;
   background-color: #3DCE94;
-  vertical-align: middle;
-  position: absolute;
+}
+
+input[type=checkbox]:hover {
+  border: 2px solid #3DCE94;
 }
 
 .profile-right-bottom {
