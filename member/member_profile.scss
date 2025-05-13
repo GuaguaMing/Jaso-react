@@ -1,0 +1,860 @@
+/* 修正 profile 與 footer 之間間距 */
+body {
+  margin-bottom: 150px;
+}
+
+.tab-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 999px;
+  background-color: #F5F0EF;
+  /* 淺灰底 */
+  width: fit-content;
+  margin: 60px auto;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.tab-btn {
+  padding: 18px 40px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #666;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-right: 1px solid #ddd;
+}
+
+.tab-btn:last-child {
+  border-right: none;
+}
+
+.tab-btn:hover {
+  background-color: #d8f7ea;
+  /* hover 綠淡底 */
+}
+
+.tab-btn.active {
+  background-color: #3DCE94;
+  color: white;
+}
+
+.profile-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 40px;
+  max-width: 1560px;
+  margin: 0 auto;
+  padding: 40px;
+  font-family: "Noto Sans TC", sans-serif;
+  background: #fff;
+  position: relative;
+}
+
+.icon-text {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+}
+
+.user-name-rank {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  /* 姓名與徽章之間的距離 */
+}
+
+.user-name {
+  font-size: 24px;
+  font-weight: 500;
+  color: #000;
+  margin: 0;
+  flex: 10;
+}
+
+.user-rank-badge {
+  display: flex;
+  padding: 6px 20px;
+  border: 1px solid #000;
+  border-radius: 99px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #fff;
+  color: #000;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.user-bonus {
+  font-size: 14px;
+  color: #555;
+  margin: 4px 0;
+}
+
+.user-level {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.rank-rule-box {
+  background-color: #F4EFEF;
+  height: 73px;
+  margin-top: 16px;
+}
+
+.rank-rule-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.rank-icon {
+  display: flex;
+  width: 47px;
+  height: 14px;
+  padding: 6px 20px;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.rank-text-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.rank-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  color: #333;
+}
+
+.rank-condition {
+  font-size: 14px;
+  color: #777;
+  margin: 4px 0 0;
+}
+
+.rank-notice {
+  height: 73px;
+  align-self: stretch;
+  background-color: #F4EFEF;
+}
+
+/* 消費進度條 */
+.summary-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.gift-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.summary-title {
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 1.62px;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress-bar {
+  width: 300px;
+  flex: 10;
+  height: 12px;
+  background: #eee;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #3DCE94;
+}
+
+.upgrade-info {
+  font-size: 12px;
+  color: #AAA6A8;
+  letter-spacing: 1.08px;
+}
+
+/* 表單欄位 */
+.profile-left-top,
+.profile-right-top,
+.profile-left-bottom,
+.profile-right-bottom {
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.rounded-input {
+  border-radius: 50px;
+  background: #F4EFEF;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.profile-left-bottom label {
+  margin-right: 12px;
+  font-size: 18px;
+  gap: 50px;
+  }
+
+
+.gender-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 27px;
+}
+
+
+input[type="checkbox"] {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+   vertical-align: middle;
+  appearance: none;
+  background-color: #F4EFEF;
+  border: 2px solid #F4EFEF;
+  cursor: pointer;
+  position: relative;
+}
+
+input[type="checkbox"]:checked::before {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #3DCE94;
+}
+
+.profile-right-bottom {
+  position: relative;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+ }
+
+.shipping-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  
+}
+
+.shipping-title {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"] {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  min-width: 200px;
+  margin-top: 27px;
+}
+
+/* 按鈕包裹區域 */
+.edit-button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1560px;
+  margin: 20px auto 80px;
+  /* 上方20px，底部 80px 撐開 footer 空間 */
+  padding-right: 40px;
+  /* 對齊右下欄內容 */
+}
+
+/* 保持原有樣式 */
+.edit-button {
+  background-color: #3DCE94;
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 60px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer-container {
+  position: relative;
+  width: 1920px;
+  height: 1024px;
+  background-color: #363638;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: left;
+
+  /* 文字對齊方式改為左對齊 */
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.footer-main {
+  width: 100%;
+  margin-bottom: 40px;
+
+}
+
+.footer-Jaso {
+  position: absolute;
+  right: 520px;
+  bottom: 197px;
+  gap: 50px;
+}
+
+.footer-jaso1 {
+  color: var(--Neutrue-White, #FFF);
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 69.371px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 4.162px;
+}
+
+.footer-jaso2 {
+  color: var(--Neutrue-White, #FFF);
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 21.678px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.footer-jaso1,
+.footer-jaso2 {
+  margin: 0;
+  line-height: 1.2;
+  margin-right: 20px;
+}
+
+
+.footer-main-heading {
+  font-size: 64px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: block;
+  text-align: center;
+  margin-top: 250px;
+  margin-left: 200px;
+  margin-right: 0px;
+  /* 大標題與按鈕之間的間距 */
+  /* justify-content: space-between; */
+}
+
+/* 調整每一個主題區塊的間距 */
+.footer-section {
+  display: flex;
+  height: 0px;
+  bottom: 0px;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: left; */
+  gap: 90px;
+  flex-shrink: 0;
+  margin: 0 auto;
+  margin-left: 398px;
+  margin-top: -60px;
+  /* margin-bottom: 20px; */
+
+}
+
+.footer-heading {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left;
+  /* 左對齊標題 */
+
+}
+
+.footer-section p {
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.footer-section ul li {
+  margin: 5px 0;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+/* CTA按鈕和社交圖標 */
+.cta-container {
+  position: absolute;
+  right: 500px;
+  /* 設定右邊間距 */
+  top: 350px;
+  /* 設定上邊間距 */
+  bottom: 365px;
+  /* 設定底部間距 */
+  left: 1200px;
+  /* 設定左邊間距 */
+  text-align: center;
+  flex-direction: column;
+  /* 讓按鈕和文字垂直排列 */
+  align-items: flex-end;
+  /* 讓內容靠右對齊 */
+  z-index: 10;
+}
+
+.cta-button {
+  width: 520px;
+  /* 設定按鈕寬度 */
+  height: 66px;
+  /* 設定按鈕高度 */
+  background-color: #3DCE94;
+  /* 綠色背景 */
+  color: var(--Neutrue-White, #FFF);
+  /* 白色文字 */
+  font-family: "Noto Sans TC";
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 2.7px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  /* 按鈕和下面文字之間的間距 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform: rotate(-270deg);
+  /* 使按鈕垂直排列 */
+  flex-shrink: 0;
+  border-radius: 50px;
+}
+
+.cta-button-text {
+  transform: rotate(270deg);
+  /* 讓文字正面顯示 */
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 2.7px;
+  color: white;
+  text-align: center;
+  line-height: normal;
+  /* 設置文字行高，確保每個字之間有間隔 */
+}
+
+.cta-subtext {
+  color: var(--Neutrue-White, #FFF);
+  font-family: "Noto Sans TC";
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1.8px;
+  margin-top: 0px;
+  margin-left: 300px;
+  transform: rotate(270deg);
+  /* 讓文字正面顯示 */
+  line-height: 1.5;
+}
+
+/* 社交圖標排列 */
+.social-links {
+  display: flex;
+  flex-direction: column;
+  /* 社交圖標垂直排列 */
+  align-items: center;
+  /* 居中顯示圖標 */
+  gap: 30px;
+  /* 社交圖標和按鈕間距 */
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 10px;
+  left: 70px;
+
+}
+
+.social-link {
+  margin-left: 300px;
+  /* 每個社交圖標之間的間距 */
+}
+
+.social-icon {
+  width: 40px;
+  /* 設置社交圖標大小 */
+  height: auto;
+}
+
+/* 回到頁首箭頭按鈕 */
+.back-to-top {
+  position: fixed;
+  right: 130px;
+  /* 固定在右側 */
+  bottom: 50px;
+  /* 讓它位於 footer 上方 */
+  background-color: transparent;
+  /* 背景透明 */
+  padding: 0;
+  /* 去掉內邊距 */
+  border: none;
+  /* 去掉邊框 */
+  display: inline-block;
+  z-index: 10;
+  /* 確保它不被其他元素擋住 */
+}
+
+.back-to-top img {
+  width: 100px;
+  /* 設置圖標大小 */
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.back-to-top:hover img {
+  transform: translateY(-5px);
+  /* 懸停時的輕微浮動效果 */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.points-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.points-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.points-icon {
+  background-color: #3DCE94;
+  color: white;
+  font-weight: 500;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.points-title {
+  font-size: 24px;
+  color: #3DCE94;
+  margin: 0;
+  font-weight: 500;
+}
+
+.points-summary {
+  background: linear-gradient(90deg, #3DCE94, #f5fefb);
+  border-radius: 20px;
+  padding: 40px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.points-info {
+  color: white;
+}
+
+.points-label {
+  font-size: 18px;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.points-total {
+  font-size: 64px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.points-total span {
+  font-size: 20px;
+  margin-left: 8px;
+}
+
+.points-exchange-btn {
+  background: white;
+  color: #3DCE94;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.points-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.points-table th,
+.points-table td {
+  padding: 16px 12px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+.points-table thead {
+  font-weight: bold;
+  color: #444;
+}
+
+.points-table .negative {
+  color: red;
+}
+
+.points-note {
+  text-align: right;
+  font-size: 14px;
+  color: #888;
+  margin-top: 10px;
+}
+
+.order-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.order-table-wrapper {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow-x: auto;
+  padding: 20px;
+}
+
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.order-table th,
+.order-table td {
+  padding: 16px 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.order-table thead {
+  font-weight: bold;
+  color: #444;
+}
+
+.order-btn {
+  background-color: #3DCE94;
+  color: #fff;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 999px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.order-note {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 14px;
+  color: #888;
+  align-items: center;
+}
+
+.order-more {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+  color: #3DCE94;
+  text-decoration: none;
+  position: relative;
+  margin-right: 10px;
+}
+
+.order-more .text,
+.order-more .arrow {
+  display: inline-block;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* 初始位置：More > */
+.order-more .text {
+  order: 1;
+  transform: translateX(-8px);
+}
+
+.order-more .arrow {
+  order: 2;
+  transform: translateX(8px);
+}
+
+/* Hover：> More（交錯滑動）*/
+
+.order-more:hover .text {
+  order: 2;
+  transform: translateX(8px);
+}
+
+.order-more:hover .arrow {
+  order: 1;
+  transform: translateX(-8px);
+}
+
+.product-list {
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  padding: 80px 40px;
+  flex-wrap: wrap;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.product-card {
+  width: 320px;
+  text-align: left;
+}
+
+.product-image {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.product-tags {
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
+}
+
+.tag {
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid #000;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.product-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.product-desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+
+.product-link:hover {
+  color: #3DCE94;
+  transform: translateX(4px);
+}
+
+.product-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #000;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.product-link .arrow,
+.product-link .text {
+  display: inline-block;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* 初始位置 */
+.product-link .arrow {
+  transform: translateX(-8px);
+  opacity: 1;
+}
+.product-link .text {
+  transform: translateX(-8px);
+  opacity: 1;
+}
+
+/* Hover 時交叉交換 */
+.product-link:hover .arrow {
+  transform: translateX(100px); /* 往右滑出 */
+  opacity: 2;
+}
+.product-link:hover .text {
+  transform: translateX(-20px); /* 往左滑進來 */
+  opacity: 1;
+}
