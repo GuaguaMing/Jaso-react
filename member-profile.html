@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員中心</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <style>
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="tab-bar">
+        <button class="tab-btn active" data-target="profile">個人資料</button>
+        <button class="tab-btn" data-target="points">會員點數</button>
+        <button class="tab-btn" data-target="guides">我的指南</button>
+        <button class="tab-btn" data-target="orders">訂單</button>
+        <button class="tab-btn" data-target="favorites">素清單</button>
+    </section>
+
+    <!-- 個人資料區塊 -->
+    <div class="tab-content active" id="profile">
+        <div class="profile-container">
+            <!-- 左上：會員資訊區塊 -->
+            <div class="profile-left-top">
+                <div class="user-name-rank">
+                    <img src="../icons/img/j_member_normal.svg" alt="member" class="icon" />
+                    <p class="user-name">王小明</p>
+                    <div class="user-rank-badge">一般會員</div>
+                </div>
+                <div class="rank-rule-box">
+                    <div class="rank-rule-item">
+                        <img src="../icons/img/btn-rank-copper.svg" alt="銅級會員" class="rank-icon" />
+                        <div class="rank-text-group">
+                            <p class="rank-title">升級至銅級會員</p>
+                            <p class="rank-condition">訂閱制滿 1 個月或消費滿 NT$3500 即可升級</p>
+                            <p class="rank-rule">查看所有會員等級規則</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="user-bonus">．新加入會員享會員禮金100元，無使用期限！</p>
+                <p class="user-bonus">．訂閱制會員，商品一律7折優惠</p>
+            </div>
+
+            <!-- 右上：12個月累計消費 -->
+            <div class="profile-right-top">
+                <div class="summary-header">
+                    <img src="../icons/img/j_icon_gift.svg" alt="gift" class="gift-icon" />
+                    <span class="summary-title">12 個月累計消費</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-info-row">
+                        <span class="current-amount">NT$2000</span>
+                        <span class="upgrade-info">差 NT$5000 升級</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 28%;"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 左下：個人資料 -->
+            <div class="profile-left-bottom">
+                <div class= 'gender-row'>
+                    <span class="shipping-title">生理性別</span>
+                    <label><input type="checkbox" name="gender" /> 男</label>
+                    <label><input type="checkbox" name="gender" /> 女</label>
+                    <label><input type="checkbox" name="gender" /> 不透露</label> <br>
+                </div>
+                <div class="input-row">
+                    <span class="input-label">出生年月日</span>
+                    <input type="text" placeholder="請輸入" class="rounded-input" />
+                </div>
+
+                <div class="input-row">
+                    <span class="input-label">電子信箱</span>
+                    <input type="email" placeholder="請輸入" class="rounded-input" />
+                </div>
+            </div>
+
+            <!-- 右下：送貨與付款 -->
+            <div class="profile-right-bottom">
+                <div class="shipping-header">
+                    <img src="../icons/img/j_shop_drive.svg" alt="truck" class="icon" />
+                    <span class="shipping-title">送貨與付款</span>
+                </div>
+
+                <div class="input-row">
+                    <span class="input-label">聯絡電話</span>
+                    <input type="text" placeholder="請輸入" class="rounded-input" />
+                </div>
+
+                <div class="input-row">
+                    <span class="input-label">儲存地址</span>
+                    <input type="text" placeholder="請輸入" class="rounded-input" />
+                </div>
+            </div>
+        </div>
+
+        <!-- profile-container 下方、新增包住按鈕的容器 -->
+        <div class="edit-button-wrapper">
+            <button class="edit-button">更改資料</button>
+        </div>
+    </div>
+
+
+    <!-- 會員點數區塊 -->
+    <div class="tab-content" id="points">
+        <div class="points-section">
+            <div class="points-header">
+                <div class="points-icon">J</div>
+                <h2 class="points-title">點數紀錄</h2>
+            </div>
+
+            <div class="points-summary">
+                <div class="points-info">
+                    <p class="points-label">現有總點數</p>
+                    <p class="points-total">96<span>點</span></p>
+                </div>
+                <button class="points-exchange-btn">點數兌換</button>
+            </div>
+
+            <table class="points-table">
+                <thead>
+                    <tr>
+                        <th>日期</th>
+                        <th>點數更動原因</th>
+                        <th>點數</th>
+                        <th>到期日</th>
+                        <th>現有總點數</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2025.04.18</td>
+                        <td>加入會員 - 新人禮金</td>
+                        <td>100</td>
+                        <td>永久到期</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>2025.04.18</td>
+                        <td>訂單0001223350</td>
+                        <td>100</td>
+                        <td>永久到期</td>
+                        <td class="negative">-4</td>
+                    </tr>
+                    <tr>
+                        <td>2025.04.18</td>
+                        <td>訂單0001223350</td>
+                        <td>100</td>
+                        <td>永久到期</td>
+                        <td class="negative">-4</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="points-note">＊ 最多顯示 3 個月內點數資訊</p>
+        </div>
+    </div>
+
+    <!-- 訂單區塊 -->
+    <div class="tab-content" id="orders">
+        <div class="order-section">
+            <div class="order-table-wrapper">
+                <table class="order-table">
+                    <thead>
+                        <tr>
+                            <th>訂單號碼</th>
+                            <th>定期購入</th>
+                            <th>訂單日期</th>
+                            <th>合計</th>
+                            <th>訂單狀態</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0001223350</td>
+                            <td>12期</td>
+                            <td>2025.04.18</td>
+                            <td>$2,200</td>
+                            <td>已付款</td>
+                            <td><button class="order-btn">查詢</button></td>
+                        </tr>
+                        <tr>
+                            <td>0001223350</td>
+                            <td>12期</td>
+                            <td>2025.04.18</td>
+                            <td>$2,200</td>
+                            <td>已付款</td>
+                            <td><button class="order-btn">查詢</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="order-note">
+                <span>＊ 最多顯示3個月內點數資訊</span>
+                <a href="#" class="order-more">
+                    <span class="text">MORE</span>
+                    <span class="arrow">&gt;</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 素清單區塊 -->
+    <div class="tab-content" id="favorites">
+        <div class="product-list">
+            <div class="product-card">
+                <img src="../assets/img/Rectangle 5.svg" alt="產品1" class="product-image" />
+                <div class="product-tags">
+                    <span class="tag">手腳冰冷</span>
+                    <span class="tag">手腳冰冷</span>
+                </div>
+                <h3 class="product-title">素鐵＋FE</h3>
+                <p class="product-desc">
+                    含鐵量0.05克含鐵量0.05克含鐵量0.05<br />
+                    含鐵量0.05克含鐵量0.05克含鐵量0.05<br />
+                    0.05克鐵
+                </p>
+                <a href="#" class="product-link">
+                    <span class="arrow">&gt;</span>
+                    <span class="text">看完整產品內容</span>
+                </a>
+            </div>
+
+            <div class="product-card">
+                <img src="../assets/img/Rectangle 6.svg" alt="產品2" class="product-image" />
+                <div class="product-tags">
+                    <span class="tag">手腳冰冷</span>
+                    <span class="tag">手腳冰冷</span>
+                </div>
+                <h3 class="product-title">素鐵＋FE</h3>
+                <p class="product-desc">
+                    含鐵量0.05克含鐵量0.05克含鐵量0.05<br />
+                    含鐵量0.05克含鐵量0.05克含鐵量0.05<br />
+                    0.05克鐵
+                </p>
+                <a href="#" class="product-link">
+                    <span class="arrow">&gt;</span>
+                    <span class="text">看完整產品內容</span>
+                </a>
+
+
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab-btn');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const target = tab.getAttribute('data-target');
+                contents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === target) {
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

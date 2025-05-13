@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* 修正 profile 與 footer 之間間距 */
 body {
   margin-bottom: 150px;
@@ -49,7 +50,7 @@ body {
   grid-template-rows: auto auto;
   gap: 40px;
   max-width: 1560px;
-  /* margin: 0 auto; */
+  margin: 0 auto;
   padding: 40px;
   font-family: "Noto Sans TC", sans-serif;
   background: #fff;
@@ -63,8 +64,8 @@ body {
 }
 
 .icon {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
 }
 
 .user-name-rank {
@@ -223,12 +224,22 @@ body {
 .profile-left-bottom label {
   margin-right: 12px;
   font-size: 18px;
+  gap: 50px;
 }
 
-input[type="checkbox"] {
+.gender-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 27px;
+}
+
+input[type=checkbox] {
   width: 28px;
   height: 28px;
   border-radius: 50%;
+  vertical-align: middle;
   appearance: none;
   background-color: #F4EFEF;
   border: 2px solid #F4EFEF;
@@ -236,7 +247,7 @@ input[type="checkbox"] {
   position: relative;
 }
 
-input[type="checkbox"]:checked::before {
+input[type=checkbox]:checked::before {
   content: "";
   position: absolute;
   width: 28px;
@@ -245,21 +256,19 @@ input[type="checkbox"]:checked::before {
   background-color: #3DCE94;
 }
 
-/* .profile-right-bottom {
+.profile-right-bottom {
   position: relative;
   padding: 20px;
   border-radius: 20px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-} */
+}
 
 .shipping-header {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 12px;
 }
 
 .shipping-title {
@@ -267,14 +276,15 @@ input[type="checkbox"]:checked::before {
   font-size: 18px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="date"] {
+input[type=text],
+input[type=email],
+input[type=tel],
+input[type=date] {
   padding: 8px 12px;
   border: 1px solid #ccc;
   border-radius: 30px;
   min-width: 200px;
+  margin-top: 27px;
 }
 
 /* 按鈕包裹區域 */
@@ -308,7 +318,6 @@ input[type="date"] {
   color: #fff;
   padding: 60px 20px;
   text-align: left;
-
   /* 文字對齊方式改為左對齊 */
 }
 
@@ -324,7 +333,6 @@ input[type="date"] {
 .footer-main {
   width: 100%;
   margin-bottom: 40px;
-
 }
 
 .footer-Jaso {
@@ -336,7 +344,7 @@ input[type="date"] {
 
 .footer-jaso1 {
   color: var(--Neutrue-White, #FFF);
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 69.371px;
   font-style: normal;
   font-weight: 400;
@@ -346,7 +354,7 @@ input[type="date"] {
 
 .footer-jaso2 {
   color: var(--Neutrue-White, #FFF);
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 21.678px;
   font-style: normal;
   font-weight: 400;
@@ -359,7 +367,6 @@ input[type="date"] {
   line-height: 1.2;
   margin-right: 20px;
 }
-
 
 .footer-main-heading {
   font-size: 64px;
@@ -388,7 +395,6 @@ input[type="date"] {
   margin-left: 398px;
   margin-top: -60px;
   /* margin-bottom: 20px; */
-
 }
 
 .footer-heading {
@@ -397,7 +403,6 @@ input[type="date"] {
   margin-bottom: 10px;
   text-align: left;
   /* 左對齊標題 */
-
 }
 
 .footer-section p {
@@ -410,7 +415,6 @@ input[type="date"] {
   padding: 0;
   display: flex;
   flex-direction: column;
-
 }
 
 .footer-section ul li {
@@ -511,7 +515,6 @@ input[type="date"] {
   right: 0px;
   bottom: 10px;
   left: 70px;
-
 }
 
 .social-link {
@@ -746,7 +749,6 @@ a {
 }
 
 /* Hover：> More（交錯滑動）*/
-
 .order-more:hover .text {
   order: 2;
   transform: translateX(8px);
@@ -803,7 +805,6 @@ a {
   line-height: 1.6;
 }
 
-
 .product-link:hover {
   color: #3DCE94;
   transform: translateX(4px);
@@ -832,6 +833,7 @@ a {
   transform: translateX(-8px);
   opacity: 1;
 }
+
 .product-link .text {
   transform: translateX(-8px);
   opacity: 1;
@@ -842,6 +844,7 @@ a {
   transform: translateX(100px); /* 往右滑出 */
   opacity: 2;
 }
+
 .product-link:hover .text {
   transform: translateX(-20px); /* 往左滑進來 */
   opacity: 1;
