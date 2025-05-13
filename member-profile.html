@@ -24,6 +24,7 @@
     <section class="tab-bar">
         <button class="tab-btn active" data-target="profile">個人資料</button>
         <button class="tab-btn" data-target="points">會員點數</button>
+        <button class="tab-btn" data-target="guides">我的指南</button>
         <button class="tab-btn" data-target="orders">訂單</button>
         <button class="tab-btn" data-target="favorites">素清單</button>
     </section>
@@ -44,6 +45,7 @@
                         <div class="rank-text-group">
                             <p class="rank-title">升級至銅級會員</p>
                             <p class="rank-condition">訂閱制滿 1 個月或消費滿 NT$3500 即可升級</p>
+                            <p class="rank-rule">查看所有會員等級規則</p>
                         </div>
                     </div>
                 </div>
@@ -58,21 +60,32 @@
                     <span class="summary-title">12 個月累計消費</span>
                 </div>
                 <div class="progress-container">
-                    <span class="upgrade-info">NT$2000</span>
+                    <div class="progress-info-row">
+                        <span class="current-amount">NT$2000</span>
+                        <span class="upgrade-info">差 NT$5000 升級</span>
+                    </div>
                     <div class="progress-bar">
                         <div class="progress-fill" style="width: 28%;"></div>
                     </div>
-                    <span class="upgrade-info">差 NT$5000 升級</span>
                 </div>
             </div>
             <!-- 左下：個人資料 -->
             <div class="profile-left-bottom">
-                <label>生理性別：</label>
-                <label><input type="checkbox" name="gender" /> 男</label>
-                <label><input type="checkbox" name="gender" /> 女</label>
-                <label><input type="checkbox" name="gender" /> 不透露</label>
-                <input type="text" placeholder="出生年月日" class="rounded-input" />
-                <input type="email" placeholder="電子信箱" class="rounded-input" />
+                <div class= 'gender-row'>
+                    <span class="shipping-title">生理性別</span>
+                    <label><input type="checkbox" name="gender" /> 男</label>
+                    <label><input type="checkbox" name="gender" /> 女</label>
+                    <label><input type="checkbox" name="gender" /> 不透露</label> <br>
+                </div>
+                <div class="input-row">
+                    <span class="input-label">出生年月日</span>
+                    <input type="text" placeholder="請輸入" class="rounded-input" />
+                </div>
+
+                <div class="input-row">
+                    <span class="input-label">電子信箱</span>
+                    <input type="email" placeholder="請輸入" class="rounded-input" />
+                </div>
             </div>
 
             <!-- 右下：送貨與付款 -->
@@ -81,8 +94,16 @@
                     <img src="../icons/img/j_shop_drive.svg" alt="truck" class="icon" />
                     <span class="shipping-title">送貨與付款</span>
                 </div>
-                <input type="text" placeholder="聯絡電話" class="rounded-input" />
-                <input type="text" placeholder="儲存地址" class="rounded-input" />
+
+                <div class="input-row">
+                    <span class="input-label">聯絡電話</span>
+                    <input type="text" placeholder="請輸入" class="rounded-input" />
+                </div>
+
+                <div class="input-row">
+                    <span class="input-label">儲存地址</span>
+                    <input type="text" placeholder="請輸入" class="rounded-input" />
+                </div>
             </div>
         </div>
 
