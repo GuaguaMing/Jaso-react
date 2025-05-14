@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant-TW">
 
 <head>
   <meta charset="UTF-8">
@@ -167,13 +167,17 @@
           if (field.type === "radio") {
             return `
                   <div class="form-group">
-                    <label>${field.label}</label>
+                    <div class="radio-group">
+                    <label class="gender">${field.label}</label>
                     ${field.options.map(opt => `
-                      <label><input type="radio" name="${field.name}" value="${opt}"> ${opt}</label>
-                    `).join('')}
+                      <label class="simple-radio">
+                      <input type="radio" class="gender-btn" name="${field.name}" value="${opt}">
+                       ${opt}</label>
+                      `).join('')}
+                    </div>
                   </div>
                 `;
-          } else if (field.type === "select") {
+          }   else if (field.type === "select") {
             return `
                   <div class="form-group">
                     <label>${field.label}</label>

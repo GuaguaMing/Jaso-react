@@ -126,7 +126,7 @@ img {
 
 /* 重置連接 */
 a {
-    color: ColorValues;
+    color: var(--primary-color);
     text-decoration: none;
 }
 
@@ -187,6 +187,8 @@ main {
     gap: 75px;
     /* 改為固定距離 */
     font-weight: bold;
+    list-style: none;
+    flex-shrink: 0;
 }
 
 .nav-right {
@@ -216,12 +218,12 @@ main {
     align-items: center;
     justify-content: center;
 
-    -webkit-mask-image: url(./img/0.svg);
+    -webkit-mask-image: url(./assets/img/0.svg);
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
     -webkit-mask-size: contain;
 
-    mask-image: url(./img/0.svg);
+    mask-image: url(./assets/img/0.svg);
     mask-repeat: no-repeat;
     mask-position: center;
     mask-size: contain;
