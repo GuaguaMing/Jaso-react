@@ -113,6 +113,7 @@ body {
   background-color: #F4EFEF;
   height: 73px;
   margin-top: 16px;
+  border-radius: 10px;
 }
 
 .rank-rule-item {
@@ -123,30 +124,40 @@ body {
 
 .rank-icon {
   display: flex;
-  width: 47px;
-  height: 14px;
-  padding: 6px 20px;
   justify-content: space-between;
   align-items: center;
-  flex-shrink: 0;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .rank-text-group {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 7px;
 }
 
 .rank-title {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 400;
   margin: 0;
-  color: #333;
+  color: #7E7E7E;
 }
 
 .rank-condition {
-  font-size: 14px;
-  color: #777;
+  color: var(--Neutrue-Dark, #2A2324);
+  text-align: center;
+  /* 內文2-12px */
+  font-family: "Noto Sans TC";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  margin: 4px 0 0;
+}
+
+.rank-rule {
+  font-size: 10px;
+  color: #3DCE94;
   margin: 4px 0 0;
 }
 
@@ -177,13 +188,26 @@ body {
 
 .progress-container {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.progress-info-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.current-amount,
+.upgrade-info {
+  font-size: 12px;
+  color: #AAA6A8;
+  letter-spacing: 1.08px;
 }
 
 .progress-bar {
-  width: 300px;
-  flex: 10;
+  width: 100%;
   height: 12px;
   background: #eee;
   border-radius: 20px;
@@ -193,12 +217,7 @@ body {
 .progress-fill {
   height: 100%;
   background: #3DCE94;
-}
-
-.upgrade-info {
-  font-size: 12px;
-  color: #AAA6A8;
-  letter-spacing: 1.08px;
+  width: 28%;
 }
 
 /* 表單欄位 */
@@ -211,16 +230,6 @@ body {
   background-color: #fff;
 }
 
-.rounded-input {
-  border-radius: 50px;
-  background: #F4EFEF;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 10px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
 .profile-left-bottom label {
   margin-right: 12px;
   font-size: 18px;
@@ -230,21 +239,44 @@ body {
 .gender-row {
   display: flex;
   align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
   margin-bottom: 27px;
+  gap: 34px;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 27px;
+  gap: 16px;
+}
+.input-row .input-label {
+  min-width: 100px;
+  font-family: "Noto Sans TC";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+}
+.input-row .rounded-input {
+  border-radius: 50px;
+  background: #F4EFEF;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 input[type=checkbox] {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  vertical-align: middle;
   appearance: none;
   background-color: #F4EFEF;
   border: 2px solid #F4EFEF;
   cursor: pointer;
   position: relative;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 input[type=checkbox]:checked::before {
@@ -254,6 +286,10 @@ input[type=checkbox]:checked::before {
   height: 28px;
   border-radius: 50%;
   background-color: #3DCE94;
+}
+
+input[type=checkbox]:hover {
+  border: 2px solid #3DCE94;
 }
 
 .profile-right-bottom {
@@ -269,6 +305,7 @@ input[type=checkbox]:checked::before {
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-bottom: 27px;
 }
 
 .shipping-title {
@@ -841,11 +878,13 @@ a {
 
 /* Hover 時交叉交換 */
 .product-link:hover .arrow {
-  transform: translateX(100px); /* 往右滑出 */
+  transform: translateX(100px);
+  /* 往右滑出 */
   opacity: 2;
 }
 
 .product-link:hover .text {
-  transform: translateX(-20px); /* 往左滑進來 */
+  transform: translateX(-20px);
+  /* 往左滑進來 */
   opacity: 1;
 }
