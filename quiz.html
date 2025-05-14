@@ -129,7 +129,7 @@
     function renderQuestion() {
 
       const q = questions[currentQuestion];
-  const isIntro = q.type === "intro"; // ← 移到這裡
+      const isIntro = q.type === "intro"; // ← 移到這裡
       const wrapper = document.getElementById("questionWrapper");
 
       if (q.type === "intro") {
@@ -155,7 +155,7 @@
         </div>
     </div>
   `;
-      } 
+      }
       else if (q.type === "form") {
         wrapper.innerHTML = `
       <div class="question-container">
@@ -166,18 +166,25 @@
             ${q.fields.map(field => {
           if (field.type === "radio") {
             return `
-                  <div class="form-group">
-                    <div class="radio-group">
-                    <label class="gender">${field.label}</label>
-                    ${field.options.map(opt => `
-                      <label class="simple-radio">
-                      <input type="radio" class="gender-btn" name="${field.name}" value="${opt}">
-                       ${opt}</label>
-                      `).join('')}
-                    </div>
-                  </div>
+                <div class="form-group-1">
+                <label>生理性別</label>
+                 <div class="options horizontal">
+                <div class="option-1">
+                <input type="radio" name="gender" value="male" hidden />
+                <span>男</span>
+              </div>
+                <div class="option-1">
+      <input type="radio" name="gender" value="female" hidden />
+      <span>女</span>
+    </div>
+  </div>
+</div>
                 `;
-          }   else if (field.type === "select") {
+          }
+
+
+
+          else if (field.type === "select") {
             return `
                   <div class="form-group">
                     <label>${field.label}</label>
@@ -226,22 +233,22 @@
 
       document.getElementById("progress").style.width = `${((currentQuestion + 1) / questions.length) * 100}%`;
 
-document.querySelector(".navigation-buttons").style.display = isIntro ? "none" : "flex";
-document.getElementById("prevBtn").style.display = currentQuestion === 0 ? "none" : "inline-block";
+      document.querySelector(".navigation-buttons").style.display = isIntro ? "none" : "flex";
+      document.getElementById("prevBtn").style.display = currentQuestion === 0 ? "none" : "inline-block";
 
     }
 
     function handleIntroSelection(value) {
-  if (value.includes("不同意")) {
-    alert("若不同意隱私政策，將無法進行評估，感謝您的理解！");
-    window.location.href = "./main.html";
-    // 導回首頁
-  } else {
-    // 同意，進入下一頁
-    currentQuestion++;
-    renderQuestion();
-  }
-}
+      if (value.includes("不同意")) {
+        alert("若不同意隱私政策，將無法進行評估，感謝您的理解！");
+        window.location.href = "./main.html";
+        // 導回首頁
+      } else {
+        // 同意，進入下一頁
+        currentQuestion++;
+        renderQuestion();
+      }
+    }
 
 
     function nextQuestion() {
