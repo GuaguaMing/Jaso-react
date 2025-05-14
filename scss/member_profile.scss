@@ -1,0 +1,298 @@
+/* 修正 profile 與 footer 之間間距 */
+@use "layout/tab.scss";
+@use "pages/profile/profile.scss";
+@use "layout/footer.scss";
+body {
+    margin-bottom: 150px;
+}
+
+.points-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: "Noto Sans TC", sans-serif;
+}
+
+.points-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.points-icon {
+    background-color: #3DCE94;
+    color: white;
+    font-weight: 500;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.points-title {
+    font-size: 24px;
+    color: #3DCE94;
+    margin: 0;
+    font-weight: 500;
+}
+
+.points-summary {
+    background: linear-gradient(90deg, #3DCE94, #f5fefb);
+    border-radius: 20px;
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.points-info {
+    color: white;
+}
+
+.points-label {
+    font-size: 18px;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.points-total {
+    font-size: 64px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.points-total span {
+    font-size: 20px;
+    margin-left: 8px;
+}
+
+.points-exchange-btn {
+    background: white;
+    color: #3DCE94;
+    padding: 14px 32px;
+    border-radius: 999px;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.points-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.points-table th,
+.points-table td {
+    padding: 16px 12px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+.points-table thead {
+    font-weight: bold;
+    color: #444;
+}
+
+.points-table .negative {
+    color: red;
+}
+
+.points-note {
+    text-align: right;
+    font-size: 14px;
+    color: #888;
+    margin-top: 10px;
+}
+
+.order-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: "Noto Sans TC", sans-serif;
+}
+
+.order-table-wrapper {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+.order-table th,
+.order-table td {
+    padding: 16px 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-table thead {
+    font-weight: bold;
+    color: #444;
+}
+
+.order-btn {
+    background-color: #3DCE94;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 999px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.order-note {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #888;
+    align-items: center;
+}
+
+.order-more {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    color: #3DCE94;
+    text-decoration: none;
+    position: relative;
+    margin-right: 10px;
+}
+
+.order-more .text,
+.order-more .arrow {
+    display: inline-block;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* 初始位置：More > */
+.order-more .text {
+    order: 1;
+    transform: translateX(-8px);
+}
+
+.order-more .arrow {
+    order: 2;
+    transform: translateX(8px);
+}
+
+/* Hover：> More（交錯滑動）*/
+
+.order-more:hover .text {
+    order: 2;
+    transform: translateX(8px);
+}
+
+.order-more:hover .arrow {
+    order: 1;
+    transform: translateX(-8px);
+}
+
+.product-list {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    padding: 80px 40px;
+    flex-wrap: wrap;
+    font-family: "Noto Sans TC", sans-serif;
+}
+
+.product-card {
+    width: 320px;
+    text-align: left;
+}
+
+.product-image {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.product-tags {
+    margin-top: 16px;
+    display: flex;
+    gap: 8px;
+}
+
+.tag {
+    padding: 6px 16px;
+    border-radius: 999px;
+    border: 1px solid #000;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.product-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.product-desc {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+
+.product-link:hover {
+    color: #3DCE94;
+    transform: translateX(4px);
+}
+
+.product-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #000;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.product-link .arrow,
+.product-link .text {
+    display: inline-block;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* 初始位置 */
+.product-link .arrow {
+    transform: translateX(-8px);
+    opacity: 1;
+}
+
+.product-link .text {
+    transform: translateX(-8px);
+    opacity: 1;
+}
+
+/* Hover 時交叉交換 */
+.product-link:hover .arrow {
+    transform: translateX(100px);
+    /* 往右滑出 */
+    opacity: 2;
+}
+
+.product-link:hover .text {
+    transform: translateX(-20px);
+    /* 往左滑進來 */
+    opacity: 1;
+}
