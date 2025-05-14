@@ -2,6 +2,8 @@
 @use "layout/tab.scss";
 @use "pages/profile/profile.scss";
 @use "layout/footer.scss";
+@use "pages/profile/base.scss";
+
 body {
     margin-bottom: 150px;
 }
@@ -148,11 +150,19 @@ body {
 .order-btn {
     background-color: #3DCE94;
     color: #fff;
-    border: none;
+    border: 2px solid transparent;
     padding: 10px 30px;
     border-radius: 999px;
-    font-weight: bold;
+    font-weight: 500;
+    transition: all 0.3s ease;
     cursor: pointer;
+
+    &:hover {
+        background-color: #fff;
+        color: #3DCE94;
+        border: 2px solid #3DCE94;
+        box-shadow: 0 0 0 2px rgba(61, 206, 148, 0.2);
+    }
 }
 
 .order-note {
