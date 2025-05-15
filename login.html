@@ -13,9 +13,13 @@
         <div class="login-header">
             <h1>Hello!</h1>
             <div class="face-wrapper">
-                <img src="./icons/img/greenfacehover.svg" alt="Login Icon" class="login-icon" />
-                <div class="eye eye-left"></div>
-                <div class="eye eye-right"></div>
+                <img src="./icons/img/Greenfacelogo.svg" alt="Login Icon" class="login-icon" />
+                <div class="eye-wrapper eye-left">
+                    <img src="./icons/img/eye.svg" class="rotating-eye" />
+                </div>
+                <div class="eye-wrapper eye-right">
+                    <img src="./icons/img/eye.svg" class="rotating-eye" />
+                </div>
             </div>
         </div>
 
@@ -41,35 +45,37 @@
     </section>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const leftEye = document.querySelector('.eye-left');
-            const rightEye = document.querySelector('.eye-right');
+  document.addEventListener("DOMContentLoaded", () => {
+  const eyes = document.querySelectorAll('.rotating-eye');
+  const previousAngles = new Map();
 
-            document.addEventListener('mousemove', (e) => {
-                moveEye(leftEye, e);
-                moveEye(rightEye, e);
-            });
+  document.addEventListener("mousemove", (e) => {
+    eyes.forEach((eye, index) => {
+      const rect = eye.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
 
-            function moveEye(eye, e) {
-                const eyeRect = eye.getBoundingClientRect();
-                const eyeCenterX = eyeRect.left + eyeRect.width / 2;
-                const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+      const dx = e.clientX - centerX;
+      const dy = e.clientY - centerY;
 
-                const offsetX = 0;      // 可以微調讓眼睛更貼合
-                const offsetY = -15;      // 加入上下補正，讓視線居中
+      let angle = Math.atan2(dy, dx) * (180 / Math.PI);
 
-                const dx = e.clientX - (eyeCenterX + offsetX);
-                const dy = e.clientY - (eyeCenterY + offsetY);
+      // 取得上一個角度
+      let prev = previousAngles.get(eye) || 0;
 
-                const angle = Math.atan2(dy, dx);
-                const radius = 10; // 控制眼球移動幅度
-                const moveX = Math.cos(angle) * radius;
-                const moveY = Math.sin(angle) * radius;
+      // 解決角度突然跳動的問題（差值超過180度就取最短角度）
+      let delta = angle - prev;
+      if (delta > 180) delta -= 360;
+      if (delta < -180) delta += 360;
 
-                eye.style.transform = `translate(${moveX}px, ${moveY}px)`;
-            }
-        });
-    </script>
+      const smoothAngle = prev + delta * 0.2; // 用 0.2 慢慢靠近目標角度
+      previousAngles.set(eye, smoothAngle);
+
+      eye.style.transform = `rotate(${smoothAngle}deg)`;
+    });
+  });
+});
+</script>
 </body>
 
 </html>
