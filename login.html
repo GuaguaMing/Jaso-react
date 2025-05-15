@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/member_profile.css">
+</head>
+
+<body>
+    <section class="login-section">
+        <div class="login-header">
+            <h1>Hello!</h1>
+            <div class="face-wrapper">
+                <img src="./icons/img/greenfacehover.svg" alt="Login Icon" class="login-icon" />
+                <div class="eye eye-left"></div>
+                <div class="eye eye-right"></div>
+            </div>
+        </div>
+
+        <form class="login-form">
+            <div class="input-row">
+                <label class="input-label" for="account">帳號登入</label>
+                <input type="text" id="account" placeholder="email 或帳戶" class="rounded-input" />
+            </div>
+            <div class="input-row">
+                <label class="input-label" for="password">密碼</label>
+                <input type="password" id="password" placeholder="半形英文+數字8碼" class="rounded-input" />
+            </div>
+
+            <div class="login-actions">
+                <button type="submit" class="btn primary">登入</button>
+                <button type="button" class="btn secondary">忘記密碼</button>
+            </div>
+
+            <p class="signup-tip">
+                你還不素會員？<a href="#" class="signup-link">馬上註冊！</a>
+            </p>
+        </form>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const leftEye = document.querySelector('.eye-left');
+            const rightEye = document.querySelector('.eye-right');
+
+            document.addEventListener('mousemove', (e) => {
+                moveEye(leftEye, e);
+                moveEye(rightEye, e);
+            });
+
+            function moveEye(eye, e) {
+                const eyeRect = eye.getBoundingClientRect();
+                const eyeCenterX = eyeRect.left + eyeRect.width / 2;
+                const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+
+                const offsetX = 0;      // 可以微調讓眼睛更貼合
+                const offsetY = -15;      // 加入上下補正，讓視線居中
+
+                const dx = e.clientX - (eyeCenterX + offsetX);
+                const dy = e.clientY - (eyeCenterY + offsetY);
+
+                const angle = Math.atan2(dy, dx);
+                const radius = 10; // 控制眼球移動幅度
+                const moveX = Math.cos(angle) * radius;
+                const moveY = Math.sin(angle) * radius;
+
+                eye.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            }
+        });
+    </script>
+</body>
+
+</html>

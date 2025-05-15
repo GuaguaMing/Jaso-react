@@ -19,20 +19,36 @@
         }
 
 
+        // .icon-left,
+        // .icon-right {
+        //     position: absolute;
+        //     animation: spin 3s linear infinite;
+
+
+        //     @keyframes spin {
+        //         from {
+        //             transform: rotate(0deg);
+        //         }
+
+        //         to {
+        //             transform: rotate(360deg);
+        //         }
+        //     }
+        // }
+
         .icon-left,
         .icon-right {
             position: absolute;
-            animation: spin 3s linear infinite;
-             
+            animation: float 2.5s ease-in-out infinite alternate; // 🔄 改成上下漂浮動畫
+        }
 
-            @keyframes spin {
-                from {
-                    transform: rotate(0deg);
-                }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
 
-                to {
-                    transform: rotate(360deg);
-                }
+            100% {
+                transform: translateY(-15px); // 向上漂浮 15px
             }
         }
 
@@ -44,6 +60,7 @@
             top: 25%;
             left: -37%;
             transform: translateY(-60%);
+            animation-delay: 0s;
         }
 
         .icon-right {
@@ -53,6 +70,7 @@
             flex-shrink: 0;
             top: 15%;
             transform: translateY(-60%);
+            animation-delay: 1s;
         }
     }
 
@@ -66,30 +84,30 @@
     .signup-form {
         max-width: 1440px;
         margin: 0 auto;
-        font-size: 18px;;
+        font-size: 18px;
+        ;
         width: 637px;
 
         .input-row {
-            display: flex;
+            display: grid;
+            grid-template-columns: 100px 1fr; // 左邊固定寬度，右邊撐開
             align-items: center;
             margin-bottom: 20px;
-            gap: 20px;
 
             .input-label {
                 font-size: 18px;
                 font-weight: 500;
-                min-width: 120px;
-                text-align: right; // 對齊文字靠右邊對著輸入框
+                text-align: left; // ✅ 左對齊
             }
 
             .rounded-input {
-                flex: 1;
                 padding: 12px 20px;
                 border-radius: 999px;
-                background: #f6f0f0;
+                background: #F6EFEF;
                 border: none;
                 font-size: 16px;
-                width: 355px;
+                color: #333;
+                width: 100%;
             }
         }
     }
