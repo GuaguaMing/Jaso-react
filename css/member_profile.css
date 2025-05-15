@@ -8,9 +8,12 @@
   background-color: #F5F0EF;
   /* 淺灰底 */
   width: fit-content;
+  max-width: 1440px;
   margin: 60px auto;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .tab-btn {
@@ -34,6 +37,7 @@
 .tab-btn.active {
   background-color: #3DCE94;
   color: white;
+  min-width: 100px;
 }
 
 .profile-container {
@@ -103,52 +107,73 @@
 
 .rank-rule-box {
   background-color: #F4EFEF;
-  height: 73px;
-  margin-top: 16px;
+  padding: 16px 20px;
   border-radius: 10px;
-}
-
-.rank-rule-item {
+  min-height: 73px;
+  margin-top: 16px;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  box-sizing: border-box;
+}
+.rank-rule-box .rank-rule-item {
+  display: flex;
+  align-items: center;
   gap: 16px;
+  flex-wrap: wrap;
+}
+.rank-rule-box .rank-link {
+  font-size: 14px;
+  color: #3DCE94;
+  text-decoration: none;
+  align-self: flex-start;
+  margin-top: 4px;
+}
+.rank-rule-box .rank-link:hover {
+  text-decoration: underline;
 }
 
 .rank-icon {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
-  margin-left: 10px;
+  width: 50px;
+  height: 17px;
+  flex-shrink: 0;
 }
 
-.rank-text-group {
+.rank-inline-text {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 7px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
 }
-
-.rank-title {
-  font-size: 12px;
+.rank-inline-text .rank-title {
+  font-size: 14px;
   font-weight: 400;
-  margin: 0;
   color: #7E7E7E;
+  white-space: nowrap;
 }
-
-.rank-condition {
-  color: var(--Neutrue-Dark, #2A2324);
-  text-align: center;
-  /* 內文2-12px */
+.rank-inline-text .divider {
+  color: #ccc;
+}
+.rank-inline-text .rank-condition {
+  font-size: 14px;
   font-family: "Noto Sans TC";
-  font-size: 12px;
-  font-style: normal;
+  color: var(--Neutrue-Dark, #2A2324);
   font-weight: 400;
-  margin: 4px 0 0;
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 .rank-rule {
-  font-size: 10px;
+  font-size: 12px;
   color: #3DCE94;
   margin: 4px 0 0;
 }
@@ -264,7 +289,6 @@ input[type=checkbox] {
   border-radius: 50%;
   appearance: none;
   background-color: #F4EFEF;
-  border: 2px solid #F4EFEF;
   cursor: pointer;
   position: relative;
   vertical-align: middle;
@@ -278,10 +302,6 @@ input[type=checkbox]:checked::before {
   height: 28px;
   border-radius: 50%;
   background-color: #3DCE94;
-}
-
-input[type=checkbox]:hover {
-  border: solid #3DCE94;
 }
 
 .profile-right-bottom {
@@ -644,7 +664,7 @@ html {
 .signup-section .signup-title-wrapper .icon-left,
 .signup-section .signup-title-wrapper .icon-right {
   position: absolute;
-  animation: float 2.5s ease-in-out infinite alternate;
+  animation: float 1.5s ease-in-out infinite alternate;
 }
 @keyframes float {
   0% {
@@ -671,7 +691,7 @@ html {
   flex-shrink: 0;
   top: 15%;
   transform: translateY(-60%);
-  animation-delay: 1s;
+  animation-delay: 2s;
 }
 .signup-section .signup-subtitle {
   font-size: 16px;
@@ -750,21 +770,25 @@ html {
   height: auto;
   display: block;
 }
-.login-section .login-header .face-wrapper .eye {
+.login-section .login-header .face-wrapper .eye-wrapper {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  background: #3DCE94;
-  border-radius: 50%;
-  transition: transform 0.2s ease;
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+}
+.login-section .login-header .face-wrapper .rotating-eye {
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+  transition: transform 0.1s linear;
 }
 .login-section .login-header .face-wrapper .eye-left {
-  top: 67px;
-  left: 50px;
+  top: 50px;
+  left: 30px;
 }
 .login-section .login-header .face-wrapper .eye-right {
-  top: 67px;
-  right: 50px;
+  top: 50px;
+  right: 30px;
 }
 .login-section .login-form {
   max-width: 500px;
@@ -836,10 +860,6 @@ html {
   text-decoration: underline;
 }
 
-body {
-  margin-bottom: 150px;
-}
-
 .points-section {
   max-width: 1200px;
   margin: 0 auto;
@@ -903,18 +923,6 @@ body {
 .points-total span {
   font-size: 20px;
   margin-left: 8px;
-}
-
-.points-exchange-btn {
-  background: white;
-  color: #3DCE94;
-  padding: 14px 32px;
-  border-radius: 999px;
-  font-size: 18px;
-  font-weight: 500;
-  border: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
 }
 
 .points-table {
@@ -1045,62 +1053,77 @@ body {
 
 .product-list {
   display: flex;
-  gap: 60px;
-  justify-content: center;
-  padding: 80px 40px;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+  padding: 80px 40px;
   font-family: "Noto Sans TC", sans-serif;
 }
 
 .product-card {
-  width: 320px;
+  width: 300px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 
 .product-image {
   width: 100%;
   border-radius: 20px;
+  margin-bottom: 12px;
 }
 
 .product-tags {
-  margin-top: 16px;
   display: flex;
   gap: 8px;
+  margin-bottom: 16px;
 }
 
 .tag {
-  padding: 6px 16px;
-  border-radius: 999px;
-  border: 1px solid #000;
+  padding: 4px 16px;
   font-size: 14px;
+  font-weight: 500;
+  color: #3DCE94;
+  border: 1px solid #3DCE94;
+  background-color: #E6FBF3;
+  border-radius: 999px;
   display: inline-block;
 }
 
 .product-title {
   font-size: 20px;
   font-weight: 700;
-  margin-top: 20px;
   margin-bottom: 8px;
+  line-height: 1.4;
+  color: #000;
+}
+.product-title .product-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  margin-left: 8px;
 }
 
 .product-desc {
   font-size: 14px;
   color: #555;
   line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 8px;
 }
 
-.product-link:hover {
-  color: #3DCE94;
-  transform: translateX(4px);
-}
-
+/* 產品卡片底部連結（含箭頭滑動） */
 .product-link {
   display: inline-flex;
   align-items: center;
   gap: 4px;
   font-weight: 600;
   font-size: 14px;
-  color: #000;
+  color: #3DCE94;
   text-decoration: none;
   position: relative;
   transition: all 0.3s ease;
@@ -1123,15 +1146,33 @@ body {
   opacity: 1;
 }
 
-/* Hover 時交叉交換 */
+/* Hover 時交錯滑動 */
 .product-link:hover .arrow {
   transform: translateX(100px);
-  /* 往右滑出 */
   opacity: 2;
 }
 
 .product-link:hover .text {
   transform: translateX(-20px);
-  /* 往左滑進來 */
   opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .rank-rule-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .rank-link {
+    margin-top: 8px;
+  }
+  .tab-btn {
+    font-size: 16px;
+    padding: 14px 0;
+  }
+  .tab-bar {
+    font-size: 14px;
+  }
+}
+body {
+  margin-bottom: 150px;
 }

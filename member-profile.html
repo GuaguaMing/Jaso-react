@@ -25,7 +25,7 @@
         <button class="tab-btn active" data-target="profile">個人資料</button>
         <button class="tab-btn" data-target="points">會員點數</button>
         <button class="tab-btn" data-target="guides">我的指南</button>
-        <button class="tab-btn" data-target="orders">訂單</button>
+        <button class="tab-btn" data-target="orders">訂單紀錄</button>
         <button class="tab-btn" data-target="favorites">素清單</button>
     </section>
 
@@ -42,12 +42,13 @@
                 <div class="rank-rule-box">
                     <div class="rank-rule-item">
                         <img src="../icons/img/btn-rank-copper.svg" alt="銅級會員" class="rank-icon" />
-                        <div class="rank-text-group">
-                            <p class="rank-title">升級至銅級會員</p>
-                            <p class="rank-condition">訂閱制滿 1 個月或消費滿 NT$3500 即可升級</p>
-                            <p class="rank-rule">查看所有會員等級規則</p>
+                        <div class="rank-inline-text">
+                            <span class="rank-title">升級至銅級會員</span>
+                            <span class="divider">｜</span>
+                            <span class="rank-condition">訂閱制滿 1 個月或消費滿 NT$3500 即可升級</span>
                         </div>
                     </div>
+                    <a href="#" class="rank-link">查看所有會員等級規則</a>
                 </div>
                 <p class="user-bonus">．新加入會員享會員禮金100元，無使用期限！</p>
                 <p class="user-bonus">．訂閱制會員，商品一律7折優惠</p>
@@ -71,7 +72,7 @@
             </div>
             <!-- 左下：個人資料 -->
             <div class="profile-left-bottom">
-                <div class= 'gender-row'>
+                <div class='gender-row'>
                     <span class="shipping-title">生理性別</span>
                     <label><input type="checkbox" name="gender" /> 男</label>
                     <label><input type="checkbox" name="gender" /> 女</label>
@@ -127,7 +128,7 @@
                     <p class="points-label">現有總點數</p>
                     <p class="points-total">96<span>點</span></p>
                 </div>
-                <button class="points-exchange-btn">點數兌換</button>
+                <!-- <button class="points-exchange-btn">點數兌換</button> -->
             </div>
 
             <table class="points-table">
@@ -224,12 +225,12 @@
                     <span class="tag">手腳冰冷</span>
                     <span class="tag">手腳冰冷</span>
                 </div>
-                <h3 class="product-title">素鐵＋FE</h3>
-                <p class="product-desc">
-                    含鐵量0.05克含鐵量0.05克含鐵量0.05<br />
-                    含鐵量0.05克含鐵量0.05克含鐵量0.05<br />
-                    0.05克鐵
-                </p>
+                <div class="product-title">
+                    鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span>
+                </div>
+                <div class="product-desc">
+                    骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...
+                </div>
                 <a href="#" class="product-link">
                     <span class="arrow">&gt;</span>
                     <span class="text">看完整產品內容</span>
@@ -242,20 +243,54 @@
                     <span class="tag">手腳冰冷</span>
                     <span class="tag">手腳冰冷</span>
                 </div>
-                <h3 class="product-title">素鐵＋FE</h3>
-                <p class="product-desc">
-                    含鐵量0.05克含鐵量0.05克含鐵量0.05<br />
-                    含鐵量0.05克含鐵量0.05克含鐵量0.05<br />
-                    0.05克鐵
-                </p>
+                <div class="product-title">
+                    鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span>
+                </div>
+                <div class="product-desc">
+                    骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...
+                </div>
                 <a href="#" class="product-link">
                     <span class="arrow">&gt;</span>
                     <span class="text">看完整產品內容</span>
                 </a>
+            </div>
 
-
+            <div class="product-card">
+                <img src="../assets/img/Rectangle 5.svg" alt="產品1" class="product-image" />
+                <div class="product-tags">
+                    <span class="tag">手腳冰冷</span>
+                    <span class="tag">手腳冰冷</span>
+                </div>
+                <div class="product-title">
+                    鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span>
+                </div>
+                <div class="product-desc">
+                    骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...
+                </div>
+                <a href="#" class="product-link">
+                    <span class="arrow">&gt;</span>
+                    <span class="text">看完整產品內容</span>
                 </a>
             </div>
+
+            <div class="product-card">
+                <img src="../assets/img/Rectangle 6.svg" alt="產品2" class="product-image" />
+                <div class="product-tags">
+                    <span class="tag">手腳冰冷</span>
+                    <span class="tag">手腳冰冷</span>
+                </div>
+                <div class="product-title">
+                    鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span>
+                </div>
+                <div class="product-desc">
+                    骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...
+                </div>
+                <a href="#" class="product-link">
+                    <span class="arrow">&gt;</span>
+                    <span class="text">看完整產品內容</span>
+                </a>
+            </div>
+
         </div>
     </div>
 

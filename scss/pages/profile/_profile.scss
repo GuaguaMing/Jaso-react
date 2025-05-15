@@ -65,57 +65,83 @@
 
 .rank-rule-box {
     background-color: #F4EFEF;
-    height: 73px;
-    margin-top: 16px;
+    padding: 16px 20px;
     border-radius: 10px;
-
-}
-
-.rank-rule-item {
+    min-height: 73px; // ✅ 建議用 min-height 而非固定 height
+    margin-top: 16px;
     display: flex;
-    align-items: flex-start;
-    gap: 16px;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    box-sizing: border-box;
+
+    .rank-rule-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap; // ✅ 小螢幕時允許換行
+    }
+
+    .rank-link {
+        font-size: 14px;
+        color: #3DCE94;
+        text-decoration: none;
+        align-self: flex-start;
+        margin-top: 4px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
 
 .rank-icon {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
-    margin-left: 10px;
+    width: 50px;
+    height: 17px;
+    flex-shrink: 0;
 }
 
-.rank-text-group {
+.rank-inline-text {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 7px;
-}
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-width: 0; // ✅ 防止溢出
 
-.rank-title {
-    font-size: 12px;
-    font-weight: 400;
-    margin: 0;
-    color: #7E7E7E;
+    .rank-title {
+        font-size: 14px;
+        font-weight: 400;
+        color: #7E7E7E;
+        white-space: nowrap; // ✅ 保持在一行
+    }
 
-}
+    .divider {
+        color: #ccc;
+    }
 
-.rank-condition {
-    color: var(--Neutrue-Dark, #2A2324);
-    text-align: center;
-    /* 內文2-12px */
-    font-family: "Noto Sans TC";
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    margin: 4px 0 0;
+    .rank-condition {
+        font-size: 14px;
+        font-family: "Noto Sans TC";
+        color: var(--Neutrue-Dark, #2A2324);
+        font-weight: 400;
+        flex: 1;
+        min-width: 0;
+        overflow-wrap: break-word;
+        white-space: normal;
+    }
 }
 
 .rank-rule {
-    font-size: 10px;
+    font-size: 12px;
     color: #3DCE94;
     margin: 4px 0 0;
 }
+
 
 .rank-notice {
     height: 73px;
@@ -227,30 +253,32 @@
 
 
 input[type="checkbox"] {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  appearance: none;
-  background-color: #F4EFEF;
-  border: 2px solid #F4EFEF;
-  cursor: pointer;
-  position: relative; // ✅ 關鍵：提供定位基準
-  vertical-align: middle;
-  display: inline-block;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    appearance: none;
+    background-color: #F4EFEF;
+
+    cursor: pointer;
+    position: relative; // ✅ 關鍵：提供定位基準
+    vertical-align: middle;
+    display: inline-block;
 }
 
 input[type="checkbox"]:checked::before {
-  content: "";
-  position: absolute;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background-color: #3DCE94;
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #3DCE94;
+
 }
 
-input[type="checkbox"]:hover {
-  border:solid #3DCE94;
-}
+// input[type="checkbox"]:hover {
+//     border: solid #3DCE94;
+    
+// }
 
 .profile-right-bottom {
     position: relative;
@@ -304,13 +332,13 @@ input[type="date"] {
     padding: 12px 60px;
     border: 2px solid transparent;
     border-radius: 999px;
-      transition: all 0.3s ease;
+    transition: all 0.3s ease;
     cursor: pointer;
 
-      &:hover {
-    background-color: #fff;
-    color: #3DCE94;
-    border: 2px solid #3DCE94;
-    box-shadow: 0 0 0 2px rgba(61, 206, 148, 0.2);
-  }
+    &:hover {
+        background-color: #fff;
+        color: #3DCE94;
+        border: 2px solid #3DCE94;
+        box-shadow: 0 0 0 2px rgba(61, 206, 148, 0.2);
+    }
 }

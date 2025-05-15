@@ -2,9 +2,9 @@
     .icon-#{$social} {
         background-image: url(../img/icons/j_community_#{$social}.svg);
 
-        // &:hover {
-        //     background-image: url(../img/icons/j_community_#{$social}-hover.svg);
-        // }
+        &:hover {
+            background-image: url(../img/icons/j_community_#{$social}-hover.svg);
+        }
     }
 }
 

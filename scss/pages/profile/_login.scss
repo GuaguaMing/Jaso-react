@@ -24,26 +24,55 @@
                 width: 100%;
                 height: auto;
                 display: block;
+                // background-size: cover;
+                // background-position: center;
             }
 
-            .eye {
+            .eye-wrapper {
                 position: absolute;
-                width: 20px;
-                height: 20px;
-                background: #3DCE94;
-                border-radius: 50%;
-                transition: transform 0.2s ease;
+                width: 40px;
+                height: 40px;
+                pointer-events: none;
             }
+
+            .rotating-eye {
+                width: 100%;
+                height: 100%;
+                transform-origin: center center;
+                transition: transform 0.1s linear;
+            }
+
+            // .eye-wrapper {
+            //     width: 50px;
+            //     height: 50px;
+            //     background-color: #fff;
+            //     border: 2px solid #3DCE94;
+            //     border-radius: 50%;
+            //     position: absolute;
+            //     overflow: hidden;
+            // }
 
             .eye-left {
-                top: 67px;
-                left: 50px;
+                top: 50px;
+                left: 30px;
             }
 
             .eye-right {
-                top: 67px;
-                right: 50px;
+                top: 50px;
+                right: 30px;
             }
+
+            // .eyeball {
+            //     width: 20px;
+            //     height: 20px;
+            //     background-color: #3DCE94;
+            //     border-radius: 50%;
+            //     position: absolute;
+            //     top: 15px;
+            //     left: 15px;
+            //     transition: transform 0.1s ease;
+            // }
+
         }
     }
 

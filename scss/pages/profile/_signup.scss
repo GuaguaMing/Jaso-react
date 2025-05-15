@@ -39,7 +39,8 @@
         .icon-left,
         .icon-right {
             position: absolute;
-            animation: float 2.5s ease-in-out infinite alternate; // 🔄 改成上下漂浮動畫
+            animation: float 1.5s ease-in-out infinite alternate; // 這裡的 1.5s 控制上下飄動的速度
+            
         }
 
         @keyframes float {
@@ -70,7 +71,8 @@
             flex-shrink: 0;
             top: 15%;
             transform: translateY(-60%);
-            animation-delay: 1s;
+            animation-delay: 2s;
+            
         }
     }
 
