@@ -622,6 +622,107 @@ html {
   overflow-y: scroll;
 }
 
+.signup-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  font-family: "Noto Sans TC", sans-serif;
+}
+.signup-section .signup-title-wrapper {
+  position: relative;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.signup-section .signup-title-wrapper h1 {
+  font-size: 64px;
+  font-weight: 900;
+  color: #3DCE94;
+  text-align: center;
+}
+.signup-section .signup-title-wrapper .icon-left,
+.signup-section .signup-title-wrapper .icon-right {
+  position: absolute;
+  animation: spin 3s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.signup-section .signup-title-wrapper .icon-left {
+  left: -60px;
+  width: 110px;
+  height: 95px;
+  flex-shrink: 0;
+  top: 25%;
+  left: -37%;
+  transform: translateY(-60%);
+}
+.signup-section .signup-title-wrapper .icon-right {
+  right: -60px;
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+  top: 15%;
+  transform: translateY(-60%);
+}
+.signup-section .signup-subtitle {
+  font-size: 16px;
+  color: #999;
+  margin-bottom: 48px;
+}
+.signup-section .signup-form {
+  max-width: 1440px;
+  margin: 0 auto;
+  font-size: 18px;
+  width: 637px;
+}
+.signup-section .signup-form .input-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+.signup-section .signup-form .input-row .input-label {
+  font-size: 18px;
+  font-weight: 500;
+  min-width: 120px;
+  text-align: right;
+}
+.signup-section .signup-form .input-row .rounded-input {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: #f6f0f0;
+  border: none;
+  font-size: 16px;
+  width: 355px;
+}
+.signup-section .signup-button {
+  margin-top: 32px;
+  align-self: center;
+  background-color: #3DCE94;
+  color: white;
+  padding: 12px 60px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.signup-section .signup-button:hover {
+  background-color: white;
+  color: #3DCE94;
+  border: 2px solid #3DCE94;
+}
+
 body {
   margin-bottom: 150px;
 }
