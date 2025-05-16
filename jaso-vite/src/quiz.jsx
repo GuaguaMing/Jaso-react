@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./quiz.module.scss";
+import styles from "./quiz.scss";
 
 const questions = [
   {
