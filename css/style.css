@@ -261,22 +261,20 @@ body {
   background: #ffffff;
 }
 
+/* Footer */
 .footer-container {
   position: relative;
   width: 1920px;
-  height: 1024px;
+  min-height: 1024px;
   background-color: #363638;
   color: #fff;
   padding: 60px 20px;
-  text-align: left;
   /* 文字對齊方式改為左對齊 */
 }
 
 .footer-content {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
-  max-width: 1440px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -468,6 +466,11 @@ body {
   left: 70px;
 }
 
+.social-icon {
+  width: 40px;
+  height: 40px;
+}
+
 .social-link {
   margin-left: 300px;
   /* 每個社交圖標之間的間距 */
@@ -498,7 +501,7 @@ body {
 }
 
 .back-to-top img {
-  width: 100px;
+  width: 70px;
   /* 設置圖標大小 */
   height: auto;
   transition: transform 0.3s ease;
