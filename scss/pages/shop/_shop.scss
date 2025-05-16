@@ -1,0 +1,99 @@
+        /* 設定網頁背景色與字型 */
+        body {
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 設定主要容器的樣式 */
+        .container {
+            width: 80%;
+            margin: 24px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1{
+            font-size:100px;
+            color: #3ad29f;
+        }
+
+
+        .product-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            gap: 40px;
+          }
+          
+          .product-image img {
+            max-width: 300px;
+            height: auto;
+            border: 4px solid #3ad29f;
+            border-radius: 10px;
+          }
+          
+          .product-info {
+            max-width: 400px;
+          }
+          
+          .product-info h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+          }
+          
+          .product-info p {
+            font-size: 16px;
+            margin-bottom: 20px;
+          }
+          
+          .product-info button {
+            background-color: #3ad29f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+          }
+          
+
+        /* 按鈕樣式 */
+        #btn1{
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3DCE94;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3DCE94;
+            color: white;
+            border: none;
+            border-radius: 0 0 99px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #37b683;
+        }
+
+        /* 顯示與隱藏內容區域 */
+        .content {
+            display: none;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+        }
+
+        /* 顯示內容區域 */
+        .content.visible {
+            display: block;
+        }

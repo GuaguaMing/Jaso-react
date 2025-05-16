@@ -17,10 +17,59 @@
             display: block;
             opacity: 1;
         }
+
+        .profile-container {
+            position: relative;
+            margin-top: 120px;
+            /* 確保不被 navbar 擋住 */
+        }
+
+        .nav-hidden {
+            z-index: 9999;
+        }
     </style>
-</head>
+    <header class="main-navbar">
+        <div class="navbar-container">
+            <img src="./assets/img/nav-logo.svg" alt="Jaso Logo" class="navbar-logo" />
+            <nav class="navbar-links">
+                <a href="#" class="nav-link">關於我們</a>
+                <a href="#" class="nav-link">產品介紹</a>
+                <a href="#" class="nav-link">會員專區</a>
+            </nav>
+            <div class="nav-right">
+                <div class="member">會員</div>
+                <div class="bean-shape">
+                    <div class="go-to-shop">素購</div>
+                </div>
+            </div>
+        </div>
+    </header>
 
 <body>
+    <header>
+        <!-- 隱藏式導覽列 -->
+        <div class="nav-hidden">
+            <div class="logo" href="./article-main.html"><img src="./assets/img/nav-logo.svg" alt="">
+            </div>
+            <div class="navbar">
+                <div class="nav-center">
+                    <ul>
+                        <li><a href="./guide.html">食物庫</a></li>
+                        <li><a href="./article.html">素食知識</a></li>
+                        <li><a href="./quiz.html">營養素算</a></li>
+                    </ul>
+                </div>
+                <div class="nav-right">
+                    <div class="member">會員</div>
+                    <div class="bean-shape">
+                        <div class="go-to-shop">素購</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <div style="height: 80px;"></div>
     <section class="tab-bar">
         <button class="tab-btn active" data-target="profile">個人資料</button>
         <button class="tab-btn" data-target="points">會員點數</button>
@@ -294,6 +343,92 @@
         </div>
     </div>
 
+
+    <!-- Footer -->
+    <footer class="footer-container">
+        <div class="footer-content">
+            <!-- 主標題和副標題區塊 -->
+            <div class="footer-main">
+                <p class="footer-main-heading">專屬於你的 <br>營養報告</p>
+            </div>
+            <div class="footer-Jaso">
+                <p class="footer-jaso1">JASO+素</p>
+                <p class="footer-jaso2">素食營養專家 | 健康素食新選擇</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <img src="../icons/img/j_community_ins-bright.svg" alt="Instagram" class="social-icon">
+                    </a>
+                    <a href="#" class="social-link">
+                        <img src="../icons/img/j_community_fb-bright.svg" alt="Facebook" class="social-icon">
+
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- 副標題 -->
+        <div class="footer-section">
+            <div>
+                <p class="footer-heading">認識JASO+素</p>
+                <ul>
+                    <li><a href="#">關於我們</a></li>
+                    <li><a href="#">活動資訊</a></li>
+                    <li><a href="#">最新消息</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="footer-heading">購物須知</p>
+                <ul>
+                    <li><a href="#">如何訂購</a></li>
+                    <li><a href="#">退換政策</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="footer-heading">客戶須知</p>
+                <ul>
+                    <li><a href="#">服務條款</a></li>
+                    <li><a href="#">隱私權政策</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="footer-heading">客服中心</p>
+                <ul>
+                    <li><a href="#">線上客服</a></li>
+                    <li><a href="#">常見問題</a></li>
+                </ul>
+            </div>
+        </div>
+
+        </div>
+
+
+
+
+        <!-- cta按鈕和社交媒體圖標 -->
+        <div class="cta-container">
+            <a href="#" class="cta-button">
+                <span class="cta-button-text">
+                    加<br>
+                    入<br>
+                    會<br>
+                    員
+                </span>
+                <span class="cta-subtext">
+                    馬<br>
+                    上<br>
+                    諮<br>
+                    詢
+                </span>
+            </a>
+
+            <!-- 回到頁首的箭頭按鈕 -->
+            <a href="#" class="back-to-top">
+                <img src="../icons/img/j_arrow_a-1@3x.svg" alt="Back to Top" />
+            </a>
+    </footer>
+
     <script>
         const tabs = document.querySelectorAll('.tab-btn');
         const contents = document.querySelectorAll('.tab-content');
@@ -312,6 +447,35 @@
                 });
             });
         });
+
+
+
+        let lastScrollTop = 0;
+        let showNav = false;
+        const nav = document.querySelector('.nav-hidden');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > 100) {
+                if (scrollTop < lastScrollTop) {
+                    // 向上滾動且已往下滑動過 => 顯示 navbar
+                    nav.style.top = '20px';
+                    nav.style.opacity = '1';
+                } else {
+                    // 向下滾動 => 隱藏 navbar
+                    nav.style.top = '-100px';
+                    nav.style.opacity = '0';
+                }
+            } else {
+                // 還沒滑超過指定高度就保持隱藏
+                nav.style.top = '-100px';
+                nav.style.opacity = '0';
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+
     </script>
 </body>
 

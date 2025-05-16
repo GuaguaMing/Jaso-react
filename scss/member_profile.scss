@@ -8,6 +8,8 @@
 @use "pages/profile/point.scss";
 @use "pages/profile/order.scss";
 @use "pages/profile/product.scss";
+@use "layout/header.scss";
+
 
 
 @media (max-width: 768px) {
@@ -31,5 +33,6 @@
 }
 
 body {
-    margin-bottom: 150px;
+    margin-bottom: 0px;
+    margin-left: 0px;
 }
