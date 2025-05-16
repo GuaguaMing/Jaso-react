@@ -1,6 +1,8 @@
-@use "../../scss/variable/var-color" as *;
-@use "../../scss/variable/var-font" as *;
-@use "../../scss/function/reset";
+@use "sass:map";
+
+@use "../../../scss/variable/var-color" as *;
+@use "../../../scss/variable/var-font" as *;
+@use "../../../scss/function/reset";
 
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
 
@@ -18,12 +20,12 @@
 
     h4 {
       color: $color-primary;
-      font-size: map-get($font-size, sm);
+      font-size: map.get($font-size, sm);
       font-weight: bold;
     }
 
     h2 {
-      font-size: map-get($font-size, lg);
+      font-size: map.get($font-size, lg);
       margin-top: 10px;
       color: $color-dark;
     }
@@ -59,12 +61,12 @@
     .introTitle {
       display: flex;
       font-weight: bold;
-      font-size: map-get($font-size, l1);
+      font-size: map.get($font-size, l1);
       color: $color-primary;
     }
 
     .introQuestion {
-      font-size: map-get($font-size, s);
+      font-size: map.get($font-size, s);
       margin-top: 10px;
       color: $color-light-black;
     }
