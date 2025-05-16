@@ -91,7 +91,7 @@
                 min-width: 100px;
                 font-size: 18px;
                 font-weight: 500;
-                text-align: right;
+                text-align: left;
             }
 
             .rounded-input {
@@ -153,6 +153,29 @@
 
             &:hover {
                 text-decoration: underline;
+            }
+        }
+    }
+
+    .password-row {
+        position: relative;
+
+        .forgot-password {
+            position: absolute;
+            left: 110px; // 對齊 input 起始位置，可依實際需求微調
+            bottom: -18px; // 貼在輸入框下方
+            font-size: 14px;
+            color: #999;
+            margin: 0;
+
+            a {
+                color: #999;
+                text-decoration: none;
+
+                &:hover {
+                    color: #3DCE94;
+                    text-decoration: underline;
+                }
             }
         }
     }

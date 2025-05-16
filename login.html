@@ -28,14 +28,14 @@
                 <label class="input-label" for="account">帳號登入</label>
                 <input type="text" id="account" placeholder="email 或帳戶" class="rounded-input" />
             </div>
-            <div class="input-row">
+            <div class="input-row password-row">
                 <label class="input-label" for="password">密碼</label>
                 <input type="password" id="password" placeholder="半形英文+數字8碼" class="rounded-input" />
+                <p class="forgot-password"><a href="#">忘記密碼嗎？</a></p>
             </div>
 
             <div class="login-actions">
                 <button type="submit" class="btn primary">登入</button>
-                <button type="button" class="btn secondary">忘記密碼</button>
             </div>
 
             <p class="signup-tip">
@@ -45,37 +45,37 @@
     </section>
 
     <script>
-  document.addEventListener("DOMContentLoaded", () => {
-  const eyes = document.querySelectorAll('.rotating-eye');
-  const previousAngles = new Map();
+        document.addEventListener("DOMContentLoaded", () => {
+            const eyes = document.querySelectorAll('.rotating-eye');
+            const previousAngles = new Map();
 
-  document.addEventListener("mousemove", (e) => {
-    eyes.forEach((eye, index) => {
-      const rect = eye.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
+            document.addEventListener("mousemove", (e) => {
+                eyes.forEach((eye, index) => {
+                    const rect = eye.getBoundingClientRect();
+                    const centerX = rect.left + rect.width / 2;
+                    const centerY = rect.top + rect.height / 2;
 
-      const dx = e.clientX - centerX;
-      const dy = e.clientY - centerY;
+                    const dx = e.clientX - centerX;
+                    const dy = e.clientY - centerY;
 
-      let angle = Math.atan2(dy, dx) * (180 / Math.PI);
+                    let angle = Math.atan2(dy, dx) * (180 / Math.PI);
 
-      // 取得上一個角度
-      let prev = previousAngles.get(eye) || 0;
+                    // 取得上一個角度
+                    let prev = previousAngles.get(eye) || 0;
 
-      // 解決角度突然跳動的問題（差值超過180度就取最短角度）
-      let delta = angle - prev;
-      if (delta > 180) delta -= 360;
-      if (delta < -180) delta += 360;
+                    // 解決角度突然跳動的問題（差值超過180度就取最短角度）
+                    let delta = angle - prev;
+                    if (delta > 180) delta -= 360;
+                    if (delta < -180) delta += 360;
 
-      const smoothAngle = prev + delta * 0.2; // 用 0.2 慢慢靠近目標角度
-      previousAngles.set(eye, smoothAngle);
+                    const smoothAngle = prev + delta * 0.2; // 用 0.2 慢慢靠近目標角度
+                    previousAngles.set(eye, smoothAngle);
 
-      eye.style.transform = `rotate(${smoothAngle}deg)`;
-    });
-  });
-});
-</script>
+                    eye.style.transform = `rotate(${smoothAngle}deg)`;
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
