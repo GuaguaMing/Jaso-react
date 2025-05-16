@@ -1,53 +1,46 @@
-.nav-hidden {
-    position: fixed;
-    right: 0;
-    left: 0;
-    margin: 0 auto;
-    width: 1280px;
-    height: 84px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 80px;
-    padding-right: 75px;
-    border-radius: 50px;
-    border: 1px solid rgba(200, 200, 200, 0.40);
-    background: rgba(226, 226, 226, 0.25);
-    box-shadow: 2px 2px 2px 0px rgba(255, 255, 255, 0.25) inset, 1px 5px 5.5px 0px rgba(0, 0, 0, 0.02);
-    backdrop-filter: blur(7.5px);
-    flex-shrink: 0;
+    .nav-hidden {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1280px;
+      height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: 80px;
+      padding-right: 75px;
+      border-radius: 50px;
+      border: 1px solid rgba(200, 200, 200, 0.40);
+      background: rgba(226, 226, 226, 0.25);
+      box-shadow: 2px 2px 2px 0px rgba(255, 255, 255, 0.25) inset, 1px 5px 5.5px 0px rgba(0, 0, 0, 0.02);
+      backdrop-filter: blur(7.5px);
+      z-index: 9999;
+    }
 
-    transition: top 0.3s ease, opacity 0.3s ease;
-    top: -100px; // 預設隱藏
-    opacity: 0;
-}
+    .nav-hidden .logo {
+      width: 116.5px;
+    }
 
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.nav-hidden .logo {
-    width: 116.5px;
-}
+    .nav-center ul {
+      display: flex;
+      gap: 75px;
+      font-weight: bold;
+    }
 
-.navbar {
-    /* 單位別忘記 */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-center ul {
-    display: flex;
-    gap: 75px;
-    /* 改為固定距離 */
-    font-weight: bold;
-}
-
-.nav-right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: auto;
-    padding-left: 257px;
-}
+    .nav-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: auto;
+      padding-left: 257px;
+    }
 
 .member {
     padding: 0px 15px;

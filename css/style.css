@@ -261,9 +261,6 @@ body {
   background: #ffffff;
 }
 
-<<<<<<< HEAD
-/* Footer */
-=======
 /* 設定網頁背景色與字型 */
 body {
   background-color: #f4f4f4;
@@ -363,7 +360,7 @@ button:hover {
   display: block;
 }
 
->>>>>>> 66267095b3c4c05a7c34d439c0847aa609fa96af
+/* Footer */
 .footer-container {
   position: relative;
   width: 1920px;
@@ -497,7 +494,6 @@ button:hover {
   /* 讓按鈕和文字垂直排列 */
   align-items: flex-end;
   /* 讓內容靠右對齊 */
-  z-index: 10;
 }
 
 .cta-button {
@@ -561,11 +557,11 @@ button:hover {
   /* 居中顯示圖標 */
   gap: 30px;
   /* 社交圖標和按鈕間距 */
-  position: absolute;
+  position: relative;
   top: 0px;
   right: 0px;
-  bottom: 10px;
-  left: 70px;
+  bottom: 0px;
+  left: 40px;
 }
 
 .social-icon {
@@ -598,7 +594,6 @@ button:hover {
   border: none;
   /* 去掉邊框 */
   display: inline-block;
-  z-index: 10;
   /* 確保它不被其他元素擋住 */
 }
 

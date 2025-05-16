@@ -6,7 +6,7 @@
   background-color: #363638;
   color: #fff;
   padding: 60px 20px;
-//   text-align: left;
+  // text-align: left;
   /* 文字對齊方式改為左對齊 */
 }
 
@@ -140,7 +140,7 @@
   /* 讓按鈕和文字垂直排列 */
   align-items: flex-end;
   /* 讓內容靠右對齊 */
-  z-index: 10;
+  
 }
 
 .cta-button {
@@ -204,11 +204,11 @@
   /* 居中顯示圖標 */
   gap: 30px;
   /* 社交圖標和按鈕間距 */
-  position: absolute;
+  position: relative;
   top: 0px;
   right: 0px;
-  bottom: 10px;
-  left: 70px;
+  bottom: 0px;
+  left: 40px;
 
 }
 
@@ -242,7 +242,7 @@
   border: none;
   /* 去掉邊框 */
   display: inline-block;
-  z-index: 10;
+
   /* 確保它不被其他元素擋住 */
 }
 
