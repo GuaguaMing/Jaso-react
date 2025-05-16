@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./quiz.scss";
+import styles from "./quiz.module.scss";
 
 const questions = [
   {
@@ -37,8 +37,62 @@ const questions = [
     options: ["是", "否"],
     image: "./assets/img/omega@3x.svg",
   },
-  // ... 其他題目略
-];
+      {
+        title: "飲食習慣",
+        question: "你每天是否有攝取富含維生素B12的食物或補充劑？",
+        options: ["每天都有", "偶爾有", "很少或沒有"],
+        image: "https://i.imgur.com/sA3e2Ah.png"
+      },
+      {
+        title: "飲食習慣",
+        question: "你每天攝取的蛋白質主要來自哪類食物？",
+        options: ["豆類及其製品", "穀物", "堅果與種子", "蔬菜"],
+        image: "https://i.imgur.com/GNj2aHo.png"
+      },
+      {
+        title: "飲食習慣",
+        question: "你是否每天攝取富含鈣質的食物或補充劑？",
+        options: ["每餐都有", "每天有", "很少或沒有"],
+        image: "https://i.imgur.com/sUcyKJf.png"
+      },
+      {
+        title: "飲食習慣",
+        question: "你的日常飲食中，攝取的熱量大多來自哪種食物？",
+        options: ["蔬菜和水果（低熱量）", "穀物（中等熱量）", "豆類和堅果（較高熱量）", "高加工食物或甜食（高熱量）"],
+        image: "https://i.imgur.com/dz0lOBc.png"
+      },
+      {
+        title: "病痛症狀",
+        question: "你是否經常感到疲倦、虛弱或容易氣喘？",
+        options: ["是", "否"],
+        image: "https://i.imgur.com/UYXqvOB.png"
+      },
+      {
+        title: "病痛症狀",
+        question: "你是否有經常性的偏頭痛或頭痛？",
+        options: ["是", "否"],
+        image: "https://i.imgur.com/hKYzqJ9.png"
+      },
+      {
+        title: "病痛症狀",
+        question: "你是否經常感到飢餓，或吃不飽？",
+        options: ["是", "否"],
+        image: "https://i.imgur.com/Zjowti7.png"
+      },
+      {
+        title: "病痛症狀",
+        question: "你是否經常感到便秘或腸胃不適？",
+        options: ["是", "否"],
+        image: "https://i.imgur.com/ykF9EZY.png"
+      },
+      {
+        title: "病痛症狀",
+        question: "你是否經常感到肌肉抽筋或手腳發麻？",
+        options: ["是", "否"],
+        image: "https://i.imgur.com/BYjRxl3.png"
+      }
+    ];
+
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -196,16 +250,26 @@ const Quiz = () => {
   return (
     <div>
       {renderQuestion()}
-      <div className="navigation-buttons" style={{ display: currentQuestion === 0 ? "none" : "flex" }}>
-        <button onClick={prev} style={{ display: currentQuestion === 0 ? "none" : "inline-block" }}>上一題</button>
-        <button onClick={next}>下一題</button>
-      </div>
-      <div className="progress-bar">
-        <div
-          className="progress"
-          style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
-        ></div>
-      </div>
+<div
+  className={styles.navigationButtons}
+  style={{ display: currentQuestion === 0 ? "none" : "flex" }}
+>
+  <button
+    onClick={prev}
+    style={{ display: currentQuestion === 0 ? "none" : "inline-block" }}
+  >
+    上一題
+  </button>
+  <button onClick={next}>下一題</button>
+</div>
+
+<div className={styles.progressBar}>
+  <div
+    className={styles.progress}
+    style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
+  />
+</div>
+
     </div>
   );
 };
