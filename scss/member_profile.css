@@ -7,6 +7,7 @@
   border-radius: 999px;
   background-color: #F5F0EF;
   /* 淺灰底 */
+  width: -moz-fit-content;
   width: fit-content;
   max-width: 1440px;
   margin: 60px auto;
@@ -288,7 +289,9 @@ input[type=checkbox] {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: #F4EFEF;
   cursor: pointer;
   position: relative;
@@ -369,11 +372,14 @@ input[type=date] {
 /* Footer */
 .footer-container {
   position: relative;
-  width: 1920px;
+  width: 100%;
+  min-width: 1920px;
   min-height: 1024px;
   background-color: #363638;
   color: #fff;
   padding: 60px 20px;
+  margin-top: 120px;
+  margin: 0 auto;
   /* 文字對齊方式改為左對齊 */
 }
 
@@ -392,7 +398,7 @@ input[type=date] {
 .footer-Jaso {
   position: absolute;
   right: 520px;
-  bottom: 197px;
+  bottom: 200px;
   gap: 50px;
 }
 
@@ -443,18 +449,18 @@ input[type=date] {
   flex-direction: column;
   justify-content: center;
   /* align-items: left; */
-  gap: 90px;
+  gap: 60px;
   flex-shrink: 0;
   margin: 0 auto;
   margin-left: 398px;
-  margin-top: -60px;
+  margin-top: -90px;
   /* margin-bottom: 20px; */
 }
 
 .footer-heading {
   font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 10px;
+  font-weight: 500;
+  margin-bottom: 0px;
   text-align: left;
   /* 左對齊標題 */
 }
@@ -478,6 +484,8 @@ input[type=date] {
 .footer-section ul li a {
   color: #fff;
   text-decoration: none;
+  font-size: 17px;
+  font-weight: 300;
 }
 
 .footer-section ul li a:hover {
@@ -564,10 +572,8 @@ input[type=date] {
   gap: 30px;
   /* 社交圖標和按鈕間距 */
   position: relative;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 40px;
+  top: -110px;
+  left: 42px;
 }
 
 .social-icon {
@@ -807,7 +813,7 @@ html {
   min-width: 100px;
   font-size: 18px;
   font-weight: 500;
-  text-align: right;
+  text-align: left;
 }
 .login-section .login-form .input-row .rounded-input {
   flex: 1;
@@ -834,6 +840,7 @@ html {
   font-weight: 500;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
+  margin-top: 50px;
 }
 .login-section .login-actions .btn.primary {
   background-color: #3DCE94;
@@ -859,6 +866,25 @@ html {
   text-decoration: none;
 }
 .login-section .signup-tip .signup-link:hover {
+  text-decoration: underline;
+}
+.login-section .password-row {
+  position: relative;
+}
+.login-section .password-row .forgot-password {
+  position: absolute;
+  left: 130px;
+  bottom: -50px;
+  font-size: 14px;
+  color: #999;
+  margin: 0;
+}
+.login-section .password-row .forgot-password a {
+  color: #999;
+  text-decoration: none;
+}
+.login-section .password-row .forgot-password a:hover {
+  color: #3DCE94;
   text-decoration: underline;
 }
 
@@ -1175,7 +1201,8 @@ html {
   border: 1px solid rgba(200, 200, 200, 0.4);
   background: rgba(226, 226, 226, 0.25);
   box-shadow: 2px 2px 2px 0px rgba(255, 255, 255, 0.25) inset, 1px 5px 5.5px 0px rgba(0, 0, 0, 0.02);
-  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+          backdrop-filter: blur(7.5px);
   z-index: 9999;
 }
 
@@ -1299,4 +1326,4 @@ html {
 body {
   margin-bottom: 0px;
   margin-left: 0px;
-}
+}/*# sourceMappingURL=member_profile.css.map */

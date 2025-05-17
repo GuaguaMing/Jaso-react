@@ -122,6 +122,7 @@
             font-weight: 500;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
             transition: all 0.3s ease; // 增加滑順動畫
+            margin-top: 50px;
 
             &.primary {
                 background-color: #3DCE94;
@@ -162,9 +163,9 @@
 
         .forgot-password {
             position: absolute;
-            left: 110px; // 對齊 input 起始位置，可依實際需求微調
-            bottom: -18px; // 貼在輸入框下方
-            font-size: px;
+            left: 130px; // 對齊 input 起始位置，可依實際需求微調
+            bottom: -50px; // 貼在輸入框下方
+            font-size: 14px;
             color: #999;
             margin: 0;
 
