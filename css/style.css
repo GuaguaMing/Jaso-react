@@ -19,7 +19,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 /* 重置字體 */
 body {
-  font-family: "Noto Sans TC", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+  font-family: "Noto Sans TC", sans-serif, sans-serif;
+  background: #ffffff;
   font-size: 100%;
   line-height: 1.5;
 }
@@ -363,11 +364,14 @@ button:hover {
 /* Footer */
 .footer-container {
   position: relative;
-  width: 1920px;
+  width: 100%;
+  min-width: 1920px;
   min-height: 1024px;
   background-color: #363638;
   color: #fff;
   padding: 60px 20px;
+  margin-top: 120px;
+  margin: 0 auto;
   /* 文字對齊方式改為左對齊 */
 }
 
@@ -386,7 +390,7 @@ button:hover {
 .footer-Jaso {
   position: absolute;
   right: 520px;
-  bottom: 197px;
+  bottom: 200px;
   gap: 50px;
 }
 
@@ -437,18 +441,18 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   /* align-items: left; */
-  gap: 90px;
+  gap: 60px;
   flex-shrink: 0;
   margin: 0 auto;
   margin-left: 398px;
-  margin-top: -60px;
+  margin-top: -90px;
   /* margin-bottom: 20px; */
 }
 
 .footer-heading {
   font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 10px;
+  font-weight: 500;
+  margin-bottom: 0px;
   text-align: left;
   /* 左對齊標題 */
 }
@@ -472,6 +476,8 @@ button:hover {
 .footer-section ul li a {
   color: #fff;
   text-decoration: none;
+  font-size: 17px;
+  font-weight: 300;
 }
 
 .footer-section ul li a:hover {
@@ -558,10 +564,8 @@ button:hover {
   gap: 30px;
   /* 社交圖標和按鈕間距 */
   position: relative;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 40px;
+  top: -110px;
+  left: 42px;
 }
 
 .social-icon {

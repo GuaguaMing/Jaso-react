@@ -18,7 +18,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 /* 重置字體 */
 body {
-  font-family: "Noto Sans TC", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+  font-family: "Noto Sans TC", sans-serif, sans-serif;
+  background: #ffffff;
   font-size: 100%;
   line-height: 1.5;
 }
@@ -62,28 +63,25 @@ a {
   margin-top: 10px;
   color: #2A2324;
 }
-.questionContainer .questionLeft .options {
-  margin-top: 30px;
-  justify-content: flex-start;
+.questionContainer .questionLeft h1 {
+  font-size: 2rem;
+  margin-top: 10px;
+  color: #3DCE94;
+  font-weight: bold;
 }
-.questionContainer .questionLeft .options .option {
-  margin-bottom: 15px;
-  padding: 10px 30px;
-  background-color: #D9D9D9;
-  border-radius: 25px;
+.questionContainer .questionLeft .title,
+.questionContainer .questionLeft .titleWithImage {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  cursor: pointer;
 }
-.questionContainer .questionLeft .options .option:hover {
-  background-color: #3DCE94;
-}
-.questionContainer .questionLeft .options .option:hover input {
-  margin-right: 10px;
-}
-.questionContainer .questionLeft .title {
-  display: flex;
+.questionContainer .questionLeft .titleIcon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  object-fit: contain;
+  background-image: url("/assets/+.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .questionContainer .questionLeft .introTitle {
   display: flex;
@@ -96,24 +94,48 @@ a {
   margin-top: 10px;
   color: #424242;
 }
-.questionContainer .questionLeft .formFields .formGroup,
-.questionContainer .questionLeft .formFields .formGroup1 {
+.questionContainer .questionLeft .options {
+  margin-top: 30px;
+  justify-content: flex-start;
+}
+.questionContainer .questionLeft .options.horizontal {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.questionContainer .questionLeft .options .option {
+  margin-bottom: 15px;
+  padding: 10px 30px;
+  background-color: #D9D9D9;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.questionContainer .questionLeft .options .option input[type=radio] {
+  display: none;
+}
+.questionContainer .questionLeft .options .option:hover {
+  background-color: #3DCE94;
+  color: #ffffff;
+}
+.questionContainer .questionLeft .options .option input[type=radio]:checked + span {
+  font-weight: bold;
+  background-color: #3DCE94;
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+.questionContainer .questionLeft .formFields .form-group-1 {
   margin-bottom: 20px;
   color: #424242;
   display: flex;
   align-items: baseline;
   padding: 0 2px;
 }
-.questionContainer .questionLeft .formFields .formGroup label,
-.questionContainer .questionLeft .formFields .formGroup1 label {
-  display: flex;
-  margin-bottom: 5px;
-  width: 5rem;
-}
-.questionContainer .questionLeft .formFields .formGroup .option,
-.questionContainer .questionLeft .formFields .formGroup .option1,
-.questionContainer .questionLeft .formFields .formGroup1 .option,
-.questionContainer .questionLeft .formFields .formGroup1 .option1 {
+.questionContainer .questionLeft .formFields .form-group-1 .option-1 {
   padding: 10px 15px;
   background-color: #D9D9D9;
   border-radius: 25px;
@@ -121,56 +143,38 @@ a {
   align-items: center;
   cursor: pointer;
 }
-.questionContainer .questionLeft .formFields .formGroup .option:hover,
-.questionContainer .questionLeft .formFields .formGroup .option1:hover,
-.questionContainer .questionLeft .formFields .formGroup1 .option:hover,
-.questionContainer .questionLeft .formFields .formGroup1 .option1:hover {
+.questionContainer .questionLeft .formFields .form-group-1 .option-1 input {
+  display: none;
+}
+.questionContainer .questionLeft .formFields .form-group-1 .option-1:hover {
   background-color: #3DCE94;
 }
-.questionContainer .questionLeft .formFields .formGroup .option:hover input,
-.questionContainer .questionLeft .formFields .formGroup .option1:hover input,
-.questionContainer .questionLeft .formFields .formGroup1 .option:hover input,
-.questionContainer .questionLeft .formFields .formGroup1 .option1:hover input {
+.questionContainer .questionLeft .formFields .form-group-1 .option-1:hover input {
   margin-right: 10px;
 }
-.questionContainer .questionLeft .formFields .formGroup input,
-.questionContainer .questionLeft .formFields .formGroup select,
-.questionContainer .questionLeft .formFields .formGroup1 input,
-.questionContainer .questionLeft .formFields .formGroup1 select {
+.questionContainer .questionLeft .formFields .form-group label {
+  margin-right: 10px;
+}
+.questionContainer .questionLeft .formFields .form-group input,
+.questionContainer .questionLeft .formFields .form-group select {
   width: 100%;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #AAA6A8;
 }
-.questionContainer .options.horizontal {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-.questionContainer .option {
+.questionContainer .questionLeft .formFields .form-group option {
+  padding: 10px 15px;
+  background-color: #D9D9D9;
+  border-radius: 25px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 10px 20px;
-  border-radius: 25px;
-  background-color: #D9D9D9;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-  font-weight: 500;
 }
-.questionContainer .option input[type=radio] {
-  display: none;
-}
-.questionContainer .option:hover {
-  background-color: #6dd6a7;
-  color: #ffffff;
-}
-.questionContainer .option input[type=radio]:checked + span {
-  font-weight: bold;
+.questionContainer .questionLeft .formFields .form-group option:hover {
   background-color: #3DCE94;
-  color: #ffffff;
-  padding: 4px 12px;
-  border-radius: 20px;
+}
+.questionContainer .questionLeft .formFields .form-group option:hover input {
+  margin-right: 10px;
 }
 .questionContainer .questionRight {
   flex: 0 0 300px;
@@ -223,9 +227,3 @@ a {
 .quizStep.active {
   display: block;
 }
-
-.option input[type=radio]:checked + span,
-.option1 input[type=radio]:checked + span {
-  background-color: #3DCE94;
-  color: #ffffff;
-}/*# sourceMappingURL=quiz.module.css.map */

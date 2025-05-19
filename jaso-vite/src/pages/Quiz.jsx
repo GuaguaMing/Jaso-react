@@ -15,12 +15,12 @@ const questions = [
   },
   {
     title: "基本資料",
-    question: "請填寫以下基本資料",
+    question: "",
     type: "form",
     fields: [
       { label: "生理性別", name: "gender", type: "radio", options: ["男", "女"] },
       { label: "年齡", name: "age", type: "number", placeholder: "請輸入年齡" },
-      { label: "身高 (cm)", name: "height", type: "number", placeholder: "請輸入身高" },
+      { label: "身高(cm)", name: "height", type: "number", placeholder: "請輸入身高" },
       { label: "體重 (kg)", name: "weight", type: "number", placeholder: "請輸入體重" },
       {
         label: "運動量",
@@ -37,61 +37,61 @@ const questions = [
     options: ["是", "否"],
     image: "./assets/img/omega@3x.svg",
   },
-      {
-        title: "飲食習慣",
-        question: "你每天是否有攝取富含維生素B12的食物或補充劑？",
-        options: ["每天都有", "偶爾有", "很少或沒有"],
-        image: "https://i.imgur.com/sA3e2Ah.png"
-      },
-      {
-        title: "飲食習慣",
-        question: "你每天攝取的蛋白質主要來自哪類食物？",
-        options: ["豆類及其製品", "穀物", "堅果與種子", "蔬菜"],
-        image: "https://i.imgur.com/GNj2aHo.png"
-      },
-      {
-        title: "飲食習慣",
-        question: "你是否每天攝取富含鈣質的食物或補充劑？",
-        options: ["每餐都有", "每天有", "很少或沒有"],
-        image: "https://i.imgur.com/sUcyKJf.png"
-      },
-      {
-        title: "飲食習慣",
-        question: "你的日常飲食中，攝取的熱量大多來自哪種食物？",
-        options: ["蔬菜和水果（低熱量）", "穀物（中等熱量）", "豆類和堅果（較高熱量）", "高加工食物或甜食（高熱量）"],
-        image: "https://i.imgur.com/dz0lOBc.png"
-      },
-      {
-        title: "病痛症狀",
-        question: "你是否經常感到疲倦、虛弱或容易氣喘？",
-        options: ["是", "否"],
-        image: "https://i.imgur.com/UYXqvOB.png"
-      },
-      {
-        title: "病痛症狀",
-        question: "你是否有經常性的偏頭痛或頭痛？",
-        options: ["是", "否"],
-        image: "https://i.imgur.com/hKYzqJ9.png"
-      },
-      {
-        title: "病痛症狀",
-        question: "你是否經常感到飢餓，或吃不飽？",
-        options: ["是", "否"],
-        image: "https://i.imgur.com/Zjowti7.png"
-      },
-      {
-        title: "病痛症狀",
-        question: "你是否經常感到便秘或腸胃不適？",
-        options: ["是", "否"],
-        image: "https://i.imgur.com/ykF9EZY.png"
-      },
-      {
-        title: "病痛症狀",
-        question: "你是否經常感到肌肉抽筋或手腳發麻？",
-        options: ["是", "否"],
-        image: "https://i.imgur.com/BYjRxl3.png"
-      }
-    ];
+  {
+    title: "飲食習慣",
+    question: "你每天是否有攝取富含維生素B12的食物或補充劑？",
+    options: ["每天都有", "偶爾有", "很少或沒有"],
+    image: "https://i.imgur.com/sA3e2Ah.png"
+  },
+  {
+    title: "飲食習慣",
+    question: "你每天攝取的蛋白質主要來自哪類食物？",
+    options: ["豆類及其製品", "穀物", "堅果與種子", "蔬菜"],
+    image: "https://i.imgur.com/GNj2aHo.png"
+  },
+  {
+    title: "飲食習慣",
+    question: "你是否每天攝取富含鈣質的食物或補充劑？",
+    options: ["每餐都有", "每天有", "很少或沒有"],
+    image: "https://i.imgur.com/sUcyKJf.png"
+  },
+  {
+    title: "飲食習慣",
+    question: "你的日常飲食中，攝取的熱量大多來自哪種食物？",
+    options: ["蔬菜和水果（低熱量）", "穀物（中等熱量）", "豆類和堅果（較高熱量）", "高加工食物或甜食（高熱量）"],
+    image: "https://i.imgur.com/dz0lOBc.png"
+  },
+  {
+    title: "病痛症狀",
+    question: "你是否經常感到疲倦、虛弱或容易氣喘？",
+    options: ["是", "否"],
+    image: "https://i.imgur.com/UYXqvOB.png"
+  },
+  {
+    title: "病痛症狀",
+    question: "你是否有經常性的偏頭痛或頭痛？",
+    options: ["是", "否"],
+    image: "https://i.imgur.com/hKYzqJ9.png"
+  },
+  {
+    title: "病痛症狀",
+    question: "你是否經常感到飢餓，或吃不飽？",
+    options: ["是", "否"],
+    image: "https://i.imgur.com/Zjowti7.png"
+  },
+  {
+    title: "病痛症狀",
+    question: "你是否經常感到便秘或腸胃不適？",
+    options: ["是", "否"],
+    image: "https://i.imgur.com/ykF9EZY.png"
+  },
+  {
+    title: "病痛症狀",
+    question: "你是否經常感到肌肉抽筋或手腳發麻？",
+    options: ["是", "否"],
+    image: "https://i.imgur.com/BYjRxl3.png"
+  }
+];
 
 
 const Quiz = () => {
@@ -116,9 +116,15 @@ const Quiz = () => {
     setAnswers({ ...answers, [qIdx]: value });
   };
 
+
   const next = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
+    } else {
+      // 到最後一題，執行提交或跳轉
+      console.log("問卷完成", answers);
+      // 你可以改成跳轉頁面
+      window.location.href = "/result"; // 或呼叫 API 等
     }
   };
 
@@ -135,8 +141,11 @@ const Quiz = () => {
       return (
         <div className={styles.questionContainer}>
           <div className={styles.questionLeft}>
-            <h2 dangerouslySetInnerHTML={{ __html: q.title }} />
-            <h4 dangerouslySetInnerHTML={{ __html: q.question }} />
+            <h1 className={styles.titleWithImage}>
+              <span className={styles.titleIcon} />
+              <span dangerouslySetInnerHTML={{ __html: q.title }} />
+            </h1>
+            <div dangerouslySetInnerHTML={{ __html: q.question }} />
             <div className={styles.options}>
               {q.options.map((opt, i) => (
                 <label key={i} className={styles.option}>
@@ -162,40 +171,50 @@ const Quiz = () => {
       return (
         <div className={styles.questionContainer}>
           <div className={styles.questionLeft}>
-            <h4>{q.title}</h4>
+            <h4 className={styles.titleWithImage}>
+              <span className={styles.titleIcon} />
+              {q.title}
+            </h4>
+
             <h2>{q.question}</h2>
-            <div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+
               {q.fields.map((field, idx) => {
                 if (field.type === "radio") {
                   return (
                     <div key={idx}>
-                      <label>{field.label}</label>
-                      <div>
-                        {field.options.map((opt) => (
-                          <label key={opt}>
-                            <input
-                              type="radio"
-                              name={field.name}
-                              value={opt}
-                              onChange={handleChange}
-                            />
-                            {opt}
-                          </label>
-                        ))}
+
+                      <div style={{ display: "flex", gap: "10px" }}>
+                        <div className={styles["form-group-1"]}>
+                          <label>{field.label}</label>{field.options.map((opt) => (
+                            <label key={opt} className={styles["option-1"]}>
+                              <input
+                                type="radio"
+                                name={field.name}
+                                value={opt}
+                                checked={answers[field.name] === opt}
+                                onChange={handleChange}
+                              />
+                              {opt}
+                            </label>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   );
                 } else if (field.type === "select") {
                   return (
                     <div key={idx}>
-                      <label>{field.label}</label>
-                      <select name={field.name} onChange={handleChange}>
-                        {field.options.map((opt) => (
-                          <option key={opt} value={opt}>
-                            {opt}
-                          </option>
-                        ))}
-                      </select>
+                      <div className={styles["form-group"]}>
+                        <label>{field.label}</label>
+                        <select  name={field.name} onChange={handleChange}>
+                          {field.options.map((opt) => (
+                            <option key={opt} value={opt}>
+                              {opt}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
                     </div>
                   );
                 } else {
@@ -224,7 +243,11 @@ const Quiz = () => {
     return (
       <div className={styles.questionContainer}>
         <div className={styles.questionLeft}>
-          <h4>{q.title}</h4>
+          <h4 className={styles.titleWithImage}>
+            <span className={styles.titleIcon} />
+            {q.title}
+          </h4>
+
           <h2>{q.question}</h2>
           <div className={styles.options}>
             {q.options.map((opt, i) => (
@@ -250,28 +273,32 @@ const Quiz = () => {
   return (
     <div>
       {renderQuestion()}
-<div
-  className={styles.navigationButtons}
-  style={{ display: currentQuestion === 0 ? "none" : "flex" }}
->
-  <button
-    onClick={prev}
-    style={{ display: currentQuestion === 0 ? "none" : "inline-block" }}
-  >
-    上一題
-  </button>
-  <button onClick={next}>下一題</button>
-</div>
+      <div
+        className={styles.navigationButtons}
+        style={{ display: currentQuestion === 0 ? "none" : "flex" }}
+      >
+        <button
+          onClick={prev}
+          style={{ display: currentQuestion === 0 ? "none" : "inline-block" }}
+        >
+          上一題
+        </button>
+        <button onClick={next}>
+          {currentQuestion === questions.length - 1 ? "提交" : "下一題"}
+        </button>
 
-<div className={styles.progressBar}>
-  <div
-    className={styles.progress}
-    style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
-  />
-</div>
+      </div>
+
+      <div className={styles.progressBar}>
+        <div
+          className={styles.progress}
+          style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
+        />
+      </div>
 
     </div>
   );
 };
+
 
 export default Quiz;
