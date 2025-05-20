@@ -19,28 +19,11 @@
         }
 
 
-        // .icon-left,
-        // .icon-right {
-        //     position: absolute;
-        //     animation: spin 3s linear infinite;
-
-
-        //     @keyframes spin {
-        //         from {
-        //             transform: rotate(0deg);
-        //         }
-
-        //         to {
-        //             transform: rotate(360deg);
-        //         }
-        //     }
-        // }
-
         .icon-left,
         .icon-right {
             position: absolute;
             animation: float 1.5s ease-in-out infinite alternate; // 這裡的 1.5s 控制上下飄動的速度
-            
+
         }
 
         @keyframes float {
@@ -72,14 +55,14 @@
             top: 15%;
             transform: translateY(-60%);
             animation-delay: 2s;
-            
+
         }
     }
 
 
     .signup-subtitle {
         font-size: 16px;
-        color: #999;
+        color: #AAA6A8;
         margin-bottom: 48px;
     }
 
@@ -108,14 +91,38 @@
                 background: #F6EFEF;
                 border: none;
                 font-size: 16px;
-                color: #333;
+                color: #AAA6A8;
                 width: 100%;
+            }
+
+            .rounded-input::placeholder {
+                color: #AAA6A8;
+                opacity: 1;
             }
         }
     }
 
+    .signup-login-tip {
+        margin-top: 22px;
+        font-size: 16px;
+        color: #AAA6A8;
+        text-align: center;
+
+        .login-link {
+            color: #3DCE94;
+            text-decoration: none;
+            margin-left: 4px;
+            font-weight: 500;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+
     .signup-button {
-        margin-top: 32px;
+        margin-top: 22px;
         align-self: center;
         background-color: #3DCE94;
         color: white;
@@ -134,5 +141,5 @@
             border: 2px solid #3DCE94;
         }
     }
-    
+
 }

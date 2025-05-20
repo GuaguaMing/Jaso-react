@@ -30,13 +30,22 @@
     </style>
     <header class="main-navbar">
         <div class="navbar-container">
-            <img src="./assets/img/nav-logo.svg" alt="Jaso Logo" class="navbar-logo" />
-            <nav class="navbar-links">
-                <a href="#" class="nav-link">關於我們</a>
-                <a href="#" class="nav-link">產品介紹</a>
-                <a href="#" class="nav-link">會員專區</a>
-            </nav>
-            <div class="nav-right">
+            <!-- 左側 logo -->
+            <div class="navbar-left">
+                <img src="./assets/img/nav-logo.svg" alt="Jaso Logo" class="navbar-logo" />
+            </div>
+
+            <!-- 中間導覽連結 -->
+            <div class="navbar-center">
+                <nav class="navbar-links">
+                    <a href="#" class="nav-link">食物庫</a>
+                    <a href="#" class="nav-link">素食知識</a>
+                    <a href="#" class="nav-link">營養素算</a>
+                </nav>
+            </div>
+
+            <!-- 右側會員與購物按鈕 -->
+            <div class="navbar-right">
                 <div class="member">會員</div>
                 <div class="bean-shape">
                     <div class="go-to-shop">素購</div>
@@ -44,29 +53,26 @@
             </div>
         </div>
     </header>
-
-<body>
-    <header>
-        <!-- 隱藏式導覽列 -->
-        <div class="nav-hidden">
-            <div class="logo" href="./article-main.html"><img src="./assets/img/nav-logo.svg" alt="">
+    <!-- 隱藏式導覽列 -->
+    <div class="nav-hidden">
+        <div class="logo" href="./article-main.html"><img src="./assets/img/nav-logo.svg" alt="">
+        </div>
+        <div class="navbar">
+            <div class="nav-center">
+                <nav class="navbar-links">
+                    <a href="#" class="nav-link">食物庫</a>
+                    <a href="#" class="nav-link">素食知識</a>
+                    <a href="#" class="nav-link">營養素算</a>
+                </nav>
             </div>
-            <div class="navbar">
-                <div class="nav-center">
-                    <ul>
-                        <li><a href="./guide.html">食物庫</a></li>
-                        <li><a href="./article.html">素食知識</a></li>
-                        <li><a href="./quiz.html">營養素算</a></li>
-                    </ul>
-                </div>
-                <div class="nav-right">
-                    <div class="member">會員</div>
-                    <div class="bean-shape">
-                        <div class="go-to-shop">素購</div>
-                    </div>
+            <div class="nav-right">
+                <div class="member">會員</div>
+                <div class="bean-shape">
+                    <div class="go-to-shop">素購</div>
                 </div>
             </div>
         </div>
+    </div>
 
     </header>
     <div style="height: 80px;"></div>
@@ -84,13 +90,13 @@
             <!-- 左上：會員資訊區塊 -->
             <div class="profile-left-top">
                 <div class="user-name-rank">
-                    <img src="../icons/img/j_member_normal.svg" alt="member" class="icon" />
+                    <img src="./icons/img/j_member_normal.svg" alt="member" class="icon" />
                     <p class="user-name">王小明</p>
                     <div class="user-rank-badge">一般會員</div>
                 </div>
                 <div class="rank-rule-box">
                     <div class="rank-rule-item">
-                        <img src="../icons/img/btn-rank-copper.svg" alt="銅級會員" class="rank-icon" />
+                        <img src="./icons/img/btn-rank-copper.svg" alt="銅級會員" class="rank-icon" />
                         <div class="rank-inline-text">
                             <span class="rank-title">升級至銅級會員</span>
                             <span class="divider">｜</span>
@@ -106,7 +112,7 @@
             <!-- 右上：12個月累計消費 -->
             <div class="profile-right-top">
                 <div class="summary-header">
-                    <img src="../icons/img/j_icon_gift.svg" alt="gift" class="gift-icon" />
+                    <img src="./icons/img/j_icon_gift.svg" alt="gift" class="gift-icon" />
                     <span class="summary-title">12 個月累計消費</span>
                 </div>
                 <div class="progress-container">
@@ -141,7 +147,7 @@
             <!-- 右下：送貨與付款 -->
             <div class="profile-right-bottom">
                 <div class="shipping-header">
-                    <img src="../icons/img/j_shop_drive.svg" alt="truck" class="icon" />
+                    <img src="./icons/img/j_shop_drive.svg" alt="truck" class="icon" />
                     <span class="shipping-title">送貨與付款</span>
                 </div>
 
@@ -268,8 +274,36 @@
     <!-- 素清單區塊 -->
     <div class="tab-content" id="favorites">
         <div class="product-list">
+
             <div class="product-card">
-                <img src="../assets/img/Rectangle 5.svg" alt="產品1" class="product-image" />
+                <div class="product-image-wrapper">
+                    <img src="./assets/img/Rectangle 5.svg" alt="產品1" class="product-image" />
+                    <button class="cart-btn" aria-label="加入購物車"></button>
+                </div>
+
+                <div class="product-tags">
+                    <span class="tag">手腳冰冷</span>
+                    <span class="tag">手腳冰冷</span>
+                </div>
+                <div class="product-title">
+                    鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span>
+                </div>
+                <div class="product-desc">
+                    骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...
+                </div>
+                <a href="#" class="product-link">
+                    <span class="arrow">&gt;</span>
+                    <span class="text">看完整產品內容</span>
+                </a>
+            </div>
+
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="./assets/img/Rectangle 6.svg" alt="產品2" class="product-image" />
+                    <button class="cart-btn" aria-label="加入購物車"></button>
+                </div>
+
                 <div class="product-tags">
                     <span class="tag">手腳冰冷</span>
                     <span class="tag">手腳冰冷</span>
@@ -287,7 +321,11 @@
             </div>
 
             <div class="product-card">
-                <img src="../assets/img/Rectangle 6.svg" alt="產品2" class="product-image" />
+                <div class="product-image-wrapper">
+                    <img src="./assets/img/Rectangle 5.svg" alt="產品1" class="product-image" />
+                    <button class="cart-btn" aria-label="加入購物車"></button>
+                </div>
+
                 <div class="product-tags">
                     <span class="tag">手腳冰冷</span>
                     <span class="tag">手腳冰冷</span>
@@ -304,8 +342,13 @@
                 </a>
             </div>
 
+            <!-- ⬇️ 其餘 .product-card 請同樣改用 .product-image-wrapper 包起來 -->
             <div class="product-card">
-                <img src="../assets/img/Rectangle 5.svg" alt="產品1" class="product-image" />
+                <div class="product-image-wrapper">
+                    <img src="./assets/img/Rectangle 6.svg" alt="產品2" class="product-image" />
+                    <button class="cart-btn" aria-label="加入購物車"></button>
+                </div>
+
                 <div class="product-tags">
                     <span class="tag">手腳冰冷</span>
                     <span class="tag">手腳冰冷</span>
@@ -322,23 +365,7 @@
                 </a>
             </div>
 
-            <div class="product-card">
-                <img src="../assets/img/Rectangle 6.svg" alt="產品2" class="product-image" />
-                <div class="product-tags">
-                    <span class="tag">手腳冰冷</span>
-                    <span class="tag">手腳冰冷</span>
-                </div>
-                <div class="product-title">
-                    鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span>
-                </div>
-                <div class="product-desc">
-                    骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...
-                </div>
-                <a href="#" class="product-link">
-                    <span class="arrow">&gt;</span>
-                    <span class="text">看完整產品內容</span>
-                </a>
-            </div>
+
 
         </div>
     </div>
@@ -356,10 +383,10 @@
                 <p class="footer-jaso2">素食營養專家 | 健康素食新選擇</p>
                 <div class="social-links">
                     <a href="#" class="social-link">
-                        <img src="../icons/img/j_community_ins-bright.svg" alt="Instagram" class="social-icon">
+                        <img src="./icons/img/j_community_ins-bright.svg" alt="Instagram" class="social-icon">
                     </a>
                     <a href="#" class="social-link">
-                        <img src="../icons/img/j_community_fb-bright.svg" alt="Facebook" class="social-icon">
+                        <img src="./icons/img/j_community_fb-bright.svg" alt="Facebook" class="social-icon">
 
                     </a>
                 </div>
@@ -425,7 +452,7 @@
 
             <!-- 回到頁首的箭頭按鈕 -->
             <a href="#" class="back-to-top">
-                <img src="../icons/img/j_arrow_a-1@3x.svg" alt="Back to Top" />
+                <img src="./icons/img/j_arrow_a-1@3x.svg" alt="Back to Top" />
             </a>
     </footer>
 
@@ -476,7 +503,17 @@
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
 
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.cart-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    btn.classList.toggle('added');
+                });
+            });
+        });
+
+
+
     </script>
-</body>
+    </body>
 
 </html>
