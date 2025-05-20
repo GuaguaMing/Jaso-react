@@ -26,6 +26,7 @@ const questions = [
         label: "運動量",
         name: "activity",
         type: "select",
+        placeholder: "請選擇",
         options: ["幾乎不動", "輕度", "中度", "高度"],
       },
     ],
@@ -116,6 +117,8 @@ const Quiz = () => {
     setAnswers({ ...answers, [qIdx]: value });
   };
 
+const [dropdownOpen, setDropdownOpen] = useState({});
+
 
   const next = () => {
     if (currentQuestion < questions.length - 1) {
@@ -182,52 +185,99 @@ const Quiz = () => {
               {q.fields.map((field, idx) => {
                 if (field.type === "radio") {
                   return (
-                    <div key={idx}>
+                    <div key={idx} className={styles["form-group-1"]}>
+                      <label className={styles["field-label"]}>{field.label}</label>
+                      <div className={styles["option-group"]}>
+                        {field.options.map((opt) => (
+                          <label key={opt} className={styles["option-1"]}>
+                            <input
+                              type="radio"
+                              name={field.name}
+                              value={opt}
+                              checked={answers[field.name] === opt}
+onChange={handleChange}
 
-                      <div style={{ display: "flex", gap: "10px" }}>
-                        <div className={styles["form-group-1"]}>
-                          <label>{field.label}</label>{field.options.map((opt) => (
-                            <label key={opt} className={styles["option-1"]}>
-                              <input
-                                type="radio"
-                                name={field.name}
-                                value={opt}
-                                checked={answers[field.name] === opt}
-                                onChange={handleChange}
-                              />
-                              {opt}
-                            </label>
-                          ))}
-                        </div>
+                            />
+                            {opt}
+                          </label>
+
+                        ))}
                       </div>
                     </div>
                   );
                 } else if (field.type === "select") {
                   return (
-                    <div key={idx}>
-                      <div className={styles["form-group"]}>
-                        <label>{field.label}</label>
-                        <select  name={field.name} onChange={handleChange}>
-                          {field.options.map((opt) => (
-                            <option key={opt} value={opt}>
-                              {opt}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                    </div>
+                        <div key={idx}>
+      <div className={styles["form-group"]}>
+        <label className={styles["field-label"]}>{field.label}</label>
+        
+        <div className={styles["container"]}>
+          <div className={styles["drop"]}>
+            <div
+              className={styles["dropOption"]}
+              onClick={() => setDropdownOpen((prev) => ({
+                ...prev,
+                [field.name]: !prev[field.name]
+              }))}
+            >
+              <span>{answers[field.name] || [field.placeholder]}</span>
+            </div>
+
+            {dropdownOpen[field.name] && (
+              <ul className={styles["dropdown"]}>
+                {field.options.map((opt, idx) => (
+                  <li
+                    key={idx}
+                    onClick={() => {
+                      setAnswers({ ...answers, [field.name]: opt });
+                      setDropdownOpen((prev) => ({
+                        ...prev,
+                        [field.name]: false
+                      }));
+                    }}
+                  >
+                    {opt}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+
+                    
+                    // <div key={idx}>
+                    //   <div className={styles["form-group"]}>
+                    //   <label className={styles["field-label"]}>{field.label}</label>
+
+                    //     <select name={field.name} onChange={handleChange}>
+                    //       {field.options.map((opt) => (
+                    //         <option key={opt} value={opt}>
+                    //           {opt}
+                    //         </option>
+                    //       ))}
+                    //     </select>
+                    //   </div>
+                    // </div>
                   );
+
                 } else {
                   return (
                     <div key={idx}>
-                      <label>{field.label}</label>
+                      <div className={styles["form-group"]}>
+                      <label className={styles["field-label"]}>{field.label}</label>
+
                       <input
+                        className={styles["form-input"]}
                         type={field.type}
                         name={field.name}
                         placeholder={field.placeholder}
                         onChange={handleChange}
                       />
                     </div>
+                    </div>
+
                   );
                 }
               })}

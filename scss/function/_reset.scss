@@ -41,6 +41,9 @@ a {
     // display: block;
   text-decoration: none;
 }
+input,select,option {
+  outline: none;
+}
 // .container{
 //     width: 347px;
 //     padding: 15% 60px;
