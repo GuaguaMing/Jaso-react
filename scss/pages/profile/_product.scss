@@ -12,18 +12,50 @@
   text-align: left;
   display: flex;
   flex-direction: column;
-}
 
-.product-image {
-  width: 100%;
-  border-radius: 20px;
-  margin-bottom: 12px;
+  .product-image-wrapper {
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+
+    .product-image {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      display: block;
+    }
+
+    .cart-btn {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      width: 48px;
+      height: 48px;
+      background: url('/icons/img/shop-btn.svg') no-repeat center/contain;
+      border: none; // ✅ 移除按鈕邊框
+      outline: none; // ✅ 移除點擊後的藍色外框
+      background-color: transparent; // ✅ 背景設為透明，避免瀏覽器預設顏色
+      padding: 0; // ✅ 移除內距
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-image: url('/icons/img/shop-btn-hover.svg');
+        transform: scale(1.05);
+      }
+
+      &.added {
+        filter: grayscale(1);
+        opacity: 0.7;
+      }
+    }
+  }
 }
 
 .product-tags {
   display: flex;
   gap: 8px;
-  margin-bottom: 16px;
 }
 
 .tag {
@@ -32,9 +64,11 @@
   font-weight: 500;
   color: #3DCE94;
   border: 1px solid #3DCE94;
-  background-color: #E6FBF3; // ✅ 提供明顯的背景
+  background-color: #E6FBF3;
   border-radius: 999px;
   display: inline-block;
+  margin-top: 19px;
+  margin-bottom: 14px;
 }
 
 .product-title {
@@ -48,7 +82,7 @@
     font-size: 14px;
     font-weight: 400;
     color: #000;
-    margin-left: 8px; // 主副標間距
+    margin-left: 8px;
   }
 }
 
@@ -57,14 +91,13 @@
   color: #555;
   line-height: 1.6;
   display: -webkit-box;
-  -webkit-line-clamp: 3; // 最多顯示三行
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   margin-bottom: 8px;
 }
 
-/* 產品卡片底部連結（含箭頭滑動） */
 .product-link {
   display: inline-flex;
   align-items: center;
@@ -75,32 +108,32 @@
   text-decoration: none;
   position: relative;
   transition: all 0.3s ease;
-}
 
-.product-link .arrow,
-.product-link .text {
-  display: inline-block;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
+  .arrow,
+  .text {
+    display: inline-block;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
 
-/* 初始位置 */
-.product-link .arrow {
-  transform: translateX(-8px);
-  opacity: 1;
-}
+  .arrow {
+    transform: translateX(-8px);
+    opacity: 1;
+  }
 
-.product-link .text {
-  transform: translateX(-8px);
-  opacity: 1;
-}
+  .text {
+    transform: translateX(-8px);
+    opacity: 1;
+  }
 
-/* Hover 時交錯滑動 */
-.product-link:hover .arrow {
-  transform: translateX(100px);
-  opacity: 2;
-}
+  &:hover {
+    .arrow {
+      transform: translateX(100px);
+      opacity: 2;
+    }
 
-.product-link:hover .text {
-  transform: translateX(-20px);
-  opacity: 1;
+    .text {
+      transform: translateX(-20px);
+      opacity: 1;
+    }
+  }
 }
