@@ -113,11 +113,35 @@ const Quiz = () => {
     setAnswers({ ...answers, [name]: value });
   };
 
-  const handleRadioChange = (qIdx, value) => {
-    setAnswers({ ...answers, [qIdx]: value });
-  };
 
-const [dropdownOpen, setDropdownOpen] = useState({});
+  const handleRadioChange = (qIdx, value) => {
+    setAnswers((prev) => ({ ...prev, [qIdx]: value }));
+  
+    if (questions[qIdx].type !== "form") {
+      if (qIdx === questions.length - 1) {
+        // ✅ 是最後一題，顯示提交按鈕
+        setShowSubmitButton(true);
+      } else {
+        setTimeout(() => {
+          setCurrentQuestion(qIdx + 1);
+        }, 200);
+      }
+    }
+  };
+  
+  
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+const [showSubmitButton, setShowSubmitButton] = useState(false);
+
+
+  const [dropdownOpen, setDropdownOpen] = useState({});
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const handleMouseEnter = () => setIsDropdownOpen(true);
+  const handleMouseLeave = () => setIsDropdownOpen(false);
+
+  const [isHovered, setIsHovered] = useState(false);
 
 
   const next = () => {
@@ -143,7 +167,10 @@ const [dropdownOpen, setDropdownOpen] = useState({});
     if (q.type === "intro") {
       return (
         <div className={styles.questionContainer}>
-          <div className={styles.questionLeft}>
+           <div className={styles.questionLeft}>
+
+        </div>
+          <div className={styles.questionCenter}>
             <h1 className={styles.titleWithImage}>
               <span className={styles.titleIcon} />
               <span dangerouslySetInnerHTML={{ __html: q.title }} />
@@ -173,7 +200,19 @@ const [dropdownOpen, setDropdownOpen] = useState({});
     if (q.type === "form") {
       return (
         <div className={styles.questionContainer}>
-          <div className={styles.questionLeft}>
+                  <div className={styles.questionLeft}>
+          <button className={styles.backButton} onClick={prev}
+              onMouseEnter={() => setIsHovered(true)}
+  onMouseLeave={() => setIsHovered(false)}>
+
+  <img
+    src={isHovered ? "./assets/back-arrow-hover.svg" : "./assets/back-arrow.svg"}
+    alt="back"
+  />
+          
+          </button>
+        </div>
+          <div className={styles.questionCenter}>
             <h4 className={styles.titleWithImage}>
               <span className={styles.titleIcon} />
               {q.title}
@@ -195,7 +234,7 @@ const [dropdownOpen, setDropdownOpen] = useState({});
                               name={field.name}
                               value={opt}
                               checked={answers[field.name] === opt}
-onChange={handleChange}
+                              onChange={handleChange}
 
                             />
                             {opt}
@@ -207,75 +246,66 @@ onChange={handleChange}
                   );
                 } else if (field.type === "select") {
                   return (
-                        <div key={idx}>
-      <div className={styles["form-group"]}>
-        <label className={styles["field-label"]}>{field.label}</label>
-        
-        <div className={styles["container"]}>
-          <div className={styles["drop"]}>
-            <div
-              className={styles["dropOption"]}
-              onClick={() => setDropdownOpen((prev) => ({
-                ...prev,
-                [field.name]: !prev[field.name]
-              }))}
-            >
-              <span>{answers[field.name] || [field.placeholder]}</span>
-            </div>
+                    <div key={idx}>
+                      <div className={styles["form-group"]}>
+                        <label className={styles["field-label"]}>{field.label}</label>
 
-            {dropdownOpen[field.name] && (
-              <ul className={styles["dropdown"]}>
-                {field.options.map((opt, idx) => (
-                  <li
-                    key={idx}
-                    onClick={() => {
-                      setAnswers({ ...answers, [field.name]: opt });
-                      setDropdownOpen((prev) => ({
-                        ...prev,
-                        [field.name]: false
-                      }));
-                    }}
-                  >
-                    {opt}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
+                        <div className={styles["container"]}>
+                          <div className={styles["drop"]}
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}>
+                            <div
 
-                    
-                    // <div key={idx}>
-                    //   <div className={styles["form-group"]}>
-                    //   <label className={styles["field-label"]}>{field.label}</label>
 
-                    //     <select name={field.name} onChange={handleChange}>
-                    //       {field.options.map((opt) => (
-                    //         <option key={opt} value={opt}>
-                    //           {opt}
-                    //         </option>
-                    //       ))}
-                    //     </select>
-                    //   </div>
-                    // </div>
+
+                              className={styles["dropOption"]}
+                              onClick={() => setDropdownOpen((prev) => ({
+                                ...prev,
+                                [field.name]: !prev[field.name]
+                              }))}
+                            >
+                              <span>{answers[field.name] || [field.placeholder]}</span>
+                            </div>
+
+                            {dropdownOpen[field.name] && (
+                              <ul className={styles["dropdown"]}>
+                                {field.options.map((opt, idx) => (
+                                  <li
+                                    key={idx}
+                                    onClick={() => {
+                                      setAnswers({ ...answers, [field.name]: opt });
+                                      setDropdownOpen((prev) => ({
+                                        ...prev,
+                                        [field.name]: false
+                                      }));
+                                    }}
+                                  >
+                                    {opt}
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                   );
 
                 } else {
                   return (
                     <div key={idx}>
                       <div className={styles["form-group"]}>
-                      <label className={styles["field-label"]}>{field.label}</label>
+                        <label className={styles["field-label"]}>{field.label}</label>
 
-                      <input
-                        className={styles["form-input"]}
-                        type={field.type}
-                        name={field.name}
-                        placeholder={field.placeholder}
-                        onChange={handleChange}
-                      />
-                    </div>
+                        <input
+                          className={styles["form-input"]}
+                          type={field.type}
+                          name={field.name}
+                          placeholder={field.placeholder}
+                          onChange={handleChange}
+                        />
+                      </div>
                     </div>
 
                   );
@@ -292,7 +322,18 @@ onChange={handleChange}
 
     return (
       <div className={styles.questionContainer}>
-        <div className={styles.questionLeft}>
+                <div className={styles.questionLeft}>
+
+          <button className={styles.backButton} onClick={prev}
+              onMouseEnter={() => setIsHovered(true)}
+  onMouseLeave={() => setIsHovered(false)}>
+  <img
+    src={isHovered ? "./assets/back-arrow-hover.svg" : "./assets/back-arrow.svg"}
+    alt="back"/>
+          
+          </button>
+        </div>
+        <div className={styles.questionCenter}>
           <h4 className={styles.titleWithImage}>
             <span className={styles.titleIcon} />
             {q.title}
@@ -301,15 +342,20 @@ onChange={handleChange}
           <h2>{q.question}</h2>
           <div className={styles.options}>
             {q.options.map((opt, i) => (
-              <label key={i} className={styles.option}>
-                <input
-                  type="radio"
-                  name={`q${currentQuestion}`}
-                  value={opt}
-                  onChange={() => handleRadioChange(currentQuestion, opt)}
-                />
+
+<label key={i} className={styles.option}>
+
+<input
+type="radio"
+name={`q${currentQuestion}`}
+value={opt}
+checked={answers[currentQuestion] === opt}
+onChange={() => handleRadioChange(currentQuestion, opt)}
+/>
                 {opt}
               </label>
+
+            
             ))}
           </div>
         </div>
@@ -319,36 +365,53 @@ onChange={handleChange}
       </div>
     );
   };
+  
+
 
   return (
-    <div>
+    <div className={styles.quizContainer}>
+      {/* 問題內容 */}
       {renderQuestion()}
-      <div
-        className={styles.navigationButtons}
-        style={{ display: currentQuestion === 0 ? "none" : "flex" }}
-      >
-        <button
-          onClick={prev}
-          style={{ display: currentQuestion === 0 ? "none" : "inline-block" }}
-        >
-          上一題
-        </button>
-        <button onClick={next}>
-          {currentQuestion === questions.length - 1 ? "提交" : "下一題"}
-        </button>
+      {showSubmitButton && (
+  <div className={styles.navigationButtons}>
+    <button
+      onClick={() => {
+        setIsSubmitting(true);
+        setTimeout(() => {
+          window.location.href = "/result";
+        }, 2000);
+      }}
+      disabled={isSubmitting}
+    >
+      {isSubmitting ? "提交中..." : "提交"}
+    </button>
+  </div>
+)}
 
-      </div>
+      {questions[currentQuestion].type === "form" && (
+  <div className={styles.navigationButtons}>
+    <button onClick={next}>
+      {currentQuestion === questions.length - 1 ? "提交" : "下一題"}
+    </button>
+  </div>
+  
+)}
 
+
+  
+      {/* 進度條 */}
       <div className={styles.progressBar}>
         <div
           className={styles.progress}
           style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
         />
       </div>
-
     </div>
   );
+  
 };
+
+
 
 
 export default Quiz;

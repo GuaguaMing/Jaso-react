@@ -369,13 +369,12 @@ button:hover {
 .footer-container {
   position: relative;
   width: 100%;
-  min-width: 1920px;
+  max-width: 1920px;
   min-height: 1024px;
   background-color: #363638;
   color: #fff;
   padding: 60px 20px;
-  margin-top: 120px;
-  margin: 0 auto;
+  margin-top: 114px;
   /* 文字對齊方式改為左對齊 */
 }
 
@@ -393,7 +392,7 @@ button:hover {
 
 .footer-Jaso {
   position: absolute;
-  right: 520px;
+  right: 412px;
   bottom: 200px;
   gap: 50px;
 }
@@ -491,19 +490,14 @@ button:hover {
 /* CTA按鈕和社交圖標 */
 .cta-container {
   position: absolute;
-  right: 500px;
+  right: 130px;
   /* 設定右邊間距 */
   top: 350px;
   /* 設定上邊間距 */
   bottom: 365px;
   /* 設定底部間距 */
-  left: 1200px;
-  /* 設定左邊間距 */
-  text-align: center;
   flex-direction: column;
   /* 讓按鈕和文字垂直排列 */
-  align-items: flex-end;
-  /* 讓內容靠右對齊 */
 }
 
 .cta-button {
@@ -601,14 +595,13 @@ button:hover {
   /* 去掉內邊距 */
   border: none;
   /* 去掉邊框 */
-  display: inline-block;
   /* 確保它不被其他元素擋住 */
 }
 
+/* 設置圖標大小 */
 .back-to-top img {
   width: 70px;
-  /* 設置圖標大小 */
-  height: auto;
+  height: 70px;
   transition: transform 0.3s ease;
 }
 
@@ -622,6 +615,27 @@ a {
   text-decoration: none;
 }
 
+@media (max-width: 1024px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+  }
+  .footer-section {
+    margin-left: 0;
+    align-items: center;
+  }
+  .footer-main-heading {
+    font-size: 42px;
+    margin-top: 120px;
+    margin-left: 0;
+  }
+  .cta-button {
+    width: 150px;
+    font-size: 20px;
+  }
+}
 footer {
   width: 100%;
   margin: 0 auto;

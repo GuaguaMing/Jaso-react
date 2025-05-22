@@ -49,66 +49,78 @@ input, select, option {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 900px;
+  max-width: 1280px;
+  gap: 3rem;
   margin: 0 auto;
   padding: 50px 20px;
   min-height: 80vh;
 }
 .questionContainer .questionLeft {
+  margin-right: 10rem;
+  display: flex;
+}
+.questionContainer .questionLeft .backButton {
+  border-radius: 99px;
+  width: 45px;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.questionContainer .questionCenter {
   flex: 1;
 }
-.questionContainer .questionLeft h4 {
+.questionContainer .questionCenter h4 {
   color: #3DCE94;
   font-size: 1.125rem;
   font-weight: bold;
 }
-.questionContainer .questionLeft h2 {
+.questionContainer .questionCenter h2 {
   font-size: 1.875rem;
   margin-top: 10px;
   color: #2A2324;
 }
-.questionContainer .questionLeft h1 {
+.questionContainer .questionCenter h1 {
   font-size: 2rem;
   margin-top: 10px;
   color: #3DCE94;
   font-weight: bold;
 }
-.questionContainer .questionLeft .title,
-.questionContainer .questionLeft .titleWithImage {
+.questionContainer .questionCenter .title,
+.questionContainer .questionCenter .titleWithImage {
   display: flex;
 }
-.questionContainer .questionLeft .titleIcon {
+.questionContainer .questionCenter .titleIcon {
   width: 24px;
   height: 24px;
   flex-shrink: 0;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   background-image: url("/assets/+.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
-.questionContainer .questionLeft .introTitle {
+.questionContainer .questionCenter .introTitle {
   display: flex;
   font-weight: bold;
   font-size: 2.25rem;
   color: #3DCE94;
 }
-.questionContainer .questionLeft .introQuestion {
+.questionContainer .questionCenter .introQuestion {
   font-size: 1.25rem;
   margin-top: 10px;
   color: #424242;
 }
-.questionContainer .questionLeft .options {
+.questionContainer .questionCenter .options {
   margin-top: 30px;
   justify-content: flex-start;
 }
-.questionContainer .questionLeft .options.horizontal {
+.questionContainer .questionCenter .options.horizontal {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
-.questionContainer .questionLeft .options .option {
+.questionContainer .questionCenter .options .option {
   margin-bottom: 15px;
   padding: 10px 30px;
   background-color: #D9D9D9;
@@ -119,41 +131,41 @@ input, select, option {
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
-.questionContainer .questionLeft .options .option input[type=radio] {
+.questionContainer .questionCenter .options .option input[type=radio] {
   display: none;
 }
-.questionContainer .questionLeft .options .option:hover {
+.questionContainer .questionCenter .options .option:hover {
   background-color: #3DCE94;
   color: #ffffff;
 }
-.questionContainer .questionLeft .options .option input[type=radio]:checked ~ span,
-.questionContainer .questionLeft .options .option input[type=radio]:checked {
+.questionContainer .questionCenter .options .option input[type=radio]:checked ~ span,
+.questionContainer .questionCenter .options .option input[type=radio]:checked {
   font-weight: bold;
   background-color: #3DCE94;
   color: #ffffff;
   padding: 4px 12px;
   border-radius: 20px;
 }
-.questionContainer .questionLeft .form-group-1 {
+.questionContainer .questionCenter .form-group-1 {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
   padding: 0 2px;
   color: #424242;
 }
-.questionContainer .questionLeft .form-group-1 .field-label {
+.questionContainer .questionCenter .form-group-1 .field-label {
   width: 5rem;
   margin-right: 1rem;
 }
-.questionContainer .questionLeft .form-group-1 .option-group {
+.questionContainer .questionCenter .form-group-1 .option-group {
   display: flex;
   gap: 10px;
 }
-.questionContainer .questionLeft .field-label {
+.questionContainer .questionCenter .field-label {
   width: 5rem;
   margin-right: 1rem;
 }
-.questionContainer .questionLeft .option-1 {
+.questionContainer .questionCenter .option-1 {
   padding: 10px 15px;
   background-color: #D9D9D9;
   border-radius: 25px;
@@ -161,82 +173,85 @@ input, select, option {
   align-items: center;
   cursor: pointer;
 }
-.questionContainer .questionLeft .option-1 input {
+.questionContainer .questionCenter .option-1 input {
   display: none;
 }
-.questionContainer .questionLeft .option-1:hover {
+.questionContainer .questionCenter .option-1:hover {
   background-color: #3DCE94;
   color: #ffffff;
 }
-.questionContainer .questionLeft .form-group {
+.questionContainer .questionCenter .form-group {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
   padding: 0 2px;
   color: #424242;
 }
-.questionContainer .questionLeft .form-group .container {
+.questionContainer .questionCenter .form-group .container {
   width: 80%;
 }
-.questionContainer .questionLeft .form-group .drop {
+.questionContainer .questionCenter .form-group .drop {
   position: relative;
   background-color: #D9D9D9;
   border-radius: 15px;
   cursor: pointer;
   border: none;
 }
-.questionContainer .questionLeft .form-group .drop:hover .dropdown {
+.questionContainer .questionCenter .form-group .drop:hover .dropdown {
   display: block;
 }
-.questionContainer .questionLeft .form-group .drop .dropOption {
-  padding: 10px;
+.questionContainer .questionCenter .form-group .drop .dropOption {
+  padding: 7.25px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 1.25rem;
   color: #424242;
-  position: relative;
 }
-.questionContainer .questionLeft .form-group .drop .dropOption::after {
+.questionContainer .questionCenter .form-group .drop .dropOption::after {
   content: "";
   border: 5px solid transparent;
   border-top-color: #2A2324;
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
+  margin-top: 5.5px;
+  overflow: hidden;
 }
-.questionContainer .questionLeft .form-group .drop .dropdown {
+.questionContainer .questionCenter .form-group .drop .dropdown {
+  display: none;
+}
+.questionContainer .questionCenter .form-group .drop .dropdown.open {
+  display: block;
+}
+.questionContainer .questionCenter .form-group .drop .dropdown {
   position: absolute;
   top: 100%;
   left: 0;
   width: 100%;
-  background-color: #D9D9D9;
+  background-color: #e6e6e6;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   z-index: 10;
   max-height: 200px;
   overflow-y: auto;
 }
-.questionContainer .questionLeft .form-group .drop .dropdown li {
+.questionContainer .questionCenter .form-group .drop .dropdown li {
   padding: 10px;
   font-size: 0.875rem;
   color: #2A2324;
   cursor: pointer;
 }
-.questionContainer .questionLeft .form-group .drop .dropdown li:hover {
+.questionContainer .questionCenter .form-group .drop .dropdown li:hover {
   background-color: #3DCE94;
   color: #ffffff;
 }
-.questionContainer .questionLeft .form-group .dropOption span {
+.questionContainer .questionCenter .form-group .dropOption span {
   font-size: 0.875rem;
   color: #2A2324;
 }
-.questionContainer .questionLeft .form-group input::placeholder {
+.questionContainer .questionCenter .form-group input::placeholder {
   font-size: 0.875rem;
   color: #2A2324;
 }
-.questionContainer .questionLeft .form-group option {
+.questionContainer .questionCenter .form-group option {
   padding: 10px 15px;
   background-color: #D9D9D9;
   border-radius: 25px;
@@ -245,7 +260,7 @@ input, select, option {
   cursor: pointer;
   border: none;
 }
-.questionContainer .questionLeft .form-input {
+.questionContainer .questionCenter .form-input {
   width: 80%;
   padding: 10px;
   background-color: #D9D9D9;
@@ -255,15 +270,14 @@ input, select, option {
   cursor: pointer;
   border: none;
 }
-.questionContainer .questionLeft .form-input:hover {
+.questionContainer .questionCenter .form-input:hover {
   background-color: #e6e6e6;
 }
-
-.questionRight {
+.questionContainer .questionRight {
   flex: 0 0 300px;
   text-align: center;
 }
-.questionRight img {
+.questionContainer .questionRight img {
   width: 200px;
   max-width: 100%;
   height: auto;
@@ -309,4 +323,4 @@ input, select, option {
 }
 .quizStep.active {
   display: block;
-}/*# sourceMappingURL=quiz.module.css.map */
+}
