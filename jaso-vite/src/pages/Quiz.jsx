@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import styles from "../css/quiz.module.scss";
+import LoadingPage from "./LoadingPage";
+import { useNavigate } from "react-router-dom";
+
 
 const questions = [
   {
@@ -11,7 +14,7 @@ const questions = [
       "本人同意 JASO+ 的隱私政策及使用條款，並開始評估",
       "本人不同意",
     ],
-    image: "./assets/img/omega@3x.svg",
+    // image: "",
   },
   {
     title: "基本資料",
@@ -30,70 +33,73 @@ const questions = [
         options: ["幾乎不動", "輕度", "中度", "高度"],
       },
     ],
-    image: "./assets/img/omega@3x.svg",
+    // image: "",
+  },
+  {
+    title: "飲食習慣",
+    question: "你每天是否攝取富含蛋白質的食物（豆腐、豆類、堅果等）？",
+    options: ["每天都有", "有時候", "很少"],
+    image: "/assets/pumpkin.svg",
+  },
+  {
+    title: "飲食習慣",
+    question: "你是否補充維生素B12（透過營養品、強化植物奶或海藻）？",
+    options: ["每天都有", "有時候", "很少"],
+    image: "/assets/tofu.svg",
   },
   {
     title: "飲食習慣",
     question: "你每週是否攝取含鐵食物（如黑豆、紅莧菜、南瓜籽）？",
-    options: ["是", "否"],
-    image: "./assets/img/omega@3x.svg",
+    options: ["每天都有", "有時候", "很少"],
+    image: "/assets/tofu.svg",
   },
   {
     title: "飲食習慣",
-    question: "你每天是否有攝取富含維生素B12的食物或補充劑？",
-    options: ["每天都有", "偶爾有", "很少或沒有"],
-    image: "https://i.imgur.com/sA3e2Ah.png"
+    question: "你是否補充 Omega-3（亞麻仁籽、奇亞籽、海藻油）？",
+    options: ["每天都有", "有時候", "很少"],
+    image: "/assets/tofu.svg",
   },
   {
     title: "飲食習慣",
-    question: "你每天攝取的蛋白質主要來自哪類食物？",
-    options: ["豆類及其製品", "穀物", "堅果與種子", "蔬菜"],
-    image: "https://i.imgur.com/GNj2aHo.png"
+    question: "你每天是否有吃富含維生素C的水果（如芭樂、奇異果、柑橘）？",
+    options: ["每天都有", "有時候", "很少"],
+    image: "/assets/tofu.svg",
   },
-  {
+    {
     title: "飲食習慣",
-    question: "你是否每天攝取富含鈣質的食物或補充劑？",
-    options: ["每餐都有", "每天有", "很少或沒有"],
-    image: "https://i.imgur.com/sUcyKJf.png"
-  },
-  {
-    title: "飲食習慣",
-    question: "你的日常飲食中，攝取的熱量大多來自哪種食物？",
-    options: ["蔬菜和水果（低熱量）", "穀物（中等熱量）", "豆類和堅果（較高熱量）", "高加工食物或甜食（高熱量）"],
-    image: "https://i.imgur.com/dz0lOBc.png"
+    question: "你是否有日曬或補充維生素D（如維D強化植物奶、曬太陽10分鐘以上）？",
+    options: ["每天都有", "有時候", "很少"],
+    image: "/assets/tofu.svg",
   },
   {
     title: "病痛症狀",
     question: "你是否經常感到疲倦、虛弱或容易氣喘？",
     options: ["是", "否"],
-    image: "https://i.imgur.com/UYXqvOB.png"
+    image: "/assets/tofu.svg",
   },
+
   {
     title: "病痛症狀",
-    question: "你是否有經常性的偏頭痛或頭痛？",
+    question: "你是否有經常性的偏頭痛或或注意力不集中？",
     options: ["是", "否"],
-    image: "https://i.imgur.com/hKYzqJ9.png"
-  },
-  {
-    title: "病痛症狀",
-    question: "你是否經常感到飢餓，或吃不飽？",
-    options: ["是", "否"],
-    image: "https://i.imgur.com/Zjowti7.png"
+    image: "/assets/tofu.svg",
+
   },
   {
     title: "病痛症狀",
     question: "你是否經常感到便秘或腸胃不適？",
     options: ["是", "否"],
-    image: "https://i.imgur.com/ykF9EZY.png"
+    image: "/assets/tofu.svg",
+
   },
   {
     title: "病痛症狀",
     question: "你是否經常感到肌肉抽筋或手腳發麻？",
     options: ["是", "否"],
-    image: "https://i.imgur.com/BYjRxl3.png"
+    image: "/assets/tofu.svg",
+
   }
 ];
-
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -108,31 +114,31 @@ const Quiz = () => {
     }
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setAnswers({ ...answers, [name]: value });
-  };
-
+  const handleChange = (name, value) => {
+  setAnswers((prev) => ({ ...prev, [name]: value }));
+};
 
   const handleRadioChange = (qIdx, value) => {
-    setAnswers((prev) => ({ ...prev, [qIdx]: value }));
-  
-    if (questions[qIdx].type !== "form") {
-      if (qIdx === questions.length - 1) {
-        // ✅ 是最後一題，顯示提交按鈕
-        setShowSubmitButton(true);
-      } else {
-        setTimeout(() => {
-          setCurrentQuestion(qIdx + 1);
-        }, 200);
-      }
+  setAnswers((prev) => ({ ...prev, [qIdx]: value }));
+
+  if (questions[qIdx].type !== "form") {
+    if (qIdx === questions.length - 1) {
+      // ✅ 是最後一題且有選答案，顯示提交按鈕
+      setShowSubmitButton(true);
+    } else {
+      setTimeout(() => {
+        setCurrentQuestion(qIdx + 1);
+      }, 200);
     }
-  };
-  
-  
-  
+  }
+};
+
+
+const navigate = useNavigate();
+
+
   const [isSubmitting, setIsSubmitting] = useState(false);
-const [showSubmitButton, setShowSubmitButton] = useState(false);
+  const [showSubmitButton, setShowSubmitButton] = useState(false);
 
 
   const [dropdownOpen, setDropdownOpen] = useState({});
@@ -167,9 +173,9 @@ const [showSubmitButton, setShowSubmitButton] = useState(false);
     if (q.type === "intro") {
       return (
         <div className={styles.questionContainer}>
-           <div className={styles.questionLeft}>
+          <div className={styles.questionLeft}>
 
-        </div>
+          </div>
           <div className={styles.questionCenter}>
             <h1 className={styles.titleWithImage}>
               <span className={styles.titleIcon} />
@@ -191,7 +197,7 @@ const [showSubmitButton, setShowSubmitButton] = useState(false);
             </div>
           </div>
           <div className={styles.questionRight}>
-            <img src={q.image} alt="illustration" />
+            {/* <img src={q.image} alt="illustration" /> */}
           </div>
         </div>
       );
@@ -200,18 +206,18 @@ const [showSubmitButton, setShowSubmitButton] = useState(false);
     if (q.type === "form") {
       return (
         <div className={styles.questionContainer}>
-                  <div className={styles.questionLeft}>
-          <button className={styles.backButton} onClick={prev}
+          <div className={styles.questionLeft}>
+            <button className={styles.backButton} onClick={prev}
               onMouseEnter={() => setIsHovered(true)}
-  onMouseLeave={() => setIsHovered(false)}>
+              onMouseLeave={() => setIsHovered(false)}>
 
-  <img
-    src={isHovered ? "./assets/back-arrow-hover.svg" : "./assets/back-arrow.svg"}
-    alt="back"
-  />
-          
-          </button>
-        </div>
+              <img
+                src={isHovered ? "./assets/back-arrow-hover.svg" : "./assets/back-arrow.svg"}
+                alt="back"
+              />
+
+            </button>
+          </div>
           <div className={styles.questionCenter}>
             <h4 className={styles.titleWithImage}>
               <span className={styles.titleIcon} />
@@ -234,8 +240,7 @@ const [showSubmitButton, setShowSubmitButton] = useState(false);
                               name={field.name}
                               value={opt}
                               checked={answers[field.name] === opt}
-                              onChange={handleChange}
-
+                              onChange={() => handleRadioChange(currentQuestion, opt)}
                             />
                             {opt}
                           </label>
@@ -257,7 +262,6 @@ const [showSubmitButton, setShowSubmitButton] = useState(false);
                             <div
 
 
-
                               className={styles["dropOption"]}
                               onClick={() => setDropdownOpen((prev) => ({
                                 ...prev,
@@ -265,6 +269,7 @@ const [showSubmitButton, setShowSubmitButton] = useState(false);
                               }))}
                             >
                               <span>{answers[field.name] || [field.placeholder]}</span>
+
                             </div>
 
                             {dropdownOpen[field.name] && (
@@ -302,8 +307,10 @@ const [showSubmitButton, setShowSubmitButton] = useState(false);
                           className={styles["form-input"]}
                           type={field.type}
                           name={field.name}
+                          value={answers[field.name] || ""} // 加這行可回上一題保留數值
                           placeholder={field.placeholder}
-                          onChange={handleChange}
+                          onChange={(e) => handleChange(field.name, e.target.value)}
+
                         />
                       </div>
                     </div>
@@ -314,7 +321,7 @@ const [showSubmitButton, setShowSubmitButton] = useState(false);
             </div>
           </div>
           <div className={styles.questionRight}>
-            <img src={q.image} alt="illustration" />
+            {/* <img src={q.image} alt="illustration" /> */}
           </div>
         </div>
       );
@@ -322,15 +329,15 @@ const [showSubmitButton, setShowSubmitButton] = useState(false);
 
     return (
       <div className={styles.questionContainer}>
-                <div className={styles.questionLeft}>
+        <div className={styles.questionLeft}>
 
           <button className={styles.backButton} onClick={prev}
-              onMouseEnter={() => setIsHovered(true)}
-  onMouseLeave={() => setIsHovered(false)}>
-  <img
-    src={isHovered ? "./assets/back-arrow-hover.svg" : "./assets/back-arrow.svg"}
-    alt="back"/>
-          
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}>
+            <img
+              src={isHovered ? "./assets/back-arrow-hover.svg" : "./assets/back-arrow.svg"}
+              alt="back" />
+
           </button>
         </div>
         <div className={styles.questionCenter}>
@@ -343,19 +350,19 @@ const [showSubmitButton, setShowSubmitButton] = useState(false);
           <div className={styles.options}>
             {q.options.map((opt, i) => (
 
-<label key={i} className={styles.option}>
+              <label key={i} className={styles.option}>
 
-<input
-type="radio"
-name={`q${currentQuestion}`}
-value={opt}
-checked={answers[currentQuestion] === opt}
-onChange={() => handleRadioChange(currentQuestion, opt)}
-/>
+                <input
+                  type="radio"
+                  name={`q${currentQuestion}`}
+                  value={opt}
+                  checked={answers[currentQuestion] === opt}
+                  onChange={() => handleRadioChange(currentQuestion, opt)}
+                />
                 {opt}
               </label>
 
-            
+
             ))}
           </div>
         </div>
@@ -365,40 +372,69 @@ onChange={() => handleRadioChange(currentQuestion, opt)}
       </div>
     );
   };
-  
+
 
 
   return (
     <div className={styles.quizContainer}>
       {/* 問題內容 */}
       {renderQuestion()}
-      {showSubmitButton && (
+    
+      {/* {showSubmitButton && (
+  isSubmitting ? (
+    <LoadingPage />
+  ) : (
+    <div className={styles.navigationButtons}>
+      <button
+        onClick={() => {
+          setIsSubmitting(true);
+          setTimeout(() => {
+            window.location.href = "/Result";
+          }, 2000); // 需要的秒數
+        }}
+         disabled={isSubmitting}
+          
+      >
+        提交
+      </button>
+    </div>
+  )
+)} */}
+{showSubmitButton && (
   <div className={styles.navigationButtons}>
-    <button
-      onClick={() => {
-        setIsSubmitting(true);
-        setTimeout(() => {
-          window.location.href = "/result";
-        }, 2000);
-      }}
-      disabled={isSubmitting}
-    >
-      {isSubmitting ? "提交中..." : "提交"}
-    </button>
+    {isSubmitting ? (
+      <LoadingPage />
+    ) : (
+      <button
+        onClick={() => {
+          setIsSubmitting(true);
+          setTimeout(() => {
+    navigate("/Result");
+
+          }, 2000);
+        }}
+        disabled={isSubmitting}
+      >
+        提交
+      </button>
+    )}
   </div>
 )}
+
+
+
 
       {questions[currentQuestion].type === "form" && (
-  <div className={styles.navigationButtons}>
-    <button onClick={next}>
-      {currentQuestion === questions.length - 1 ? "提交" : "下一題"}
-    </button>
-  </div>
-  
-)}
+        <div className={styles.navigationButtons}>
+          <button onClick={next}>
+            {currentQuestion === questions.length - 1 ? "提交" : "下一題"}
+          </button>
+        </div>
+
+      )}
 
 
-  
+
       {/* 進度條 */}
       <div className={styles.progressBar}>
         <div
@@ -408,7 +444,7 @@ onChange={() => handleRadioChange(currentQuestion, opt)}
       </div>
     </div>
   );
-  
+
 };
 
 

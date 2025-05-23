@@ -229,7 +229,8 @@ width: 45px;
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: lighten($color-lightgray1, 5%);
+      background-color: $color-lightgray2;
+
 
 
     border-radius: 10px;
@@ -280,22 +281,6 @@ input::placeholder {
 
     }
 
-    // select {
-    //   width: 80%;
-    //   padding: 10px;
-    //   border-radius: 15px;
-
-    //   background-color: $color-lightgray1;
-    //   border: 0;
-
-
-
-    //   &:hover {
-    //     background-color: lighten($color-lightgray1, 5%);
-    //   }
-
-
-    // }
 
     .form-input {
       width: 80%;
@@ -308,7 +293,9 @@ input::placeholder {
       border: none;
 
       &:hover {
-        background-color: lighten($color-lightgray1, 5%);
+      background-color: $color-lightgray2;
+
+
 
 
       }
