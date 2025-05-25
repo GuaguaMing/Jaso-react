@@ -1397,8 +1397,11 @@ html {
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   padding: 16px;
   border-bottom: 1px solid #eee;
-  align-items: start;
   font-size: 14px;
+}
+.order-details .order-items .order-header .cell-align,
+.order-details .order-items .order-row .cell-align {
+  margin-top: 28px;
 }
 .order-details .order-items .order-header {
   background-color: #f9f9f9;
@@ -1417,13 +1420,13 @@ html {
      object-fit: cover;
 }
 .order-details .order-items .product-info .order-id {
-  background-color: #A6A1A1;
-  color: white;
-  font-size: 10px;
+  background: #aaa;
+  color: #fff;
   padding: 2px 8px;
   border-radius: 999px;
+  font-size: 10px;
   display: inline-block;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 .order-details .order-items .product-info .product-name {
   font-weight: 600;
@@ -1445,75 +1448,70 @@ html {
   margin-top: 4px;
 }
 .order-details .order-items .badges {
+  display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding-top: 4px;
+  gap: 6px;
+}
+.order-details .order-items .badges .badge-green,
+.order-details .order-items .badges .badge-orange {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  border: 1px solid;
+  display: inline-block;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .order-details .order-items .badges .badge-green {
-  border: 1px solid #3DCE94;
   color: #3DCE94;
-  padding: 2px 8px;
-  font-size: 12px;
-  border-radius: 999px;
-  display: inline-block;
+  border-color: #3DCE94;
 }
 .order-details .order-items .badges .badge-orange {
-  border: 1px solid #FFAD5C;
-  color: #FFAD5C;
-  padding: 2px 8px;
-  font-size: 12px;
-  border-radius: 999px;
-  display: inline-block;
+  color: #FFA726;
+  border-color: #FFA726;
 }
 .order-details .order-items .origin-price {
   font-size: 12px;
-  color: #bbb;
+  color: #aaa;
   text-decoration: line-through;
-}
-.order-details .order-items .totals {
-  padding: 16px 24px;
-  font-size: 14px;
-  line-height: 1.8;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 2px;
-}
-.order-details .order-items .totals .totals-row {
-  display: flex;
-  justify-content: space-between;
-  width: 160px;
-}
-.order-details .order-items .totals .totals-row .label {
-  color: #333;
-}
-.order-details .order-items .totals .totals-row .value {
-  color: #000;
-}
-.order-details .order-items .totals .totals-row.total .value {
-  color: #3DCE94;
-  font-weight: bold;
-}
-.order-details .order-items .totals .points-earned {
   margin-top: 4px;
 }
-.order-details .order-items .totals .points-earned .value {
+.order-details .order-items .totals {
+  text-align: right;
+  padding: 16px 32px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.order-details .order-items .totals .total-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+.order-details .order-items .totals .total-amount {
+  font-weight: bold;
+  font-size: 16px;
   color: #3DCE94;
+}
+.order-details .order-items .totals .points-earned {
+  align-items: center;
+}
+.order-details .order-items .totals .points-earned .points-value {
   display: flex;
   align-items: center;
   gap: 4px;
+  color: #3DCE94;
 }
-.order-details .order-items .totals .points-earned .points-icon {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+.order-details .order-items .totals .points-earned .points-value .points-icon {
   background-color: #3DCE94;
   color: white;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  font-size: 12px;
   font-weight: bold;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
 }
 .order-details .info-grid {
   display: grid;

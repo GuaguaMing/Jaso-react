@@ -9,7 +9,6 @@
         border-radius: 10px;
         overflow: hidden;
         margin-bottom: 40px;
-        
 
         .order-header,
         .order-row {
@@ -17,8 +16,11 @@
             grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
             padding: 16px;
             border-bottom: 1px solid #eee;
-            align-items: start;
             font-size: 14px;
+
+            .cell-align {
+                margin-top: 28px;
+            }
         }
 
         .order-header {
@@ -39,13 +41,13 @@
             }
 
             .order-id {
-                background-color: #A6A1A1;
-                color: white;
-                font-size: 10px;
+                background: #aaa;
+                color: #fff;
                 padding: 2px 8px;
                 border-radius: 999px;
+                font-size: 10px;
                 display: inline-block;
-                margin-bottom: 4px;
+                margin-bottom: 6px;
             }
 
             .product-name {
@@ -60,98 +62,89 @@
                 margin-bottom: 4px;
             }
 
-            .product-tags {
-                .tag {
-                    background-color: #e6fbf3;
-                    color: #3DCE94;
-                    font-size: 12px;
-                    padding: 2px 8px;
-                    border-radius: 999px;
-                    display: inline-block;
-                    margin-top: 4px;
-                }
+            .product-tags .tag {
+                background-color: #e6fbf3;
+                color: #3DCE94;
+                font-size: 12px;
+                padding: 2px 8px;
+                border-radius: 999px;
+                display: inline-block;
+                margin-top: 4px;
             }
         }
 
         .badges {
+            display: flex;
             flex-direction: column;
-            gap: 4px;
-            padding-top: 4px;
+            gap: 6px;
+
+            .badge-green,
+            .badge-orange {
+                font-size: 10px;
+                padding: 2px 6px;
+                border-radius: 999px;
+                border: 1px solid;
+                display: inline-block;
+                width: fit-content;
+            }
 
             .badge-green {
-                border: 1px solid #3DCE94;
                 color: #3DCE94;
-                padding: 2px 8px;
-                font-size: 12px;
-                border-radius: 999px;
-                display: inline-block;
+                border-color: #3DCE94;
             }
 
             .badge-orange {
-                border: 1px solid #FFAD5C;
-                color: #FFAD5C;
-                padding: 2px 8px;
-                font-size: 12px;
-                border-radius: 999px;
-                display: inline-block;
+                color: #FFA726;
+                border-color: #FFA726;
             }
         }
 
         .origin-price {
             font-size: 12px;
-            color: #bbb;
+            color: #aaa;
             text-decoration: line-through;
+            margin-top: 4px;
         }
 
         .totals {
-            padding: 16px 24px;
+            text-align: right;
+            padding: 16px 32px;
             font-size: 14px;
             line-height: 1.8;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 2px;
 
-            .totals-row {
+            .total-row {
                 display: flex;
-                justify-content: space-between;
-                width: 160px;
+                justify-content: flex-end;
+                gap: 12px;
+            }
 
-                .label {
-                    color: #333;
-                }
-
-                .value {
-                    color: #000;
-                }
-
-                &.total .value {
-                    color: #3DCE94;
-                    font-weight: bold;
-                }
+            .total-amount {
+                font-weight: bold;
+                font-size: 16px;
+                color: #3DCE94;
             }
 
             .points-earned {
-                margin-top: 4px;
+                align-items: center;
 
-                .value {
-                    color: #3DCE94;
+                .points-value {
                     display: flex;
                     align-items: center;
                     gap: 4px;
-                }
+                    color: #3DCE94;
 
-                .points-icon {
-                    display: inline-flex;
-                    justify-content: center;
-                    align-items: center;
-                    background-color: #3DCE94;
-                    color: white;
-                    width: 16px;
-                    height: 16px;
-                    border-radius: 50%;
-                    font-size: 12px;
-                    font-weight: bold;
+                    .points-icon {
+                        background-color: #3DCE94;
+                        color: white;
+                        font-weight: bold;
+                        border-radius: 50%;
+                        width: 18px;
+                        height: 18px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 12px;
+                    }
                 }
             }
         }
