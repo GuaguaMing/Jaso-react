@@ -61,23 +61,28 @@ body {
   padding: 50px 20px;
   min-height: 80vh;
 }
+
 .question-container .question-left {
   flex: 1;
 }
+
 .question-container .question-left h4 {
   color: #3DCE94;
   font-size: 1.125rem;
   font-weight: bold;
 }
+
 .question-container .question-left h2 {
   font-size: 1.875rem;
   margin-top: 10px;
   color: #2A2324;
 }
+
 .question-container .question-left .options {
   margin-top: 30px;
   justify-content: flex-start;
 }
+
 .question-container .question-left .options .option {
   margin-bottom: 15px;
   padding: 10px 30px;
@@ -88,26 +93,32 @@ body {
   justify-content: flex-start;
   cursor: pointer;
 }
+
 .question-container .question-left .options .option:hover {
   background-color: #3DCE94;
 }
+
 .question-container .question-left .options .option:hover input {
   margin-right: 10px;
 }
+
 .question-container .question-left .title {
   display: flex;
 }
+
 .question-container .question-left .intro-title {
   display: flex;
   font-weight: bold;
   font-size: 2.25rem;
   color: #3DCE94;
 }
+
 .question-container .question-left .intro-question {
   font-size: 1.25rem;
   margin-top: 10px;
   color: #424242;
 }
+
 .question-container .question-left .form-fields .form-group {
   margin-bottom: 20px;
   color: #424242;
@@ -115,11 +126,13 @@ body {
   align-items: baseline;
   padding: 0 2px;
 }
+
 .question-container .question-left .form-fields .form-group label {
   display: flex;
   margin-bottom: 5px;
   width: 5rem;
 }
+
 .question-container .question-left .form-fields .form-group .option {
   padding: 10px 15px;
   background-color: #D9D9D9;
@@ -128,12 +141,15 @@ body {
   align-items: center;
   cursor: pointer;
 }
+
 .question-container .question-left .form-fields .form-group .option:hover {
   background-color: #3DCE94;
 }
+
 .question-container .question-left .form-fields .form-group .option:hover input {
   margin-right: 10px;
 }
+
 .question-container .question-left .form-fields .form-group input,
 .question-container .question-left .form-fields .form-group select {
   width: 100%;
@@ -141,6 +157,7 @@ body {
   border-radius: 5px;
   border: 1px solid #AAA6A8;
 }
+
 .question-container .question-left .form-fields .form-group-1 {
   margin-bottom: 20px;
   color: #424242;
@@ -148,11 +165,13 @@ body {
   align-items: baseline;
   padding: 0 2px;
 }
+
 .question-container .question-left .form-fields .form-group-1 label {
   display: flex;
   margin-bottom: 5px;
   width: 5rem;
 }
+
 .question-container .question-left .form-fields .form-group-1 .option-1 {
   padding: 10px 15px;
   background-color: #D9D9D9;
@@ -161,17 +180,21 @@ body {
   align-items: center;
   cursor: pointer;
 }
+
 .question-container .question-left .form-fields .form-group-1 .option-1:hover {
   background-color: #3DCE94;
 }
+
 .question-container .question-left .form-fields .form-group-1 .option-1:hover input {
   margin-right: 10px;
 }
+
 .question-container .options.horizontal {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
+
 .question-container .option {
   display: flex;
   align-items: center;
@@ -183,13 +206,16 @@ body {
   transition: background-color 0.2s ease;
   font-weight: 500;
 }
+
 .question-container .option input[type=radio] {
   display: none;
 }
+
 .question-container .option:hover {
   background-color: #6dd6a7;
   color: #ffffff;
 }
+
 .question-container .option input[type=radio]:checked + span {
   font-weight: bold;
   background-color: #3DCE94;
@@ -197,10 +223,12 @@ body {
   padding: 4px 12px;
   border-radius: 20px;
 }
+
 .question-container .question-right {
   flex: 0 0 300px;
   text-align: center;
 }
+
 .question-container .question-right img {
   width: 200px;
   max-width: 100%;
@@ -213,6 +241,7 @@ body {
   text-align: center;
   margin: 30px auto 10px;
 }
+
 .navigation-buttons button {
   margin: 0 10px;
   padding: 10px 20px;
@@ -223,6 +252,7 @@ body {
   border-radius: 10px;
   cursor: pointer;
 }
+
 .navigation-buttons button:hover {
   background-color: #6dd6a7;
 }
@@ -235,6 +265,7 @@ body {
   border-radius: 5px;
   overflow: hidden;
 }
+
 .progress-bar .progress {
   height: 100%;
   background-color: #3DCE94;
@@ -266,76 +297,6 @@ body {
   background: #ffffff;
 }
 
-/* 設定網頁背景色與字型 */
-body {
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
-}
-
-/* 設定主要容器的樣式 */
-.container {
-  width: 80%;
-  margin: 24px auto;
-  padding: 20px;
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  font-size: 100px;
-  color: #3ad29f;
-}
-
-.product-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-  gap: 40px;
-}
-
-.product-image img {
-  max-width: 300px;
-  height: auto;
-  border: 4px solid #3ad29f;
-  border-radius: 10px;
-}
-
-.product-info {
-  max-width: 400px;
-}
-
-.product-info h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-.product-info p {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-.product-info button {
-  background-color: #3ad29f;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-}
-
-/* 按鈕樣式 */
-#btn1 {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #3DCE94;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
 button {
   padding: 10px 20px;
   font-size: 16px;
@@ -351,18 +312,123 @@ button:hover {
   background-color: #37b683;
 }
 
-/* 顯示與隱藏內容區域 */
-.content {
-  display: none;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  margin-top: 10px;
+.btn1 {
+  border-radius: 50px;
 }
 
-/* 顯示內容區域 */
-.content.visible {
-  display: block;
+.banner {
+  background-color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.banner .banner-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.banner h1 {
+  color: #3ad29f;
+}
+
+.banner h3 {
+  font-weight: normal;
+}
+
+.product-filter .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.product-filter .title h2 {
+  font-size: 24px;
+}
+
+.product-filter .title .tag-list {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.product-filter .title .tag-list li {
+  padding: 0.5em 1em;
+  border: 1px solid black;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.product-filter .title .tag-list li:hover {
+  background: #f0f0f0;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* 可選，讓小螢幕時換行 */
+}
+
+.col {
+  flex: 1;
+}
+
+.title h2 {
+  margin: 0;
+}
+
+.tag-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+  justify-content: flex-end; /* 標籤靠右對齊 */
+}
+
+.tag-list li {
+  cursor: pointer;
+}
+
+.product-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+}
+
+.product-section .product-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.product-section .product-card .product-image img {
+  width: 100%;
+}
+
+.product-section .product-card .product-info {
+  padding: 20px;
+}
+
+.product-section .product-card .product-info h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.product-section .product-card .product-info p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 16px;
 }
 
 /* Footer */
@@ -651,6 +717,7 @@ footer {
   position: relative;
   width: 100%;
 }
+
 .footer-bg a,
 .footer-bg a:link,
 .footer-bg a:visited,
@@ -667,6 +734,7 @@ footer {
   bottom: 50px;
   z-index: 999;
 }
+
 .back-to-top img {
   width: 100px;
   padding: 0;
@@ -674,6 +742,7 @@ footer {
   height: auto;
   transition: transform 0.3s ease;
 }
+
 .back-to-top img:hover {
   transform: translateY(-5px);
 }
@@ -758,14 +827,17 @@ footer {
   justify-content: center;
   align-items: center;
 }
+
 .footer-slogan span {
   font-size: 5rem;
   font-family: "Noto Sans TC", sans-serif;
 }
+
 .footer-slogan p {
   font-size: 1.25rem;
   font-family: "Noto Sans TC", sans-serif;
 }
+
 .footer-slogan .icon {
   gap: 1rem;
   display: flex;
@@ -792,4 +864,6 @@ footer {
     justify-content: flex-end;
     align-items: center;
   }
-}
+} 
+
+/*# sourceMappingURL=style.css.map */
