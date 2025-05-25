@@ -61,28 +61,23 @@ body {
   padding: 50px 20px;
   min-height: 80vh;
 }
-
 .question-container .question-left {
   flex: 1;
 }
-
 .question-container .question-left h4 {
   color: #3DCE94;
   font-size: 1.125rem;
   font-weight: bold;
 }
-
 .question-container .question-left h2 {
   font-size: 1.875rem;
   margin-top: 10px;
   color: #2A2324;
 }
-
 .question-container .question-left .options {
   margin-top: 30px;
   justify-content: flex-start;
 }
-
 .question-container .question-left .options .option {
   margin-bottom: 15px;
   padding: 10px 30px;
@@ -93,32 +88,26 @@ body {
   justify-content: flex-start;
   cursor: pointer;
 }
-
 .question-container .question-left .options .option:hover {
   background-color: #3DCE94;
 }
-
 .question-container .question-left .options .option:hover input {
   margin-right: 10px;
 }
-
 .question-container .question-left .title {
   display: flex;
 }
-
 .question-container .question-left .intro-title {
   display: flex;
   font-weight: bold;
   font-size: 2.25rem;
   color: #3DCE94;
 }
-
 .question-container .question-left .intro-question {
   font-size: 1.25rem;
   margin-top: 10px;
   color: #424242;
 }
-
 .question-container .question-left .form-fields .form-group {
   margin-bottom: 20px;
   color: #424242;
@@ -126,13 +115,11 @@ body {
   align-items: baseline;
   padding: 0 2px;
 }
-
 .question-container .question-left .form-fields .form-group label {
   display: flex;
   margin-bottom: 5px;
   width: 5rem;
 }
-
 .question-container .question-left .form-fields .form-group .option {
   padding: 10px 15px;
   background-color: #D9D9D9;
@@ -141,15 +128,12 @@ body {
   align-items: center;
   cursor: pointer;
 }
-
 .question-container .question-left .form-fields .form-group .option:hover {
   background-color: #3DCE94;
 }
-
 .question-container .question-left .form-fields .form-group .option:hover input {
   margin-right: 10px;
 }
-
 .question-container .question-left .form-fields .form-group input,
 .question-container .question-left .form-fields .form-group select {
   width: 100%;
@@ -157,7 +141,6 @@ body {
   border-radius: 5px;
   border: 1px solid #AAA6A8;
 }
-
 .question-container .question-left .form-fields .form-group-1 {
   margin-bottom: 20px;
   color: #424242;
@@ -165,13 +148,11 @@ body {
   align-items: baseline;
   padding: 0 2px;
 }
-
 .question-container .question-left .form-fields .form-group-1 label {
   display: flex;
   margin-bottom: 5px;
   width: 5rem;
 }
-
 .question-container .question-left .form-fields .form-group-1 .option-1 {
   padding: 10px 15px;
   background-color: #D9D9D9;
@@ -180,21 +161,17 @@ body {
   align-items: center;
   cursor: pointer;
 }
-
 .question-container .question-left .form-fields .form-group-1 .option-1:hover {
   background-color: #3DCE94;
 }
-
 .question-container .question-left .form-fields .form-group-1 .option-1:hover input {
   margin-right: 10px;
 }
-
 .question-container .options.horizontal {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
-
 .question-container .option {
   display: flex;
   align-items: center;
@@ -206,16 +183,13 @@ body {
   transition: background-color 0.2s ease;
   font-weight: 500;
 }
-
 .question-container .option input[type=radio] {
   display: none;
 }
-
 .question-container .option:hover {
   background-color: #6dd6a7;
   color: #ffffff;
 }
-
 .question-container .option input[type=radio]:checked + span {
   font-weight: bold;
   background-color: #3DCE94;
@@ -223,12 +197,10 @@ body {
   padding: 4px 12px;
   border-radius: 20px;
 }
-
 .question-container .question-right {
   flex: 0 0 300px;
   text-align: center;
 }
-
 .question-container .question-right img {
   width: 200px;
   max-width: 100%;
@@ -241,7 +213,6 @@ body {
   text-align: center;
   margin: 30px auto 10px;
 }
-
 .navigation-buttons button {
   margin: 0 10px;
   padding: 10px 20px;
@@ -252,7 +223,6 @@ body {
   border-radius: 10px;
   cursor: pointer;
 }
-
 .navigation-buttons button:hover {
   background-color: #6dd6a7;
 }
@@ -265,7 +235,6 @@ body {
   border-radius: 5px;
   overflow: hidden;
 }
-
 .progress-bar .progress {
   height: 100%;
   background-color: #3DCE94;
@@ -307,7 +276,6 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 button:hover {
   background-color: #37b683;
 }
@@ -321,16 +289,14 @@ button:hover {
   padding: 60px 20px;
   text-align: center;
 }
-
 .banner .banner-content {
   max-width: 800px;
   margin: 0 auto;
 }
-
 .banner h1 {
-  color: #3ad29f;
+  color: #3DCE94;
+  font-size: 3rem;
 }
-
 .banner h3 {
   font-weight: normal;
 }
@@ -341,11 +307,9 @@ button:hover {
   align-items: center;
   flex-wrap: wrap;
 }
-
 .product-filter .title h2 {
   font-size: 24px;
 }
-
 .product-filter .title .tag-list {
   display: flex;
   gap: 1rem;
@@ -353,7 +317,6 @@ button:hover {
   margin: 0;
   padding: 0;
 }
-
 .product-filter .title .tag-list li {
   padding: 0.5em 1em;
   border: 1px solid black;
@@ -361,7 +324,6 @@ button:hover {
   cursor: pointer;
   transition: background 0.3s;
 }
-
 .product-filter .title .tag-list li:hover {
   background: #f0f0f0;
 }
@@ -401,7 +363,6 @@ button:hover {
   gap: 40px;
   padding: 40px;
 }
-
 .product-section .product-card {
   display: flex;
   flex-direction: column;
@@ -411,20 +372,16 @@ button:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
-
 .product-section .product-card .product-image img {
   width: 100%;
 }
-
 .product-section .product-card .product-info {
   padding: 20px;
 }
-
 .product-section .product-card .product-info h2 {
   font-size: 20px;
   margin-bottom: 10px;
 }
-
 .product-section .product-card .product-info p {
   font-size: 14px;
   line-height: 1.6;
@@ -717,7 +674,6 @@ footer {
   position: relative;
   width: 100%;
 }
-
 .footer-bg a,
 .footer-bg a:link,
 .footer-bg a:visited,
@@ -734,7 +690,6 @@ footer {
   bottom: 50px;
   z-index: 999;
 }
-
 .back-to-top img {
   width: 100px;
   padding: 0;
@@ -742,7 +697,6 @@ footer {
   height: auto;
   transition: transform 0.3s ease;
 }
-
 .back-to-top img:hover {
   transform: translateY(-5px);
 }
@@ -827,17 +781,14 @@ footer {
   justify-content: center;
   align-items: center;
 }
-
 .footer-slogan span {
   font-size: 5rem;
   font-family: "Noto Sans TC", sans-serif;
 }
-
 .footer-slogan p {
   font-size: 1.25rem;
   font-family: "Noto Sans TC", sans-serif;
 }
-
 .footer-slogan .icon {
   gap: 1rem;
   display: flex;
@@ -864,6 +815,6 @@ footer {
     justify-content: flex-end;
     align-items: center;
   }
-} 
+}
 
 /*# sourceMappingURL=style.css.map */

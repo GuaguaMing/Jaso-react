@@ -13,3 +13,10 @@ document.querySelectorAll("[data-target]").forEach(btn => {
     document.getElementById(targetId).classList.toggle("visible");
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const likeBtn = document.querySelector(".like-btn");
+  likeBtn.addEventListener("click", function () {
+    likeBtn.classList.toggle("active");
+  });
+});
