@@ -1,112 +1,274 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>素購</title>
   <link rel="stylesheet" href="./css/style.min.css" />
 </head>
+
 <body>
 
-  <!-- 網站導覽列 -->
-  <header>
-    <!-- TODO: 加上 logo、主選單 -->
+  <header class="main-navbar">
+    <div class="navbar-container">
+      <!-- 左側 logo -->
+      <div class="navbar-left">
+        <img src="./assets/img/nav-logo.svg" alt="Jaso Logo" class="navbar-logo" />
+      </div>
+
+      <!-- 中間導覽連結 -->
+      <div class="navbar-center">
+        <nav class="navbar-links">
+          <a href="#" class="nav-link">食物庫</a>
+          <a href="#" class="nav-link">素食知識</a>
+          <a href="#" class="nav-link">營養素算</a>
+        </nav>
+      </div>
+
+      <!-- 右側會員與購物按鈕 -->
+      <div class="navbar-right">
+        <div class="member">會員</div>
+        <div class="bean-shape">
+          <div class="go-to-shop">素購</div>
+        </div>
+      </div>
+    </div>
   </header>
+  <!-- 隱藏式導覽列 -->
+  <div class="nav-hidden">
+    <div class="logo" href="./article-main.html"><img src="./assets/img/nav-logo.svg" alt="">
+    </div>
+    <div class="navbar">
+      <div class="nav-center">
+        <nav class="navbar-links">
+          <a href="#" class="nav-link">食物庫</a>
+          <a href="#" class="nav-link">素食知識</a>
+          <a href="#" class="nav-link">營養素算</a>
+        </nav>
+      </div>
+      <div class="nav-right">
+        <div class="member">會員</div>
+        <div class="bean-shape">
+          <div class="go-to-shop">素購</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Banner 區塊 -->
-  <section class="banner">
-    <div class="banner-content">
-      <h1>Vegan Care.</h1>
-      <h3>素食者需要的，我們都精挑細選。</h3>
-      <button class="btn1">馬上速購</button>
+  <section class="shop_banner">
+    <div class="shop_banner-content">
+      <h1 class="shop_h1">Vegan Care.</h1>
+      <h3 class="shop_h3">素食者需要的，我們都精挑細選。</h3>
+      <button class="shop_button shop_btn1">馬上速購</button>
     </div>
   </section>
 
- <!-- 熱銷產品選單區 -->
-  <section class="product-filter">
-    <div class="title">
-      <h2>熱銷產品</h2>
-      <ul class="tag-list">
-        <li>全部</li>
-        <li>全素</li>
-        <li>蛋奶素</li>
-        <li>五辛素</li>
-        <li>海鮮素</li>
+  <!-- 熱銷產品選單區 -->
+  <section class="shop_product-filter">
+    <div class="shop_title">
+      <h2 class="shop_h2">熱銷產品</h2>
+      <ul class="shop_tag-list">
+        <li class="shop_li">全部</li>
+        <li class="shop_li">全素</li>
+        <li class="shop_li">蛋奶素</li>
+        <li class="shop_li">五辛素</li>
+        <li class="shop_li">海鮮素</li>
       </ul>
     </div>
   </section>
 
   <!-- 熱銷產品清單 -->
-  <section class="product-section">
-    <!-- 單一產品卡片 -->
-    <article class="product-card">
-      <div class="product-image">
-        <img src="../shop/img/jaso-medicine_Ca.png" alt="鈣質" />
-      </div>
-      <div class="product-info">
-        <h6>素食/全素者</h6>
-        <h6>強健骨骼</h6>
-        <h2>鈣心定植物鈣｜藻鈣＋D3雙效配方</h2>
-        <p>牙齒變得敏感？站久了膝蓋容易痠？<br>......</p>
-        <button>看完整產品內容 ></button>
-      </div>
-    </article>
+  <section class="shop_product-section">
 
-        <!-- 單一產品卡片 -->
-    <article class="product-card">
-      <div class="product-image">
-        <img src="../shop/img/jaso-medicine_Ca.png" alt="鈣質" />
-      </div>
-      <div class="product-info">
-        <h6>素食/全素者</h6>
-        <h6>強健骨骼</h6>
-        <h2>鈣心定植物鈣｜藻鈣＋D3雙效配方</h2>
-        <p>牙齒變得敏感？站久了膝蓋容易痠？<br>......</p>
-        <button>看完整產品內容 ></button>
-      </div>
-    </article>
-        <!-- 單一產品卡片 -->
-    <article class="product-card">
-      <div class="product-image">
-        <img src="../shop/img/jaso-medicine_Ca.png" alt="鈣質" />
-      </div>
-      <div class="product-info">
-        <h6>素食/全素者</h6>
-        <h6>強健骨骼</h6>
-        <h2>鈣心定植物鈣｜藻鈣＋D3雙效配方</h2>
-        <p>牙齒變得敏感？站久了膝蓋容易痠？<br>......</p>
-        <button>看完整產品內容 ></button>
-      </div>
-    </article>
-        <!-- 單一產品卡片 -->
-    <article class="product-card">
-      <div class="product-image">
-        <img src="../shop/img/jaso-medicine_Ca.png" alt="鈣質" />
-      </div>
-      <div class="product-info">
-        <h6>素食/全素者</h6>
-        <h6>強健骨骼</h6>
-        <h2>鈣心定植物鈣｜藻鈣＋D3雙效配方</h2>
-        <p>牙齒變得敏感？站久了膝蓋容易痠？<br>......</p>
-        <button>看完整產品內容 ></button>
-      </div>
-    </article>
-        <!-- 單一產品卡片 -->
-    <article class="product-card">
-      <div class="product-image">
-        <img src="../shop/img/jaso-medicine_Ca.png" alt="鈣質" />
-      </div>
-      <div class="product-info">
-        <h6>素食/全素者</h6>
-        <h6>強健骨骼</h6>
-        <h2>鈣心定植物鈣｜藻鈣＋D3雙效配方</h2>
-        <p>牙齒變得敏感？站久了膝蓋容易痠？<br>......</p>
-        <button>看完整產品內容 ></button>
-      </div>
-    </article>
 
-  </section>
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-<script src="./js/shop1.js"></script>
+    <!-- 素清單區塊 -->
+    <div class="tab-content active" id="favorites">
+      <div class="product-list">
+
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="./shop/img/jaso-medicine_Ca.png" alt="產品1" class="product-image" />
+          </div>
+
+          <div class="product-meta">
+            <div class="product-tags">
+              <span class="tag">手腳冰冷</span>
+              <span class="tag">手腳冰冷</span>
+            </div>
+            <div class="product-icon">
+              <button class="cart-btn" aria-label="加入購物車"></button>
+              <button class="like-btn" aria-label="加入收藏"></button>
+            </div>
+          </div>
+
+          <div class="product-title">鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span></div>
+          <div class="product-desc">骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...</div>
+          <a href="#" class="product-link">
+            <span class="arrow">&gt;</span>
+            <span class="text">看完整產品內容</span></a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="./shop/img/jaso-medicine_Ca.png" alt="產品1" class="product-image" />
+          </div>
+
+          <div class="product-meta">
+            <div class="product-tags">
+              <span class="tag">手腳冰冷</span>
+              <span class="tag">手腳冰冷</span>
+            </div>
+            <div class="product-icon">
+              <button class="cart-btn" aria-label="加入購物車"></button>
+              <button class="like-btn" aria-label="加入收藏"></button>
+            </div>
+          </div>
+
+          <div class="product-title">鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span></div>
+          <div class="product-desc">骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...</div>
+          <a href="#" class="product-link">
+            <span class="arrow">&gt;</span>
+            <span class="text">看完整產品內容</span></a>
+        </div>
+
+<div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="./shop/img/jaso-medicine_Ca.png" alt="產品1" class="product-image" />
+          </div>
+
+          <div class="product-meta">
+            <div class="product-tags">
+              <span class="tag">手腳冰冷</span>
+              <span class="tag">手腳冰冷</span>
+            </div>
+            <div class="product-icon">
+              <button class="cart-btn" aria-label="加入購物車"></button>
+              <button class="like-btn" aria-label="加入收藏"></button>
+            </div>
+          </div>
+
+          <div class="product-title">鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span></div>
+          <div class="product-desc">骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...</div>
+          <a href="#" class="product-link">
+            <span class="arrow">&gt;</span>
+            <span class="text">看完整產品內容</span></a>
+        </div>
+
+<div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="./shop/img/jaso-medicine_Ca.png" alt="產品1" class="product-image" />
+          </div>
+
+          <div class="product-meta">
+            <div class="product-tags">
+              <span class="tag">手腳冰冷</span>
+              <span class="tag">手腳冰冷</span>
+            </div>
+            <div class="product-icon">
+              <button class="cart-btn" aria-label="加入購物車"></button>
+              <button class="like-btn" aria-label="加入收藏"></button>
+            </div>
+          </div>
+
+          <div class="product-title">鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span></div>
+          <div class="product-desc">骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...</div>
+          <a href="#" class="product-link">
+            <span class="arrow">&gt;</span>
+            <span class="text">看完整產品內容</span></a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="./shop/img/jaso-medicine_Ca.png" alt="產品1" class="product-image" />
+          </div>
+
+          <div class="product-meta">
+            <div class="product-tags">
+              <span class="tag">手腳冰冷</span>
+              <span class="tag">手腳冰冷</span>
+            </div>
+            <div class="product-icon">
+              <button class="cart-btn" aria-label="加入購物車"></button>
+              <button class="like-btn" aria-label="加入收藏"></button>
+            </div>
+          </div>
+
+          <div class="product-title">鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span></div>
+          <div class="product-desc">骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...</div>
+          <a href="#" class="product-link">
+            <span class="arrow">&gt;</span>
+            <span class="text">看完整產品內容</span></a>
+        </div>
+
+        
+      </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="footer-container">
+      <div class="footer-content">
+        <!-- 主標題和副標題區塊 -->
+        <div class="footer-main">
+          <p class="footer-main-heading">專屬於你的 <br>營養報告</p>
+        </div>
+        <div class="footer-Jaso">
+          <p class="footer-jaso1">JASO+素</p>
+          <p class="footer-jaso2">素食營養專家 | 健康素食新選擇</p>
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <img src="./icons/img/j_community_ins-bright.svg" alt="Instagram" class="social-icon">
+            </a>
+            <a href="#" class="social-link">
+              <img src="./icons/img/j_community_fb-bright.svg" alt="Facebook" class="social-icon">
+
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- 副標題 -->
+      <div class="footer-section">
+        <div>
+          <p class="footer-heading">認識JASO+素</p>
+          <ul>
+            <li><a href="#">關於我們</a></li>
+            <li><a href="#">活動資訊</a></li>
+            <li><a href="#">最新消息</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer-heading">購物須知</p>
+          <ul>
+            <li><a href="#">如何訂購</a></li>
+            <li><a href="#">退換政策</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer-heading">客戶須知</p>
+          <ul>
+            <li><a href="#">服務條款</a></li>
+            <li><a href="#">隱私權政策</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer-heading">客服中心</p>
+          <ul>
+            <li><a href="#">線上客服</a></li>
+            <li><a href="#">常見問題</a></li>
+          </ul>
+        </div>
+      </div>
+
+      </div>
+
+      <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+      <script src="./js/shop1.js"></script>
 </body>
+
 </html>
