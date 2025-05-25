@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+
+// import React, { useState } from "react";
 import styles from "../css/quiz.module.scss";
-import LoadingPage from "./LoadingPage";
 import { useNavigate } from "react-router-dom";
+
 
 
 const questions = [
@@ -65,7 +69,7 @@ const questions = [
     options: ["每天都有", "有時候", "很少"],
     image: "/assets/tofu.svg",
   },
-    {
+  {
     title: "飲食習慣",
     question: "你是否有日曬或補充維生素D（如維D強化植物奶、曬太陽10分鐘以上）？",
     options: ["每天都有", "有時候", "很少"],
@@ -102,6 +106,11 @@ const questions = [
 ];
 
 const Quiz = () => {
+  const navigate = useNavigate();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSubmitButton, setShowSubmitButton] = useState(false);
+
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
 
@@ -115,31 +124,26 @@ const Quiz = () => {
   };
 
   const handleChange = (name, value) => {
-  setAnswers((prev) => ({ ...prev, [name]: value }));
-};
+    setAnswers((prev) => ({ ...prev, [name]: value }));
+  };
 
-  const handleRadioChange = (qIdx, value) => {
-  setAnswers((prev) => ({ ...prev, [qIdx]: value }));
+  const handleRadioClick = (qIdx, value) => {
+    setAnswers((prev) => ({ ...prev, [qIdx]: value }));
 
-  if (questions[qIdx].type !== "form") {
-    if (qIdx === questions.length - 1) {
-      // ✅ 是最後一題且有選答案，顯示提交按鈕
-      setShowSubmitButton(true);
-    } else {
-      setTimeout(() => {
-        setCurrentQuestion(qIdx + 1);
-      }, 200);
+    if (questions[qIdx].type !== "form") {
+      if (qIdx === questions.length - 1) {
+        // ✅ 是最後一題且有選答案，顯示提交按鈕
+        setShowSubmitButton(true);
+      } else {
+        setTimeout(() => {
+          setCurrentQuestion(qIdx + 1);
+        }, 200);
+        
+      }
     }
-  }
-};
+  };
 
-
-const navigate = useNavigate();
-
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showSubmitButton, setShowSubmitButton] = useState(false);
-
+  
 
   const [dropdownOpen, setDropdownOpen] = useState({});
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -150,21 +154,127 @@ const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
 
 
+  // const next = () => {
+  //   if (currentQuestion < questions.length - 1) {
+  //     setCurrentQuestion(currentQuestion + 1);
+  //   } else {
+  //     // 到最後一題，執行提交或跳轉
+  //     console.log("問卷完成", answers);
+  //     // 你可以改成跳轉頁面
+  //     window.location.href = "/Result"; // 或呼叫 API 等
+  //   }
+  // };
   const next = () => {
+    if (questions[currentQuestion].type === "form") {
+      const requiredFields = questions[currentQuestion].fields.map(f => f.name);
+      const isAllFilled = requiredFields.every(field => answers[field] !== undefined && answers[field] !== "");
+  
+      if (!isAllFilled) {
+        alert("請填入全部欄位");
+        return;
+      }
+    }
+  
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      // 到最後一題，執行提交或跳轉
       console.log("問卷完成", answers);
-      // 你可以改成跳轉頁面
-      window.location.href = "/result"; // 或呼叫 API 等
+      navigate("/result", { state: { answers } }); // 假設你用的是 React Router 的 navigate
     }
   };
+  
+  const handleSubmit = () => {
+    setIsSubmitting(true); // 顯示 Loading 畫面
+
+    const { gender, age, height, weight, activity } = answers;
+
+    // 計算 BMI
+    const bmi = (weight / ((height / 100) ** 2)).toFixed(1);
+
+    // 計算 BMR
+    const bmr =
+      gender === "男"
+        ? 66 + 13.7 * weight + 5 * height - 6.8 * age
+        : 655 + 9.6 * weight + 1.8 * height - 4.7 * age;
+
+    // 活動係數
+    const activityFactors = {
+      "幾乎不動": 1.2,
+      "輕度": 1.375,
+      "中度": 1.55,
+      "高度": 1.725,
+    };
+
+    const tdee = Math.round(bmr * activityFactors[activity]);
+
+    // 六題 radar chart 分數（第 2~7 題）
+    const radarKeys = ["蛋白質", "維生素B12", "鐵", "Omega-3", "維生素C", "維生素D"];
+    const radarScores = {};
+    radarKeys.forEach((key, i) => {
+      const value = answers[i + 2];
+      radarScores[key] =
+        value === "每天都有" ? 10 : value === "有時候" ? 6 : 2;
+    });
+
+    // 四題症狀選項（第 8~11 題）
+    const conditions = {
+      fatigue: answers[8] === "是",
+      headache: answers[9] === "是",
+      constipation: answers[10] === "是",
+      cramp: answers[11] === "是",
+    };
+
+    // 模擬轉場 delay
+    setTimeout(() => {
+      navigate("/result", {
+        state: {
+          bmi,
+          bmr: Math.round(bmr),
+          tdee,
+          radarScores,
+          conditions,
+        },
+      });
+    }, 3000); // 根據動畫時間可調整
+  };
+
 
   const prev = () => {
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1);
     }
+  };
+  // ✅ LoadingPage 元件：臉左右切換 + 跳動小點點動畫
+  const LoadingPage = () => {
+    const [isLeft, setIsLeft] = useState(true);
+    const [dotCount, setDotCount] = useState(1);
+
+    useEffect(() => {
+      const faceInterval = setInterval(() => {
+        setIsLeft(prev => !prev);
+      }, 600);
+
+      const dotInterval = setInterval(() => {
+        setDotCount(prev => (prev % 3) + 1);
+      }, 400);
+
+      return () => {
+        clearInterval(faceInterval);
+        clearInterval(dotInterval);
+      };
+    }, []);
+
+    return (
+      <div className={styles.loadingContainer}>
+        <img
+          src={isLeft ? "/assets/loading-face-2.svg" : "/assets/loading-face.svg"}
+          alt="loading face"
+          className={styles.faceImage}
+        />
+        <p className={styles.text}>測驗結果生成中{'.'.repeat(dotCount)}</p>
+        <p className={styles.subtext}>請稍等一下哦</p>
+      </div>
+    );
   };
 
   const renderQuestion = () => {
@@ -234,13 +344,16 @@ const navigate = useNavigate();
                       <label className={styles["field-label"]}>{field.label}</label>
                       <div className={styles["option-group"]}>
                         {field.options.map((opt) => (
-                          <label key={opt} className={styles["option-1"]}>
+                              <label key={opt} className={`${styles["option-1"]} 
+                              ${answers[field.name] === opt ? styles.selected : ''}`}>
                             <input
                               type="radio"
                               name={field.name}
                               value={opt}
                               checked={answers[field.name] === opt}
-                              onChange={() => handleRadioChange(currentQuestion, opt)}
+                              onChange={() => handleChange(field.name, opt)}
+
+                            // onChange={() => handleRadioChange(currentQuestion, opt)}
                             />
                             {opt}
                           </label>
@@ -249,6 +362,7 @@ const navigate = useNavigate();
                       </div>
                     </div>
                   );
+
                 } else if (field.type === "select") {
                   return (
                     <div key={idx}>
@@ -350,14 +464,17 @@ const navigate = useNavigate();
           <div className={styles.options}>
             {q.options.map((opt, i) => (
 
-              <label key={i} className={styles.option}>
+              <label key={i}
+              className={`${styles.option} 
+              ${answers[currentQuestion] === opt ? styles.selected : ''}`}>
+                
 
                 <input
                   type="radio"
                   name={`q${currentQuestion}`}
                   value={opt}
                   checked={answers[currentQuestion] === opt}
-                  onChange={() => handleRadioChange(currentQuestion, opt)}
+                  onClick={() => handleRadioClick(currentQuestion, opt)}
                 />
                 {opt}
               </label>
@@ -373,56 +490,26 @@ const navigate = useNavigate();
     );
   };
 
-
-
+  if (isSubmitting) {
+    return <LoadingPage />;
+  }
   return (
     <div className={styles.quizContainer}>
       {/* 問題內容 */}
       {renderQuestion()}
-    
-      {/* {showSubmitButton && (
-  isSubmitting ? (
-    <LoadingPage />
-  ) : (
-    <div className={styles.navigationButtons}>
-      <button
-        onClick={() => {
-          setIsSubmitting(true);
-          setTimeout(() => {
-            window.location.href = "/Result";
-          }, 2000); // 需要的秒數
-        }}
-         disabled={isSubmitting}
-          
-      >
-        提交
-      </button>
-    </div>
-  )
-)} */}
-{showSubmitButton && (
-  <div className={styles.navigationButtons}>
-    {isSubmitting ? (
-      <LoadingPage />
-    ) : (
-      <button
-        onClick={() => {
-          setIsSubmitting(true);
-          setTimeout(() => {
-    navigate("/Result");
-
-          }, 2000);
-        }}
-        disabled={isSubmitting}
-      >
-        提交
-      </button>
-    )}
-  </div>
-)}
-
-
-
+      {showSubmitButton && (
+        <div className={styles.navigationButtons}>
+          {isSubmitting ? (
+            <LoadingPage />
+          ) : (
+            <button
+              onClick={handleSubmit} disabled={isSubmitting}
+            >
+              提交
+            </button>
+          )}
+        </div>
+      )}
 
       {questions[currentQuestion].type === "form" && (
         <div className={styles.navigationButtons}>
@@ -444,10 +531,5 @@ const navigate = useNavigate();
       </div>
     </div>
   );
-
 };
-
-
-
-
 export default Quiz;

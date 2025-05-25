@@ -1,127 +1,189 @@
-.result {
-  padding: 2rem 1.5rem;
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
+/* reset CSS */
+* {
+  box-sizing: border-box;
+  /*不要家邊框及內鉅*/
+}
+
+/* reset CSS */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* 重置字體 */
+body {
+  font-family: "Noto Sans TC", sans-serif, sans-serif;
+  background: #ffffff;
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
   font-family: "Noto Sans TC", sans-serif;
-  background: #fff;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+input, select, option {
+  outline: none;
+}
+
+/* result.module.scss */
+.result {
+  margin: 130px auto;
+  padding: 2rem;
+  font-family: "Noto Sans TC", sans-serif;
   color: #333;
+}
+.result .title {
+  color: #000;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 132%; /* 31.68px */
+  letter-spacing: 2.16px;
+}
+.result .subtitle {
+  color: #3DCE94;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 132%; /* 31.68px */
+  letter-spacing: 2.16px;
 }
 .result .header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-.result .header h2 {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 0.5rem;
-}
-.result .header p {
-  font-size: 1rem;
-  color: #3CB371;
+  text-align: left;
+  padding-left: 130px;
 }
 .result .radarSection {
-  margin-bottom: 2rem;
+  padding: 5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.result .radarSection .radarChart {
+  padding-left: 8rem;
+  color: #000000;
 }
 .result .radarSection .chartNote {
-  text-align: center;
-  font-size: 0.875rem;
-  color: #666;
   margin-top: 0.5rem;
+  font-size: 10px;
+  color: #666;
+  text-align: left;
 }
-.result .summary {
-  margin-bottom: 2rem;
+.result .radarSection img {
+  width: 240px;
 }
 .result .summary h3 {
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #2c8f5b;
+}
+.result .summary .barGroup {
   margin-bottom: 1rem;
 }
 .result .summary .barGroup label {
   display: block;
-  font-size: 0.9rem;
+  font-weight: bold;
   margin-bottom: 0.25rem;
 }
 .result .summary .barGroup .bar {
-  width: 100%;
-  height: 18px;
-  background: #eee;
-  border-radius: 9px;
-  margin-bottom: 1rem;
+  background-color: #eee;
+  border-radius: 10px;
   overflow: hidden;
+  margin-bottom: 0.5rem;
 }
-.result .summary .barGroup .bar div {
-  background: #3CB371;
-  height: 100%;
+.result .summary .barGroup .bar .fill {
+  background-color: #3cb371;
+  padding: 0.25rem;
+  color: white;
   text-align: right;
-  padding-right: 8px;
-  color: #fff;
-  font-size: 0.85rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  border-radius: 9px;
+}
+.result .summary .protein {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  color: #3cb371;
 }
 .result .nutritionSplit {
-  margin-bottom: 2rem;
+  margin: 2rem 0;
+}
+.result .nutritionSplit h3 {
+  font-size: 1.25rem;
+  color: #2c8f5b;
+  margin-bottom: 0.5rem;
+}
+.result .nutritionSplit p {
   font-size: 1rem;
 }
-.result .nutritionSplit strong {
-  color: #3CB371;
-}
-.result .productList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 2rem;
+.result .productList h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
 }
 .result .productList .card {
-  width: 32%;
-  background: #f9f9f9;
-  border-radius: 16px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
   padding: 1rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem;
   text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .result .productList .card img {
-  width: 100%;
-  max-height: 160px;
-  object-fit: contain;
-  margin-bottom: 0.75rem;
+  width: 100px;
+  margin-bottom: 1rem;
 }
 .result .productList .card h4 {
-  color: #3CB371;
-  font-weight: bold;
+  color: #2c8f5b;
   font-size: 1rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 .result .productList .card p {
-  font-size: 0.9rem;
-  color: #555;
+  font-size: 0.95rem;
 }
 .result .actions {
   display: flex;
   justify-content: center;
   gap: 1rem;
+  margin-top: 2rem;
 }
-.result .actions button {
-  padding: 0.6rem 1.5rem;
-  font-size: 1rem;
+.result .actions .retry,
+.result .actions .share {
+  background-color: #6dd6a7;
+  color: white;
   border: none;
-  border-radius: 999px;
+  border-radius: 20px;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background-color 0.3s;
+}
+.result .actions .retry:hover,
+.result .actions .share:hover {
+  background-color: #3DCE94;
+  color: #ffffff;
 }
 .result .actions .retry {
-  background: #ccc;
-  color: #333;
+  background-color: #AAA6A8;
+  color: #ffffff;
 }
 .result .actions .retry:hover {
-  background: #bbb;
-}
-.result .actions .share {
-  background: #3CB371;
-  color: #fff;
-}
-.result .actions .share:hover {
-  background: #2e9e60;
+  background-color: #909090;
+  color: #ffffff;
 }

@@ -1,118 +1,158 @@
+@use "sass:map";
+@use "../../../scss/variable/var-color" as *;
+@use "../../../scss/variable/var-font" as *;
+@use "../../../scss/function/reset";
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
+
+/* result.module.scss */
+
 .result {
-  padding: 2rem 1.5rem;
-  font-family: 'Noto Sans TC', sans-serif;
-  background: #fff;
+
+  margin: 130px auto;
+  padding: 2rem;
+  font-family: "Noto Sans TC", sans-serif;
   color: #333;
+  // result.module.scss
+.title {
+  color: #000;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 132%; /* 31.68px */
+  letter-spacing: 2.16px;
+}
+.subtitle {
+  color: #3DCE94;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 132%; /* 31.68px */
+  letter-spacing: 2.16px;
+}
+
+
+  // h2 {
+  //   font-size: 1.75rem;
+  //   margin-bottom: 0.5rem;
+  //   color: #3cb371;
+  // }
+
+  // p {
+  //   font-size: 1rem;
+  //   margin-bottom: 1rem;
+  // }
 
   .header {
-    text-align: center;
-    margin-bottom: 2rem;
+    text-align:left;
+    padding-left: 130px;
 
-    h2 {
+  }
+
+  .radarSection {
+    padding: 5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  
+    .radarChart {
+      padding-left: 8rem;
+      color: #000000;
+
+    }
+    .chartNote {
+      margin-top: 0.5rem;
+      font-size: 10px;
+      color: #666;
+      text-align: left;
+
+    }
+    img {
+      width: 240px;
+    }
+  }
+  
+
+  .summary {
+    h3 {
       font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: #2c8f5b;
+    }
+
+    .barGroup {
+      margin-bottom: 1rem;
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 0.25rem;
+      }
+
+      .bar {
+        background-color: #eee;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 0.5rem;
+
+        .fill {
+          background-color: #3cb371;
+          padding: 0.25rem;
+          color: white;
+          text-align: right;
+        }
+      }
+    }
+
+    .protein {
+      font-size: 1rem;
       font-weight: bold;
-      color: #333;
+      margin-top: 1rem;
+      color: #3cb371;
+    }
+  }
+
+  .nutritionSplit {
+    margin: 2rem 0;
+
+    h3 {
+      font-size: 1.25rem;
+      color: #2c8f5b;
       margin-bottom: 0.5rem;
     }
 
     p {
       font-size: 1rem;
-      color: #3CB371;
-    }
-  }
-
-  .radarSection {
-    margin-bottom: 2rem;
-
-    .chartNote {
-      text-align: center;
-      font-size: 0.875rem;
-      color: #666;
-      margin-top: 0.5rem;
-    }
-  }
-
-  .summary {
-    margin-bottom: 2rem;
-
-    h3 {
-      font-size: 1rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-    }
-
-    .barGroup {
-      label {
-        display: block;
-        font-size: 0.9rem;
-        margin-bottom: 0.25rem;
-      }
-
-      .bar {
-        width: 100%;
-        height: 18px;
-        background: #eee;
-        border-radius: 9px;
-        margin-bottom: 1rem;
-        overflow: hidden;
-
-        div {
-          background: #3CB371;
-          height: 100%;
-          text-align: right;
-          padding-right: 8px;
-          color: #fff;
-          font-size: 0.85rem;
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          border-radius: 9px;
-        }
-      }
-    }
-  }
-
-  .nutritionSplit {
-    margin-bottom: 2rem;
-    font-size: 1rem;
-
-    strong {
-      color: #3CB371;
     }
   }
 
   .productList {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
 
     .card {
-      width: 32%;
-      background: #f9f9f9;
-      border-radius: 16px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
       padding: 1rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      margin-bottom: 1rem;
       text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
       img {
-        width: 100%;
-        max-height: 160px;
-        object-fit: contain;
-        margin-bottom: 0.75rem;
+        width: 100px;
+        margin-bottom: 1rem;
       }
 
       h4 {
-        color: #3CB371;
-        font-weight: bold;
+        color: #2c8f5b;
         font-size: 1rem;
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.5rem;
       }
 
       p {
-        font-size: 0.9rem;
-        color: #555;
+        font-size: 0.95rem;
       }
     }
   }
@@ -121,32 +161,37 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
+    margin-top: 2rem;
 
-    button {
-      padding: 0.6rem 1.5rem;
-      font-size: 1rem;
+    .retry,
+    .share {
+      background-color: $color-primary-light1;
+
+      color: white;
       border: none;
-      border-radius: 999px;
+      border-radius: 20px;
+      padding: 0.5rem 1.5rem;
+      font-size: 1rem;
       cursor: pointer;
-      transition: background 0.2s ease;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+      }
     }
 
     .retry {
-      background: #ccc;
-      color: #333;
+      background-color: $color-gray;
+      color: $color-white;
+
 
       &:hover {
-        background: #bbb;
-      }
-    }
+        background-color: $color-level2;
+        color: $color-white;
 
-    .share {
-      background: #3CB371;
-      color: #fff;
 
-      &:hover {
-        background: #2e9e60;
-      }
     }
   }
+}
 }

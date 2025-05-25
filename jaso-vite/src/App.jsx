@@ -1,38 +1,18 @@
-// // src/App.jsx
-// import React from 'react';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import Quiz from './pages/Quiz';
-
-
-// function App() {
-//   return (
-//     <Router>
-//       <Routes>
-//         <Route path="/" element={<Quiz />} />
-//         <Route path="/result" element={<Result />} />
-//       </Routes>
-//     </Router>
-//   );
-// }
-
-// export default App;
-
-// src/App.jsx
-import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Quiz from './pages/Quiz';
+import Result from './pages/Result';
 import Navbar from './components/Navbar';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <Navbar />
-      <Quiz />
-
+      <Routes>
+        <Route path="/" element={<Quiz />} />
+        <Route path="/result" element={<Result />} />
+      </Routes>
     </>
   );
-
 }
 
 export default App;
