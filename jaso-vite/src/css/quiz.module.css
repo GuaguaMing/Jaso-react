@@ -277,11 +277,6 @@ input, select, option {
   flex: 0 0 300px;
   text-align: center;
 }
-.questionContainer .questionRight img {
-  width: 200px;
-  max-width: 100%;
-  height: auto;
-}
 
 .navigationButtons {
   display: flex;
@@ -323,10 +318,6 @@ input, select, option {
 }
 .quizStep.active {
   display: block;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 73ec9058dc6dccc4de78c0fda59f9ca1a743a20a
 }
 
 .loadingContainer {
@@ -368,11 +359,4 @@ input, select, option {
   100% {
     transform: translateY(-6px);
   }
-<<<<<<< HEAD
 }
-=======
-}/*# sourceMappingURL=quiz.module.css.map */
->>>>>>> 24a5e33283b4f243d6ba3db3d0a0d29112178de3
-=======
-}
->>>>>>> 73ec9058dc6dccc4de78c0fda59f9ca1a743a20a
