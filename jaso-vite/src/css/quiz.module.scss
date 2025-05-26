@@ -407,4 +407,32 @@ input::placeholder {
   }
 }
 
+<<<<<<< HEAD
+=======
+// .animationWrapper {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 70vh; // 可調整
+//   animation: fadeInOut 1s ease-in-out;
+// }
+
+// .animationImage {
+//   width: 250px;
+//   height: auto;
+//   animation: pulse 1s ease-in-out;
+// }
+
+// @keyframes fadeInOut {
+//   0% { opacity: 0; transform: scale(0.95); }
+//   50% { opacity: 1; transform: scale(1); }
+//   100% { opacity: 0; transform: scale(0.95); }
+// }
+
+// @keyframes pulse {
+//   0% { transform: scale(1); }
+//   50% { transform: scale(1.1); }
+//   100% { transform: scale(1); }
+// }
+>>>>>>> 73ec9058dc6dccc4de78c0fda59f9ca1a743a20a
 

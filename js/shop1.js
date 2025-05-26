@@ -15,8 +15,11 @@ document.querySelectorAll("[data-target]").forEach(btn => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const likeBtn = document.querySelector(".like-btn");
-  likeBtn.addEventListener("click", function () {
-    likeBtn.classList.toggle("active");
+  const likeBtns = document.querySelectorAll(".like-btn");
+
+  likeBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      btn.classList.toggle("active");
+    });
   });
 });

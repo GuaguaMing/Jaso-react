@@ -30,14 +30,18 @@
 
         .product-info {
             display: flex;
-            align-items: flex-start;
-            gap: 12px;
+            align-items: stretch; // ✅ 讓左右兩側同高
+            gap: 15px;
 
             img {
-                width: 60px;
-                height: 60px;
-                border-radius: 8px;
+                width: 180px;
+                height: auto;
                 object-fit: cover;
+                flex-shrink: 0;
+                // ✅ 讓圖片高度 100% 撐滿 product-info 高度
+                height: 100%;
+                aspect-ratio: 1 / 1;
+                border-radius: 8px;
             }
 
             .order-id {
@@ -48,18 +52,20 @@
                 font-size: 10px;
                 display: inline-block;
                 margin-bottom: 6px;
+                margin-top: 10px;
             }
 
             .product-name {
-                font-weight: 600;
-                font-size: 16px;
-                margin-bottom: 2px;
+                font-weight: 500;
+                font-size: 18px;
+                margin-bottom: 5px;
             }
 
             .product-subtitle {
-                font-size: 12px;
-                color: #666;
+                font-size: 14px;
+                color: #000;
                 margin-bottom: 4px;
+                font-weight: 400;
             }
 
             .product-tags .tag {
@@ -80,7 +86,7 @@
 
             .badge-green,
             .badge-orange {
-                font-size: 10px;
+                font-size: 12px;
                 padding: 2px 6px;
                 border-radius: 999px;
                 border: 1px solid;
@@ -107,47 +113,57 @@
         }
 
         .totals {
-            text-align: right;
-            padding: 16px 32px;
+            max-width: 600px;
+            margin-left: auto;
             font-size: 14px;
-            line-height: 1.8;
+            line-height: 1.6;
+            padding: 24px 20px; // 上下左右都加一些呼吸感
 
-            .total-row {
+            .totals-row {
                 display: flex;
-                justify-content: flex-end;
-                gap: 12px;
+                justify-content: space-between;
+                margin-bottom: 14px;
+
+                .label {
+                    color: #333;
+                    font-weight: 400;
+                    font-size: 16px;
+                }
+
+                .value {
+                    font-weight: 500;
+                    color: #000;
+                    font-size: 16px;
+                    margin-right: 21px;
+                }
             }
 
-            .total-amount {
-                font-weight: bold;
-                font-size: 16px;
+            .total-amount .value {
+                color: #000;
+
+            }
+
+            .points-earned .value {
                 color: #3DCE94;
-            }
-
-            .points-earned {
+                display: flex;
                 align-items: center;
+                gap: 6px;
 
-                .points-value {
+                .points-icon {
+                    background-color: #3DCE94;
+                    color: #fff;
+                    font-weight: 500;
+                    font-size: 14px;
+                    border-radius: 50%;
+                    width: 20px;
+                    height: 20px;
                     display: flex;
                     align-items: center;
-                    gap: 4px;
-                    color: #3DCE94;
-
-                    .points-icon {
-                        background-color: #3DCE94;
-                        color: white;
-                        font-weight: bold;
-                        border-radius: 50%;
-                        width: 18px;
-                        height: 18px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 12px;
-                    }
+                    justify-content: center;
                 }
             }
         }
+
     }
 
     .info-grid {

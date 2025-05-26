@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+<<<<<<< HEAD
 
 
 // import React, { useState } from "react";
+=======
+>>>>>>> 73ec9058dc6dccc4de78c0fda59f9ca1a743a20a
 import styles from "../css/quiz.module.scss";
 import { useNavigate } from "react-router-dom";
 
@@ -41,37 +44,37 @@ const questions = [
   },
   {
     title: "飲食習慣",
-    question: "你每天是否攝取富含蛋白質的食物（豆腐、豆類、堅果等）？",
+    question: "你每天是否有攝取富含蛋白質的食物（豆腐、豆類、堅果等）？",
     options: ["每天都有", "有時候", "很少"],
     image: "/assets/pumpkin.svg",
   },
   {
     title: "飲食習慣",
-    question: "你是否補充維生素B12（透過營養品、強化植物奶或海藻）？",
+    question: "你每天是否有補充維生素B12（營養酵母、強化植物奶或海藻）？",
     options: ["每天都有", "有時候", "很少"],
     image: "/assets/tofu.svg",
   },
   {
     title: "飲食習慣",
-    question: "你每週是否攝取含鐵食物（如黑豆、紅莧菜、南瓜籽）？",
+    question: "你每天是否有攝取含鐵食物（黑豆、紅莧菜、南瓜籽）？",
     options: ["每天都有", "有時候", "很少"],
     image: "/assets/tofu.svg",
   },
   {
     title: "飲食習慣",
-    question: "你是否補充 Omega-3（亞麻仁籽、奇亞籽、海藻油）？",
+    question: "你每天是否有補充 Omega-3（亞麻仁籽、奇亞籽、海藻油）？",
     options: ["每天都有", "有時候", "很少"],
     image: "/assets/tofu.svg",
   },
   {
     title: "飲食習慣",
-    question: "你每天是否有吃富含維生素C的水果（如芭樂、奇異果、柑橘）？",
+    question: "你每天是否有攝取富含鈣質的食物（豆腐、芝麻醬、黑芝麻、芥藍）？",
     options: ["每天都有", "有時候", "很少"],
     image: "/assets/tofu.svg",
   },
   {
     title: "飲食習慣",
-    question: "你是否有日曬或補充維生素D（如維D強化植物奶、曬太陽10分鐘以上）？",
+    question: "你每天是否有日曬或補充維生素D（強化植物奶、曬太陽10分鐘以上）？",
     options: ["每天都有", "有時候", "很少"],
     image: "/assets/tofu.svg",
   },
@@ -105,14 +108,21 @@ const questions = [
   }
 ];
 
+
+
 const Quiz = () => {
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSubmitButton, setShowSubmitButton] = useState(false);
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 73ec9058dc6dccc4de78c0fda59f9ca1a743a20a
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
+  const [playAnimation, setPlayAnimation] = useState(false); // 控制播放動畫
 
   const handleIntroSelection = (value) => {
     if (value.includes("不同意")) {
@@ -127,9 +137,16 @@ const Quiz = () => {
     setAnswers((prev) => ({ ...prev, [name]: value }));
   };
 
+<<<<<<< HEAD
   const handleRadioClick = (qIdx, value) => {
     setAnswers((prev) => ({ ...prev, [qIdx]: value }));
 
+=======
+
+  const handleRadioClick = (qIdx, value) => {
+    setAnswers((prev) => ({ ...prev, [qIdx]: value }));
+
+>>>>>>> 73ec9058dc6dccc4de78c0fda59f9ca1a743a20a
     if (questions[qIdx].type !== "form") {
       if (qIdx === questions.length - 1) {
         // ✅ 是最後一題且有選答案，顯示提交按鈕
@@ -153,6 +170,7 @@ const Quiz = () => {
 
   const [isHovered, setIsHovered] = useState(false);
 
+<<<<<<< HEAD
 
   // const next = () => {
   //   if (currentQuestion < questions.length - 1) {
@@ -164,6 +182,8 @@ const Quiz = () => {
   //     window.location.href = "/Result"; // 或呼叫 API 等
   //   }
   // };
+=======
+>>>>>>> 73ec9058dc6dccc4de78c0fda59f9ca1a743a20a
   const next = () => {
     if (questions[currentQuestion].type === "form") {
       const requiredFields = questions[currentQuestion].fields.map(f => f.name);
@@ -208,7 +228,11 @@ const Quiz = () => {
     const tdee = Math.round(bmr * activityFactors[activity]);
 
     // 六題 radar chart 分數（第 2~7 題）
+<<<<<<< HEAD
     const radarKeys = ["蛋白質", "維生素B12", "鐵", "Omega-3", "維生素C", "維生素D"];
+=======
+    const radarKeys = ["蛋白質", "維生素B12", "鐵", "Omega-3", "鈣", "維生素D"];
+>>>>>>> 73ec9058dc6dccc4de78c0fda59f9ca1a743a20a
     const radarScores = {};
     radarKeys.forEach((key, i) => {
       const value = answers[i + 2];
@@ -278,7 +302,18 @@ const Quiz = () => {
   };
 
   const renderQuestion = () => {
+    
     const q = questions[currentQuestion];
+//     if (playAnimation) {
+//   return (
+//     <div className={styles.animationWrapper}>
+//       <img src={questions[currentQuestion].image}
+//         alt="animation"
+//         className={styles.animationImage}
+//       />
+//     </div>
+//   );
+// }
 
     if (q.type === "intro") {
       return (

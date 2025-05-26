@@ -147,6 +147,7 @@ input, select, option {
 }
 .result .productList .card img {
 <<<<<<< HEAD
+<<<<<<< HEAD
   width: 100px;
   margin-bottom: 1rem;
 =======
@@ -156,6 +157,10 @@ input, select, option {
      object-fit: contain;
   margin-bottom: 0.75rem;
 >>>>>>> 24a5e33283b4f243d6ba3db3d0a0d29112178de3
+=======
+  width: 100px;
+  margin-bottom: 1rem;
+>>>>>>> 73ec9058dc6dccc4de78c0fda59f9ca1a743a20a
 }
 .result .productList .card h4 {
   color: #2c8f5b;
@@ -193,6 +198,7 @@ input, select, option {
 }
 .result .actions .retry:hover {
 <<<<<<< HEAD
+<<<<<<< HEAD
   background-color: #909090;
   color: #ffffff;
 }
@@ -207,3 +213,8 @@ input, select, option {
   background: #2e9e60;
 }/*# sourceMappingURL=result.module.css.map */
 >>>>>>> 24a5e33283b4f243d6ba3db3d0a0d29112178de3
+=======
+  background-color: #909090;
+  color: #ffffff;
+}
+>>>>>>> 73ec9058dc6dccc4de78c0fda59f9ca1a743a20a

@@ -6,7 +6,7 @@ const Navbar = () => {
     <header>
       <div className={styles.navHidden}>
         <a className={styles.logo} href="/article-main.html">
-          <img src="../../public/assets/nav-logo.svg" alt="logo" />
+          <img src="/assets/nav-logo.svg" alt="logo" />
         </a>
         <div className={styles.navbar}>
           <div className={styles.navCenter}>
@@ -18,6 +18,10 @@ const Navbar = () => {
           </div>
           <div className={styles.navRight}>
             <div className={styles.member}>會員</div>
+            <a className={styles.shopList} href="/shop-list.html">
+              <img src="/assets/shop-list.svg" alt="" />
+            </a>
+
             <div className={styles.beanShape}>
               <div className={styles.goToShop}>素購</div>
             </div>

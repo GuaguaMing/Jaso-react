@@ -62,8 +62,7 @@ input, select, option {
   border: 1px solid rgba(200, 200, 200, 0.4);
   background: rgba(226, 226, 226, 0.25);
   box-shadow: 2px 2px 2px 0px rgba(255, 255, 255, 0.25) inset, 1px 5px 5.5px 0px rgba(0, 0, 0, 0.02);
-  -webkit-backdrop-filter: blur(7.5px);
-          backdrop-filter: blur(7.5px);
+  backdrop-filter: blur(7.5px);
   z-index: 1000;
 }
 
@@ -85,7 +84,7 @@ input, select, option {
 .navCenter ul {
   display: flex;
   gap: 75px;
-  font-weight: bold;
+  font-weight: 500;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -101,7 +100,7 @@ input, select, option {
 .navRight {
   display: flex;
   align-items: center;
-  padding-left: 5rem;
+  padding-left: 8rem;
   gap: 20px;
 }
 
@@ -109,14 +108,17 @@ input, select, option {
   padding: 0 15px;
   border: 1px solid;
   border-radius: 999px;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 16px;
   cursor: pointer;
+}
+.member:hover {
+  color: #3DCE94;
 }
 
 .beanShape {
   margin: 8px 0;
-  width: 140px;
+  width: 100px;
   height: 70px;
   background-color: #6dd6a7;
   display: flex;
@@ -131,10 +133,36 @@ input, select, option {
   mask-position: center;
   mask-size: contain;
   cursor: pointer;
+  transform-origin: center;
+}
+.beanShape:hover {
+  animation: pendulum 1s ease-in-out infinite;
 }
 
 .goToShop {
   color: #ffffff;
   font-size: 20px;
-  font-weight: bold;
-}/*# sourceMappingURL=navbar.module.css.map */
+  font-weight: 500;
+}
+
+.shopList:hover {
+  animation: pendulum 1s ease-in-out infinite;
+}
+
+@keyframes pendulum {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(10deg);
+  }
+}

@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../css/result.module.scss";
 import { RadarChart, PolarGrid, PolarAngleAxis, Radar, ResponsiveContainer } from "recharts";
 import { useLocation, useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 
 
 const Result = () => {
@@ -15,6 +16,21 @@ const Result = () => {
     return <p>請先完成測驗</p>;
   }
 
+=======
+
+
+const Result = () => {
+
+
+  
+  const location = useLocation();
+  const navigate = useNavigate();
+  
+  const resultData = location.state;
+  if (!resultData) {
+    return <p>請先完成測驗</p>;
+  }
+>>>>>>> 73ec9058dc6dccc4de78c0fda59f9ca1a743a20a
   const {
     bmi,
     bmr,
@@ -169,6 +185,133 @@ const Result = () => {
         ))}
       </section>
 
+<<<<<<< HEAD
+=======
+          {/* <!-- 素清單區塊 -->
+    <div class="tab-content active" id="favorites">
+      <div class="product-list">
+
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="./shop/img/jaso-medicine_Ca.png" alt="產品1" class="product-image" />
+          </div>
+
+          <div class="product-meta">
+            <div class="product-tags">
+              <span class="tag">手腳冰冷</span>
+              <span class="tag">手腳冰冷</span>
+            </div>
+            <div class="product-icon">
+              <button class="cart-btn" aria-label="加入購物車"></button>
+              <button class="like-btn" aria-label="加入收藏"></button>
+            </div>
+          </div>
+
+          <div class="product-title">鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span></div>
+          <div class="product-desc">骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...</div>
+          <a href="#" class="product-link">
+            <span class="arrow">&gt;</span>
+            <span class="text">看完整產品內容</span></a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="./shop/img/jaso-medicine_Ca.png" alt="產品1" class="product-image" />
+          </div>
+
+          <div class="product-meta">
+            <div class="product-tags">
+              <span class="tag">手腳冰冷</span>
+              <span class="tag">手腳冰冷</span>
+            </div>
+            <div class="product-icon">
+              <button class="cart-btn" aria-label="加入購物車"></button>
+              <button class="like-btn" aria-label="加入收藏"></button>
+            </div>
+          </div>
+
+          <div class="product-title">鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span></div>
+          <div class="product-desc">骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...</div>
+          <a href="#" class="product-link">
+            <span class="arrow">&gt;</span>
+            <span class="text">看完整產品內容</span></a>
+        </div>
+
+<div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="./shop/img/jaso-medicine_Ca.png" alt="產品1" class="product-image" />
+          </div>
+
+          <div class="product-meta">
+            <div class="product-tags">
+              <span class="tag">手腳冰冷</span>
+              <span class="tag">手腳冰冷</span>
+            </div>
+            <div class="product-icon">
+              <button class="cart-btn" aria-label="加入購物車"></button>
+              <button class="like-btn" aria-label="加入收藏"></button>
+            </div>
+          </div>
+
+          <div class="product-title">鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span></div>
+          <div class="product-desc">骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...</div>
+          <a href="#" class="product-link">
+            <span class="arrow">&gt;</span>
+            <span class="text">看完整產品內容</span></a>
+        </div>
+
+<div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="./shop/img/jaso-medicine_Ca.png" alt="產品1" class="product-image" />
+          </div>
+
+          <div class="product-meta">
+            <div class="product-tags">
+              <span class="tag">手腳冰冷</span>
+              <span class="tag">手腳冰冷</span>
+            </div>
+            <div class="product-icon">
+              <button class="cart-btn" aria-label="加入購物車"></button>
+              <button class="like-btn" aria-label="加入收藏"></button>
+            </div>
+          </div>
+
+          <div class="product-title">鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span></div>
+          <div class="product-desc">骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...</div>
+          <a href="#" class="product-link">
+            <span class="arrow">&gt;</span>
+            <span class="text">看完整產品內容</span></a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="./shop/img/jaso-medicine_Ca.png" alt="產品1" class="product-image" />
+          </div>
+
+          <div class="product-meta">
+            <div class="product-tags">
+              <span class="tag">手腳冰冷</span>
+              <span class="tag">手腳冰冷</span>
+            </div>
+            <div class="product-icon">
+              <button class="cart-btn" aria-label="加入購物車"></button>
+              <button class="like-btn" aria-label="加入收藏"></button>
+            </div>
+          </div>
+
+          <div class="product-title">鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span></div>
+          <div class="product-desc">骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...</div>
+          <a href="#" class="product-link">
+            <span class="arrow">&gt;</span>
+            <span class="text">看完整產品內容</span></a>
+        </div>
+
+        
+      </div>
+    </div> */}
+
+
+>>>>>>> 73ec9058dc6dccc4de78c0fda59f9ca1a743a20a
       {/* 行動按鈕 */}
       <section className={styles.actions}>
         <button className={styles.retry} onClick={handleRetry}>再次測驗</button>
