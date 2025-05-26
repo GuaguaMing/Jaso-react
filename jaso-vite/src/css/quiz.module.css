@@ -94,7 +94,8 @@ input, select, option {
   width: 24px;
   height: 24px;
   flex-shrink: 0;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   background-image: url("/assets/+.svg");
   background-size: contain;
   background-repeat: no-repeat;
@@ -247,6 +248,10 @@ input, select, option {
   font-size: 0.875rem;
   color: #2A2324;
 }
+.questionContainer .questionCenter .form-group input::-moz-placeholder {
+  font-size: 0.875rem;
+  color: #2A2324;
+}
 .questionContainer .questionCenter .form-group input::placeholder {
   font-size: 0.875rem;
   color: #2A2324;
@@ -323,6 +328,7 @@ input, select, option {
 }
 .quizStep.active {
   display: block;
+<<<<<<< HEAD
 }
 
 .loadingContainer {
@@ -365,3 +371,6 @@ input, select, option {
     transform: translateY(-6px);
   }
 }
+=======
+}/*# sourceMappingURL=quiz.module.css.map */
+>>>>>>> d478768a5a5926c414915301cd7412b32dcf4e98

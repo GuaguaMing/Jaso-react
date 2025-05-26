@@ -146,8 +146,16 @@ input, select, option {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .result .productList .card img {
+<<<<<<< HEAD
   width: 100px;
   margin-bottom: 1rem;
+=======
+  width: 100%;
+  max-height: 160px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-bottom: 0.75rem;
+>>>>>>> d478768a5a5926c414915301cd7412b32dcf4e98
 }
 .result .productList .card h4 {
   color: #2c8f5b;
@@ -184,6 +192,18 @@ input, select, option {
   color: #ffffff;
 }
 .result .actions .retry:hover {
+<<<<<<< HEAD
   background-color: #909090;
   color: #ffffff;
 }
+=======
+  background: #bbb;
+}
+.result .actions .share {
+  background: #3CB371;
+  color: #fff;
+}
+.result .actions .share:hover {
+  background: #2e9e60;
+}/*# sourceMappingURL=result.module.css.map */
+>>>>>>> d478768a5a5926c414915301cd7412b32dcf4e98
