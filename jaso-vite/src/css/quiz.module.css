@@ -94,8 +94,7 @@ input, select, option {
   width: 24px;
   height: 24px;
   flex-shrink: 0;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   background-image: url("/assets/+.svg");
   background-size: contain;
   background-repeat: no-repeat;
@@ -139,13 +138,9 @@ input, select, option {
   background-color: #3DCE94;
   color: #ffffff;
 }
-.questionContainer .questionCenter .options .option input[type=radio]:checked ~ span,
-.questionContainer .questionCenter .options .option input[type=radio]:checked {
-  font-weight: bold;
+.questionContainer .questionCenter .options .option.selected {
   background-color: #3DCE94;
   color: #ffffff;
-  padding: 4px 12px;
-  border-radius: 20px;
 }
 .questionContainer .questionCenter .form-group-1 {
   display: flex;
@@ -178,6 +173,10 @@ input, select, option {
   display: none;
 }
 .questionContainer .questionCenter .option-1:hover {
+  background-color: #3DCE94;
+  color: #ffffff;
+}
+.questionContainer .questionCenter .option-1.selected {
   background-color: #3DCE94;
   color: #ffffff;
 }
@@ -245,10 +244,6 @@ input, select, option {
   color: #ffffff;
 }
 .questionContainer .questionCenter .form-group .dropOption span {
-  font-size: 0.875rem;
-  color: #2A2324;
-}
-.questionContainer .questionCenter .form-group input::-moz-placeholder {
   font-size: 0.875rem;
   color: #2A2324;
 }
@@ -328,4 +323,45 @@ input, select, option {
 }
 .quizStep.active {
   display: block;
-}/*# sourceMappingURL=quiz.module.css.map */
+}
+
+.loadingContainer {
+  position: fixed;
+  top: 50%; /* 垂直 */
+  left: 50%; /* 水平 */
+  transform: translate(-50%, -50%); /* 確保中間 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.faceImage {
+  width: 200px;
+  height: auto;
+  animation: bounce 0.8s infinite alternate;
+}
+
+.text {
+  margin: 0.5rem;
+  color: #3DCE94;
+  text-align: center;
+  font-size: 2.5rem;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+.subtext {
+  font-size: 0.875rem;
+  color: #AAA6A8;
+  margin-top: 0.5rem;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-6px);
+  }
+}
