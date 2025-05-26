@@ -1,22 +1,7 @@
 import React from "react";
-import styles from "../css/result.module.scss";
+import styles from "../css/Result.module.scss";
 import { RadarChart, PolarGrid, PolarAngleAxis, Radar, ResponsiveContainer } from "recharts";
 import { useLocation, useNavigate } from "react-router-dom";
-<<<<<<< HEAD
-
-
-const Result = () => {
-
-
-  
-  const location = useLocation();
-  const navigate = useNavigate();
-  const resultData = location.state;
-  if (!resultData) {
-    return <p>請先完成測驗</p>;
-  }
-
-=======
 
 
 const Result = () => {
@@ -30,7 +15,6 @@ const Result = () => {
   if (!resultData) {
     return <p>請先完成測驗</p>;
   }
->>>>>>> 73ec9058dc6dccc4de78c0fda59f9ca1a743a20a
   const {
     bmi,
     bmr,
@@ -185,8 +169,6 @@ const Result = () => {
         ))}
       </section>
 
-<<<<<<< HEAD
-=======
           {/* <!-- 素清單區塊 -->
     <div class="tab-content active" id="favorites">
       <div class="product-list">
@@ -311,7 +293,6 @@ const Result = () => {
     </div> */}
 
 
->>>>>>> 73ec9058dc6dccc4de78c0fda59f9ca1a743a20a
       {/* 行動按鈕 */}
       <section className={styles.actions}>
         <button className={styles.retry} onClick={handleRetry}>再次測驗</button>

@@ -270,28 +270,16 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 60px;
-  padding: 80px 40px;
+  gap: 40px;
+  padding: 1rem 240px;
   font-family: "Noto Sans TC", sans-serif;
-}
-
-.product-card {
-  width: 300px;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-}
-
-.product-card .product-image-wrapper {
-  position: relative;
-  width: 100%;
-  border-radius: 20px;
-  overflow: hidden;
 }
 
 .product-tags {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
+  justify-content: left;
 }
 
 .tag {
@@ -315,7 +303,7 @@ body {
   color: #000;
 }
 
-.product-title .product-subtitle {
+.product-subtitle {
   font-size: 14px;
   font-weight: 400;
   color: #000;
@@ -332,44 +320,6 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   margin-bottom: 8px;
-}
-
-.product-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #3DCE94;
-  text-decoration: none;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.product-link .arrow,
-.product-link .text {
-  display: inline-block;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-.product-link .arrow {
-  transform: translateX(-8px);
-  opacity: 1;
-}
-
-.product-link .text {
-  transform: translateX(-8px);
-  opacity: 1;
-}
-
-.product-link:hover .arrow {
-  transform: translateX(100px);
-  opacity: 2;
-}
-
-.product-link:hover .text {
-  transform: translateX(-20px);
-  opacity: 1;
 }
 
 .nav-hidden {
@@ -687,28 +637,12 @@ body {
   cursor: pointer;
 }
 
-.product-list {
-  padding: 1rem 240px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: left;
-  gap: 40px;
-  font-family: "Noto Sans TC", sans-serif;
-}
-
 .product-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 19px;
   margin-bottom: 14px;
-}
-
-.product-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: left;
 }
 
 .product-icon {
@@ -768,14 +702,10 @@ body {
 
 .product-card .product-image-wrapper {
   width: 100%;
-  overflow: hidden;
-}
-
-.product-card .product-image-wrapper {
-  width: 100%;
   aspect-ratio: 1/1;
   border-radius: 20px;
-  background: none; /* 一開始不顯示背景 */
+  background: none;
+  /* 一開始不顯示背景 */
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -798,51 +728,6 @@ body {
 .product-card .product-image-wrapper:hover {
   background: url("/shop/img/jaso-mock-up_bg_Ca.png") no-repeat center/cover;
   transform: scale(1.05);
-}
-
-.product-tags {
-  display: flex;
-  gap: 8px;
-}
-
-.tag {
-  padding: 4px 16px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #3DCE94;
-  border: 1px solid #3DCE94;
-  background-color: #E6FBF3;
-  border-radius: 999px;
-  display: inline-block;
-  margin-top: 19px;
-  margin-bottom: 14px;
-}
-
-.product-title {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  line-height: 1.4;
-  color: #000;
-}
-
-.product-title .product-subtitle {
-  font-size: 14px;
-  font-weight: 400;
-  color: #000;
-  margin-left: 8px;
-}
-
-.product-desc {
-  font-size: 14px;
-  color: #555;
-  line-height: 1.6;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 8px;
 }
 
 .product-link {
