@@ -1373,11 +1373,11 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  -webkit-mask-image: url(../assets/img/0.svg);
+  -webkit-mask-image: url(../../assets/img/0.svg);
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
   -webkit-mask-size: contain;
-  mask-image: url(../assets/img/0.svg);
+  mask-image: url(../../assets/img/0.svg);
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: contain;
@@ -1882,48 +1882,93 @@ main {
 .certifications {
   margin-bottom: 250px;
 }
-
-.section-green-title {
+.certifications .cert-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+.certifications .cert-title-block {
+  flex: 0 0 240px;
+}
+.certifications .cert-title-block .section-green-title {
   font-size: 48px;
   color: #3DCE94;
   margin-bottom: 16px;
+  line-height: 1.4;
 }
-
-.about-subtitle,
-.section-h3 {
-  font-size: 20px;
+.certifications .cert-title-block .about-subtitle {
+  font-size: 18px;
+  color: #333;
   font-weight: 500;
-  color: #252527;
-  margin-bottom: 20px;
 }
-
-.cert-grid {
+.certifications .cert-text-block {
+  flex: 1;
+}
+.certifications .cert-text-block p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 12px;
+}
+.certifications .cert-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  margin-top: 20px;
+}
+.certifications .cert-grid img {
+  width: 100%;
+  height: auto;
 }
 
 .vegan {
   margin-bottom: 250px;
 }
-
-.vegan-content {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.vegan .section-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
-.vegan-content .vegan-text {
+.vegan .vegan-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.vegan .vegan-header .vegan-titles {
+  flex-shrink: 0;
+}
+.vegan .vegan-header .vegan-titles .section-green-title {
+  font-size: 48px;
+  color: #3DCE94;
+  font-weight: 700;
+  margin: 0;
+}
+.vegan .vegan-header .vegan-titles .section-h3 {
+  font-size: 35px;
+  color: #222;
+  font-weight: 500;
+  margin-top: 4px;
+}
+.vegan .vegan-header .vegan-desc {
+  flex: 1;
   font-size: 16px;
   line-height: 1.8;
+  color: #444;
+  margin-top: 0px;
+  margin-left: 100px;
 }
-.vegan-content .cert-vegan-grid {
+.vegan .cert-vegan-grid {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: center;
 }
-.vegan-content .cert-vegan-grid img {
-  max-width: 320px;
+.vegan .cert-vegan-grid img {
+  max-width: 900px;
+  height: auto;
 }
 
 .faq {
@@ -1951,7 +1996,7 @@ main {
   margin: 0;
 }
 .faq .faq-left .faq-sub {
-  font-size: 20px;
+  font-size: 35px;
   color: #222;
   font-weight: 500;
   margin-top: 12px;
@@ -1961,37 +2006,66 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin-top: -30px;
 }
-.faq .faq-right .faq-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.faq .faq-right .faq-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.faq .faq-right .faq-items p {
   font-size: 18px;
-  line-height: 2;
   color: #222;
+  line-height: 1.6;
 }
 .faq .faq-right .faq-bottom {
   position: relative;
-  margin-top: 20px;
+  margin-top: 0px;
 }
 .faq .faq-right .faq-bottom .more-btn {
   position: absolute;
   right: 0;
-  top: -8px;
+  bottom: 10px;
+  display: inline-flex;
+  align-items: center;
   font-size: 16px;
   font-weight: bold;
-  color: #3DCE94;
+  color: #000;
   text-decoration: none;
+  overflow: hidden;
+  gap: 4px;
 }
-.faq .faq-right .faq-bottom .more-btn span {
+.faq .faq-right .faq-bottom .more-btn .plus {
   font-size: 20px;
-  margin-left: 4px;
+  font-weight: 900;
+  display: inline-block;
+  transition: all 0.6s ease;
+  color: #3DCE94;
 }
-.faq .faq-right .faq-bottom .faq-line {
-  margin-top: 20px;
+.faq .faq-right .faq-bottom .more-btn .gp {
+  width: 20px;
+}
+.faq .faq-right .faq-bottom .more-btn .plus.left {
+  opacity: 0;
+  transform: translateX(24px) rotate(0deg);
+}
+.faq .faq-right .faq-bottom .more-btn .plus.right {
+  opacity: 1;
+  transform: translateX(0) rotate(0deg);
+}
+.faq .faq-right .faq-bottom .more-btn:hover .plus.left {
+  opacity: 1;
+  transform: translateX(0) rotate(-360deg);
+}
+.faq .faq-right .faq-bottom .more-btn:hover .plus.right {
+  opacity: 0;
+  transform: translateX(-24px) rotate(-360deg);
+}
+.faq .faq-right .faq-line {
+  margin-top: 0px;
   width: 100%;
   height: 1.5px;
-  background-color: #ccc;
+  background-color: #000;
 }
 
 @media (max-width: 768px) {

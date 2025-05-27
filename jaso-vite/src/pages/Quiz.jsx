@@ -74,28 +74,28 @@ const questions = [
     animationKey: "q6", // 新增
   },
   {
-    title: "病痛症狀",
+    title: "健康狀況",
     question: "你是否經常感到疲倦、虛弱或容易氣喘？",
     options: ["是", "否"],
     animationKey: "q7", // 新增
   },
 
   {
-    title: "病痛症狀",
+    title: "健康狀況",
     question: "你是否有經常性的偏頭痛或或注意力不集中？",
     options: ["是", "否"],
     animationKey: "q8", // 新增
 
   },
   {
-    title: "病痛症狀",
+    title: "健康狀況",
     question: "你是否經常感到便秘或腸胃不適？",
     options: ["是", "否"],
     animationKey: "q9", // 新增
 
   },
   {
-    title: "病痛症狀",
+    title: "健康狀況",
     question: "你是否經常感到肌肉抽筋或手腳發麻？",
     options: ["是", "否"],
     animationKey: "q10", // 新增
@@ -197,7 +197,8 @@ const Quiz = () => {
     const tdee = Math.round(bmr * activityFactors[activity]);
 
     // 六題 radar chart 分數（第 2~7 題）
-    const radarKeys = ["蛋白質", "維生素B12", "鐵", "Omega-3", "鈣", "維生素D"];
+    const radarKeys = ["protein", "b12", "iron", "omega3", "ca", "d"];
+   
     const radarScores = {};
     radarKeys.forEach((key, i) => {
       const value = answers[i + 2];
