@@ -6,33 +6,294 @@
 
 
 
-.product-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  padding: $space-base 240px;
-  font-family: "Noto Sans TC", sans-serif;
+// 商店頁banner
+.shop-banner {
+  padding: 60px 240px;
+  text-align: left;
+
+  &_content {
+
+    h1,
+    h3 {
+      margin: 16px auto;
+    }
+  }
+
+  &_title {
+    color: $color-primary;
+    font-size: map-get($font-size, 5xl);
+  }
+
+  &_subtitle {
+    font-size: 1.5rem;
+    font-weight: normal;
+  }
 }
 
-.product-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: left;
+//商店頁btn
+.shop-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: $color-primary;
+  color: $color-white;
+  border: none;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #37b683;
+  }
+
+  &--rounded {
+    border-radius: 50px;
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: $color-primary;
+    border: 2px solid $color-primary;
+  }
 }
 
-.tag {
-  padding: 4px 16px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #3DCE94;
-  border: 1px solid #3DCE94;
-  background-color: #E6FBF3;
-  border-radius: 999px;
-  display: inline-block;
-  margin-top: 19px;
-  margin-bottom: 14px;
+// 商品篩選
+.shop-product-filter {
+  padding: 40px 240px;
+
+  &_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; // RWD：小螢幕換行
+    gap: 1rem;
+  }
+
+  &_title {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+}
+
+.shop-tag-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.shop-tag-item {
+  cursor: pointer;
+  padding: 6px 16px;
+  border-radius: 30px;
+  border: 1px solid $color-gray;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+
+  &:hover,
+  &.is-active {
+    background-color: $color-primary;
+    color: $color-white;
+    border-color: $color-primary;
+  }
+}
+
+
+// 熱銷產品區
+.shop_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* 可選，讓小螢幕時換行 */
+}
+
+.shop_col {
+  flex: 1;
+}
+
+.shop_title h2 {
+  margin: 0;
+}
+
+.shop_tag-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+  justify-content: flex-end;
+  /* 標籤靠右對齊 */
+}
+
+.shop_tag-list li {
+  cursor: pointer;
+}
+
+
+/* 產品清單區 */
+.product-carousel {
+  padding: 40px 240px;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  /* 向左箭頭按鈕 */
+  .carousel-arrow {
+    padding: 40px 200px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+
+    &.left {
+      left: 0;
+    }
+
+    &.right {
+      right: 0;
+    }
+  }
+
+  .carousel-track-wrapper {
+    display: flex;
+    overflow: scroll;
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .carousel-track {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .product-card {
+    flex: 0 0 calc(25% - 15px);
+    /* 4 卡片佔 100%，扣除 gap */
+    box-sizing: border-box;
+    background-color: $color-white;
+    border-radius: 12px;
+    transition: transform 0.3s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    min-width: 200px;
+  }
+
+  /* 產品圖片 */
+  .product-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+
+  .product-image-wrapper .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3 ease;
+  }
+
+  .product-image-wrapper:hover .product-image {
+    opacity: 0;
+  }
+
+  .product-image-wrapper:hover {
+    background: url("/shop/img/jaso-mock-up_bg_Ca.svg") no-repeat center/cover;
+    transform: scale(1.05);
+    transition: transform 0.3 ease;
+  }
+}
+
+//標籤&購買/收藏icon
+.shop-product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 19px 0 14px;
+}
+
+
+.shop-product-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: flex-start;
+  align-items: center;
+
+  .tag {
+    padding: 4px 16px;
+    font-size: 10px;
+    font-weight: 500;
+    color: $color-primary;
+    border: 1px solid $color-primary;
+    background-color: #E6FBF3;
+    border-radius: 999px;
+    display: inline-block;
+  }
+}
+
+.shop-product-icon {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 3px;
+
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.cart-btn {
+  width: 30px;
+  height: 30px;
+  background: url("/icons/img/shop-btn.svg") no-repeat center/contain;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-image: url("/icons/img/shop-btn-hover.svg");
+    transform: scale(1.05);
+  }
+
+  &.added {
+    filter: grayscale(1);
+    opacity: 0.7;
+    pointer-events: none;
+  }
+}
+
+.like-btn {
+  width: 30px;
+  height: 30px;
+  background: url("/icons/img/like-btn.svg") no-repeat center/contain;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &.active {
+    background-image: url("/icons/img/like-btn-hover.svg");
+    transform: scale(1.05);
+  }
+
+  &.added {
+    filter: grayscale(1);
+    opacity: 0.7;
+    pointer-events: none;
+  }
 }
 
 .product-title {
@@ -40,15 +301,16 @@
   font-weight: 700;
   margin-bottom: 8px;
   line-height: 1.4;
-  color: #000;
+  color: $color-dark;
 }
 
 .product-subtitle {
   font-size: 14px;
   font-weight: 400;
-  color: #000;
   margin-left: 8px;
+  color: $color-dark;
 }
+
 
 .product-desc {
   font-size: 14px;
@@ -62,6 +324,48 @@
   margin-bottom: 8px;
 }
 
+.product-link {
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  color: $color-primary;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+
+  .arrow,
+  .text {
+    display: inline-block;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+
+  .arrow {
+    transform: translateX(-8px);
+    opacity: 1;
+  }
+
+  .text {
+    transform: translateX(-8px);
+    opacity: 1;
+  }
+
+  &:hover .arrow {
+    transform: translateX(100px);
+    opacity: 2;
+  }
+
+  &:hover .text {
+    transform: translateX(-20px);
+    opacity: 1;
+  }
+
+}
+
+
+//nav
 .nav-hidden {
   position: fixed;
   top: 0;
@@ -80,7 +384,7 @@
   box-shadow: 2px 2px 2px 0px rgba(255, 255, 255, 0.25) inset, 1px 5px 5.5px 0px rgba(0, 0, 0, 0.02);
   -webkit-backdrop-filter: blur(7.5px);
   backdrop-filter: blur(7.5px);
-  z-index: 3000;
+  z-index: 9999;
 }
 
 .nav-hidden .logo {
@@ -172,7 +476,7 @@
 }
 
 .main-navbar .navbar-right .bean-shape {
-  background-color: #3DCE94;
+  background-color: $color-primary;
   color: #fff;
   padding: 8px 20px;
   border-radius: 999px;
@@ -192,7 +496,7 @@
 }
 
 .navbar-links .nav-link:hover {
-  color: #3DCE94;
+  color: $color-primary;
 }
 
 .nav-center {
@@ -201,30 +505,6 @@
   transform: translateX(-50%);
 }
 
-.nav-hidden {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1414px;
-  height: 84px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-left: 80px;
-  padding-right: 75px;
-  border-radius: 50px;
-  border: 1px solid rgba(200, 200, 200, 0.4);
-  background: rgba(226, 226, 226, 0.25);
-  box-shadow: 2px 2px 2px 0px rgba(255, 255, 255, 0.25) inset, 1px 5px 5.5px 0px rgba(0, 0, 0, 0.02);
-  -webkit-backdrop-filter: blur(7.5px);
-  backdrop-filter: blur(7.5px);
-  z-index: 3000;
-}
-
-.nav-hidden .logo {
-  width: 116.5px;
-}
 
 .navbar {
   display: flex;
@@ -257,10 +537,6 @@
   /* 確保不被 navbar 擋住 */
 }
 
-.nav-hidden {
-  z-index: 9999;
-}
-
 @media (max-width: 768px) {
   .rank-rule-item {
     flex-direction: column;
@@ -287,250 +563,6 @@ body {
 }
 
 /*# sourceMappingURL=member_profile.css.map */
-
-.shop_button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: $color-primary;
-  color: white;
-  border: none;
-  border-radius: 0 0 99px 0;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #37b683;
-  }
-}
-
-.shop_btn1 {
-  border-radius: 50px;
-}
-
-// banner
-.shop_banner {
-  padding: 60px 240px;
-  text-align: left;
-
-  .shop_banner-content h1,
-  .shop_banner-content h3 {
-    margin: 16px auto;
-  }
-
-  .shop_h1 {
-    color: $color-primary;
-    font-size: map-get($font-size, 5xl);
-
-  }
-
-  .shop_h3 {
-    font-weight: normal;
-  }
-}
-
-// 商品篩選
-.shop_product-filter {
-  padding: $space-base 240px;
-
-  .shop_title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-
-    .shop_h2 {
-      font-size: 24px;
-    }
-
-    .shop_tag-list {
-      display: flex;
-      gap: 1rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-
-      .shop_li {
-        padding: 0.5em 1em;
-        border: 1px solid black;
-        border-radius: 999px;
-        cursor: pointer;
-        transition: background 0.3s;
-
-        &:hover {
-          background: #f0f0f0;
-        }
-      }
-    }
-  }
-}
-
-// 熱銷產品區
-.shop_row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  /* 可選，讓小螢幕時換行 */
-}
-
-.shop_col {
-  flex: 1;
-}
-
-.shop_title h2 {
-  margin: 0;
-}
-
-.shop_tag-list {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 1rem;
-  justify-content: flex-end;
-  /* 標籤靠右對齊 */
-}
-
-.shop_tag-list li {
-  cursor: pointer;
-}
-
-.product-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 19px;
-  margin-bottom: 14px;
-}
-
-.product-icon {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: right;
-}
-
-/* 購物車按鈕 */
-.cart-btn {
-  bottom: 12px;
-  right: 12px;
-  width: 48px;
-  height: 48px;
-  background: url("/icons/img/shop-btn.svg") no-repeat center/contain;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background-image: url("/icons/img/shop-btn-hover.svg");
-    transform: scale(1.05);
-  }
-
-  &.added {
-    filter: grayscale(1);
-    opacity: 0.7;
-    pointer-events: none;
-  }
-}
-
-.like-btn {
-  bottom: 12px;
-  right: 12px;
-  width: 48px;
-  height: 48px;
-  background: url("/icons/img/like-btn.svg") no-repeat center/contain;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &.added {
-    filter: grayscale(1);
-    opacity: 0.7;
-    pointer-events: none;
-  }
-}
-
-.like-btn.active {
-  background-image: url("/icons/img/like-btn-hover.svg");
-  transform: scale(1.05);
-}
-
-
-.product-card .product-image-wrapper {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 20px;
-  background: none;
-  /* 一開始不顯示背景 */
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.product-card .product-image-wrapper .product-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-  //transition: opacity 0.3s ease;
-  display: block;
-}
-
-/* hover 隱藏圖片 */
-.product-card .product-image-wrapper:hover .product-image {
-  opacity: 0;
-}
-
-/* hover 時背景換圖 + 放大 */
-.product-card .product-image-wrapper:hover {
-  background: url("/shop/img/jaso-mock-up_bg_Ca.png") no-repeat center/cover;
-  transform: scale(1.05);
-}
-
-.product-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #3DCE94;
-  text-decoration: none;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.product-link .arrow,
-.product-link .text {
-  display: inline-block;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-.product-link .arrow {
-  transform: translateX(-8px);
-  opacity: 1;
-}
-
-.product-link .text {
-  transform: translateX(-8px);
-  opacity: 1;
-}
-
-.product-link:hover .arrow {
-  transform: translateX(100px);
-  opacity: 2;
-}
-
-.product-link:hover .text {
-  transform: translateX(-20px);
-  opacity: 1;
-}
-
 
 
 /* Footer */

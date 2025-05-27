@@ -1712,6 +1712,7 @@ html {
   padding-left: 12px;
 }
 
+<<<<<<< HEAD
 body {
   margin: 0;
   padding: 0;
@@ -1805,6 +1806,8 @@ hr {
   border-top: 1px solid #ddd;
 }
 
+=======
+>>>>>>> 55d3c1214afad307fd81202bd71bec01c1b52f97
 @media (max-width: 768px) {
   .rank-rule-item {
     flex-direction: column;

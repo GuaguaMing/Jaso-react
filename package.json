@@ -1,0 +1,15 @@
+{
+    "name": "jaso-react",
+    "version": "1.0.0",
+    "description": "A simple front-end project",
+    "scripts": {
+        "build": "parcel build index.html --dist-dir dist",
+        "deploy": "gh-pages -d dist"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "gh-pages": "^6.3.0",
+        "parcel": "^2.15.2"
+    }
+}

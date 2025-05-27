@@ -335,7 +335,7 @@ left: 20rem;
     width: 378px;
     height: 349px;
     background-color: #D3D3D3;
-    background-image: url(./img/logo.svg);
+    background-image: url("./assets/img/logo.svg");
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 25px;
