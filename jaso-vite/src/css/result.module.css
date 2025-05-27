@@ -118,7 +118,8 @@ input, select, option {
   display: grid;
   grid-template-columns: auto auto auto;
   align-items: center;
-  column-gap: 8px;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
 }
 .result .radarSection .radarCharacter .characterBox .characterImgWrapper {
   position: relative;
@@ -284,4 +285,4 @@ input, select, option {
 .result .actions .retry:hover {
   background-color: #909090;
   color: #ffffff;
-}
+}/*# sourceMappingURL=result.module.css.map */

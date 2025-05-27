@@ -65,27 +65,52 @@ main {
 
 .certifications {
     margin-bottom: 250px;
-}
 
-.section-green-title {
-    font-size: 48px;
-    color: #3DCE94;
-    margin-bottom: 16px;
-}
+    .cert-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-bottom: 40px;
+    }
 
-.about-subtitle,
-.section-h3 {
-    font-size: 20px;
-    font-weight: 500;
-    color: #252527;
-    margin-bottom: 20px;
-}
+    .cert-title-block {
+        flex: 0 0 240px;
 
-.cert-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-top: 20px;
+        .section-green-title {
+            font-size: 48px;
+            color: #3DCE94;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .about-subtitle {
+            font-size: 18px;
+            color: #333;
+            font-weight: 500;
+        }
+    }
+
+    .cert-text-block {
+        flex: 1;
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 12px;
+        }
+    }
+
+    .cert-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
 }
 
 .vegan {
