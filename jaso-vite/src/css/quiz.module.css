@@ -94,8 +94,7 @@ input, select, option {
   width: 24px;
   height: 24px;
   flex-shrink: 0;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   background-image: url("/assets/+.svg");
   background-size: contain;
   background-repeat: no-repeat;
@@ -248,10 +247,6 @@ input, select, option {
   font-size: 0.875rem;
   color: #2A2324;
 }
-.questionContainer .questionCenter .form-group input::-moz-placeholder {
-  font-size: 0.875rem;
-  color: #2A2324;
-}
 .questionContainer .questionCenter .form-group input::placeholder {
   font-size: 0.875rem;
   color: #2A2324;
@@ -364,4 +359,4 @@ input, select, option {
   100% {
     transform: translateY(-6px);
   }
-}/*# sourceMappingURL=quiz.module.css.map */
+}
