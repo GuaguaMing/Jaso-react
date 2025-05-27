@@ -7,10 +7,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 const Result = () => {
 
 
-  
+
   const location = useLocation();
   const navigate = useNavigate();
-  
+
   const resultData = location.state;
   if (!resultData) {
     return <p>請先完成測驗</p>;
@@ -22,14 +22,65 @@ const Result = () => {
     radarScores,
     conditions
   } = resultData;
+  // 六大營養素的紅配綠
+  const getLevelClass = (score) => {
+    if (score >= 8) return styles.high;
+    if (score >= 5) return styles.medium;
+    return styles.low;
+  };
+  const getBubble = (score) => {
+    let levelClass = "";
+    let text = "";
 
-  // 雷達圖格式化成 Recharts 需要的格式
-  const radarData = Object.entries(radarScores).map(([nutrient, score]) => ({
-    nutrient,
-    score,
+    if (score >= 8) {
+      levelClass = styles.high;
+      text = "正常";
+    } else if (score >= 5) {
+      levelClass = styles.medium;
+      text = "偏低";
+    } else {
+      levelClass = styles.low;
+      text = "嚴重偏低";
+    }
+
+    return (
+      <div className={`${styles.bubble} ${levelClass}`}>
+        <span>{text}</span>
+      </div>
+    );
+  };
+
+const nutrientKeys = ["protein", "b12", "iron", "omega3", "ca", "d"];
+const nutrientLabels = {
+  protein: "蛋白質",
+  b12: "B12",
+  iron: "鐵",
+  omega3: "Omega-3",
+  ca: "鈣",
+  d: "維生素D"
+};
+
+  const radarLabels = {
+    protein: "蛋白質",
+    b12: "維生素B12",
+    iron: "鐵",
+    omega3: "Omega-3",
+    ca: "鈣",
+    d: "維生素D"
+  };
+  const radarData = Object.keys(radarScores).map((key) => ({
+    nutrient: radarLabels[key],
+    score: radarScores[key],
   }));
+  // 雷達圖格式化成 Recharts 需要的格式
+  // const radarData = Object.entries(radarScores).map(([nutrient, score]) => ({
+  //   nutrient,
+  //   score,
+  // }));
 
-  
+
+
+
   // 蛋白質建議與三大營養素分配（以 TDEE 推算）
   const proteinNeed = Math.round(tdee * 0.15 / 4);
   const nutritionSplit = {
@@ -87,58 +138,100 @@ const Result = () => {
 
 
   return (
+
     <div className={styles.result}>
-      {/* Header 區塊 */}
+      {/* 1. Header 檢測叮嚀 */}
       <section className={styles.header}>
 
         <h2 className={styles.title}>檢測完成，專屬你的營養分析已出爐！ </h2>
         <p className={styles.subtitle}>“多曬太陽，常保好心情！“</p>
       </section>
 
-      {/* 雷達圖區塊 */}
+      {/* 2.角色+雷達圖 */}
       <section className={styles.radarSection}>
-      <div className={styles.radarCharacter}>
-        <img src="/assets/protein.svg" alt="" />
-        <img src="/assets/b12.svg" alt="" />
-        <img src="/assets/ca.svg" alt="" />
-        <img src="/assets/iron.svg" alt="" />
-        <img src="/assets/d.svg" alt="" />
-        <img src="/assets/omega-3.svg" alt="" />
-        </div>
+        {/* 左：六大營養素 */}
 
-<div className={styles.radarChart}>
-        <ResponsiveContainer width={400} height={360}>
-  <RadarChart
-    data={radarData}
-    cx="50%"
-    cy="50%"
-    outerRadius="80%"
-    startAngle={0}
-    endAngle={-360}
-  >
-    <PolarGrid stroke="#AAA6A8" />
-    <PolarAngleAxis dataKey="nutrient" tick={{ fontSize: 12 }} />
-    <Radar
-      name="營養分數"
-      dataKey="score"
-      stroke="#3DCE94"
-      fill="#3DCE94"
-      fillOpacity={0.75}
-    />
-  </RadarChart>
-</ResponsiveContainer>
-        <h4 className={styles.chartTitle}>實際攝取量</h4>
-        <p className={styles.chartNote}>本圖為六大營養素攝取平衡圖，角落越接近圓心表示該營養素攝取不足。
-        建議每日攝取針對性保健食品不足該營養素。</p>
+        <div className={styles.radarCharacter}>
+  {nutrientKeys.map((key) => (
+    <div key={key} className={styles.characterBox}>
+      <div className={styles.characterImgWrapper}>
+        {getBubble(radarScores[key])}
+        <img src={`/assets/${key}.svg`} alt={nutrientLabels[key]} />
+      </div>
+      <div className={styles.bubbleText}>
+      <span>{nutrientLabels[key]}</span></div>
+    </div>
+  ))}
+</div>
+{/* 
+        <div className={styles.radarCharacter}>
+          <div className={`${styles.characterBox} ${getLevelClass(radarScores.protein)}`}>
+            <div className={styles.characterImg}>
+              {getBubble(radarScores.protein)}
+              <img src="./assets/protein.svg" alt="蛋白質" />
+            </div>
+            <span>蛋白質</span>
+          </div>
+          <div className={`${styles.characterBox} ${getLevelClass(radarScores.b12)}`}>
+            <img src="./assets/B12.svg" alt="" />
+            <span>B12</span>
+          </div>
+          <div className={`${styles.characterBox} ${getLevelClass(radarScores.ca)}`}>
+            <img src="./assets/ca.svg" alt="" />
+            <span>鈣</span>
+          </div>
+          <div className={`${styles.characterBox} ${getLevelClass(radarScores.iron)}`}>
+            <img src="./assets/iron.svg" alt="" />
+            <span>鐵</span>
+          </div>
+          <div className={`${styles.characterBox} ${getLevelClass(radarScores.d)}`}>
+            <img src="./assets/D.svg" alt="" />
+            <span>維生素D</span>
+          </div>
+          <div className={`${styles.characterBox} ${getLevelClass(radarScores.omega3)}`}>
+            <img src="./assets/omega-3.svg" alt="" />
+            <span>Omega-3</span>
+          </div>
+        </div> */}
+
+        {/* 右：雷達圖 */}
+
+
+        <div className={styles.radarChart}>
+          <ResponsiveContainer width={400} height={360}>
+            <RadarChart
+              data={radarData}
+              cx="50%"
+              cy="50%"
+              outerRadius="80%"
+              startAngle={0}
+              endAngle={-360}
+            >
+              <PolarGrid stroke="#AAA6A8" />
+              <PolarAngleAxis dataKey="nutrient" tick={{ fontSize: 12 }} />
+              <Radar
+                name="營養分數"
+                dataKey="score"
+                stroke="#3DCE94"
+                fill="#3DCE94"
+                fillOpacity={0.75}
+              />
+            </RadarChart>
+          </ResponsiveContainer>
+          {/* 右下：雷達小語 */}
+
+          <h4 className={styles.chartTitle}><div className={styles.circle}></div>實際攝取量</h4>
+          <p className={styles.chartNote}>本圖為六大營養素攝取平衡圖，角落越接近圓心表示該營養素攝取不足。
+            建議每日攝取針對性保健食品不足該營養素。</p>
         </div>
       </section>
 
-      {/* 營養攝取建議區塊 */}
+      {/* 攝取計算 */}
       <section className={styles.summary}>
         <h3>營養攝取建議</h3>
         <div className={styles.barGroup}>
-          <label>TDEE（每日總熱量消耗）</label>
-          <div className={styles.bar}><div className={styles.fill} style={{ width: `${(tdee / 3000) * 100}%` }}>{tdee}</div></div>
+          
+          <div className={styles.bar}><div className={styles.fill} style={{ width: `${(tdee / 3000) * 100}%` }}><label>TDEE（每日總熱量消耗）</label>{tdee}</div></div>
 
           <label>BMR（基礎代謝率）</label>
           <div className={styles.bar}><div className={styles.fill} style={{ width: `${(bmr / 2000) * 100}%` }}>{bmr}</div></div>
@@ -150,13 +243,13 @@ const Result = () => {
         <div className={styles.protein}>每日蛋白質需求：<strong>{proteinNeed}g</strong></div>
       </section>
 
-      {/* 營養分配區塊 */}
+      {/* 營養分配 */}
       <section className={styles.nutritionSplit}>
         <h3>建議營養分配為：</h3>
         <p>碳水 <strong>{nutritionSplit.carb}g</strong>、蛋白質 <strong>{nutritionSplit.protein}g</strong>、脂肪 <strong>{nutritionSplit.fat}g</strong></p>
       </section>
 
-      {/* 推薦產品區塊 */}
+      {/* 推薦產品 */}
       <section className={styles.productList}>
         <h3>推薦補給品</h3>
         {recommendedProducts.map((p, idx) => (
@@ -169,7 +262,7 @@ const Result = () => {
         ))}
       </section>
 
-          {/* <!-- 素清單區塊 -->
+      {/* <!-- 素清單區塊 -->
     <div class="tab-content active" id="favorites">
       <div class="product-list">
 
@@ -295,10 +388,13 @@ const Result = () => {
 
       {/* 行動按鈕 */}
       <section className={styles.actions}>
-        <button className={styles.retry} onClick={handleRetry}>再次測驗</button>
         <button className={styles.share} onClick={handleShare}>分享結果</button>
+        <button className={styles.retry} onClick={handleRetry}>再次測驗</button>
+
       </section>
     </div>
+
+
   );
 };
 

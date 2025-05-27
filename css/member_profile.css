@@ -1631,6 +1631,180 @@ html {
   color: #333;
 }
 
+.collect-articles {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1440px;
+  gap: 40px;
+  justify-content: center;
+  padding: 80px 40px;
+  font-family: "Noto Sans TC", sans-serif;
+}
+.collect-articles .article-card {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.collect-articles .article-card .article-thumbnail {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #d9d9d9;
+}
+.collect-articles .article-card .article-thumbnail img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+.collect-articles .article-card .article-thumbnail .like-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.collect-articles .article-card .article-thumbnail .like-btn img.default {
+  display: block;
+}
+.collect-articles .article-card .article-thumbnail .like-btn img.hover {
+  display: none;
+}
+.collect-articles .article-card .article-thumbnail .like-btn:hover img.default {
+  display: none;
+}
+.collect-articles .article-card .article-thumbnail .like-btn:hover img.hover {
+  display: block;
+}
+.collect-articles .article-card .article-thumbnail .like-btn.liked img.default {
+  display: none;
+}
+.collect-articles .article-card .article-thumbnail .like-btn.liked img.hover {
+  display: block;
+}
+.collect-articles .article-card .article-info {
+  width: 100%;
+  max-width: 300px;
+}
+.collect-articles .article-card .article-title {
+  text-align: left;
+  font-weight: 500;
+  font-size: 24px;
+  margin: 12px 0 6px;
+}
+.collect-articles .article-card .article-meta {
+  text-align: left;
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 20px;
+}
+.collect-articles .article-card .author {
+  text-align: left;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  padding-left: 12px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: #fff;
+}
+
+.policy-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 100px auto;
+  padding: 40px 20px;
+  gap: 60px;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+
+.policy-sidebar {
+  position: sticky;
+  top: 120px;
+  width: 160px;
+  height: fit-content;
+  background: #fff;
+  border-radius: 25px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 8px rgba(0, 0, 0, 0.08);
+}
+.policy-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.policy-sidebar li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 12px;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+.policy-sidebar li a {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.policy-sidebar li:hover, .policy-sidebar li.active {
+  background-color: #f2fdf9;
+}
+.policy-sidebar li:hover a, .policy-sidebar li.active a {
+  color: #3DCE94;
+}
+
+.policy-content {
+  flex: 1;
+  max-width: 800px;
+}
+
+.policy-section {
+  margin-bottom: 60px;
+}
+.policy-section h2 {
+  font-size: 60px;
+  font-weight: 700;
+  margin-bottom: 60px;
+  color: #3DCE94;
+}
+.policy-section h4 {
+  font-size: 18px;
+  margin: 20px 0 10px;
+  color: #222;
+}
+.policy-section p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+}
+
+hr {
+  margin: 40px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
 @media (max-width: 768px) {
   .rank-rule-item {
     flex-direction: column;
