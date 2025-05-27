@@ -23,3 +23,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+
+
+function scrollProducts(direction) {
+  const track = document.querySelector('.carousel-track');
+  const scrollAmount = track.clientWidth; // 一次滑動一整行（4 個卡片）
+
+  if (direction === 'left') {
+    track.scrollLeft -= scrollAmount;
+  } else {
+    track.scrollLeft += scrollAmount;
+  }
+}
