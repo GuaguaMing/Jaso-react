@@ -62,8 +62,7 @@ input, select, option {
   border: 1px solid rgba(200, 200, 200, 0.4);
   background: rgba(226, 226, 226, 0.25);
   box-shadow: 2px 2px 2px 0px rgba(255, 255, 255, 0.25) inset, 1px 5px 5.5px 0px rgba(0, 0, 0, 0.02);
-  -webkit-backdrop-filter: blur(7.5px);
-          backdrop-filter: blur(7.5px);
+  backdrop-filter: blur(7.5px);
   z-index: 1000;
 }
 
@@ -166,4 +165,4 @@ input, select, option {
   100% {
     transform: rotate(10deg);
   }
-}/*# sourceMappingURL=navbar.module.css.map */
+}
