@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員中心</title>
+    <link rel="stylesheet" href="./scss/member_profile.css" />
+    <style>
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .profile-container {
+            position: relative;
+            margin-top: 120px;
+            /* 確保不被 navbar 擋住 */
+        }
+
+        .nav-hidden {
+            z-index: 9999;
+        }
+    </style>
+    <header class="main-navbar">
+        <div class="navbar-container">
+            <!-- 左側 logo -->
+            <div class="navbar-left">
+               <a href="index.html"> <img src="./assets/img/nav-logo.svg" alt="Jaso Logo" class="navbar-logo" /></a>
+            </div>
+
+            <!-- 中間導覽連結 -->
+            <div class="navbar-center">
+                <nav class="navbar-links">
+                    <a href="#" class="nav-link">食物庫</a>
+                    <a href="#" class="nav-link">素食知識</a>
+                    <a href="#" class="nav-link">營養素算</a>
+                </nav>
+            </div>
+
+            <!-- 右側會員與購物按鈕 -->
+            <div class="navbar-right">
+                <div class="member">會員</div>
+                <div class="bean-shape">
+                    <div class="go-to-shop"><a href="./shop.html">素購</a></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- 隱藏式導覽列 -->
+    <div class="nav-hidden">
+         <a href="index.html"> <div class="logo" href="./article-main.html"><img src="./assets/img/nav-logo.svg" alt="">
+        </div></a>
+        <div class="navbar">
+            <div class="nav-center">
+                <nav class="navbar-links">
+                    <a href="#" class="nav-link">食物庫</a>
+                    <a href="#" class="nav-link">素食知識</a>
+                    <a href="#" class="nav-link">營養素算</a>
+                </nav>
+            </div>
+            <div class="nav-right">
+                <div class="member">會員</div>
+                <div class="bean-shape">
+                    <div class="go-to-shop"><a href="./shop.html">素購</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header>
+    <div style="height: 80px;"></div>
+    <section class="tab-bar">
+        <button class="tab-btn active" data-target="profile">個人資料</button>
+        <button class="tab-btn" data-target="points">會員點數</button>
+        <button class="tab-btn" data-target="guides">文章收藏</button>
+        <button class="tab-btn" data-target="orders">訂單紀錄</button>
+        <button class="tab-btn" data-target="favorites">素購收藏</button>
+    </section>
+
+    <!-- 個人資料區塊 -->
+    <div class="tab-content active" id="profile">
+        <div class="profile-container">
+            <!-- 左上：會員資訊區塊 -->
+            <div class="profile-left-top">
+                <div class="user-name-rank">
+                    <img src="./icons/img/j_member_normal.svg" alt="member" class="icon" />
+                    <p class="user-name">王小明</p>
+                    <div class="user-rank-badge">一般會員</div>
+                </div>
+                <div class="rank-rule-box">
+                    <div class="rank-rule-item">
+                        <img src="./icons/img/btn-rank-copper.svg" alt="銅級會員" class="rank-icon" />
+                        <div class="rank-inline-text">
+                            <span class="rank-title">升級至銅級會員</span>
+                            <span class="divider">｜</span>
+                            <span class="rank-condition">訂閱制滿 1 個月或消費滿 NT$3500 即可升級</span>
+                        </div>
+                    </div>
+                    <a href="#" class="rank-link">查看所有會員等級規則</a>
+                </div>
+                <p class="user-bonus">．新加入會員享會員禮金100元，無使用期限！</p>
+                <p class="user-bonus">．訂閱制會員，商品一律7折優惠</p>
+            </div>
+
+            <!-- 右上：12個月累計消費 -->
+            <div class="profile-right-top">
+                <div class="summary-header">
+                    <img src="./icons/img/j_icon_gift.svg" alt="gift" class="gift-icon" />
+                    <span class="summary-title">12 個月累計消費</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-info-row">
+                        <span class="current-amount">NT$2000</span>
+                        <span class="upgrade-info">差 NT$5000 升級</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 28%;"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 左下：個人資料 -->
+            <div class="profile-left-bottom">
+                <div class='gender-row'>
+                    <span class="shipping-title">生理性別</span>
+                    <label><input type="checkbox" name="gender" /> 男</label>
+                    <label><input type="checkbox" name="gender" /> 女</label>
+                    <label><input type="checkbox" name="gender" /> 不透露</label> <br>
+                </div>
+                <div class="input-row">
+                    <span class="input-label">出生年月日</span>
+                    <input type="date" class="rounded-input" />
+                </div>
+
+                <div class="input-row">
+                    <span class="input-label">電子信箱</span>
+                    <input type="email" placeholder="請輸入" class="rounded-input" />
+                </div>
+            </div>
+
+            <!-- 右下：送貨與付款 -->
+            <div class="profile-right-bottom">
+                <div class="shipping-header">
+                    <img src="./icons/img/j_shop_drive.svg" alt="truck" class="icon" />
+                    <span class="shipping-title">送貨與付款</span>
+                </div>
+
+                <div class="input-row">
+                    <span class="input-label">聯絡電話</span>
+                    <input type="text" placeholder="請輸入" class="rounded-input" />
+                </div>
+
+                <div class="input-row">
+                    <span class="input-label">儲存地址</span>
+                    <input type="text" placeholder="請輸入" class="rounded-input" />
+                </div>
+            </div>
+        </div>
+
+        <!-- profile-container 下方、新增包住按鈕的容器 -->
+        <div class="edit-button-wrapper">
+            <button class="edit-button">更改資料</button>
+        </div>
+    </div>
+
+
+    <!-- 會員點數區塊 -->
+    <div class="tab-content" id="points">
+        <div class="points-section">
+            <div class="points-header">
+                <div class="points-icon">J</div>
+                <h2 class="points-title">點數紀錄</h2>
+            </div>
+
+            <div class="points-summary">
+                <div class="points-info">
+                    <p class="points-label">現有總點數</p>
+                    <p class="points-total">96<span>點</span></p>
+                </div>
+                <!-- <button class="points-exchange-btn">點數兌換</button> -->
+            </div>
+
+            <table class="points-table">
+                <thead>
+                    <tr>
+                        <th>日期</th>
+                        <th>點數更動原因</th>
+                        <th>點數</th>
+                        <th>到期日</th>
+                        <th>現有總點數</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2025.04.18</td>
+                        <td>加入會員 - 新人禮金</td>
+                        <td>100</td>
+                        <td>永久到期</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>2025.04.18</td>
+                        <td>訂單0001223350</td>
+                        <td>100</td>
+                        <td>永久到期</td>
+                        <td class="negative">-4</td>
+                    </tr>
+                    <tr>
+                        <td>2025.04.18</td>
+                        <td>訂單0001223350</td>
+                        <td>100</td>
+                        <td>永久到期</td>
+                        <td class="negative">-4</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="points-note">＊ 最多顯示 3 個月內點數資訊</p>
+        </div>
+    </div>
+
+
+    <!-- 文章收藏 -->
+    <div class="tab-content" id="guides">
+        <div class="collect-articles">
+            <div class="article-card">
+                <div class="article-thumbnail">
+                    <img src="./assets/img/A-card.svg" alt="文章封面" />
+                    <button class="like-btn" aria-label="收藏">
+                        <img src="./icons/img/j_icon_likegray.svg" class="default" alt="收藏" />
+                        <img src="./icons/img/j_icon_like.svg" class="hover" alt="已收藏" />
+                    </button>
+                </div>
+                <div class="article-info">
+                    <h3 class="article-title">挑選素食保健品前你必須知道的五件事</h3>
+                    <div class="article-meta">
+                        <span class="date">July 23,2024</span>
+                        <span class="author">營養師 素素兒</span>
+                    </div>
+                </div>
+            </div>
+            <div class="article-card">
+                <div class="article-thumbnail">
+                    <img src="./assets/img/A-card.svg" alt="文章封面" />
+                    <button class="like-btn" aria-label="收藏">
+                        <img src="./icons/img/j_icon_likegray.svg" class="default" alt="收藏" />
+                        <img src="./icons/img/j_icon_like.svg" class="hover" alt="已收藏" />
+                    </button>
+                </div>
+                <div class="article-info">
+                    <h3 class="article-title">挑選素食保健品前你必須知道的五件事</h3>
+                    <div class="article-meta">
+                        <span class="date">July 23,2024</span>
+                        <span class="author">營養師 素素兒</span>
+                    </div>
+                </div>
+            </div>
+            <div class="article-card">
+                <div class="article-thumbnail">
+                    <img src="./assets/img/A-card.svg" alt="文章封面" />
+                    <button class="like-btn" aria-label="收藏">
+                        <img src="./icons/img/j_icon_likegray.svg" class="default" alt="收藏" />
+                        <img src="./icons/img/j_icon_like.svg" class="hover" alt="已收藏" />
+                    </button>
+                </div>
+                <div class="article-info">
+                    <h3 class="article-title">挑選素食保健品前你必須知道的五件事</h3>
+                    <div class="article-meta">
+                        <span class="date">July 23,2024</span>
+                        <span class="author">營養師 素素兒</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- 訂單區塊 -->
+    <div class="tab-content" id="orders">
+        <div class="order-section">
+            <div class="order-table-wrapper">
+                <table class="order-table">
+                    <thead>
+                        <tr>
+                            <th>訂單號碼</th>
+                            <th>定期購入</th>
+                            <th>訂單日期</th>
+                            <th>合計</th>
+                            <th>訂單狀態</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0001223350</td>
+                            <td>12期</td>
+                            <td>2025.04.18</td>
+                            <td>$2,200</td>
+                            <td>已付款</td>
+                            <td><button class="order-btn"> <a href="order.html">查詢</a></button></td>
+                        </tr>
+                        <tr>
+                            <td>0001223350</td>
+                            <td>12期</td>
+                            <td>2025.04.18</td>
+                            <td>$2,200</td>
+                            <td>已付款</td>
+                            <td><button class="order-btn"> <a href="order.html">查詢</a></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="order-note">
+                <span>＊ 最多顯示3個月內點數資訊</span>
+                <a href="#" class="order-more">
+                    <span class="text">MORE</span>
+                    <span class="arrow">&gt;</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 素清單區塊 -->
+    <div class="tab-content" id="favorites">
+        <!-- 素清單區塊 -->
+        <div class="tab-content active" id="favorites">
+            <div class="product-list">
+
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="./shop/img/jaso-medicine_Ca.png" alt="產品1" class="product-image" />
+                    </div>
+
+                    <div class="product-meta">
+                        <div class="product-tags">
+                            <span class="tag">手腳冰冷</span>
+                            <span class="tag">手腳冰冷</span>
+                        </div>
+                        <div class="product-icon">
+                            <button class="cart-btn" aria-label="加入購物車"></button>
+                            <button class="like-btn" aria-label="加入收藏"></button>
+                        </div>
+                    </div>
+
+                    <div class="product-title">鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span></div>
+                    <div class="product-desc">骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...</div>
+                    <a href="#" class="product-link">
+                        <span class="arrow">&gt;</span>
+                        <span class="text">看完整產品內容</span></a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="./shop/img/jaso-medicine_Ca.png" alt="產品1" class="product-image" />
+                    </div>
+
+                    <div class="product-meta">
+                        <div class="product-tags">
+                            <span class="tag">手腳冰冷</span>
+                            <span class="tag">手腳冰冷</span>
+                        </div>
+                        <div class="product-icon">
+                            <button class="cart-btn" aria-label="加入購物車"></button>
+                            <button class="like-btn" aria-label="加入收藏"></button>
+                        </div>
+                    </div>
+
+                    <div class="product-title">鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span></div>
+                    <div class="product-desc">骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...</div>
+                    <a href="#" class="product-link">
+                        <span class="arrow">&gt;</span>
+                        <span class="text">看完整產品內容</span></a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="./shop/img/jaso-medicine_Ca.png" alt="產品1" class="product-image" />
+                    </div>
+
+                    <div class="product-meta">
+                        <div class="product-tags">
+                            <span class="tag">手腳冰冷</span>
+                            <span class="tag">手腳冰冷</span>
+                        </div>
+                        <div class="product-icon">
+                            <button class="cart-btn" aria-label="加入購物車"></button>
+                            <button class="like-btn" aria-label="加入收藏"></button>
+                        </div>
+                    </div>
+
+                    <div class="product-title">鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span></div>
+                    <div class="product-desc">骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...</div>
+                    <a href="#" class="product-link">
+                        <span class="arrow">&gt;</span>
+                        <span class="text">看完整產品內容</span></a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="./shop/img/jaso-medicine_Ca.png" alt="產品1" class="product-image" />
+                    </div>
+
+                    <div class="product-meta">
+                        <div class="product-tags">
+                            <span class="tag">手腳冰冷</span>
+                            <span class="tag">手腳冰冷</span>
+                        </div>
+                        <div class="product-icon">
+                            <button class="cart-btn" aria-label="加入購物車"></button>
+                            <button class="like-btn" aria-label="加入收藏"></button>
+                        </div>
+                    </div>
+
+                    <div class="product-title">鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span></div>
+                    <div class="product-desc">骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...</div>
+                    <a href="#" class="product-link">
+                        <span class="arrow">&gt;</span>
+                        <span class="text">看完整產品內容</span></a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="./shop/img/jaso-medicine_Ca.png" alt="產品1" class="product-image" />
+                    </div>
+
+                    <div class="product-meta">
+                        <div class="product-tags">
+                            <span class="tag">手腳冰冷</span>
+                            <span class="tag">手腳冰冷</span>
+                        </div>
+                        <div class="product-icon">
+                            <button class="cart-btn" aria-label="加入購物車"></button>
+                            <button class="like-btn" aria-label="加入收藏"></button>
+                        </div>
+                    </div>
+
+                    <div class="product-title">鈣心定植物鈣 <span class="product-subtitle">藻鈣+D3雙效配方</span></div>
+                    <div class="product-desc">骨質疏鬆症找上門？補鈣不能只靠牛奶？同時也要補維生素D！幫助吸收鈣質也幫助骨骼更...</div>
+                    <a href="#" class="product-link">
+                        <span class="arrow">&gt;</span>
+                        <span class="text">看完整產品內容</span></a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer class="footer-container">
+        <div class="footer-content">
+            <!-- 主標題和副標題區塊 -->
+            <div class="footer-main">
+                <p class="footer-main-heading">專屬於你的 <br>營養報告</p>
+            </div>
+            <div class="footer-Jaso">
+                <p class="footer-jaso1">JASO+素</p>
+                <p class="footer-jaso2">素食營養專家 | 健康素食新選擇</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <img src="./icons/img/j_community_ins-bright.svg" alt="Instagram" class="social-icon">
+                    </a>
+                    <a href="#" class="social-link">
+                        <img src="./icons/img/j_community_fb-bright.svg" alt="Facebook" class="social-icon">
+
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- 副標題 -->
+        <div class="footer-section">
+            <div>
+                <p class="footer-heading">認識JASO+素</p>
+                <ul>
+                    <li><a href="#">關於我們</a></li>
+                    <li><a href="#">活動資訊</a></li>
+                    <li><a href="#">最新消息</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="footer-heading">購物須知</p>
+                <ul>
+                    <li><a href="#">如何訂購</a></li>
+                    <li><a href="#">退換政策</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="footer-heading">客戶須知</p>
+                <ul>
+                    <li><a href="#">服務條款</a></li>
+                    <li><a href="#">隱私權政策</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="footer-heading">客服中心</p>
+                <ul>
+                    <li><a href="#">線上客服</a></li>
+                    <li><a href="#">常見問題</a></li>
+                </ul>
+            </div>
+        </div>
+
+        </div>
+
+
+
+
+        <!-- cta按鈕和社交媒體圖標 -->
+        <div class="cta-container">
+            <a href="login.html" class="cta-button">
+                <span class="cta-button-text">
+                    加<br>
+                    入<br>
+                    會<br>
+                    員
+                </span>
+                <span class="cta-subtext">
+                    馬<br>
+                    上<br>
+                    諮<br>
+                    詢
+                </span>
+            </a>
+
+            <!-- 回到頁首的箭頭按鈕 -->
+            <a href="#" class="back-to-top">
+                <img src="./icons/img/j_arrow_a-1.svg" alt="Back to Top" />
+            </a>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="./js/shop1.js"></script>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab-btn');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const target = tab.getAttribute('data-target');
+                contents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === target) {
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+
+
+
+        let lastScrollTop = 0;
+        let showNav = false;
+        const nav = document.querySelector('.nav-hidden');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > 100) {
+                if (scrollTop < lastScrollTop) {
+                    // 向上滾動且已往下滑動過 => 顯示 navbar
+                    nav.style.top = '20px';
+                    nav.style.opacity = '1';
+                } else {
+                    // 向下滾動 => 隱藏 navbar
+                    nav.style.top = '-100px';
+                    nav.style.opacity = '0';
+                }
+            } else {
+                // 還沒滑超過指定高度就保持隱藏
+                nav.style.top = '-100px';
+                nav.style.opacity = '0';
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.cart-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    btn.classList.toggle('added');
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.cart-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    btn.classList.toggle('added');
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.like-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    btn.classList.toggle('liked');
+                });
+            });
+        });
+
+    </script>
+    </body>
+
+</html>

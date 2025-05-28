@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>營養素算</title>
+  <link rel="stylesheet" href="./css/style.min.css">
+  <style>
+    .quiz__step {
+      display: none;
+    }
+
+    .quiz__step.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="questionWrapper"></div>
+
+  <div class="navigation-buttons">
+    <button id="prevBtn" onclick="prevQuestion()">上一題</button>
+    <button onclick="nextQuestion()">下一題</button>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress" id="progress"></div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        type: "intro",
+        title: "綜合健康評估",
+        question: "由 JASO+ 團隊設計 AI 營養問卷<br>完成評估需時約 5 分鐘。<br>針對問卷裡所提供的所有資訊都只會針對網站內部分析使用並不會外流，敬請放心！",
+        options: [
+          "本人同意 JASO+ 的隱私政策及使用條款，並開始評估",
+          "本人不同意"
+        ],
+        image: "./assets/img/omega@3x.svg"
+
+      },
+      {
+        title: "基本資料",
+        question: "",
+        type: "form",
+        fields: [
+          { label: "生理性別", name: "gender", type: "radio", options: ["男", "女"] },
+          { label: "年齡", name: "age", type: "number", placeholder: "請輸入年齡" },
+          { label: "身高 (cm)", name: "height", type: "number", placeholder: "請輸入身高" },
+          { label: "體重 (kg)", name: "weight", type: "number", placeholder: "請輸入體重" },
+          {
+            label: "運動量",
+            name: "activity",
+            type: "select",
+            options: ["幾乎不動", "輕度", "中度", "高度"]
+          }
+        ],
+        image: "./assets/img/omega@3x.svg"
+
+      },
+      {
+        title: "飲食習慣",
+        question: "你每週是否攝取含鐵食物（如黑豆、紅莧菜、南瓜籽）？",
+        options: ["是", "否"],
+        image: "./assets/img/omega@3x.svg"
+      },
+      {
+        title: "飲食習慣",
+        question: "你每天是否有攝取富含維生素B12的食物或補充劑？",
+        options: ["每天都有", "偶爾有", "很少或沒有"],
+        image: "https://i.imgur.com/sA3e2Ah.png"
+      },
+      {
+        title: "飲食習慣",
+        question: "你每天攝取的蛋白質主要來自哪類食物？",
+        options: ["豆類及其製品", "穀物", "堅果與種子", "蔬菜"],
+        image: "https://i.imgur.com/GNj2aHo.png"
+      },
+      {
+        title: "飲食習慣",
+        question: "你是否每天攝取富含鈣質的食物或補充劑？",
+        options: ["每餐都有", "每天有", "很少或沒有"],
+        image: "https://i.imgur.com/sUcyKJf.png"
+      },
+      {
+        title: "飲食習慣",
+        question: "你的日常飲食中，攝取的熱量大多來自哪種食物？",
+        options: ["蔬菜和水果（低熱量）", "穀物（中等熱量）", "豆類和堅果（較高熱量）", "高加工食物或甜食（高熱量）"],
+        image: "https://i.imgur.com/dz0lOBc.png"
+      },
+      {
+        title: "病痛症狀",
+        question: "你是否經常感到疲倦、虛弱或容易氣喘？",
+        options: ["是", "否"],
+        image: "https://i.imgur.com/UYXqvOB.png"
+      },
+      {
+        title: "病痛症狀",
+        question: "你是否有經常性的偏頭痛或頭痛？",
+        options: ["是", "否"],
+        image: "https://i.imgur.com/hKYzqJ9.png"
+      },
+      {
+        title: "病痛症狀",
+        question: "你是否經常感到飢餓，或吃不飽？",
+        options: ["是", "否"],
+        image: "https://i.imgur.com/Zjowti7.png"
+      },
+      {
+        title: "病痛症狀",
+        question: "你是否經常感到便秘或腸胃不適？",
+        options: ["是", "否"],
+        image: "https://i.imgur.com/ykF9EZY.png"
+      },
+      {
+        title: "病痛症狀",
+        question: "你是否經常感到肌肉抽筋或手腳發麻？",
+        options: ["是", "否"],
+        image: "https://i.imgur.com/BYjRxl3.png"
+      }
+    ];
+
+    let currentQuestion = 0;
+
+    function renderQuestion() {
+
+      const q = questions[currentQuestion];
+      const isIntro = q.type === "intro"; // ← 移到這裡
+      const wrapper = document.getElementById("questionWrapper");
+
+      if (q.type === "intro") {
+        wrapper.innerHTML = `
+    <div class="question-container intro">
+      <div class="question-left">
+        <h2 class="${isIntro ? 'intro-title' : ''}">
+          <img src="./assets/img/+.svg" style="width: 16px;" alt="icon" /> ${q.title}
+        </h2>
+        <h4 class="${isIntro ? 'intro-question' : ''}">${q.question}</h4>
+        <div class="options">
+          ${q.options.map((opt, i) => `
+            <label class="option">
+              <input type="radio" name="q${currentQuestion}" value="${opt}" 
+                ${isIntro ? `onclick="handleIntroSelection('${opt}')"` : ''}>
+              ${opt}
+            </label>
+          `).join('')}
+        </div>
+      </div>
+          <div class="question-right">
+          <img src="${q.image}" alt="illustration" />
+        </div>
+    </div>
+  `;
+      }
+      else if (q.type === "form") {
+        wrapper.innerHTML = `
+      <div class="question-container">
+        <div class="question-left">
+          <h4 class="title"><img src="./assets/img/+.svg" style="width: 16px;" alt="icon" />  ${q.title}</h4>
+          <h2>${q.question}</h2>
+          <div class="form-fields">
+            ${q.fields.map(field => {
+          if (field.type === "radio") {
+            return `
+                <div class="form-group-1">
+                <label>生理性別</label>
+                 <div class="options horizontal">
+                <div class="option-1">
+                <input type="radio" name="gender" value="male" hidden />
+                <span>男</span>
+              </div>
+                <div class="option-1">
+      <input type="radio" name="gender" value="female" hidden />
+      <span>女</span>
+    </div>
+  </div>
+</div>
+                `;
+          }
+
+
+
+          else if (field.type === "select") {
+            return `
+                  <div class="form-group">
+                    <label>${field.label}</label>
+                    <select name="${field.name}">
+                      ${field.options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+                    </select>
+                  </div>
+                `;
+          } else {
+            return `
+                  <div class="form-group">
+                    <label>${field.label}</label>
+                    <input type="${field.type}" name="${field.name}" placeholder="${field.placeholder || ''}">
+                  </div>
+                `;
+          }
+        }).join('')}
+          </div>
+        </div>
+        <div class="question-right">
+          <img src="${q.image}" alt="illustration" />
+        </div>
+      </div>
+    `;
+      }
+      else {
+        wrapper.innerHTML = `
+      <div class="question-container">
+        <div class="question-left">
+          <h4 class="title"><img src="./assets/img/+.svg" style="width: 16px;" alt="icon" /> ${q.title}</h4>
+          <h2>${q.question}</h2>
+          <div class="options">
+            ${q.options.map((opt, i) => `
+              <label class="option">
+                <input type="radio" name="q${currentQuestion}" value="${opt}"> ${opt}
+              </label>
+            `).join('')}
+          </div>
+        </div>
+        <div class="question-right">
+          <img src="${q.image}" alt="illustration" />
+        </div>
+      </div>
+    `;
+      }
+
+      document.getElementById("progress").style.width = `${((currentQuestion + 1) / questions.length) * 100}%`;
+
+      document.querySelector(".navigation-buttons").style.display = isIntro ? "none" : "flex";
+      document.getElementById("prevBtn").style.display = currentQuestion === 0 ? "none" : "inline-block";
+
+    }
+
+    function handleIntroSelection(value) {
+      if (value.includes("不同意")) {
+        alert("若不同意隱私政策，將無法進行評估，感謝您的理解！");
+        window.location.href = "./main.html";
+        // 導回首頁
+      } else {
+        // 同意，進入下一頁
+        currentQuestion++;
+        renderQuestion();
+      }
+    }
+
+
+    function nextQuestion() {
+      if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        renderQuestion();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQuestion > 0) {
+        currentQuestion--;
+        renderQuestion();
+      }
+    }
+
+    // 初始載入第一題
+    renderQuestion();
+  </script>
+
+</body>
+
+</html>

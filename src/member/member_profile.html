@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>會員中心</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <section class="tab-bar">
+    <button class="tab-btn active">個人資料</button>
+    <button class="tab-btn">會員點數</button>
+    <button class="tab-btn">我的指南</button>
+    <button class="tab-btn">訂單</button>
+    <button class="tab-btn">素清單</button>
+  </section>
+  <div class="profile-container">
+    <!-- 左上：會員資訊區塊 -->
+    <div class="profile-left-top">
+      <div class="user-name-rank">
+        <img src="../icons/img/j_member_normal.svg" alt="member" class="icon" />
+        <p class="user-name">王小明</p>
+        <div class="user-rank-badge">一般會員</div>
+      </div>
+      <div class="rank-rule-box">
+        <div class="rank-rule-item">
+          <img src="../icons/img/btn-rank-copper.svg" alt="銅級會員" class="rank-icon" />
+          <div class="rank-text-group">
+            <p class="rank-title">升級至銅級會員</p>
+            <p class="rank-condition">訂閱制滿 1 個月或消費滿 NT$3500 即可升級</p>
+          </div>
+        </div>
+      </div>
+      <p class="user-bonus">．新加入會員享會員禮金100元，無使用期限！</p>
+      <p class="user-bonus">．訂閱制會員，商品一律7折優惠</p>
+    </div>
+
+    <!-- 右上：12個月累計消費 -->
+    <div class="profile-right-top">
+      <div class="summary-header">
+        <img src="../icons/img/j_icon_gift.svg" alt="gift" class="gift-icon" />
+        <span class="summary-title">12 個月累計消費</span>
+      </div>
+      <div class="progress-container">
+        <span class="upgrade-info">NT$2000</span>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 28%;"></div>
+        </div>
+        <span class="upgrade-info">差 NT$5000 升級</span>
+      </div>
+    </div>
+    <!-- 左下：個人資料 -->
+    <div class="profile-left-bottom">
+      <label>生理性別：</label>
+      <label><input type="checkbox" name="gender" /> 男</label>
+      <label><input type="checkbox" name="gender" /> 女</label>
+      <label><input type="checkbox" name="gender" /> 不透露</label>
+      <input type="text" placeholder="出生年月日" class="rounded-input" />
+      <input type="email" placeholder="電子信箱" class="rounded-input" />
+    </div>
+
+    <!-- 右下：送貨與付款 -->
+    <div class="profile-right-bottom">
+      <div class="shipping-header">
+        <img src="../icons/img/j_shop_drive.svg" alt="truck" class="icon" />
+        <span class="shipping-title">送貨與付款</span>
+      </div>
+      <input type="text" placeholder="聯絡電話" class="rounded-input" />
+      <input type="text" placeholder="儲存地址" class="rounded-input" />
+    </div>
+  </div>
+
+  <!-- profile-container 下方、新增包住按鈕的容器 -->
+<div class="edit-button-wrapper">
+  <button class="edit-button">更改資料</button>
+</div>
+</body>
+<footer class="footer-container">
+    <div class="footer-content">
+      <!-- 主標題和副標題區塊 -->
+      <div class="footer-main">
+        <p class="footer-main-heading">專屬於你的 <br>營養報告</p>
+      </div>
+      <div class="footer-Jaso">
+        <p class="footer-jaso1">JASO+素</p>
+        <p class="footer-jaso2">素食營養專家 | 健康素食新選擇</p>
+        <div class="social-links">
+          <a href="#" class="social-link">
+           <img src="../icons/img/j_community_ins-bright.svg" alt="Instagram" class="social-icon">
+          </a>
+          <a href="#" class="social-link">
+            <img src="../icons/img/j_community_fb-bright.svg" alt="Facebook" class="social-icon">
+            
+          </a>
+        </div>
+      </div>
+      </div>
+      <!-- 副標題 -->
+      <div class="footer-section">
+        <div>
+          <p class="footer-heading">認識JASO+素</p>
+          <ul>
+            <li><a href="#">關於我們</a></li>
+            <li><a href="#">活動資訊</a></li>
+            <li><a href="#">最新消息</a></li>
+          </ul>
+        </div>
+  
+        <div>
+          <p class="footer-heading">購物須知</p>
+          <ul>
+            <li><a href="#">如何訂購</a></li>
+            <li><a href="#">退換政策</a></li>
+          </ul>
+        </div>
+  
+        <div>
+          <p class="footer-heading">客戶須知</p>
+          <ul>
+            <li><a href="#">服務條款</a></li>
+            <li><a href="#">隱私權政策</a></li>
+          </ul>
+        </div>
+  
+        <div>
+          <p class="footer-heading">客服中心</p>
+          <ul>
+            <li><a href="#">線上客服</a></li>
+            <li><a href="#">常見問題</a></li>
+          </ul>
+        </div>
+      </div>
+  
+    </div>
+  
+  
+  
+  
+    <!-- cta按鈕和社交媒體圖標 -->
+    <div class="cta-container">
+      <a href="#" class="cta-button">
+        <span class="cta-button-text">
+          加<br>
+          入<br>
+          會<br>
+          員
+        </span>
+        <span class="cta-subtext">
+          馬<br>
+          上<br>
+          諮<br>
+          詢
+        </span>
+      </a>
+  
+    <!-- 回到頁首的箭頭按鈕 -->
+    <a href="#" class="back-to-top">
+      <img src="../icons/img/j_arrow_a-1@3x.svg" alt="Back to Top" />
+    </a>
+  </footer>
+</html>

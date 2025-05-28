@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <link rel="stylesheet" href="./scss/member_profile.css">
+</head>
+
+<style>
+    .tab-content {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .tab-content.active {
+        display: block;
+        opacity: 1;
+    }
+
+    .profile-container {
+        position: relative;
+        margin-top: 120px;
+        /* 確保不被 navbar 擋住 */
+    }
+
+    .nav-hidden {
+        z-index: 9999;
+    }
+</style>
+
+<body>
+
+</body>
+<!-- 上方導覽列 -->
+<header class="main-navbar">
+    <div class="navbar-container">
+        <!-- 左側 logo -->
+        <div class="navbar-left">
+            <img src="./assets/img/nav-logo.svg" alt="Jaso Logo" class="navbar-logo" />
+        </div>
+
+        <!-- 中間導覽連結 -->
+        <div class="navbar-center">
+            <nav class="navbar-links">
+                <a href="#" class="nav-link">食物庫</a>
+                <a href="#" class="nav-link">素食知識</a>
+                <a href="#" class="nav-link">營養素算</a>
+            </nav>
+        </div>
+
+        <!-- 右側會員與購物按鈕 -->
+        <div class="navbar-right">
+            <div class="member">會員</div>
+            <div class="bean-shape">
+                <div class="go-to-shop">素購</div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- 隱藏式導覽列 -->
+<div class="nav-hidden">
+    <div class="logo" href="./article-main.html"><img src="./assets/img/nav-logo.svg" alt="">
+    </div>
+    <div class="navbar">
+        <div class="nav-center">
+            <nav class="navbar-links">
+                <a href="#" class="nav-link">食物庫</a>
+                <a href="#" class="nav-link">素食知識</a>
+                <a href="#" class="nav-link">營養素算</a>
+            </nav>
+        </div>
+        <div class="nav-right">
+            <div class="member">會員</div>
+            <div class="bean-shape">
+                <div class="go-to-shop">素購</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</header>
+
+<!-- 主體內容 -->
+<div class="policy-container">
+    <!-- 側邊導覽 -->
+    <aside class="policy-sidebar">
+        <ul>
+            <li class="active"><a href="#terms">服務條款</a></li>
+            <li><a href="#privacy">隱私權政策</a></li>
+            <li><a href="#faq">常見問題</a></li>
+        </ul>
+    </aside>
+
+    <!-- 主文區塊 -->
+    <main class="policy-content">
+        <!-- 服務條款 -->
+        <section class="policy-section" id="terms">
+            <h2>服務條款</h2>
+            <h4>服務內容</h4>
+            <p>本網站提供的服務包括但不限於商品的在線瀏覽、購買、付款、配送、售後服務等。</p>
+            <h4>用戶管理</h4>
+            <p>使用本網站服務的用戶必須具備完全的民事行為能力。若用戶為未成年人，需在其監護人指導下使用本網站。</p>
+            <h4>用戶註冊</h4>
+            <p>用戶在使用本網站某些功能時，可能需要註冊帳戶。註冊帳戶時，請提供準確、完整的個人資料，並保持這些資料的更新。用戶應妥善保管帳戶密碼，不得將帳戶、密碼轉讓或出借給他人使用。
+                用戶對使用其帳戶和密碼進行的一切活動負全部責任。</p>
+            <h4>隱私保護</h4>
+            <p>本網站重視用戶的隱私保護，將按照隱私政策處理用戶的個人資料。</p>
+            <h4>訂單與付款</h4>
+            <p>用戶在本網站提交的訂單視為購買商品的要約。只有在本網站確認接受該訂單後，該訂單才生效。本網站提供多種支付方式，用戶可選擇適合自己的支付方式進行付款。</p>
+            <h4>配送服務</h4>
+            <p>本網站將根據用戶提供的配送地址進行商品配送。配送時間和費用將根據具體情況確定。</p>
+            <h4>退換貨政策</h4>
+            <p>用戶在收到商品後，如需退換貨，請參照本網站的退換貨政策。</p>
+            <h4>知識產權</h4>
+            <p>本網站及其所使用的所有內容（包括但不限於文字、圖像、音頻、視頻等）均受著作權、商標權及其他相關法律的保護。</p>
+            <h4>責任限制</h4>
+            <p>本網站對因不可抗力或其他非本網站過錯原因造成的服務中斷或損失不承擔責任。</p>
+            <h4>條款修改</h4>
+            <p>本網站有權根據需要修改本條款，修改後h的條款將在本網站公佈。用戶繼續使用本網站即視為接受修改後的條款。</p>
+            <h4>其他</h4>
+            <p>本條款的解釋、效力及糾紛解決均適用中華民國之法律。 <br>
+                若本條款的任何條款被視為無效或不可執行，該條款應在必要的最低限度內被修改或刪除，且不影響其他條款的有效性和可執行性。</p>
+            <hr>
+        </section>
+
+        <!-- 隱私權政策 -->
+        <section class="policy-section" id="privacy">
+            <h2>隱私權政策</h2>
+            <h4>一、隱私權保護政策的適用範圍</h4>
+            <p>隱私權保護政策內容，包括本網站如何處理在您使用網站服務時收集到的個人識別資料。隱私權保護政策不適用於本網站以外的相關連結網站，也不適用於非本網站所委託或參與管理的人員。</p>
+            <h4>二、個人資料的蒐集、處理及利用方式</h4>
+            <p>當您造訪本網站或使用本網站所提供之功能服務時，我們將視該服務功能性質，請您提供必要的個人資料，並在該特定目的範圍內處理及利用您的個人資料；非經您書面同意，本網站不會將個人資料用於其他用途。本網站在您使用服務信箱、問卷調查等互動性功能時，會保留您所提供的姓名、電子郵件地址、聯絡方式及使用時間等。於一般瀏覽時，伺服器會自行記錄相關行徑，包括您使用連線設備的
+                IP
+                位址、使用時間、使用的瀏覽器、瀏覽及點選資料記錄等，做為我們增進網站服務的參考依據，此記錄為內部應用，決不對外公佈。為提供精確的服務，我們會將收集的問卷調查內容進行統計與分析，分析結果之統計數據或說明文字呈現，除供內部研究外，我們會視需要公佈統計數據及說明文字，但不涉及特定個人之資料。您可以隨時向我們提出請求，以更正或刪除您的帳戶或本網站所蒐集的個人資料等隱私資訊。聯繫方式請見最下方聯繫管道。
+            </p>
+            <h4>三、資料之保護</h4>
+            <p>本網站主機均設有防火牆、防毒系統等相關的各項資訊安全設備及必要的安全防護措施，加以保護網站及您的個人資料採用嚴格的保護措施，只由經過授權的人員才能接觸您的個人資料，相關處理人員皆簽有保密合約，如有違反保密義務者，將會受到相關的法律處分。如因業務需要有必要委託其他單位提供服務時，本網站亦會嚴格要求其遵守保密義務，並且採取必要檢查程序以確定其將確實遵守。
+            </p>
+            <h4>四、網站對外的相關連結</h4>
+            <p>本網站的網頁提供其他網站的網路連結，您也可經由本網站所提供的連結，點選進入其他網站。但該連結網站不適用本網站的隱私權保護政策，您必須參考該連結網站中的隱私權保護政策。</p>
+            <h4>五、與第三人共用個人資料之政策</h4>
+            <p>本網站絕不會提供、交換、出租或出售任何您的個人資料給其他個人、團體、私人企業或公務機關，但有法律依據或合約義務者，不在此限。前項但書之情形包括不限於：經由您書面同意。法律明文規定。為免除您生命、身體、自由或財產上之危險。與公務機關或學術研究機構合作，基於公共利益為統計或學術研究而有必要，且資料經過提供者處理或蒐集者依其揭露方式無從識別特定之當事人。當您在網站的行為，違反服務條款或可能損害或妨礙網站與其他使用者權益或導致任何人遭受損害時，經網站管理單位研析揭露您的個人資料是為了辨識、聯絡或採取法律行動所必要者。有利於您的權益。本網站委託廠商協助蒐集、處理或利用您的個人資料時，將對委外廠商或個人善盡監督管理之責。
+            </p>
+            <h4>六、Cookie 之使用</h4>
+            <p>為了提供您最佳的服務，本網站會在您的電腦中放置並取用我們的 Cookie，若您不願接受 Cookie 的寫入，您可在您使用的瀏覽器功能項中設定隱私權等級為高，即可拒絕 Cookie
+                的寫入，但可能會導致網站某些功能無法正常執行 。
+            </p>
+            <h4>七、隱私權保護政策之修正</h4>
+            <p>用於提升體驗與記錄偏好，不含敏感資訊。</p>
+            <h4>八、聯繫管道</h4>
+            <p>對於本站之隱私權政策有任何疑問，或者想提出變更、移除個人資料之請求，請前往本站「聯絡我們」頁面提交表單。</p>
+
+            <hr>
+        </section>
+
+        <!-- 常見問題 -->
+        <section class="policy-section" id="faq">
+            <h2>常見問題（FAQ）</h2>
+
+            <h4>🌱 品牌理念</h4>
+            <h4>Q1：什麼是 JaSo+素？</h4>
+            <p>JaSo+素 是一個植基於「讓肉回歸動物身上」理念的保健食品品牌。我們結合植物營養與科學配方，專為素食者與健康生活者打造，推廣友善生命、低碳永續的生活方式。</p>
+
+            <h4>Q2：JaSo+素 是純素品牌嗎？</h4>
+            <p>是的，我們堅持使用 100% 植物性成分，不含任何動物性原料，也不進行動物實驗，從裡到外落實純素精神。</p>
+
+            <h4>🧪 產品資訊</h4>
+            <h4>Q3：產品主要有哪幾種類型？</h4>
+            <p>目前共有 6 款產品，補足生活所需的六大類營養素，讓素食者能在每日生活中補充所需的營養素。</p>
+
+            <h4>Q4：產品成分有經過檢驗嗎？</h4>
+            <p>有的。所有產品皆通過台灣第三方實驗室檢驗，並符合食品安全相關法規，品質安心有保障。</p>
+
+            <h4>💡 使用方式</h4>
+            <h4>Q5：我要怎麼知道哪款產品適合我？</h4>
+            <p>你可以根據個人需求參考我們的「產品分類標籤」，例如「日常補給 / 睡眠支持 / 綠色能量」等，或使用我們的【營養推薦小測驗】，快速找到最合適的選擇。</p>
+
+            <h4>Q6：產品要怎麼保存？</h4>
+            <ul>
+                <li>建議存放於陰涼乾燥處，避免高溫與陽光直射</li>
+                <li>開封後請遵循包裝建議於期限內食用完畢</li>
+                <li>若有需冷藏的品項，會特別註明在瓶身上</li>
+            </ul>
+
+            <h4>🌍 環境與包裝</h4>
+            <h4>Q7：玻璃瓶與塑膠瓶的用意是什麼？</h4>
+            <p>我們設計了兩種包裝形式：</p>
+            <ul>
+                <li>玻璃瓶裝：適合長期補充者，強化保護成分穩定性</li>
+                <li>塑膠瓶裝：適合輕便攜帶者，適用於日常短期補給</li>
+            </ul>
+            <p>兩種皆選用環保可回收材質，致力減少對環境的負擔。</p>
+
+            <h4>❓ 找不到答案嗎？</h4>
+            <p>如果你還有其他問題，歡迎透過 📩【客服信箱】或 💬【即時客服】與我們聯繫，我們將盡快回覆你的需求。</p>
+            <p>客服信箱：jaso_official@gmail.com</p>
+            <p>客服專線：(02) 8765-4321</p>
+            <p>聯絡地址：100台北市中正區濟南路一段321號</p>
+            <hr>
+        </section>
+    </main>
+</div>
+
+<!-- Footer -->
+<footer class="footer-container">
+    <div class="footer-content">
+        <!-- 主標題和副標題區塊 -->
+        <div class="footer-main">
+            <p class="footer-main-heading">專屬於你的 <br>營養報告</p>
+        </div>
+        <div class="footer-Jaso">
+            <p class="footer-jaso1">JASO+素</p>
+            <p class="footer-jaso2">素食營養專家 | 健康素食新選擇</p>
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <img src="./icons/img/j_community_ins-bright.svg" alt="Instagram" class="social-icon">
+                </a>
+                <a href="#" class="social-link">
+                    <img src="./icons/img/j_community_fb-bright.svg" alt="Facebook" class="social-icon">
+
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- 副標題 -->
+    <div class="footer-section">
+        <div>
+            <p class="footer-heading">認識JASO+素</p>
+            <ul>
+                <li><a href="#">關於我們</a></li>
+                <li><a href="#">活動資訊</a></li>
+                <li><a href="#">最新消息</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <p class="footer-heading">購物須知</p>
+            <ul>
+                <li><a href="#">如何訂購</a></li>
+                <li><a href="#">退換政策</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <p class="footer-heading">客戶須知</p>
+            <ul>
+                <li><a href="#">服務條款</a></li>
+                <li><a href="#">隱私權政策</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <p class="footer-heading">客服中心</p>
+            <ul>
+                <li><a href="#">線上客服</a></li>
+                <li><a href="#">常見問題</a></li>
+            </ul>
+        </div>
+    </div>
+
+    </div>
+
+
+
+
+    <!-- cta按鈕和社交媒體圖標 -->
+    <div class="cta-container">
+        <a href="#" class="cta-button">
+            <span class="cta-button-text">
+                加<br>
+                入<br>
+                會<br>
+                員
+            </span>
+            <span class="cta-subtext">
+                馬<br>
+                上<br>
+                諮<br>
+                詢
+            </span>
+        </a>
+
+        <!-- 回到頁首的箭頭按鈕 -->
+        <a href="#" class="back-to-top">
+            <img src="./icons/img/j_arrow_a-1@3x.svg" alt="Back to Top" />
+        </a>
+</footer>
+
+
+<!-- 平滑滾動 JS -->
+<script>
+
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            const target = tab.getAttribute('data-target');
+            contents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === target) {
+                    content.classList.add('active');
+                }
+            });
+        });
+    });
+
+
+
+    let lastScrollTop = 0;
+    let showNav = false;
+    const nav = document.querySelector('.nav-hidden');
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > 100) {
+            if (scrollTop < lastScrollTop) {
+                // 向上滾動且已往下滑動過 => 顯示 navbar
+                nav.style.top = '20px';
+                nav.style.opacity = '1';
+            } else {
+                // 向下滾動 => 隱藏 navbar
+                nav.style.top = '-100px';
+                nav.style.opacity = '0';
+            }
+        } else {
+            // 還沒滑超過指定高度就保持隱藏
+            nav.style.top = '-100px';
+            nav.style.opacity = '0';
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+
+    document.querySelectorAll('.policy-sidebar a').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    document.querySelectorAll('.policy-sidebar li').forEach(item => {
+        item.addEventListener('click', () => {
+            document.querySelectorAll('.policy-sidebar li').forEach(li => li.classList.remove('active'));
+            item.classList.add('active');
+        });
+    });
+
+
+</script>
+
+</body>
+
+
+
+</html>
