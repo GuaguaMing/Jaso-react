@@ -1,8 +1,12 @@
 {
-  "name": "vsc_my_react_demo",
+  "name": "Jaso-react",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://guaguaming.github.io/Jaso-react",
+
+
+  
   "scripts": {
     "dev": "vite",
     "build": "vite build",
