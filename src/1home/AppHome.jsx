@@ -1,5 +1,5 @@
 import React from "react";
-import {Router, Routes, Route } from "react-router-dom";
+import { Router, Routes, Route } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import '../../css/style.min.css';
 import '../main.css';
@@ -296,6 +296,8 @@ export default function App() {
                 <Route path="/guide" element={<AppGuide />} />
                 <Route path="/article" element={<AppArticle />} />
                 <Route path="/quiz" element={<AppQuiz />} />
+                {/* Add this line to handle the "/Jaso-react" path */}
+                <Route path="/Jaso-react" element={<AppHome />} />
             </Routes>
         </>
     )
