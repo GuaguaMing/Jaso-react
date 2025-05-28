@@ -35,8 +35,8 @@
             margin-bottom: 10px;
         }
 
-        .shop_h2 {
-            font-size: 28px;
+        .shop-title {
+            font-size: 36px bold;
             margin-bottom: 15px;
         }
 
@@ -54,10 +54,11 @@
             display: flex;
             gap: 10px;
             margin: 15px 0;
+            justify-content:flex-start;
 
             li {
-                width: 40px;
-                height: 40px;
+                width: 120px;
+                height: 80px;
 
                 img {
                     width: 100%;
@@ -187,17 +188,17 @@
         padding: 10px 20px;
         border-radius: 50px;
         font-size: 14px;
-        background-color: #e5f6ee;
-        color: #333;
+        background-color: $color-primary-light2;
+        color: $color-dark;
         text-align: center;
         font-weight: 500;
         line-height: 1.2;
+        justify-content: center;
     }
 
     .shop_li:nth-child(1) {
-        font-weight: bold;
-        background-color: $color-primary;
-        color: #fff;
+        background-color: $color-primary-light2;
+        color: $color-dark;
     }
 }
 
@@ -308,22 +309,25 @@
 }
 
 // 大按鈕區塊
-.shop-btn {
+.shop-medicine-shop-btn {
     display: flex;
+    width: 500px;
     align-items: center;
     background-color: $color-white;
     color: $color-gray;
     padding: 15px 20px;
-    border: $color-gray;
+    border-color: $color-gray;
     font-size: 18px;
     margin-top: 30px;
+    justify-content: center;
     cursor: pointer;
 
     img {
+        width: 30px;
         margin-right: 10px;
     }
 
     &:hover {
-        background-color: #37b683;
+        background-color: #dcfcef;
     }
 }
