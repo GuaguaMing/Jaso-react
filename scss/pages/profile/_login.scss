@@ -4,21 +4,23 @@
     font-family: "Noto Sans TC", sans-serif;
 
     .login-header {
-        margin-bottom: 40px;
+        margin-bottom: 50px;
 
         h1 {
             font-style: normal;
             font-size: 64px;
             font-weight: 700;
             color: #3DCE94;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+            letter-spacing: 3.84px;
         }
 
         .face-wrapper {
             position: relative;
-            width: 200px;
-            height: 160px;
+            width: 206px;
+            height: 163px;
             margin: 0 auto;
+            margin-bottom: 50px;
 
             .login-icon {
                 width: 100%;
@@ -84,24 +86,41 @@
         .input-row {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 12px;
             margin-bottom: 20px;
+            position: relative;
 
             .input-label {
                 min-width: 100px;
                 font-size: 18px;
                 font-weight: 500;
-                text-align: left;
             }
 
             .rounded-input {
                 flex: 1;
                 padding: 12px 20px;
                 border-radius: 999px;
-                background: #F6EFEF;
+                background: #f6efef;
                 border: none;
                 font-size: 16px;
                 color: #333;
+                max-width: 300px;
+            }
+
+            .forgot-password {
+                white-space: nowrap;
+                font-size: 14px;
+                color: #999;
+
+                a {
+                    color: #999;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: #3DCE94;
+                        text-decoration: underline;
+                    }
+                }
             }
         }
     }
@@ -122,7 +141,7 @@
             font-weight: 500;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
             transition: all 0.3s ease; // 增加滑順動畫
-            margin-top: 50px;
+            margin-top: 10px;
 
             &.primary {
                 background-color: #3DCE94;
@@ -154,29 +173,6 @@
 
             &:hover {
                 text-decoration: underline;
-            }
-        }
-    }
-
-    .password-row {
-        position: relative;
-
-        .forgot-password {
-            position: absolute;
-            left: 130px; // 對齊 input 起始位置，可依實際需求微調
-            bottom: -50px; // 貼在輸入框下方
-            font-size: 14px;
-            color: #999;
-            margin: 0;
-
-            a {
-                color: #999;
-                text-decoration: none;
-
-                &:hover {
-                    color: #3DCE94;
-                    text-decoration: underline;
-                }
             }
         }
     }
