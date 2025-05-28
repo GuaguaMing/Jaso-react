@@ -13,7 +13,7 @@
         <div class="navbar-container">
             <!-- 左側 logo -->
             <div class="navbar-left">
-                <img src="./assets/img/nav-logo.svg" alt="Jaso Logo" class="navbar-logo" />
+                <a href="index.html"> <img src="./assets/img/nav-logo.svg" alt="Jaso Logo" class="navbar-logo" /></a>
             </div>
 
             <!-- 中間導覽連結 -->
@@ -29,12 +29,12 @@
             <div class="navbar-right">
                 <div class="member">會員</div>
                 <div class="bean-shape">
-                    <div class="go-to-shop">素購</div>
+                    <div class="go-to-shop"><a href="./shop.html">素購</a></div>
                 </div>
             </div>
         </div>
     </header>
-    
+
     <section class="login-section">
         <div class="login-header">
             <h1>Hello!</h1>
@@ -45,28 +45,28 @@
                 </div>
                 <div class="eye-wrapper eye-right">
                     <img src="./icons/img/eye.svg" class="rotating-eye" />
-            </div>
-        </div>
-
-        <form class="login-form">
-            <div class="input-row">
-                <label class="input-label" for="account">帳號登入</label>
-                <input type="text" id="account" placeholder="email 或帳戶" class="rounded-input" />
-            </div>
-            <div class="input-row password-row">
-                <label class="input-label" for="password">密碼</label>
-                <input type="password" id="password" placeholder="半形英文+數字8碼" class="rounded-input" />
-                <p class="forgot-password"><a href="#">忘記密碼嗎？</a></p>
+                </div>
             </div>
 
-            <div class="login-actions">
-                <button type="submit" class="btn primary">登入</button>
-            </div>
+            <form class="login-form">
+                <div class="input-row">
+                    <label class="input-label" for="account">帳號登入</label>
+                    <input type="text" id="account" placeholder="email 或帳戶" class="rounded-input" />
+                </div>
+                <div class="input-row password-row">
+                    <label class="input-label" for="password">密碼</label>
+                    <input type="password" id="password" placeholder="半形英文+數字8碼" class="rounded-input" />
+                    <p class="forgot-password"><a href="#">忘記密碼嗎？</a></p>
+                </div>
 
-            <p class="signup-tip">
-                你還不素會員？<a href="#" class="signup-link">馬上註冊！</a>
-            </p>
-        </form>
+                <div class="login-actions">
+                    <button type="submit" class="btn primary">登入</button>
+                </div>
+
+                <p class="signup-tip">
+                    你還不素會員？<a href="#" class="signup-link">馬上註冊！</a>
+                </p>
+            </form>
     </section>
 
     <script>
