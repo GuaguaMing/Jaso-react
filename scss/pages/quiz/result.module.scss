@@ -1,0 +1,443 @@
+@use "sass:map";
+@use "../../scss/variable/var-color" as *;
+@use "../../scss/variable/var-font" as *;
+@use "../../scss/function/reset";
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
+
+/* Result.module.scss */
+
+.result {
+  max-width: 1440px;
+  width: 100%;
+  margin: 130px auto;
+  padding: 0 3rem;
+
+  font-family: $font-all;
+  color: #333;
+
+  // result.module.scss
+  .title {
+    color: #000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 132%;
+    /* 31.68px */
+    letter-spacing: 2.16px;
+  }
+
+  .subtitle {
+    color: #3DCE94;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 132%;
+    /* 31.68px */
+    letter-spacing: 2.16px;
+  }
+
+  .header {
+    text-align: left;
+    padding-left: 5rem;
+
+  }
+
+  .radarSection {
+
+   margin: 4rem 8rem;
+    display: flex;
+    justify-content: space-between; // 讓左右分離
+    gap: 15rem;
+    align-items: flex-start;
+    .chartText {
+      padding-left: 5rem;
+    }
+
+    .radarChart {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      color: $color-black;
+
+      .chartTitle {
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+
+        .circle {
+          width: 22px;
+          height: 22px; //正圓形，所以寬與高都設一樣
+          border-radius: 99px;
+          background-color: $color-primary;
+          margin-right: 11px;
+
+        }
+      }
+
+      .chartNote {
+        margin-top: 0.5rem;
+        font-size: 10px;
+        text-align: left;
+        flex-wrap: wrap;
+width: 20rem;
+
+      }
+
+    }
+
+    .radarCharacter {
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, auto);
+      gap: 32px 16px; // 行間距列間距，可依照需要調整
+      justify-items: center;
+      align-items: start;
+
+
+      .characterBox {
+
+        display: grid;
+        grid-template-rows: auto auto auto;
+        align-items: center;
+        column-gap: 8px;
+
+        .characterImgWrapper {
+          position: relative;
+          display: inline-block;
+          gap: 8px;
+          width: 145px;
+          height: 145px;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+
+          .bubble {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border-radius: 50%;
+            font-size: 10px;
+            text-align: center;
+            line-height: 1.2;
+          }
+
+          .high {
+            background-color: #4caf50;
+          }
+
+          .medium {
+            background-color: #ff9800;
+          }
+
+          .low {
+            background-color: #f44336;
+          }
+        }
+
+      div {
+        display: flex;
+        justify-content: center;
+      }
+      }
+    }
+    .radarLeft {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 3rem;
+      p{
+        color: #000;
+
+/* 內文1-14px */
+font-family: "Noto Sans TC";
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 177%; /* 24.78px */
+letter-spacing: 1.96px;
+      }
+    }
+  }
+
+  .summary {
+    padding: 2rem 8rem;
+    h4 {
+      color: #14A168;
+font-family: "Noto Sans TC";
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: 120.288%; /* 28.869px */
+letter-spacing: 6.24px;
+flex-wrap: wrap;
+width: 46rem;
+padding-bottom: 3rem;
+    }
+    h3 {
+      color: $color-black;
+      font-family: $font-all;
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 100%;
+      /* 36px */
+      letter-spacing: 3.24px;
+      padding-bottom: 2rem;
+    }
+
+    .barGroup {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      gap: 1rem;
+      width: 830px;
+      margin-bottom: 1rem;
+
+      label {
+        display: block;
+        text-align: left;
+        padding-left: 1.5rem;
+        font-weight: bold;
+        color: var(--Neutrue-White, #FFF);
+font-family: "Noto Sans TC";
+font-size: 18px;
+font-weight: 500;
+letter-spacing: 1.62px;
+      }
+
+      .bar {
+        padding-right: 0.5rem;
+        color: #7e7e7e;
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        height: 30px;
+        background: #F4EFEF;
+        border-radius: 20px;
+        position: relative;
+        overflow: hidden;
+
+      }
+
+      .fill {
+        height: 100%;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 30px;
+        font-weight: bold;
+        color: #fff;
+        background: linear-gradient(90deg, #3DCE94, #55DDCC); // 可根據需求調整
+      }
+    }
+
+    .protein {
+      display: flex;
+      padding-top: 1rem;
+
+      color: #000;
+font-family: "Noto Sans TC";
+font-size: 36px;
+font-style: normal;
+font-weight: 500;
+line-height: 100%; /* 36px */
+letter-spacing: 3.24px;
+p{
+  color: var(--main-deep, #3DCE94);
+  font-family: "Noto Sans TC";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: 5.28px;
+}
+    }
+  }
+
+  .productList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    // padding: 1rem;
+    // margin: auto 1rem;
+  
+    .card {
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.80);
+      box-shadow: 0px 4px 19.4px rgba(0, 0, 0, 0.25);
+      text-align: center;
+      padding: 1.5rem;
+      width: 425px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+  
+      img {
+        width: 100%;
+        margin-bottom: 1rem;
+        border-radius: 30px;
+      }
+      .needWhat {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        align-items: flex-end;
+      }
+  .needLeft{
+    h4 {
+      color: #3DCE94;
+      font-family: "Noto Sans TC";
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: 120%; /* 80.16px */
+    }
+    span {
+      color: #3DCE94;
+font-family: "Noto Sans TC";
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: 132%; /* 31.68px */
+letter-spacing: 2.16px;
+    }
+
+  }
+.needRight {
+  text-align: left;
+  span {
+    color: #252527;
+font-family: "Noto Sans TC";
+font-size: 13px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 2.86px;
+  }
+  p {
+    color: #252527;
+font-family: "Noto Sans TC";
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 4.4px;
+  }
+
+}
+
+  
+      .subtitle {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #000;
+      }
+  
+      .detail {
+        font-size: 0.9rem;
+        color: #333;
+      }
+    }
+  }
+  
+//   .productList {
+//     display: grid;
+//     grid-template-columns: repeat(3, 1fr); // 每欄等寬
+//     gap: 1rem; // 欄與欄之間的間距
+
+
+
+//     .card {
+
+//       border-radius: 30px;
+// background: rgba(255, 255, 255, 0.80);
+// box-shadow: 0px 4px 19.4px 0px rgba(0, 0, 0, 0.25);
+
+
+//       img {
+//         width: 100px;
+//         margin-bottom: 1rem;
+//       }
+
+//       h4 {
+//         color: #2c8f5b;
+//         font-size: 1rem;
+//         margin-bottom: 0.5rem;
+//       }
+
+//       p {
+//         font-size: 0.95rem;
+//       }
+//     }
+//   }
+
+  .actions {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    .retry,
+    .share {
+      width: 205px;
+      font-family: $font-all;
+      font-size: 18px;
+
+      color: white;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      letter-spacing: 1.62px;
+line-height: 150%;
+
+      border-radius: 25px;
+      background-color: $color-primary;
+
+      box-shadow: 0px 2px 3.5px 0px rgba(0, 0, 0, 0.25);
+
+      &:hover {
+      background-color: #3dce94f5;
+
+        color: $color-white;
+        border-bottom: #333;
+
+        border-radius: 25px;
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+      }
+    }
+
+    .retry {
+      background-color: #AAA6A8;
+      color: $color-white;
+
+
+      &:hover {
+        background-color: $color-level2;
+        border-bottom: #333;
+        color: $color-white;
+
+        border-radius: 25px;
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+
+
+      }
+    }
+  }
+}
+
