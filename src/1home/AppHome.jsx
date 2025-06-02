@@ -3,20 +3,8 @@ import { Link, useNavigate} from "react-router-dom";
 import '../../css/style.min.css';
 import '../main.css';
 
-<<<<<<< HEAD
 export default function AppHome() {
     const navigate = useNavigate();
-=======
-import AppGuide from '../guide/AppGuide';
-import AppArticle from '../article/AppArticle';
-import AppQuiz from '../quiz/AppQuiz';
-import MemberCenter from "../member/MemberCenter";
-
-export default function App() {
-    const AppHome = () => {
-        return <h1>Welcome to the Home Page!</h1>;
-    };
->>>>>>> 3ae9e298b3de3cf1dc01c3e4851d31fdb727641f
     return (
         <>
             <header>
@@ -29,7 +17,7 @@ export default function App() {
                         </ul>
                     </div>
                     <div className="nav-right">
-                        <div className="member"><Link to="/member">會員</Link></div>
+                        <div className="member"><Link to="./member-profile.html">會員</Link></div>
                         <div className="bean-shape">
                             <div className="go-to-shop"><Link to="./shop">素購</Link></div>
                         </div>
@@ -297,18 +285,6 @@ export default function App() {
                     <p className="copyright">© 2025 JASO+素. All Rights Reserved.</p>
                 </div>
             </footer>
-<<<<<<< HEAD
-=======
-            <Routes>
-                <Route path="/" element={<AppHome />} />
-                <Route path="/guide" element={<AppGuide />} />
-                <Route path="/article" element={<AppArticle />} />
-                <Route path="/quiz" element={<AppQuiz />} />
-                {/* Add this line to handle the "/Jaso-react" path */}
-                <Route path="/Jaso-react" element={<AppHome />} />
-                <Route path="/member" element={<MemberCenter />} />
-            </Routes>
->>>>>>> 3ae9e298b3de3cf1dc01c3e4851d31fdb727641f
         </>
     )
 }
