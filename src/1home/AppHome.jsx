@@ -7,7 +7,6 @@ import '../main.css';
 import AppGuide from '../guide/AppGuide';
 import AppArticle from '../article/AppArticle';
 import AppQuiz from '../quiz/AppQuiz';
-import AppMember from '../member/MemberCenter';
 import MemberCenter from "../member/MemberCenter";
 
 export default function App() {
