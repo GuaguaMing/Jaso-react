@@ -1,30 +1,14 @@
 import React from "react";
 import { Link, useNavigate} from "react-router-dom";
-import '../../css/style.min.css';
-import '../main.css';
+/* import '../../css/style.css';
+import '../main.css'; */
+import Navbar from "../member/Navbar";
 
 export default function AppHome() {
     const navigate = useNavigate();
     return (
         <>
-            <header>
-                <div className="navbar">
-                    <div className="nav-center">
-                        <ul>
-                            <li><Link to="/guide">食物庫</Link></li>
-                            <li><Link to="/article">素食知識</Link></li>
-                            <li><Link to="/quiz">營養素算</Link></li>
-                        </ul>
-                    </div>
-                    <div className="nav-right">
-                        <div className="member"><Link to="./member-profile.html">會員</Link></div>
-                        <div className="bean-shape">
-                            <div className="go-to-shop"><Link to="./shop">素購</Link></div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
+        <Navbar/>
             <>
                 <section id="banner-1">
                     <div className="title-top">

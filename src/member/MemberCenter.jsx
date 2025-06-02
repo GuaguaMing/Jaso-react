@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import '../../css/style.min.css';
-import '../main.css';
 import NavHidden from "./navHidden.jsx";
 import TabBar from "./AppTab.jsx";
 import ProfileSection from "./porfileTab.jsx";
@@ -10,7 +8,9 @@ import OrdersSection from "./orderTab.jsx";
 import FavoritesSection from "./FavoritesTab.jsx";
 import Navbar from "./Navbar.jsx";
 import Footer from "../footer/AppFooter.jsx";
-import styles from "./MemberCenter.module.css";
+/* import '../main.css';
+import './css/member_profile.css';
+import './css/style.min.css'; */
 
 export default function MemberCenter() {
   const [activeTab, setActiveTab] = useState("profile");

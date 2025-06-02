@@ -6,7 +6,7 @@ import CartSummary from './components/CartSummary';
 import RecentViewed from './components/RecentViewed';
 import ShippingForm from './components/ShippingForm';
 
-function App() {
+function AppShopCart() {
   const [step, setStep] = useState(1);
 
   // ✅ 提升 cartItems 狀態到 App

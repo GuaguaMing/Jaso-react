@@ -179,7 +179,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding-left: 259px;
+    padding-left: 50rem;
     padding-right: 1rem;
 }
 
@@ -201,12 +201,12 @@ footer {
     align-items: center;
     justify-content: center;
 
-    -webkit-mask-image: url(./assets/img/0.svg);
+    -webkit-mask-image: url(../public/images/0.svg);
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
     -webkit-mask-size: contain;
 
-    mask-image: url(./assets/img/0.svg);
+    mask-image: url(../public/images/0.svg);
     mask-repeat: no-repeat;
     mask-position: center;
     mask-size: contain;
@@ -399,7 +399,7 @@ footer {
     position: absolute;
     bottom: 0;
     right: 0;
-    background-image: url(./assets/img/logo-bg.svg);
+    background-image: url(../public/images/logo-bg.svg);
     background-repeat: no-repeat;
     overflow: hidden;
     width: 1325px;
@@ -529,7 +529,7 @@ footer {
     justify-content: center;
     align-items: center;
     background-repeat: no-repeat;
-    background-image: url(./assets/img/chart.svg);
+    background-image: url(../public/images/chart.svg);
 }
 
 #about {

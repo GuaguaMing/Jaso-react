@@ -1,7 +1,7 @@
-
 import React from 'react';
-import './css/style.min.css';
-import './main.css';
+import { Link, useNavigate} from "react-router-dom";
+import '../../css/style.css';
+import '../main.css';
 
 export default function Navbar() {
   return (
@@ -9,23 +9,25 @@ export default function Navbar() {
       <div className="navbar-container">
         {/* 左側 logo */}
         <div className="navbar-left">
-          <a href="/"><img src="/assets/img/nav-logo.svg" alt="Jaso Logo" className="navbar-logo" /></a>
+          <a href="/"><img src="./assets/nav-logo.svg" alt="Jaso Logo" className="navbar-logo" /></a>
         </div>
 
         {/* 中間導覽連結 */}
         <div className="navbar-center">
           <nav className="navbar-links">
-            <a href="#" className="nav-link">食物庫</a>
-            <a href="#" className="nav-link">素食知識</a>
-            <a href="#" className="nav-link">營養素算</a>
+            <ul>
+              <li><Link to="/guide">食物庫</Link></li>
+              <li><Link to="/article">素食知識</Link></li>
+              <li><Link to="/quiz">營養素算</Link></li>
+            </ul>
           </nav>
         </div>
 
         {/* 右側會員與購物按鈕 */}
-        <div className="navbar-right">
-          <div className="member">會員</div>
+        <div className="nav-right">
+          <div className="member"><Link to="/memberCenter">會員</Link></div>
           <div className="bean-shape">
-            <div className="go-to-shop"><a href="/shop">素購</a></div>
+            <div className="go-to-shop"><Link to="/shop">素購</Link></div>
           </div>
         </div>
       </div>
