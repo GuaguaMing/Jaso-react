@@ -1,6 +1,7 @@
 
 import React from 'react';
-import './Navbar.module.css';
+import './css/style.min.css';
+import './main.css';
 
 export default function Navbar() {
   return (
