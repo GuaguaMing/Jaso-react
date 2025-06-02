@@ -13,7 +13,7 @@ const Result = () => {
 
   const resultData = location.state;
   if (!resultData) {
-    return <p>請先完成測驗</p>;
+    return <p>請先完成測驗</p>
   }
   const {
     bmi,

@@ -792,20 +792,22 @@ html {
   font-family: "Noto Sans TC", sans-serif;
 }
 .login-section .login-header {
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 .login-section .login-header h1 {
   font-style: normal;
   font-size: 64px;
   font-weight: 700;
   color: #3DCE94;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  letter-spacing: 3.84px;
 }
 .login-section .login-header .face-wrapper {
   position: relative;
-  width: 200px;
-  height: 160px;
+  width: 206px;
+  height: 163px;
   margin: 0 auto;
+  margin-bottom: 50px;
 }
 .login-section .login-header .face-wrapper .login-icon {
   width: 100%;
@@ -840,23 +842,37 @@ html {
 .login-section .login-form .input-row {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
   margin-bottom: 20px;
+  position: relative;
 }
 .login-section .login-form .input-row .input-label {
   min-width: 100px;
   font-size: 18px;
   font-weight: 500;
-  text-align: left;
 }
 .login-section .login-form .input-row .rounded-input {
   flex: 1;
   padding: 12px 20px;
   border-radius: 999px;
-  background: #F6EFEF;
+  background: #f6efef;
   border: none;
   font-size: 16px;
   color: #333;
+  max-width: 300px;
+}
+.login-section .login-form .input-row .forgot-password {
+  white-space: nowrap;
+  font-size: 14px;
+  color: #999;
+}
+.login-section .login-form .input-row .forgot-password a {
+  color: #999;
+  text-decoration: none;
+}
+.login-section .login-form .input-row .forgot-password a:hover {
+  color: #3DCE94;
+  text-decoration: underline;
 }
 .login-section .login-actions {
   display: flex;
@@ -874,7 +890,7 @@ html {
   font-weight: 500;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
-  margin-top: 50px;
+  margin-top: 10px;
 }
 .login-section .login-actions .btn.primary {
   background-color: #3DCE94;
@@ -900,25 +916,6 @@ html {
   text-decoration: none;
 }
 .login-section .signup-tip .signup-link:hover {
-  text-decoration: underline;
-}
-.login-section .password-row {
-  position: relative;
-}
-.login-section .password-row .forgot-password {
-  position: absolute;
-  left: 130px;
-  bottom: -50px;
-  font-size: 14px;
-  color: #999;
-  margin: 0;
-}
-.login-section .password-row .forgot-password a {
-  color: #999;
-  text-decoration: none;
-}
-.login-section .password-row .forgot-password a:hover {
-  color: #3DCE94;
   text-decoration: underline;
 }
 

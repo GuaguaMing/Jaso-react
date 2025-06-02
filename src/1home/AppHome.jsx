@@ -1,17 +1,10 @@
 import React from "react";
-import { Router, Routes, Route } from "react-router-dom";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from "react-router-dom";
 import '../../css/style.min.css';
 import '../main.css';
 
-import AppGuide from '../guide/AppGuide';
-import AppArticle from '../article/AppArticle';
-import AppQuiz from '../quiz/AppQuiz';
-
-export default function App() {
-    const AppHome = () => {
-        return <h1>Welcome to the Home Page!</h1>;
-    };
+export default function AppHome() {
+    const navigate = useNavigate();
     return (
         <>
             <header>
@@ -76,7 +69,8 @@ export default function App() {
                                     <h3>你的 營養素值<br />交給我們來算</h3>
                                     <p>我們根據個人健康數據與素食飲食需求，<br />
                                         計算出每日所需營養素，透過專業分析提供你完整報告</p>
-                                    <button className="calc-btn">馬上素算</button>
+                                    <button className="calc-btn" onClick={() => navigate('/quiz')}>
+                                        馬上素算</button>
                                 </div>
                             </div>
                             <div className="chart-right">
@@ -291,14 +285,6 @@ export default function App() {
                     <p className="copyright">© 2025 JASO+素. All Rights Reserved.</p>
                 </div>
             </footer>
-            <Routes>
-                <Route path="/" element={<AppHome />} />
-                <Route path="/guide" element={<AppGuide />} />
-                <Route path="/article" element={<AppArticle />} />
-                <Route path="/quiz" element={<AppQuiz />} />
-                {/* Add this line to handle the "/Jaso-react" path */}
-                <Route path="/Jaso-react" element={<AppHome />} />
-            </Routes>
         </>
     )
 }
