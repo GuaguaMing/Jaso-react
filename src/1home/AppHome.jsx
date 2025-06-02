@@ -7,6 +7,8 @@ import '../main.css';
 import AppGuide from '../guide/AppGuide';
 import AppArticle from '../article/AppArticle';
 import AppQuiz from '../quiz/AppQuiz';
+import AppMember from '../member/MemberCenter';
+import MemberCenter from "../member/MemberCenter";
 
 export default function App() {
     const AppHome = () => {
@@ -24,7 +26,7 @@ export default function App() {
                         </ul>
                     </div>
                     <div className="nav-right">
-                        <div className="member"><Link to="./member-profile.html">會員</Link></div>
+                        <div className="member"><Link to="/member">會員</Link></div>
                         <div className="bean-shape">
                             <div className="go-to-shop"><Link to="./shop">素購</Link></div>
                         </div>
@@ -298,6 +300,7 @@ export default function App() {
                 <Route path="/quiz" element={<AppQuiz />} />
                 {/* Add this line to handle the "/Jaso-react" path */}
                 <Route path="/Jaso-react" element={<AppHome />} />
+                <Route path="/member" element={<MemberCenter />} />
             </Routes>
         </>
     )
