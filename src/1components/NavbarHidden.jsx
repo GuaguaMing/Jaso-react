@@ -1,11 +1,10 @@
 import React from 'react';
-import styles from "../css/navbar.module.scss";
-// import navLogo from '../../public/assets/nav-logo.svg'
+import styles from '../../scss/pages/1component/navbarhidden.module.scss';
 
 const Navbar = () => {
   return (
     <header>
-      <div className={styles.navHidden}>
+      <div className={styles.navhidden}>
         <a className={styles.logo} href="/article-main.html">
         <img src={`${import.meta.env.BASE_URL}assets/nav-logo.svg`} alt="logo"/>
           {/* <img src={navLogo} alt="logo" /> */}

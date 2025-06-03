@@ -1,0 +1,217 @@
+@charset "UTF-8";
+@use "../../function/reset" as *;
+@use "../../variable/var-color" as *;
+@use "../../variable/var-font" as *;
+@use "../../variable/var-space" as *;
+@use "../../variable/base" as *;
+
+.navbarMain {
+    display: flex;
+    width: 100%;
+    max-width: 1920px;
+    height: 130px;
+    padding: 0px 240px 1px 240px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.navbarContainer {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.navLeft {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.navRight {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 48px;
+}
+
+
+.navbarCenter {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbarLinks {
+    display: flex;
+    gap: 75px;
+
+    ul {
+        display: flex;
+        gap: 75px;
+
+        li a {
+            color: $color-dark;
+            font-weight: bold;
+            font-size: map-get($font-size, 2xs);
+            transition: color 0.3 ease;
+
+            &:hover {
+                color: $color-primary;
+            }
+        }
+    }
+}
+
+.navMember a {
+    color: $color-dark;
+    padding: 0px 15px;
+    border: 1px solid;
+    border-radius: $radius-ex;
+    font-size: map-get($font-size, 2xs);
+    transition: color 0.3 ease;
+
+    &:hover {
+        color: $color-primary;
+    }
+}
+
+.beanShape {
+    background-color: $color-primary;
+    width: 144px;
+    height: 144px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-mask-image: url(../../../public/assets/0.svg);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+
+
+}
+
+.goToShop a {
+    color: $color-white;
+    font-size: map-get($font-size, m);
+
+    &:hover {
+        color: $color-white;
+    }
+}
+
+.mobileMenu {
+  background-color: $color-lightgray2;
+  position: absolute;
+  top: 130px;
+  left: 0;
+  width: 100%;
+  padding: 24px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  z-index: 1;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 16px;
+
+      a {
+        color: $color-dark;
+        font-size: map-get($font-size, s);
+        font-weight: bold;
+
+        &:hover {
+          color: $color-primary;
+        }
+      }
+    }
+  }
+}
+
+.navHamburger {
+    display: none;
+    cursor: pointer;
+    //取消button預設樣式
+    background-color: $alpha;
+    border: none;
+
+    .bar {
+        display: block;
+        width: 24px;
+        height: 3px;
+        background-color: $color-white;
+        margin: 5px auto;
+        transition: all 0.3s ease;
+    }
+
+    &.is-active {
+        .bar {
+            &:nth-child(1) {
+                transform: rotate(45deg) translateY(6px) translateX(5px);
+            }
+
+            &:nth-child(2) {
+                opacity: 0;
+            }
+
+            &:nth-child(3) {
+                transform: rotate(-45deg) translateY(-6px) translateX(5px);
+            }
+        }
+    }
+}
+
+
+@media ($media-sm) {
+    .navbarMain {
+        height: auto;
+        padding: 10px 20px;
+        z-index: 1;
+    }
+
+    .navbarContainer {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 12px;
+    }
+
+    .navbarCenter {
+        display: none;
+    }
+
+    .navRight {
+        gap: 10px;
+    }
+
+    .navMember {
+        display: none
+    }
+
+    .beanShape {
+        width: 80px;
+        height: 80px;
+
+        .navHamburger {
+            position: absolute;
+            color: $color-white;
+            display: block;
+            z-index: 2;
+        }
+    }
+
+    .goToShop a {
+        display: none;
+    }
+
+}
