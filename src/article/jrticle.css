@@ -1,0 +1,100 @@
+.vege-library {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    font-family: "Noto Sans TC", sans-serif;
+}
+
+.vege-header {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+    align-items: flex-start;
+}
+
+.vege-title {
+    font-size: 48px;
+    color: #22b573;
+    font-weight: 700;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    line-height: 1.2;
+}
+
+.vege-text h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.vege-text p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #333;
+}
+
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    justify-items: center;
+}
+
+.guide-card {
+    position: relative;
+    width: 180px;
+    height: 200px;
+    border-radius: 20px 20px 60px 20px;
+    background: #e0e0e0;
+    padding: 20px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.guide-card:hover {
+    background: linear-gradient(135deg, #a1e3b2, #22b573);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.guide-card img {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 80px;
+    height: auto;
+}
+
+.guide-text {
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    text-align: left;
+}
+
+.guide-text h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    color: #555;
+}
+
+.guide-text p {
+    font-size: 14px;
+    color: #666;
+}
+
+.badge {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: #22b573;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    line-height: 36px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
