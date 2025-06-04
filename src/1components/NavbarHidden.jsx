@@ -6,9 +6,9 @@ const NavbarHidden = () => {
   return (
     <header>
       <div className={styles.navHidden}>
-        <a className={styles.logo2} href="/article-main.html">
+        <a className={styles.logo2}><Link to="/">
         <img src={`${import.meta.env.BASE_URL}assets/nav-logo.svg`} alt="logo"/>
-          {/* <img src={navLogo} alt="logo" /> */}
+          {/* <img src={navLogo} alt="logo" /> */}</Link>
         </a>
         <div className={styles.navbar2}>
           <div className={styles.navCenter2}>
@@ -19,13 +19,13 @@ const NavbarHidden = () => {
             </ul>
           </div>
           <div className={styles.navRight2}>
-            <div className={styles.member2}>會員</div>
-            <a className={styles.shopList2} href="/shop-list.html">
-              <img src="/assets/shop-list.svg" alt="" />
+            <div className={styles.member2}><Link to="/memberCenter">會員</Link></div>
+            <a className={styles.shopList2}><Link to="/cart">
+              <img src="/assets/shop-list.svg" alt="" /></Link>
             </a>
 
             <div className={styles.beanShape2}>
-              <div className={styles.goToShop2}>素購</div>
+              <div className={styles.goToShop2}><Link to="/shop">素購</Link></div>
             </div>
           </div>
         </div>

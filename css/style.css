@@ -1054,11 +1054,11 @@ body {
   width: 100%;
   max-width: 1920px;
   height: 130px;
-  padding: 0px 240px 1px 240px;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
   z-index: 1;
+  font-weight: 700;
 }
 
 .navbarContainer {
@@ -1129,7 +1129,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  -webkit-mask-image: url(../../../public/assets/0.svg);
+  -webkit-mask-image: url(/assets/0.svg);
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
   -webkit-mask-size: contain;

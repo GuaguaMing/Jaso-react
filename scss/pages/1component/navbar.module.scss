@@ -10,11 +10,13 @@
         width: 100%;
         max-width: 1920px;
         height: 130px;
-        padding: 0px 240px 1px 240px;
+        // padding: 0px 240px 1px 240px;
         justify-content: center;
         align-items: center;
         flex-shrink: 0;
         z-index: 1;
+    font-weight: $font-w-7;
+
 }
 
 .navbarContainer {
