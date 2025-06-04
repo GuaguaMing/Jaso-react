@@ -1,6 +1,6 @@
 import React from "react";
 import '../../css/style.min.css';
-import '../main.css';
+// import '../main.css';
 import Navbar from "../1components/Navbar";
 export default function AppArticle() {
 

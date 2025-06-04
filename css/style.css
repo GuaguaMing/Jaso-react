@@ -1143,6 +1143,92 @@ body {
   color: #ffffff;
 }
 
+.mobileMenu {
+  background-color: #D4D4D4;
+  position: absolute;
+  top: 130px;
+  left: 0;
+  width: 100%;
+  padding: 24px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  z-index: 1;
+}
+.mobileMenu ul {
+  list-style: none;
+  padding: 0;
+}
+.mobileMenu ul li {
+  margin-bottom: 16px;
+}
+.mobileMenu ul li a {
+  color: #2A2324;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.mobileMenu ul li a:hover {
+  color: #3DCE94;
+}
+
+.navHamburger {
+  display: none;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+.navHamburger .bar {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #ffffff;
+  margin: 5px auto;
+  transition: all 0.3s ease;
+}
+.navHamburger.is-active .bar:nth-child(1) {
+  transform: rotate(45deg) translateY(6px) translateX(5px);
+}
+.navHamburger.is-active .bar:nth-child(2) {
+  opacity: 0;
+}
+.navHamburger.is-active .bar:nth-child(3) {
+  transform: rotate(-45deg) translateY(-6px) translateX(5px);
+}
+
+@media (max-width:640px) {
+  .navbarMain {
+    height: auto;
+    padding: 10px 20px;
+    z-index: 1;
+  }
+  .navbarContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px;
+  }
+  .navbarCenter {
+    display: none;
+  }
+  .navRight {
+    gap: 10px;
+  }
+  .navMember {
+    display: none;
+  }
+  .beanShape {
+    width: 80px;
+    height: 80px;
+  }
+  .beanShape .navHamburger {
+    position: absolute;
+    color: #ffffff;
+    display: block;
+    z-index: 2;
+  }
+  .goToShop a {
+    display: none;
+  }
+}
 /* Footer */
 .footer-container {
   position: relative;
