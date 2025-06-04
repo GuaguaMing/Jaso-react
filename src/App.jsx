@@ -4,6 +4,7 @@ import AppHome from './1home/AppHome';
 import AppGuide from './guide/AppGuide';
 import AppArticle from './article/AppArticle';
 import Quiz from './quiz/Quiz';
+import Result from './quiz/Result';
 import MemberCenter from "./member/MemberCenter";
 import AppShop from "./shop/AppShop";
 
@@ -15,6 +16,7 @@ function App() {
                 <Route path="/guide" element={<AppGuide />} />
                 <Route path="/article" element={<AppArticle />} />
                 <Route path="/quiz" element={<Quiz />} />
+                <Route path="/result" element={<Result />} />
                 <Route path="/memberCenter" element={<MemberCenter/>}/>
                 <Route path="/shop" element={<AppShop/>}/>
             </Routes>

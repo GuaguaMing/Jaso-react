@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../css/Result.module.scss";
+import styles from "../../scss/pages/quiz/result.module.scss";
 import { RadarChart, PolarGrid, PolarAngleAxis, Radar, ResponsiveContainer } from "recharts";
 import { useLocation, useNavigate } from "react-router-dom";
 

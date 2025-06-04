@@ -124,7 +124,7 @@ input, select, option {
   display: flex;
   align-items: center;
   justify-content: center;
-  -webkit-mask-image: url(../../../public/assets/0.svg);
+  -webkit-mask-image: url(/assets/0.svg);
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
   -webkit-mask-size: contain;

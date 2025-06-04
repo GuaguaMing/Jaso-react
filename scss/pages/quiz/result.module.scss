@@ -1,7 +1,7 @@
 @use "sass:map";
-@use "../../scss/variable/var-color" as *;
-@use "../../scss/variable/var-font" as *;
-@use "../../scss/function/reset";
+@use "../../variable/var-color" as *;
+@use "../../variable/var-font" as *;
+@use "../../function/reset";
 
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
 
