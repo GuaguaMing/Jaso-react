@@ -4,7 +4,12 @@ const nutrientData = {
     title: 'B12 維生素B12',
     desc: '維生素B12 有助於紅血球生成與神經系統健康...',
     partners: [
-      { src: '../../public/images/friends/B12-yeast.svg', name: '酵母寶寶' }
+      {
+        src: '../../public/images/friends/B12-yeast.svg',
+        hover: '',
+        hover2:'',
+        name: '酵母寶寶',
+      }
     ],
     products: [
       {
@@ -35,7 +40,24 @@ const nutrientData = {
     title: 'Ca+ 鈣質',
     desc: '促進骨骼與牙齒健康的重要元素...',
     partners: [
-      { src: '../../public/images/friends/Ca-kale.svg', name: '芥藍' }, { src: '../../public/images/friends/pf-md.svg', name: '毛豆' }, { src: '../../public/images/friends/Fe-blackS.svg', name: '黑芝麻' },
+      {
+        src: '../../public/images/friends/Ca-kale.svg',
+        hover: '',
+        hover2:'',
+        name: '芥藍'
+      },
+      {
+        src: '../../public/images/friends/pf-md.svg',
+        hover: '',
+        hover2:'',
+        name: '毛豆'
+      },
+      {
+        src: '../../public/images/friends/Fe-blackS.svg',
+        hover: '',
+        hover2:'',
+        name: '黑芝麻'
+      },
     ],
     products: [
       {
@@ -65,7 +87,22 @@ const nutrientData = {
     icon: '../../public/assets/D@3x.svg',
     title: 'Ca+ 鈣質',
     desc: '促進骨骼與牙齒健康的重要元素...',
-    partners: [{ src: '../../public/images/friends/D-mushroom.svg', name: '香菇' }, { src: '../../public/images/friends/D-fungus.svg', name: '黑木耳' }, { src: '../../public/images/friends/D-sun.svg', name: '陽光' }],
+    partners: [{
+      src: '../../public/images/friends/D-mushroom.svg',
+      hover: '',
+      hover2:'',
+      name: '香菇'
+    }, {
+      src: '../../public/images/friends/D-fungus.svg',
+      hover: '',
+      hover2:'',
+      name: '黑木耳'
+    }, {
+      src: '../../public/images/friends/D-sun.svg',
+      hover: '',
+      hover2:'',
+      name: '陽光'
+    }],
     products: [
       {
         img: '../../public/images/Pd/B12-hover.svg',
@@ -94,7 +131,32 @@ const nutrientData = {
     icon: '../../public/assets/fe@3x.svg',
     title: 'Ca+ 鈣質',
     desc: '促進骨骼與牙齒健康的重要元素...',
-    partners: [{ src: '../../public/images/friends/Fe-blackS.svg', name: '黑芝麻' }, { src: '../../public/images/friends/Fe-bc.svg', name: '菠菜' }, { src: '../../public/images/friends/Fe-redM.svg', name: '紅藜麥' }, { src: '../../public/images/friends/Fe-BB.svg', name: '黑豆' }, { src: '../../public/images/friends/Fe-pk.svg', name: '南瓜' },],
+    partners: [{
+      src: '../../public/images/friends/Fe-blackS.svg',
+      hover: '',
+      hover2:'',
+      name: '黑芝麻'
+    }, {
+      src: '../../public/images/friends/Fe-bc.svg',
+      hover: '',
+      hover2:'',
+      name: '菠菜'
+    }, {
+      src: '../../public/images/friends/Fe-redM.svg',
+      hover: '',
+      hover2:'',
+      name: '紅藜麥'
+    }, {
+      src: '../../public/images/friends/Fe-BB.svg',
+      hover: '',
+      hover2:'',
+      name: '黑豆'
+    }, {
+      src: '../../public/images/friends/Fe-pk.svg',
+      hover: '',
+      hover2:'',
+      name: '南瓜'
+    },],
     products: [
       {
         img: '../../public/images/Pd/B12-hover.svg',
@@ -123,7 +185,22 @@ const nutrientData = {
     icon: '../../public/assets/n@3x.svg',
     title: 'Ca+ 鈣質',
     desc: '促進骨骼與牙齒健康的重要元素...',
-    partners: [{ src: '../../public/images/friends/pf-md.svg', name: '毛豆' }, { src: '../../public/images/friends/pf-tofu.svg', name: '豆腐' }, { src: '../../public/images/friends/pf-bd.svg', name: '扁豆' },],
+    partners: [{
+      src: '../../public/images/friends/pf-md.svg',
+      hover: '',
+      hover2:'',
+      name: '毛豆'
+    }, {
+      src: '../../public/images/friends/pf-tofu.svg',
+      hover: '',
+      hover2:'',
+      name: '豆腐'
+    }, {
+      src: '../../public/images/friends/pf-bd.svg',
+      hover: '',
+      hover2:'',
+      name: '扁豆'
+    },],
     products: [
       {
         img: '../../public/images/Pd/B12-hover.svg',
@@ -152,7 +229,27 @@ const nutrientData = {
     icon: '../../public/assets/omega3.svg',
     title: 'Ca+ 鈣質',
     desc: '促進骨骼與牙齒健康的重要元素...',
-    partners: [{ src: '../../public/images/friends/omg3-Flaxseed.svg', name: '亞麻籽' }, { src: '../../public/images/friends/omg3-chiaSeeds.svg', name: '奇亞籽' }, { src: '../../public/images/friends/omg3-walnut.svg', name: '核桃' }, { src: '../../public/images/friends/omg3-yellowb.svg', name: '黃豆' },],
+    partners: [{
+      src: '../../public/images/friends/omg3-Flaxseed.svg',
+      hover: '',
+      hover2:'',
+      name: '亞麻籽'
+    }, {
+      src: '../../public/images/friends/omg3-chiaSeeds.svg',
+      hover: '',
+      hover2:'',
+      name: '奇亞籽'
+    }, {
+      src: '../../public/images/friends/omg3-walnut.svg',
+      hover: '',
+      hover2:'',
+      name: '核桃'
+    }, {
+      src: '../../public/images/friends/omg3-yellowb.svg',
+      hover: '',
+      hover2:'',
+      name: '黃豆'
+    },],
     products: [
       {
         img: '../../public/images/Pd/B12-hover.svg',
