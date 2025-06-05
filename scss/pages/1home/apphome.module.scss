@@ -5,9 +5,11 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
 
-html, body {
+html,
+body {
     overflow-x: hidden;
-  }
+}
+
 .banner1 {
     max-width: 1440px;
     margin: 115px auto 0 auto;
@@ -50,7 +52,7 @@ html, body {
 }
 
 .bannerLogo .logo {
-    width: 243px;
+    width: 253px;
     padding-top: 2rem;
     align-items: flex-end;
 
@@ -58,10 +60,8 @@ html, body {
 }
 
 .banner-logo .plus {
-    width: 53px;
+    width: 60px;
     align-items: flex-start;
-
-
 }
 
 
@@ -189,7 +189,7 @@ html, body {
     position: absolute;
     bottom: 0;
     right: 0;
-    background-image: url(/images/logo-bg.svg);
+    background-image: url(../../../public/images/logo-bg.svg);
     background-repeat: no-repeat;
     overflow: hidden;
     width: 1325px;
@@ -929,117 +929,117 @@ hr {
 
 .footerBg {
     margin: auto;
-overflow: hidden;
-        color: var(--Neutrue-White, #FFF);
-        font-family: "Noto Sans TC";
-        background-size: cover;
-        background-color: #252527;
-        position: relative;
-        width: 100%;
+    overflow: hidden;
+    color: var(--Neutrue-White, #FFF);
+    font-family: "Noto Sans TC";
+    background-size: cover;
+    background-color: #252527;
+    position: relative;
+    width: 100%;
 }
 
 
 
-// .backToTop {
-//         background-color: transparent;
-//         position: fixed;
-//         right: 130px;
-//         bottom: 50px;
-//         z-index: 999;
-  
-//   }
+.backToTop {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    position: fixed;
+    right: 130px;
+    bottom: 50px;
+    z-index: 1;
+    cursor: pointer;
+}
 
-  
-//   .backToTop img {
-//     width: 85px;
-//     /* 設置圖標大小 */
-//     padding: 0;
-//     /* 去掉內邊距 */
-//     border: none;
-//     height: auto;
-//     transition: transform 0.3s ease;
-//     &:hover {
-//         transform: translateY(-5px);
-//         /* 懸停時的輕微浮動效果 */
-//       }
-//   }
-  .backToTop {
-        background-color: transparent;
+.backToTop.show {
+    opacity: 1;
+    visibility: visible;
+}
 
-            position: fixed;
-        right: 130px;
-        bottom: 50px;
-        z-index: 999;
-  width: 85px;
-  height: 85px;
-  background-image: url(/images/icons/icon-arrow.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  transition: transform 0.3s ease, background-image 0.3s ease;
+.backToTop img {
+    width: 75px;
+    /* 設置圖標大小 */
+    padding: 0;
+    /* 去掉內邊距 */
+    border: none;
+    height: auto;
+    transition: transform 0.3s ease;
 
-  &:hover {
-    transform: translateY(-5px);
-  }
+    &:hover {
+        transform: translateY(-5px);
+        /* 懸停時的輕微浮動效果 */
+    }
 }
 
 
-  
 .footerGrid {
     padding: 10rem;
     width: 10rem;
     display: grid;
     grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: 1fr;         
+    grid-template-columns: 1fr;
     gap: 4rem;
 }
+
 .footerHeading {
     font-size: 22px;
     font-weight: 500;
 }
+
 .footerGrid li {
     font-size: 17.6px;
 }
+
 .footerCta {
     width: 600px;
 }
+
 .footerTop {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20rem;
 }
+
 .footerSlogan {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
 }
+
 .footerSlogan span {
     font-size: 70px;
 }
+
 .footerSlogan p {
     font-size: 20px;
 }
+
 .footerSlogan .icon {
     gap: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-   width: 75px;
-   padding: 0.5rem;
+    width: 75px;
+    padding: 1rem;
 }
+
 .copyright {
     display: flex;
     justify-content: center;
 }
+
 @media (max-width: 1440px) {
+
     main,
     footer {
-      max-width: 1440px; /* 可選，讓區塊置中 */
-      margin: 0 auto;    
-      display: flex;
-      flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
+        max-width: 1440px;
+        /* 可選，讓區塊置中 */
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
 
     }
-  }
+}

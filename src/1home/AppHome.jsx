@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../1components/Navbar";
 import styles from "../../scss/pages/1home/apphome.module.scss";
@@ -6,6 +6,18 @@ import styles from "../../scss/pages/1home/apphome.module.scss";
 
 export default function AppHome() {
     const navigate = useNavigate();
+    const [showBackToTop, setShowBackToTop] = useState(false);
+
+    useEffect(() => {
+
+        const handleScroll = () => {
+            setShowBackToTop(window.scrollY > 1000);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
         <>
             <Navbar />
@@ -214,8 +226,8 @@ export default function AppHome() {
 
             <footer>
                 <div className={styles.footerBg}>
-                    <a href="#" className={styles.backToTop}>
-                        <img src="./images/icons/icon-arrow.svg" alt="Back to Top" />
+                    <a href="#" className={`${styles.backToTop} ${showBackToTop ? styles.show : ""}`}>
+                        <img src="./images/icons/gotop-gray.svg" alt="Back to Top" />
                     </a>
                     <div className={styles.footerTop}>
                         <div className={styles.footerGrid}>
@@ -252,7 +264,7 @@ export default function AppHome() {
                         <div className={styles.footerCta}>
                             <div className={styles.cta}>
                                 <h3 style={{ color: '#FFF' }}>專屬於你的營養報告</h3>
-                                <a href="login.html">
+                                <a href="login.html" target="_blank">
                                     <button className={styles.joinBtn}>
                                         <p>加入會員</p><span>馬上諮詢</span>
                                     </button>
@@ -264,8 +276,12 @@ export default function AppHome() {
                                     <p>素食營養專家 | 健康素食新選擇</p>
                                 </div>
                                 <div className={styles.icon}>
-                                    <img src="./images/icons/icon-ins-bright.svg" alt="" />
-                                    <img src="./images/icons/icon-fb-bright.svg" alt="" />
+                                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                                        <img src="./images/icons/icon-ins-bright.svg" alt="Instagram" />
+                                    </a>
+                                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                                        <img src="./images/icons/icon-fb-bright.svg" alt="Facebook" />
+                                    </a>
                                 </div>
                             </div>
                         </div>

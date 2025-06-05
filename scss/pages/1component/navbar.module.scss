@@ -6,15 +6,15 @@
 @use "../../variable/base" as *;
 
 .navbarMain {
-        display: flex;
-        width: 100%;
-        max-width: 1920px;
-        height: 130px;
-        // padding: 0px 240px 1px 240px;
-        justify-content: center;
-        align-items: center;
-        flex-shrink: 0;
-        z-index: 1;
+    display: flex;
+    width: 100%;
+    max-width: 1920px;
+    height: 130px;
+    // padding: 0px 240px 1px 240px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    z-index: 1;
     font-weight: $font-w-7;
 
 }
@@ -85,6 +85,10 @@
     }
 }
 
+.navIcon {
+
+}
+
 .beanShape {
     background-color: $color-primary;
     width: 144px;
@@ -110,35 +114,35 @@
 }
 
 .mobileMenu {
-  background-color: $color-lightgray2;
-  position: absolute;
-  top: 130px;
-  left: 0;
-  width: 100%;
-  padding: 24px 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  z-index: 1;
+    background-color: $color-lightgray2;
+    position: absolute;
+    top: 130px;
+    left: 0;
+    width: 100%;
+    padding: 24px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    z-index: 1;
 
-  ul {
-    list-style: none;
-    padding: 0;
+    ul {
+        list-style: none;
+        padding: 0;
 
-    li {
-      margin-bottom: 16px;
+        li {
+            margin-bottom: 16px;
 
-      a {
-        color: $color-dark;
-        font-size: map-get($font-size, s);
-        font-weight: bold;
+            a {
+                color: $color-dark;
+                font-size: map-get($font-size, s);
+                font-weight: bold;
 
-        &:hover {
-          color: $color-primary;
+                &:hover {
+                    color: $color-primary;
+                }
+            }
         }
-      }
     }
-  }
 }
 
 .navHamburger {

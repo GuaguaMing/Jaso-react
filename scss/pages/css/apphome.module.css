@@ -45,7 +45,8 @@ input, select, option {
   outline: none;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -88,13 +89,13 @@ html, body {
 }
 
 .bannerLogo .logo {
-  width: 243px;
+  width: 253px;
   padding-top: 2rem;
   align-items: flex-end;
 }
 
 .banner-logo .plus {
-  width: 53px;
+  width: 60px;
   align-items: flex-start;
 }
 
@@ -214,7 +215,7 @@ html, body {
   position: absolute;
   bottom: 0;
   right: 0;
-  background-image: url(/images/logo-bg.svg);
+  background-image: url(../../../public/images/logo-bg.svg);
   background-repeat: no-repeat;
   overflow: hidden;
   width: 1325px;
@@ -926,20 +927,33 @@ hr {
 }
 
 .backToTop {
-  background-color: transparent;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
   position: fixed;
   right: 130px;
   bottom: 50px;
-  z-index: 999;
-  width: 85px;
-  height: 85px;
-  background-image: url(/images/icons/icon-arrow.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  transition: transform 0.3s ease, background-image 0.3s ease;
+  z-index: 1;
+  cursor: pointer;
 }
-.backToTop:hover {
+
+.backToTop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.backToTop img {
+  width: 75px;
+  /* 設置圖標大小 */
+  padding: 0;
+  /* 去掉內邊距 */
+  border: none;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+.backToTop img:hover {
   transform: translateY(-5px);
+  /* 懸停時的輕微浮動效果 */
 }
 
 .footerGrid {
@@ -991,7 +1005,7 @@ hr {
   flex-direction: column;
   align-items: center;
   width: 75px;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .copyright {
@@ -1002,7 +1016,8 @@ hr {
 @media (max-width: 1440px) {
   main,
   footer {
-    max-width: 1440px; /* 可選，讓區塊置中 */
+    max-width: 1440px;
+    /* 可選，讓區塊置中 */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
