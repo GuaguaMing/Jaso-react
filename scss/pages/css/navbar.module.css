@@ -117,10 +117,6 @@ input, select, option {
   color: #3DCE94;
 }
 
-.navIcon li {
-  display: flex;
-}
-
 .beanShape {
   background-color: #3DCE94;
   width: 144px;
