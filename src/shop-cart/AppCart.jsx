@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Navbar from "../1components/Navbar";
 import NavbarHidden from "../1components/NavbarHidden";
 
 import CheckoutProgress from './components/CheckoutProgress';
@@ -114,7 +115,9 @@ function AppCart() {
 
 
   return (
-    // <NavbarHidden />
+    <>
+    <Navbar/>
+    <NavbarHidden />
     <div className="container py-4">
       <div className="navbar navbar-light bg-light mb-3">
         <div className='container-fluid'>
@@ -202,6 +205,7 @@ function AppCart() {
         <OrderSuccess orderNumber={orderNumber} />
       )}
     </div>
+    </>
   );
 }
 
