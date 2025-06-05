@@ -17,7 +17,7 @@
     color: #22b573;
     width: 252px;
     font-weight: 700;
-    margin-top:0px;
+    margin-top: 0px;
     text-orientation: upright;
 }
 
@@ -104,6 +104,30 @@
     color: #676767;
 }
 
+.partner-count {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 36px;
+  font-weight: 400;
+  color: #fff;
+  background: #999;
+  border-radius: 50%;
+  width: 78px;
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.nutrient-card:hover .partner-count {
+  transform: scale(1.2);
+  background: #22b573;
+}
+
 /* 指南區塊 */
 .guide-detail {
     display: none;
@@ -113,12 +137,40 @@
     padding: 40px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     position: relative;
-    z-index: 20;
-    margin-top: 40px;
+    z-index: 100;
+    top: -300px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 900px;
+    width: 90%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    /* overflow-y: auto; */
+
+
 }
 
 .guide-detail.show {
     display: flex;
+    opacity: 1;
+}
+
+/* 遮罩 */
+.guide-overlay {
+    display: none;
+    position: fixed;
+    z-index: 90;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+/* 顯示遮罩用 */
+.guide-overlay.show {
+    display: block;
 }
 
 .guide-close {
@@ -178,17 +230,19 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 120px;
-    margin-bottom: 40px;
+    gap: 60px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .guide-partners-item {
     text-align: center;
-    width: 100px;
+    width: 120px;
 }
 
 .guide-partners-item img {
-    width: 100%;
+    width: 120px;
+    height: 120px;
     border-radius: 12px;
     margin-bottom: 8px;
 }
@@ -233,17 +287,20 @@
 }
 
 .product-tags {
-  
+
     gap: 6px;
     flex-wrap: wrap;
 }
 
 .product-tags .tag {
-    font-size: 12px;
+    padding: 4px 16px;
+    font-size: 14px;
+    font-weight: 500;
     color: #3DCE94;
+    border: 1px solid #3DCE94;
     background-color: #E6FBF3;
-    padding: 4px 12px;
     border-radius: 999px;
+    display: inline-block;
 }
 
 .product-icon button {
@@ -257,7 +314,7 @@
 }
 
 .cart-btn {
-    background-image: url('/public/images/icons/shop-btn.svg');
+    background-image: url('/public/images/icons/btn-shop.svg');
 }
 
 .cart-btn:hover {
@@ -265,11 +322,11 @@
 }
 
 .like-btn {
-    background-image: url('/public/images/icons/like-btn.svg');
+    background-image: url('/public/images/icons/btn-like-default.svg');
 }
 
 .like-btn:hover {
-    background-image: url('/public/images/icons/like-btn-hover.svg');
+    background-image: url('/public/images/icons/btn-like-hover.svg');
 }
 
 .product-title {
@@ -298,4 +355,34 @@
     font-size: 14px;
     color: #3DCE94;
     text-decoration: none;
+
+}
+
+.arrow,
+.text {
+    margin-left: 10px;
+    display: inline-block;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.arrow {
+    transform: translateX(-8px);
+    opacity: 1;
+}
+
+.text {
+    transform: translateX(-8px);
+    opacity: 1;
+}
+
+.product-link:hover {
+    .arrow {
+        transform: translateX(100px);
+        opacity: 2;
+    }
+
+    .text {
+        transform: translateX(-20px);
+        opacity: 1;
+    }
 }
