@@ -13,7 +13,10 @@ export default function OrderSuccess() {
       <p className="fs-5">您的訂單已成功成立，訂單編號如下：</p>
       <h4 className="fw-bold text-primary">#{orderNumber}</h4>
       <p className="mt-4">系統已寄送確認信至您的信箱。</p>
-      <Link to="/cart" className="btn btn-brand mt-4">返回購物車</Link>
+      <Link to="/cart?reset=true" className="btn btn-brand mt-4">
+        返回購物車
+      </Link>
     </div>
+
   );
 }

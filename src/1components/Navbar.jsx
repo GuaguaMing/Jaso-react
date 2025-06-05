@@ -61,9 +61,11 @@ export default function Navbar() {
           )}
 
           {isLoggedIn && (
-              <Link to="/cart">
-                <img src="./images/icons/btn-shop.svg" alt="cart" className={styles.navIcon} />
-              </Link>
+<div className={styles.shopIcon}>
+  <Link to="/cart">
+              <img src="./assets/shop-list.svg" alt="" /></Link> 
+            </div>
+              
           )}
 
           <div className={styles.beanShape}>
@@ -88,7 +90,8 @@ export default function Navbar() {
             <li><Link to="/shop">素購</Link></li>
           </ul>
           <ul>
-            <li><Link to="/cart"><img src="./images/icons/btn-shop.svg" alt="cart" className={styles.navIcon} /></Link></li>
+            <li><Link to="/cart"><img src={`${import.meta.env.BASE_URL}images/icons/btn-shop.svg`} alt="cart" className={styles.navIcon}/></Link> </li>
+    
             <li><Link to="/memberCenter" className={styles.navHamburgerMember}>登入</Link></li>
           </ul>
         </div>
