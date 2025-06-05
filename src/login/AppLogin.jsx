@@ -1,7 +1,12 @@
-import React from "react";
-import '../../css/style.min.css';
-import '../main.css';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../1components/Navbar";
+import styles from "../../scss/pages/login/appLogin.module.scss";
 export default function AppLogin() {
+    const navigate = useNavigate();
+    const [account, setAccount] = useState("");
+    const [password, setPassword] = useState("");
+
     useEffect(() => {
         const eyes = document.querySelectorAll(`.${styles.rotatingEye}`);
         const previousAngles = new Map();
@@ -31,39 +36,66 @@ export default function AppLogin() {
         document.addEventListener("mousemove", handleMouseMove);
         return () => document.removeEventListener("mousemove", handleMouseMove);
     }, []);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        // 模擬登入（這裡你可以改成 fetch 發送 API）
+        if (account && password) {
+            localStorage.setItem("token", "fake-token");
+            localStorage.setItem("userName", account);
+            window.location.href = "/"; // 登入成功導回首頁
+        } else {
+            alert("請輸入帳號與密碼");
+        }
+    };
 
     return (
         <>
+            <Navbar />
             <section className={styles.loginSection}>
                 <div className={styles.loginHeader}>
                     <h1>Hello!</h1>
                     <div className={styles.faceWrapper}>
-                        <img src="/icons/img/Greenfacelogo.svg" alt="Login Icon" className={styles.loginIcon} />
+                        <img src="./images/icons/Greenfacelogo.svg" alt="Login Icon" className={styles.loginIcon} />
                         <div className={`${styles.eyeWrapper} ${styles.eyeLeft}`}>
-                            <img src="/icons/img/eye.svg" className={styles.rotatingEye} />
+                            <img src="./images/icons/eye.svg" className={styles.rotatingEye} />
                         </div>
                         <div className={`${styles.eyeWrapper} ${styles.eyeRight}`}>
-                            <img src="/icons/img/eye.svg" className={styles.rotatingEye} />
+                            <img src="./images/icons/eye.svg" className={styles.rotatingEye} />
                         </div>
                     </div>
 
-                    <form className={styles.loginForm}>
+                    <form className={styles.loginForm} onSubmit={handleSubmit}>
                         <div className={styles.inputRow}>
                             <label htmlFor="account" className={styles.inputLabel}>帳號登入</label>
-                            <input type="text" id="account" placeholder="email 或帳戶" className={styles.roundedInput} />
+                            <input
+                                type="text"
+                                id="account"
+                                placeholder="email 或帳戶"
+                                className={styles.roundedInput}
+                                value={account}
+                                onChange={(e) => setAccount(e.target.value)}
+                            />
                         </div>
                         <div className={`${styles.inputRow} ${styles.passwordRow}`}>
                             <label htmlFor="password" className={styles.inputLabel}>密碼</label>
-                            <input type="password" id="password" placeholder="半形英文+數字8碼" className={styles.roundedInput} />
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="半形英文+數字8碼"
+                                className={styles.roundedInput}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
                             <p className={styles.forgotPassword}><a href="#">忘記密碼嗎？</a></p>
                         </div>
 
                         <div className={styles.loginActions}>
-                            <button type="submit" className={styles.primary}><a href="member-profile.html">登入</a></button>
+                            <button type="submit" className={styles.primary.btnBrand} onClick={()=>navigate('/')}>登入</button>
                         </div>
 
                         <p className={styles.signupTip}>
-                            你還不素會員？<a href="signup.html" className={styles.signupLink}>馬上註冊！</a>
+                            你還不素會員？<button onClick={()=>navigate('/signup')} className={styles.signupLink}>馬上註冊！</button>
                         </p>
                     </form>
                 </div>

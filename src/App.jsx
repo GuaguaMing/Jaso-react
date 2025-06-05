@@ -6,6 +6,7 @@ import AppArticle from './article/AppArticle';
 import Quiz from './quiz/Quiz';
 import Result from './quiz/Result';
 import MemberCenter from "./member/MemberCenter";
+import AppLogin from "./login/AppLogin";
 import AppShop from "./shop/AppShop";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
                 <Route path="/quiz" element={<Quiz />} />
                 <Route path="/result" element={<Result />} />
                 <Route path="/memberCenter" element={<MemberCenter/>}/>
+                <Route path="/login" element={<AppLogin/>}/>
                 <Route path="/shop" element={<AppShop/>}/>
             </Routes>
         </main>

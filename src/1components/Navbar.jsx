@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import styles from '../../scss/pages/1component/navbar.module.scss';
 
@@ -7,6 +7,20 @@ export default function Navbar() {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const [menuOpen, setMenuOpen] = useState(false); // 控制 menu 狀態
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userName, setUserName] = useState("陳素食");
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const name = localStorage.getItem("userName");
+
+    if (token) {
+      setIsLoggedIn(true);
+      setUserName(name || "會員");
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, []);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -36,8 +50,22 @@ export default function Navbar() {
 
         {/* 右側會員與購物按鈕 */}
         <div className={styles.navRight}>
-          <div className={styles.navMember}><Link to="/memberCenter">登入</Link></div>
-          <div className={styles.navIcon}><Link to="/cart"></Link></div>
+          {isLoggedIn ? (
+            <div className={styles.navMember}>
+              <Link to="/memberCenter">Hi, {userName}</Link>
+            </div>
+          ) : (
+            <div className={styles.navMember}>
+              <Link to="/login">登入</Link>
+            </div>
+          )}
+
+          {isLoggedIn && (
+              <Link to="/cart">
+                <img src="./images/icons/btn-shop.svg" alt="cart" className={styles.navIcon} />
+              </Link>
+          )}
+
           <div className={styles.beanShape}>
             {/* 漢堡 */}
             <button className={`${styles.navHamburger} ${menuOpen ? styles.isActive : ''}`} onClick={toggleMenu}>
@@ -60,7 +88,7 @@ export default function Navbar() {
             <li><Link to="/shop">素購</Link></li>
           </ul>
           <ul>
-            <li><Link to="/cart"><img src="./images/icons/j_shop_buy.svg" alt="cart" className={styles.navIcon} /></Link></li>
+            <li><Link to="/cart"><img src="./images/icons/btn-shop.svg" alt="cart" className={styles.navIcon} /></Link></li>
             <li><Link to="/memberCenter" className={styles.navHamburgerMember}>登入</Link></li>
           </ul>
         </div>
