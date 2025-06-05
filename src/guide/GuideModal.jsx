@@ -12,7 +12,11 @@ const GuideModal = ({ data, onClose }) => {
       <div className="guide-partners">
         {data.partners.map((item, index) => (
           <div className="guide-partners-item" key={index}>
-            <img src={item.src} alt={item.name} />
+            <div className="img-hover-wrap">
+              <img src={item.src} alt={item.name} className="img-default" />
+              <img src={item.hover} alt={`${item.name} hover`} className="img-hover" />
+               <img src={item.hover2} alt={`${item.name} hover2`} className="img-hover img-hover2" />
+            </div>
             <p>{item.name}</p>
           </div>
         ))}

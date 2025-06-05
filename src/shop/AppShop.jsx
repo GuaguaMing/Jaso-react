@@ -1,15 +1,34 @@
-import React from "react";
+import React, { useState } from 'react';
+
+import styles from '../../scss/pages/shop/shop.module.scss';
+
 import Navbar from "../1components/Navbar";
+
 export default function AppShop() {
 
+   /*  const [activeCategory, setActiveCategory] = useState('全部');
+    const products = [
+        { id: 1, name: "鈣心定植物鈣", desc: "維鈣+D3雙效配方", price: 365, image: "./images/Pd/Ca-default.png" },
+        { id: 2, name: "素超群膠囊", desc: "植萃綜合維他命配方", price: 420, image: "./images/Pd/N-default.png" },
+        { id: 3, name: "素D速補D", desc: "幫植萃維生素D（藻類D3）膠囊", price: 380, image: "./images/Pd/D-default.png" },
+        { id: 4, name: "油你真好植物膠囊", desc: "純素海藻OMEG3。", price: 250, image: "./images/Pd/Omg3-default.png" },
+        { id: 5, name: "補B不累口含錠", desc: "嚴選100%植物來源維生素B12", price: 520, image: "./images/Pd/B12-default.png" },
+        { id: 6, name: "鐵了心膠囊", desc: "嚴選100%植物來源 植萃鐵+B群補給", price: 490, image: "./images/Pd/Fe-default.png" },
+    ]; */
     return (
         <>
-        <Navbar/>
-        <>
-            <div>
-                <h1>Shop</h1>
-            </div>
+            <Navbar />
+
+
+            <section className={styles.shopBanner}>
+                <div className={styles.shopBannerContent}>
+                    <h1 className={styles.shopBannerTitle}>Vegan Care.</h1>
+                    <h3 className={styles.shopBannerSubtitle}>素食者需要的，我們都精挑細選。</h3>
+                    <button className={styles.shopButton .shopButtonPrimary}>馬上速購</button>
+                </div>
+            </section>
+
         </>
-        </>
+
     )
 }
