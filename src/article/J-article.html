@@ -28,6 +28,7 @@
           <h4>B12</h4>
           <p>維生素B12</p>
         </div>
+        <div class="partner-count"></div>
       </div>
 
       <div class="nutrient-card" data-nutrient="ca">
@@ -36,6 +37,7 @@
           <h4>Ca+</h4>
           <p>鈣質</p>
         </div>
+        <div class="partner-count"></div>
       </div>
       <div class="nutrient-card" data-nutrient="d">
         <img src="../../public/assets/D@3x.svg" class="nutrient-img" alt="D+" />
@@ -43,6 +45,7 @@
           <h4>D+</h4>
           <p>維生素D</p>
         </div>
+        <div class="partner-count"></div>
       </div>
       <div class="nutrient-card" data-nutrient="fe">
         <img src="../../public/assets/fe@3x.svg" class="nutrient-img" alt="Fe" />
@@ -50,6 +53,7 @@
           <h4>Fe</h4>
           <p>鐵質</p>
         </div>
+        <div class="partner-count"></div>
       </div>
       <div class="nutrient-card" data-nutrient="protein">
         <img src="../../public/assets/n@3x.svg" class="nutrient-img" alt="Protein" />
@@ -57,6 +61,7 @@
           <h4>Protein</h4>
           <p>蛋白質</p>
         </div>
+        <div class="partner-count"></div>
       </div>
       <div class="nutrient-card" data-nutrient="omega">
         <img src="../../public/assets/omega3.svg" class="nutrient-img" alt="Omg" />
@@ -64,6 +69,7 @@
           <h4>Omg</h4>
           <p>Omega-3</p>
         </div>
+        <div class="partner-count"></div>
       </div>
     </div>
 
@@ -76,11 +82,12 @@
 
       <h4>營養好夥伴</h4>
       <div class="guide-partners" id="guide-partners"></div>
-      
+
 
       <h4>推薦營養品</h4>
       <div class="guide-products" id="guide-products"></div>
     </div>
+    <div id="guide-overlay" class="guide-overlay"></div>
   </section>
 
   <script>
@@ -89,24 +96,26 @@
         icon: '../../public/assets/b12.svg',
         title: 'B12 維生素B12',
         desc: '維生素B12 有助於紅血球生成與神經系統健康...',
-        partners: ['../../public/images/friends/B12-yeast.svg'],
+        partners: [
+          { src: '../../public/images/friends/B12-yeast.svg', name: '酵母寶寶' }
+        ],
         products: [
           {
-            img: '../../public/images/medicine/jaso-mock-up_bg_B12.svg',
+            img: '../../public/images/Pd/B12-hover.svg',
             tags: ['手腳冰冷', '補血'],
             title: 'B12超能素',
             subtitle: '紅血球增生配方',
             desc: '幫助補充每日B12需求，保護神經健康與血液循環。',
           },
           {
-            img: '../../public/images/medicine/jaso-mock-up_bg_Ca.svg',
+            img: '../../public/images/Pd/Ca-hover.svg',
             tags: ['代謝', '神經系統'],
             title: '全能B群錠',
             subtitle: 'B群＋鐵＋鋅',
             desc: '專為素食者設計的複方B群補充劑，促進代謝與能量。',
           },
           {
-            img: '../../public/images/medicine/jaso-mock-up_bg_D.svg',
+            img: '../../public/images/Pd/D-hover.svg',
             tags: ['養氣', '補充能量'],
             title: '活力寶',
             subtitle: '日常補給必備',
@@ -118,24 +127,26 @@
         icon: '../../public/assets/ca.svg',
         title: 'Ca+ 鈣質',
         desc: '促進骨骼與牙齒健康的重要元素...',
-        partners: ['../../public/images/friends/Ca-kale.svg', '../../public/images/friends/pf-md.svg','../../public/images/friends/Fe-BB.svg'],
-         products: [
+        partners: [
+          { src: '../../public/images/friends/Ca-kale.svg', name: '芥藍' }, { src: '../../public/images/friends/pf-md.svg', name: '毛豆' }, { src: '../../public/images/friends/Fe-blackS.svg', name: '黑芝麻' },
+        ],
+        products: [
           {
-            img: '../../public/images/medicine/jaso-mock-up_bg_B12.svg',
+            img: '../../public/images/Pd/B12-hover.svg',
             tags: ['手腳冰冷', '補血'],
             title: 'B12超能素',
             subtitle: '紅血球增生配方',
             desc: '幫助補充每日B12需求，保護神經健康與血液循環。',
           },
           {
-            img: '../../public/images/medicine/jaso-mock-up_bg_Ca.svg',
+            img: '../../public/images/Pd/Ca-hover.svg',
             tags: ['代謝', '神經系統'],
             title: '全能B群錠',
             subtitle: 'B群＋鐵＋鋅',
             desc: '專為素食者設計的複方B群補充劑，促進代謝與能量。',
           },
           {
-            img: '../../public/images/medicine/jaso-mock-up_bg_D.svg',
+            img: '../../public/images/Pd/D-hover.svg',
             tags: ['養氣', '補充能量'],
             title: '活力寶',
             subtitle: '日常補給必備',
@@ -147,24 +158,24 @@
         icon: '../../public/assets/D@3x.svg',
         title: 'Ca+ 鈣質',
         desc: '促進骨骼與牙齒健康的重要元素...',
-        partners: ['../../public/images/friends/D-mushroom.svg', '../../public/images/friends/D-fungus.svg', '../../public/images/friends/D-sun.svg'],
-         products: [
+        partners: [{ src: '../../public/images/friends/D-mushroom.svg', name: '香菇' }, { src: '../../public/images/friends/D-fungus.svg', name: '黑木耳' }, { src: '../../public/images/friends/D-sun.svg', name: '陽光' }],
+        products: [
           {
-            img: '../../public/images/medicine/jaso-mock-up_bg_B12.svg',
+            img: '../../public/images/Pd/B12-hover.svg',
             tags: ['手腳冰冷', '補血'],
             title: 'B12超能素',
             subtitle: '紅血球增生配方',
             desc: '幫助補充每日B12需求，保護神經健康與血液循環。',
           },
           {
-            img: '../../public/images/medicine/jaso-mock-up_bg_Ca.svg',
+            img: '../../public/images/Pd/Ca-hover.svg',
             tags: ['代謝', '神經系統'],
             title: '全能B群錠',
             subtitle: 'B群＋鐵＋鋅',
             desc: '專為素食者設計的複方B群補充劑，促進代謝與能量。',
           },
           {
-            img: '../../public/images/medicine/jaso-mock-up_bg_D.svg',
+            img: '../../public/images/Pd/D-hover.svg',
             tags: ['養氣', '補充能量'],
             title: '活力寶',
             subtitle: '日常補給必備',
@@ -176,24 +187,24 @@
         icon: '../../public/assets/fe@3x.svg',
         title: 'Ca+ 鈣質',
         desc: '促進骨骼與牙齒健康的重要元素...',
-        partners: ['../../public/images/friends/Fe-blackS.svg', '../../public/images/friends/Fe-bc.svg', '../../public/images/friends/Fe-redM.svg' , '../../public/images/friends/Fe-BB.svg' ,'../../public/images/friends/Fe-pk.svg'],
-         products: [
+        partners: [{ src: '../../public/images/friends/Fe-blackS.svg', name: '黑芝麻' }, { src: '../../public/images/friends/Fe-bc.svg', name: '菠菜' }, { src: '../../public/images/friends/Fe-redM.svg', name: '紅藜麥' }, { src: '../../public/images/friends/Fe-BB.svg', name: '黑豆' }, { src: '../../public/images/friends/Fe-pk.svg', name: '南瓜' },],
+        products: [
           {
-            img: '../../public/images/medicine/jaso-mock-up_bg_B12.svg',
+            img: '../../public/images/Pd/B12-hover.svg',
             tags: ['手腳冰冷', '補血'],
             title: 'B12超能素',
             subtitle: '紅血球增生配方',
             desc: '幫助補充每日B12需求，保護神經健康與血液循環。',
           },
           {
-            img: '../../public/images/medicine/jaso-mock-up_bg_Ca.svg',
+            img: '../../public/images/Pd/Ca-hover.svg',
             tags: ['代謝', '神經系統'],
             title: '全能B群錠',
             subtitle: 'B群＋鐵＋鋅',
             desc: '專為素食者設計的複方B群補充劑，促進代謝與能量。',
           },
           {
-            img: '../../public/images/medicine/jaso-mock-up_bg_D.svg',
+            img: '../../public/images/Pd/D-hover.svg',
             tags: ['養氣', '補充能量'],
             title: '活力寶',
             subtitle: '日常補給必備',
@@ -205,24 +216,24 @@
         icon: '../../public/assets/n@3x.svg',
         title: 'Ca+ 鈣質',
         desc: '促進骨骼與牙齒健康的重要元素...',
-        partners: ['../../public/images/friends/pf-md.svg', '../../public/images/friends/pf-tofu.svg', '../../public/images/friends/pf-bd.svg'],
-         products: [
+        partners: [{ src: '../../public/images/friends/pf-md.svg', name: '毛豆' }, { src: '../../public/images/friends/pf-tofu.svg', name: '豆腐' }, { src: '../../public/images/friends/pf-bd.svg', name: '扁豆' },],
+        products: [
           {
-            img: '../../public/images/medicine/jaso-mock-up_bg_B12.svg',
+            img: '../../public/images/Pd/B12-hover.svg',
             tags: ['手腳冰冷', '補血'],
             title: 'B12超能素',
             subtitle: '紅血球增生配方',
             desc: '幫助補充每日B12需求，保護神經健康與血液循環。',
           },
           {
-            img: '../../public/images/medicine/jaso-mock-up_bg_Ca.svg',
+            img: '../../public/images/Pd/Ca-hover.svg',
             tags: ['代謝', '神經系統'],
             title: '全能B群錠',
             subtitle: 'B群＋鐵＋鋅',
             desc: '專為素食者設計的複方B群補充劑，促進代謝與能量。',
           },
           {
-            img: '../../public/images/medicine/jaso-mock-up_bg_D.svg',
+            img: '../../public/images/Pd/D-hover.svg',
             tags: ['養氣', '補充能量'],
             title: '活力寶',
             subtitle: '日常補給必備',
@@ -234,24 +245,24 @@
         icon: '../../public/assets/omega3.svg',
         title: 'Ca+ 鈣質',
         desc: '促進骨骼與牙齒健康的重要元素...',
-        partners: ['../../public/images/friends/omg3-Flaxseed.svg', '../../public/images/friends/omg3-chiaSeeds.svg', '../../public/images/friends/omg3-walnut.svg','../../public/images/friends/omg3-yellowb.svg'],
-         products: [
+        partners: [{ src: '../../public/images/friends/omg3-Flaxseed.svg', name: '亞麻籽' }, { src: '../../public/images/friends/omg3-chiaSeeds.svg', name: '奇亞籽' }, { src: '../../public/images/friends/omg3-walnut.svg', name: '核桃' }, { src: '../../public/images/friends/omg3-yellowb.svg', name: '黃豆' },],
+        products: [
           {
-            img: '../../public/images/medicine/jaso-mock-up_bg_B12.svg',
+            img: '../../public/images/Pd/B12-hover.svg',
             tags: ['手腳冰冷', '補血'],
             title: 'B12超能素',
             subtitle: '紅血球增生配方',
             desc: '幫助補充每日B12需求，保護神經健康與血液循環。',
           },
           {
-            img: '../../public/images/medicine/jaso-mock-up_bg_Ca.svg',
+            img: '../../public/images/Pd/Ca-hover.svg',
             tags: ['代謝', '神經系統'],
             title: '全能B群錠',
             subtitle: 'B群＋鐵＋鋅',
             desc: '專為素食者設計的複方B群補充劑，促進代謝與能量。',
           },
           {
-            img: '../../public/images/medicine/jaso-mock-up_bg_D.svg',
+            img: '../../public/images/Pd/D-hover.svg',
             tags: ['養氣', '補充能量'],
             title: '活力寶',
             subtitle: '日常補給必備',
@@ -280,48 +291,65 @@
         icon.src = data.icon;
         title.textContent = data.title;
         desc.textContent = data.desc;
-        partners.innerHTML = data.partners
-          .map(src => `<img src="${src}" alt="" />`)
-          .join('');
 
-        products.innerHTML = data.products
-          .map(product => `
-          <div class="product-card">
-            <div class="product-image-wrapper">
-              <img src="${product.img}" alt="${product.title}" class="product-image" />
-            </div>
-            <div class="product-meta">
-              <div class="product-tags">
-                ${product.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-              </div>
-              <div class="product-icon">
-                <button class="cart-btn" aria-label="加入購物車"></button>
-                <button class="like-btn" aria-label="加入收藏"></button>
-              </div>
-            </div>
-            <div class="product-title">${product.title}
-              <span class="product-subtitle">${product.subtitle}</span>
-            </div>
-            <div class="product-desc">${product.desc}</div>
-            <a href="#" class="product-link">
-              <span class="arrow">&gt;</span><span class="text">看完整產品內容</span>
-            </a>
+        partners.innerHTML = data.partners.map(item => `
+        <div class="guide-partners-item">
+          <img src="${item.src}" alt="${item.name}" />
+          <p>${item.name}</p>
+        </div>
+      `).join('');
+
+        products.innerHTML = data.products.map(product => `
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="${product.img}" alt="${product.title}" class="product-image" />
           </div>
-        `)
-          .join('');
+          <div class="product-meta">
+            <div class="product-tags">
+              ${product.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+            </div>
+            <div class="product-icon">
+              <button class="cart-btn" aria-label="加入購物車"></button>
+              <button class="like-btn" aria-label="加入收藏"></button>
+            </div>
+          </div>
+          <div class="product-title">${product.title}
+            <span class="product-subtitle">${product.subtitle}</span>
+          </div>
+          <div class="product-desc">${product.desc}</div>
+          <a href="#" class="product-link">
+            <span class="arrow">&gt;</span><span class="text">看完整產品內容</span>
+          </a>
+        </div>
+      `).join('');
 
         detail.classList.add('show');
+        overlay.classList.add('show');
       });
     });
 
     document.addEventListener('click', e => {
       if (!e.target.closest('.nutrient-card') && !e.target.closest('#guide-detail')) {
         detail.classList.remove('show');
+        overlay.classList.remove('show');
       }
     });
 
     closeBtn.addEventListener('click', () => {
       detail.classList.remove('show');
+      overlay.classList.remove('show');
+    });
+
+    const overlay = document.getElementById('guide-overlay');
+
+    // 初始化：把每張卡片的 .partner-count 設為對應夥伴數量
+    document.querySelectorAll('.nutrient-card').forEach(card => {
+      const key = card.dataset.nutrient;
+      const data = nutrientData[key];
+      const countEl = card.querySelector('.partner-count');
+      if (data && data.partners && countEl) {
+        countEl.textContent = data.partners.length;
+      }
     });
   </script>
 </body>
