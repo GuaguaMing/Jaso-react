@@ -108,6 +108,16 @@
         color: $color-white;
     }
 }
+.shopIcon {
+  width: 40px;
+  height: 40px;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
 
 .mobileMenu {
     background-color: $color-lightgray2;

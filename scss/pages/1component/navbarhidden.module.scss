@@ -84,11 +84,19 @@
     }
 }
   
+
+
   .navRight2 {
     display: flex;
     align-items: center;
     padding-left: 8rem;
     gap: 20px;
+    a {
+    color: $color-white;
+    transition: color 0.3 ease;
+
+  }
+
   }
   
   .member2 {
@@ -96,13 +104,23 @@
     border: 1px solid;
     border-radius: 999px;
     font-weight: $font-w-5;
-  
     font-size: 16px;
+    a{
+    color: $color-dark;
+
+    }
+
   
     cursor: pointer;
       &:hover {
         color: $color-primary; 
+ a {
+        color: $color-primary; 
+
+    transition: color 0.3 ease;
+  }
       }
+     
   }
   
   .beanShape2 {
