@@ -70,7 +70,7 @@ export default function AppHome() {
                 <div className={styles.aboutAll}>
                     <div className={styles.aboutContent}>
                         <div className={styles.aboutLeft}>
-                            <img src="./images/LOGO1.svg" alt="" />
+                            <img src="./images/logo-big.svg" alt="" />
                         </div>
                         <div className={styles.aboutRight}>
                             <h1>ABOUT<br />US</h1>
@@ -215,7 +215,7 @@ export default function AppHome() {
             <footer>
                 <div className={styles.footerBg}>
                     <a href="#" className={styles.backToTop}>
-                        <img src="./images/icons/j_arrow_a-1.svg" alt="Back to Top" />
+                        <img src="./images/icons/icon-arrow.svg" alt="Back to Top" />
                     </a>
                     <div className={styles.footerTop}>
                         <div className={styles.footerGrid}>
@@ -264,8 +264,8 @@ export default function AppHome() {
                                     <p>素食營養專家 | 健康素食新選擇</p>
                                 </div>
                                 <div className={styles.icon}>
-                                    <img src="./images/icons/j_community_ins-bright.svg" alt="" />
-                                    <img src="./images/icons/j_community_fb-bright.svg" alt="" />
+                                    <img src="./images/icons/icon-ins-bright.svg" alt="" />
+                                    <img src="./images/icons/icon-fb-bright.svg" alt="" />
                                 </div>
                             </div>
                         </div>
