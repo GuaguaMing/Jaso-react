@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import styles from "../../scss/pages/quiz/quiz.module.scss";
 import { useNavigate } from "react-router-dom";
-import QuizAni from '../components/QuizAni';
+import QuizAni from "../1components/QuizAni";
+import NavbarHidden from "../1components/NavbarHidden";
+
 
 
 
@@ -504,6 +506,8 @@ const Quiz = () => {
     return <LoadingPage />;
   }
   return (
+    <>
+    <NavbarHidden />
     <div className={styles.quizContainer}>
       {/* 問題內容 */}
       {renderQuestion()}
@@ -540,6 +544,8 @@ const Quiz = () => {
         />
       </div>
     </div>
+    </>
+
   );
 };
 export default Quiz;

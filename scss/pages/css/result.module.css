@@ -1,0 +1,386 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
+/* reset CSS */
+* {
+  box-sizing: border-box;
+  /*不要家邊框及內鉅*/
+}
+
+/* reset CSS */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* 重置字體 */
+body {
+  font-family: "Noto Sans TC", sans-serif, sans-serif;
+  background: #ffffff;
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+input, select, option {
+  outline: none;
+}
+
+/* Result.module.scss */
+.result {
+  max-width: 1440px;
+  width: 100%;
+  margin: 130px auto;
+  padding: 0 3rem;
+  font-family: "Noto Sans TC", sans-serif;
+  color: #333;
+}
+.result .title {
+  color: #000;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 132%;
+  /* 31.68px */
+  letter-spacing: 2.16px;
+}
+.result .subtitle {
+  color: #3DCE94;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 132%;
+  /* 31.68px */
+  letter-spacing: 2.16px;
+}
+.result .header {
+  text-align: left;
+  padding-left: 5rem;
+}
+.result .radarSection {
+  margin: 4rem 8rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 15rem;
+  align-items: flex-start;
+}
+.result .radarSection .chartText {
+  padding-left: 5rem;
+}
+.result .radarSection .radarChart {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #000;
+}
+.result .radarSection .radarChart .chartTitle {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+.result .radarSection .radarChart .chartTitle .circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 99px;
+  background-color: #3DCE94;
+  margin-right: 11px;
+}
+.result .radarSection .radarChart .chartNote {
+  margin-top: 0.5rem;
+  font-size: 10px;
+  text-align: left;
+  flex-wrap: wrap;
+  width: 20rem;
+}
+.result .radarSection .radarCharacter {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 32px 16px;
+  justify-items: center;
+  align-items: start;
+}
+.result .radarSection .radarCharacter .characterBox {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  align-items: center;
+  column-gap: 8px;
+}
+.result .radarSection .radarCharacter .characterBox .characterImgWrapper {
+  position: relative;
+  display: inline-block;
+  gap: 8px;
+  width: 145px;
+  height: 145px;
+}
+.result .radarSection .radarCharacter .characterBox .characterImgWrapper img {
+  width: 100%;
+  height: 100%;
+}
+.result .radarSection .radarCharacter .characterBox .characterImgWrapper .bubble {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 50%;
+  font-size: 10px;
+  text-align: center;
+  line-height: 1.2;
+}
+.result .radarSection .radarCharacter .characterBox .characterImgWrapper .high {
+  background-color: #4caf50;
+}
+.result .radarSection .radarCharacter .characterBox .characterImgWrapper .medium {
+  background-color: #ff9800;
+}
+.result .radarSection .radarCharacter .characterBox .characterImgWrapper .low {
+  background-color: #f44336;
+}
+.result .radarSection .radarCharacter .characterBox div {
+  display: flex;
+  justify-content: center;
+}
+.result .radarSection .radarLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+}
+.result .radarSection .radarLeft p {
+  color: #000;
+  /* 內文1-14px */
+  font-family: "Noto Sans TC";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 177%; /* 24.78px */
+  letter-spacing: 1.96px;
+}
+.result .summary {
+  padding: 2rem 8rem;
+}
+.result .summary h4 {
+  color: #14A168;
+  font-family: "Noto Sans TC";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120.288%; /* 28.869px */
+  letter-spacing: 6.24px;
+  flex-wrap: wrap;
+  width: 46rem;
+  padding-bottom: 3rem;
+}
+.result .summary h3 {
+  color: #000;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 100%;
+  /* 36px */
+  letter-spacing: 3.24px;
+  padding-bottom: 2rem;
+}
+.result .summary .barGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 1rem;
+  width: 830px;
+  margin-bottom: 1rem;
+}
+.result .summary .barGroup label {
+  display: block;
+  text-align: left;
+  padding-left: 1.5rem;
+  font-weight: bold;
+  color: var(--Neutrue-White, #FFF);
+  font-family: "Noto Sans TC";
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1.62px;
+}
+.result .summary .barGroup .bar {
+  padding-right: 0.5rem;
+  color: #7e7e7e;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  height: 30px;
+  background: #F4EFEF;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.result .summary .barGroup .fill {
+  height: 100%;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #3DCE94, #55DDCC);
+}
+.result .summary .protein {
+  display: flex;
+  padding-top: 1rem;
+  color: #000;
+  font-family: "Noto Sans TC";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%; /* 36px */
+  letter-spacing: 3.24px;
+}
+.result .summary .protein p {
+  color: var(--main-deep, #3DCE94);
+  font-family: "Noto Sans TC";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: 5.28px;
+}
+.result .productList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.result .productList .card {
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 4px 19.4px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  padding: 1.5rem;
+  width: 425px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.result .productList .card img {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 30px;
+}
+.result .productList .card .needWhat {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-end;
+}
+.result .productList .card .needLeft h4 {
+  color: #3DCE94;
+  font-family: "Noto Sans TC";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 120%; /* 80.16px */
+}
+.result .productList .card .needLeft span {
+  color: #3DCE94;
+  font-family: "Noto Sans TC";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 132%; /* 31.68px */
+  letter-spacing: 2.16px;
+}
+.result .productList .card .needRight {
+  text-align: left;
+}
+.result .productList .card .needRight span {
+  color: #252527;
+  font-family: "Noto Sans TC";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 2.86px;
+}
+.result .productList .card .needRight p {
+  color: #252527;
+  font-family: "Noto Sans TC";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 4.4px;
+}
+.result .productList .card .subtitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #000;
+}
+.result .productList .card .detail {
+  font-size: 0.9rem;
+  color: #333;
+}
+.result .actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.result .actions .retry,
+.result .actions .share {
+  width: 205px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 18px;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  letter-spacing: 1.62px;
+  line-height: 150%;
+  border-radius: 25px;
+  background-color: #3DCE94;
+  box-shadow: 0px 2px 3.5px 0px rgba(0, 0, 0, 0.25);
+}
+.result .actions .retry:hover,
+.result .actions .share:hover {
+  background-color: rgba(61, 206, 148, 0.9607843137);
+  color: #ffffff;
+  border-bottom: #333;
+  border-radius: 25px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+.result .actions .retry {
+  background-color: #AAA6A8;
+  color: #ffffff;
+}
+.result .actions .retry:hover {
+  background-color: #909090;
+  border-bottom: #333;
+  color: #ffffff;
+  border-radius: 25px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}

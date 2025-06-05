@@ -1,0 +1,226 @@
+@charset "UTF-8";
+/* reset CSS */
+* {
+  box-sizing: border-box;
+  /*不要家邊框及內鉅*/
+}
+
+/* reset CSS */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* 重置字體 */
+body {
+  font-family: "Noto Sans TC", sans-serif, sans-serif;
+  background: #ffffff;
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+input, select, option {
+  outline: none;
+}
+
+.navbarMain {
+  display: flex;
+  width: 100%;
+  max-width: 1920px;
+  height: 130px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 1;
+  font-weight: 700;
+}
+
+.navbarContainer {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.navLeft {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.navRight {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 48px;
+}
+
+.navbarCenter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbarLinks {
+  display: flex;
+  gap: 75px;
+}
+.navbarLinks ul {
+  display: flex;
+  gap: 75px;
+}
+.navbarLinks ul li a {
+  color: #2A2324;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3 ease;
+}
+.navbarLinks ul li a:hover {
+  color: #3DCE94;
+}
+
+.navMember a {
+  color: #2A2324;
+  padding: 0px 15px;
+  border: 1px solid;
+  border-radius: 99px;
+  font-size: 1rem;
+  transition: color 0.3 ease;
+}
+.navMember a:hover {
+  color: #3DCE94;
+}
+
+.beanShape {
+  background-color: #3DCE94;
+  width: 144px;
+  height: 144px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-mask-image: url(/assets/0.svg);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}
+
+.goToShop a {
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+.goToShop a:hover {
+  color: #ffffff;
+}
+
+.mobileMenu {
+  background-color: #D4D4D4;
+  position: absolute;
+  top: 130px;
+  left: 0;
+  width: 100%;
+  padding: 24px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  z-index: 1;
+}
+.mobileMenu ul {
+  list-style: none;
+  padding: 0;
+}
+.mobileMenu ul li {
+  margin-bottom: 16px;
+}
+.mobileMenu ul li a {
+  color: #2A2324;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.mobileMenu ul li a:hover {
+  color: #3DCE94;
+}
+
+.navHamburger {
+  display: none;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+.navHamburger .bar {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #ffffff;
+  margin: 5px auto;
+  transition: all 0.3s ease;
+}
+.navHamburger.is-active .bar:nth-child(1) {
+  transform: rotate(45deg) translateY(6px) translateX(5px);
+}
+.navHamburger.is-active .bar:nth-child(2) {
+  opacity: 0;
+}
+.navHamburger.is-active .bar:nth-child(3) {
+  transform: rotate(-45deg) translateY(-6px) translateX(5px);
+}
+
+@media (max-width:640px) {
+  .navbarMain {
+    height: auto;
+    padding: 10px 20px;
+    z-index: 1;
+  }
+  .navbarContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px;
+  }
+  .navbarCenter {
+    display: none;
+  }
+  .navRight {
+    gap: 10px;
+  }
+  .navMember {
+    display: none;
+  }
+  .beanShape {
+    width: 80px;
+    height: 80px;
+  }
+  .beanShape .navHamburger {
+    position: absolute;
+    color: #ffffff;
+    display: block;
+    z-index: 2;
+  }
+  .goToShop a {
+    display: none;
+  }
+}
