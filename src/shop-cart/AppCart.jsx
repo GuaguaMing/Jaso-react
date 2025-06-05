@@ -1,5 +1,7 @@
 import './App.css';
 import React, { useState, useRef, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
 import CheckoutProgress from './components/CheckoutProgress';
 import CartToggle from './components/CartToggle';
 import CartSummary from './components/CartSummary';
@@ -9,7 +11,9 @@ import PaymentForm from './components/PaymentForm';
 import PaymentReview from './components/PaymentReview';
 import OrderSuccess from './components/OrderSuccess';
 
-function App() {
+function AppCart() {
+  const navigate = useNavigate();
+
   const [step, setStep] = useState(1);
   const [isCartOpen, setIsCartOpen] = useState(true);
   const [cartItems, setCartItems] = useState([
@@ -45,7 +49,7 @@ function App() {
     if (cartItems.length === 0) return;
     setCartAnimation(true);
     const timer = setTimeout(() => setCartAnimation(false), 300);
-    return () => clearTimeout(timer);
+    return () =>{ clearTimeout(timer);};
   }, [cartItems]);
 
   const [usedCredits, setUsedCredits] = useState(100);
@@ -88,12 +92,14 @@ function App() {
   useEffect(() => {
     setIsCartOpen(step === 1);
   }, [step]);
-
   const handleSubmitOrder = () => {
     const generatedOrderNumber = 'JS' + Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
     setOrderNumber(generatedOrderNumber);
-    setStep(5);
+
+    // ✅ 用 navigate 跳轉並傳資料
+    navigate('/cart/success', { state: { orderNumber: generatedOrderNumber } });
   };
+
 
   return (
     <div className="container py-4">
@@ -102,7 +108,7 @@ function App() {
           <span className='navbar-brand'>結帳流程</span>
         </div>
       </div>
-      
+
       {/* ✅ 右下角購物袋浮動按鈕 */}
       <div
         className="position-fixed"
@@ -188,7 +194,7 @@ function App() {
 
 
 
-export default App;
+export default AppCart;
 
 
 

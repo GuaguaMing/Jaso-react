@@ -82,7 +82,7 @@ export default function AppHome() {
                 <div className={styles.aboutAll}>
                     <div className={styles.aboutContent}>
                         <div className={styles.aboutLeft}>
-                            <img src="./images/LOGO1.svg" alt="" />
+                            <img src="./images/logo-big.svg" alt="" />
                         </div>
                         <div className={styles.aboutRight}>
                             <h1>ABOUT<br />US</h1>
