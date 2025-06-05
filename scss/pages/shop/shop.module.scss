@@ -1,0 +1,366 @@
+@charset "UTF-8";
+@use "../../function/reset" as *;
+@use "../../variable/var-color" as *;
+@use "../../variable/var-font" as *;
+@use "../../variable/var-space" as *;
+
+
+
+// 商店頁banner
+.shopBanner {
+  padding: 60px 240px;
+  text-align: left;
+
+  &_content {
+
+    h1,
+    h3 {
+      margin: 16px auto;
+    }
+  }
+
+  &_title {
+    color: $color-primary;
+    font-size: map-get($font-size, 5xl);
+  }
+
+  &_subtitle {
+    font-size: 1.5rem;
+    font-weight: normal;
+  }
+}
+
+//商店頁btn
+.shopButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: $color-primary;
+  color: $color-white;
+  border: none;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #37b683;
+  }
+
+  &--rounded {
+    border-radius: 50px;
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: $color-primary;
+    border: 2px solid $color-primary;
+  }
+}
+
+// 商品篩選
+.shopProductFilter {
+  padding: 10px 240px;
+
+  &_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; // RWD：小螢幕換行
+    gap: 1rem;
+  }
+
+  &_title {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+}
+
+.shopTagList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.shopTagItem {
+  cursor: pointer;
+  padding: 6px 16px;
+  border-radius: 30px;
+  border: 1px solid $color-gray;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+
+  &:hover,
+  &.is-active {
+    background-color: $color-primary;
+    color: $color-white;
+    border-color: $color-primary;
+  }
+}
+
+/* 產品清單區 */
+.productCarousel {
+  padding: 40px 240px;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  /* 向左箭頭按鈕 */
+  .carouselArrow {
+    padding: 40px 200px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: $color-gray;
+    background-color: transparent;
+    transition: transform 1s ease;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+
+    &.left {
+      left: 0;
+    }
+
+    &.right {
+      right: 0;
+    }
+  }
+
+  .carouselTrackWrapper {
+    display: flex;
+    overflow: hidden;
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .carouselTrack {
+    display: flex;
+    scroll-behavior: smooth;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    /* 隱藏 IE 和 Edge 中的滾軸 */
+    scrollbar-width: none;
+    /* 隱藏 Firefox 中的滾軸 */
+  }
+
+  .carouselTrack::-webkit-scrollbar {
+    display: none;
+    /* 隱藏 Webkit 瀏覽器中的滾軸 */
+  }
+}
+
+.productCard {
+  flex: 0 0 calc(25% - 15px);
+  /* 4 卡片佔 100%，扣除 gap */
+  box-sizing: border-box;
+  background-color: $color-white;
+  border-radius: 12px;
+  transition: transform 0.3s;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  min-height: 500px;
+  margin: 20px;
+  position: relative;
+
+
+  /* 產品圖片 */
+  .productImageWrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: none;
+    /* 一開始不顯示背景 */
+    position: relative;
+    overflow: visible;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .productImage {
+    width: 100%;
+    height: 100%;
+    //object-fit: contain; /* 這樣會讓圖片完整顯示在容器內 */
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .productImageWrapper .productImage {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+  }
+
+  .productImageWrapper:hover .productImage {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+
+  .productImageWrapper:hover {
+    background: url("/shop/img/jaso-mock-up_bg_Ca.svg") no-repeat center/cover;
+    transform: scale(1.05);
+  }
+}
+
+//標籤&購買/收藏icon
+.shopProductMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 19px 0 14px;
+}
+
+
+.shopProductTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: flex-start;
+  align-items: center;
+
+  .tag {
+    padding: 4px 16px;
+    font-size: 10px;
+    font-weight: 500;
+    color: $color-primary;
+    border: 1px solid $color-primary;
+    background-color: #E6FBF3;
+    border-radius: 999px;
+    display: inline-block;
+  }
+}
+
+.shopProductIcon {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 3px;
+
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.cartBtn {
+  width: 30px;
+  height: 30px;
+  background: url("/icons/img/shop-btn.svg") no-repeat center/contain;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-image: url("/icons/img/shop-btn-hover.svg");
+    transform: scale(1.05);
+  }
+
+  &.added {
+    filter: grayscale(1);
+    opacity: 0.7;
+    pointer-events: none;
+  }
+}
+
+.likeBtn {
+  width: 30px;
+  height: 30px;
+  background: url("/icons/img/like-btn.svg") no-repeat center/contain;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &.active {
+    background-image: url("/icons/img/like-btn-hover.svg");
+    transform: scale(1.05);
+  }
+
+  &.added {
+    filter: grayscale(1);
+    opacity: 0.7;
+    pointer-events: none;
+  }
+}
+
+.productTitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.4;
+  color: $color-dark;
+}
+
+.productSubtitle {
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 8px;
+  color: $color-dark;
+}
+
+
+.productDesc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 8px;
+  height: calc(3*14px*1.6);
+}
+
+.productLink {
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  color: $color-primary;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  margin: 12px 0 0 12px;
+
+  .arrow,
+  .text {
+    display: inline-block;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+
+  .arrow {
+    transform: translateX(-8px);
+    opacity: 1;
+  }
+
+  .text {
+    transform: translateX(-8px);
+    opacity: 1;
+  }
+
+  &:hover .arrow {
+    transform: translateX(100px);
+    opacity: 2;
+  }
+
+  &:hover .text {
+    transform: translateX(-20px);
+    opacity: 1;
+  }
+
+}
