@@ -105,27 +105,27 @@
 }
 
 .partner-count {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  font-size: 36px;
-  font-weight: 400;
-  color: #fff;
-  background: #999;
-  border-radius: 50%;
-  width: 78px;
-  height: 78px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
-  z-index: 1;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 36px;
+    font-weight: 400;
+    color: #fff;
+    background: #999;
+    border-radius: 50%;
+    width: 78px;
+    height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 1;
 }
 
 .nutrient-card:hover .partner-count {
-  transform: scale(1.2);
-  background: #22b573;
+    transform: scale(1.2);
+    background: #22b573;
 }
 
 /* 指南區塊 */
@@ -228,23 +228,82 @@
 /* 好夥伴 */
 .guide-partners {
     display: flex;
+    gap: 24px;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 60px;
     margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 .guide-partners-item {
-    text-align: center;
-    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
 }
 
-.guide-partners-item img {
-    width: 120px;
-    height: 120px;
-    border-radius: 12px;
-    margin-bottom: 8px;
+.img-hover-wrap {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.img-hover-wrap img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.img-default {
+    opacity: 1;
+}
+
+.img-hover1,
+.img-hover2 {
+    pointer-events: none;
+}
+
+.img-hover-wrap:hover .img-default {
+    opacity: 0;
+}
+
+.img-hover-wrap:hover .img-hover1 {
+    opacity: 1;
+    animation: hoverSwap 0.6s steps(1, end) infinite;
+}
+
+@keyframes hoverSwap {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.img-hover-wrap:hover .img-hover2 {
+    animation: hoverSwap2 0.6s steps(1, end) infinite;
+}
+
+@keyframes hoverSwap2 {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 .guide-partners-item p {
@@ -385,4 +444,22 @@
         transform: translateX(-20px);
         opacity: 1;
     }
+}
+
+@keyframes float-updown {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.nutrient-card:hover .nutrient-img {
+    animation: float-updown 1s ease-in-out infinite;
 }
