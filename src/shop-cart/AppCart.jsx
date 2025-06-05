@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import NavbarHidden from "../1components/NavbarHidden";
 
 import CheckoutProgress from './components/CheckoutProgress';
 import CartToggle from './components/CartToggle';
@@ -10,7 +11,12 @@ import ShippingForm from './components/ShippingForm';
 import PaymentForm from './components/PaymentForm';
 import PaymentReview from './components/PaymentReview';
 import OrderSuccess from './components/OrderSuccess';
+<<<<<<< HEAD
 import Navbar from '../1components/Navbar';
+=======
+import { useSearchParams } from 'react-router-dom';
+
+>>>>>>> 9f57304805045a3491540cd0646daec63c67e5f9
 
 function AppCart() {
   const navigate = useNavigate();
@@ -52,6 +58,15 @@ function AppCart() {
     return () => { clearTimeout(timer); };
   }, [cartItems]);
 
+  // 清空購物車
+  const [searchParams] = useSearchParams();
+  useEffect(() => {
+    if (searchParams.get('reset') === 'true') {
+      setCartItems([]);
+      setStep(1);
+    }
+  }, []);
+
   const [usedCredits, setUsedCredits] = useState(100);
   const [availableCredits, setAvailableCredits] = useState(300);
   const [orderNumber, setOrderNumber] = useState(null);
@@ -75,7 +90,7 @@ function AppCart() {
   });
 
 
-
+  // shippingform表單
   const [localForm, setLocalForm] = useState({
     name: '',
     email: '',
@@ -87,8 +102,8 @@ function AppCart() {
     note: ''
   });
 
-  const shippingRef = useRef(null);
 
+  const shippingRef = useRef(null);
   useEffect(() => {
     setIsCartOpen(step === 1);
   }, [step]);
@@ -102,11 +117,64 @@ function AppCart() {
 
 
   return (
+<<<<<<< HEAD
     <>
       <Navbar />
       <div className="container py-4">
         <div className="navbar navbar-light bg-light mb-3">
           <div className='container-fluid'>
+=======
+    // <NavbarHidden />
+    <div className="container py-4">
+      <div className="navbar navbar-light bg-light mb-3">
+        <div className='container-fluid'>
+          <span className='navbar-brand'>結帳流程</span>
+        </div>
+      </div>
+
+      {/* ✅ 右下角購物袋浮動按鈕 */}
+      <div
+        className="position-fixed"
+        style={{
+          bottom: "24px",
+          right: "24px",
+          zIndex: 9999,
+          cursor: "pointer",
+        }}
+        onClick={() => setIsCartOpen(!isCartOpen)}
+      >
+        <div className="position-relative">
+          <img src="./icons/icon-cart.svg" width="48" alt="cart" />
+          <span className={`cart-count-badge ${cartAnimation ? "bump" : ""}`}>
+            {cartItems.reduce((sum, item) => sum + item.qty, 0)}
+          </span>
+        </div>
+      </div>
+
+      <CheckoutProgress step={step} />
+
+      {/* Step 1: 購物車 */}
+      {step === 1 && (
+        <>
+          <CartToggle cartItems={cartItems} setCartItems={setCartItems} isOpen={isCartOpen} setIsOpen={setIsCartOpen} cartAnimation={cartAnimation} />
+          <CartSummary cartItems={cartItems} onNextStep={() => {
+            setStep(2);
+            setTimeout(() => {
+              shippingRef.current?.scrollIntoView({ behavior: 'smooth' });
+            }, 0);
+          }} />
+          <RecentViewed products={products} cartItems={cartItems} onAddToCart={handleAddToCart} />
+        </>
+      )}
+
+      {/* Step 2: 配送資訊 */}
+      {step === 2 && (
+        <>
+          <CartToggle cartItems={cartItems} setCartItems={setCartItems} isOpen={isCartOpen} setIsOpen={setIsCartOpen} cartAnimation={cartAnimation} />
+          <CartSummary cartItems={cartItems} />
+          <div ref={shippingRef}>
+            <ShippingForm formData={formData} setFormData={setFormData} onNextStep={() => setStep(3)} />
+>>>>>>> 9f57304805045a3491540cd0646daec63c67e5f9
           </div>
         </div>
 

@@ -33,7 +33,7 @@ function ShippingForm({ onNextStep, setFormData }) {
             <form className="row g-3 mt-1" onSubmit={handleSubmit}>
                 <div className="col-md-6">
                     <label className="form-label d-flex align-items-center" style={{ gap: '2px' }}>
-                        <img src="./icons/icon-member.svg" alt="收件人" width={20} height={20} />
+                        <img src="./images/icons/icon-member.svg" alt="收件人" width={20} height={20} />
                         收件人姓名</label>
                     <input
                         name="recipient"

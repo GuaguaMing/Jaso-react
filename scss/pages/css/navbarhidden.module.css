@@ -104,6 +104,10 @@ input, select, option {
   padding-left: 8rem;
   gap: 20px;
 }
+.navRight2 a {
+  color: #ffffff;
+  transition: color 0.3 ease;
+}
 
 .member2 {
   padding: 0 15px;
@@ -113,8 +117,15 @@ input, select, option {
   font-size: 16px;
   cursor: pointer;
 }
+.member2 a {
+  color: #2A2324;
+}
 .member2:hover {
   color: #3DCE94;
+}
+.member2:hover a {
+  color: #3DCE94;
+  transition: color 0.3 ease;
 }
 
 .beanShape2 {
