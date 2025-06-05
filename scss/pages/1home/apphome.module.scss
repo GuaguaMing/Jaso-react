@@ -84,7 +84,7 @@ body {
 }
 
 .bannerRight .en {
-    color: var(--Green-deep, #3DCE94);
+    color: $color-primary;
     font-family: "Noto Sans TC";
     font-size: 14px;
     font-style: normal;
@@ -137,7 +137,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--Green-deep, #3DCE94);
+    background:  $color-primary;
     width: 1210px;
     height: 49px;
     color: var(--Neutrue-White, #FFF);
@@ -214,7 +214,7 @@ body {
     width: 100%;
     position: relative;
     height: 927px;
-    background: linear-gradient(180deg, #3DCE94 57.21%, #F9FFFA 100%);
+    background: linear-gradient(180deg, $color-primary 57.21%, #F9FFFA 100%);
     background-position: center center;
 
     background-size: cover;
@@ -282,7 +282,7 @@ body {
 
 .calcBtn {
     z-index: 1;
-    color: var(--Green-deep, #3DCE94);
+    color:  $color-primary;
     text-align: center;
     font-size: 15px;
     font-style: normal;
@@ -401,7 +401,7 @@ body {
 }
 
 .aboutBtn p {
-    color: var(--Green-deep, #3DCE94);
+    color:  $color-primary;
     text-align: justify;
     font-family: "Noto Sans TC";
 
@@ -439,7 +439,7 @@ body {
 }
 
 .pTitle h3 {
-    color: var(--Green-deep, #3DCE94);
+    color:  $color-primary;
     /* 標題3-40px */
     font-family: "Noto Sans TC";
     font-size: 40px;
@@ -645,7 +645,7 @@ body {
 
 .centerNeed {
     align-content: center;
-    color: var(--main-deep, #3DCE94);
+    color: $color-primary;
     font-family: "Noto Sans TC";
     font-size: 48px;
     font-style: normal;
@@ -654,7 +654,7 @@ body {
 }
 
 .span0 {
-    color: var(--main-deep, #3DCE94);
+    color:  $color-primary;
     text-align: center;
     font-family: "Noto Sans TC";
     font-size: 24px;
@@ -701,7 +701,7 @@ body {
 }
 
 .dialog {
-    background: #3DCE94;
+    background: $color-primary;
     width: 160px;
     border-radius: 25px;
     padding: 20px 20px;
@@ -717,7 +717,7 @@ body {
     position: relative;
     bottom: 70px;
     left: 50px;
-    background-color: #3DCE94;
+    background-color: $color-primary;
     transform: rotate(-60deg) skewX(-35deg) scale(1, .95);
 }
 
@@ -771,7 +771,7 @@ body {
 }
 
 .kTitleLeft h3 {
-    color: var(--Green-deep, #3DCE94);
+    color:  $color-primary;
     text-align: center;
 
     /* 標題1-64px */
@@ -794,8 +794,8 @@ body {
     height: 49px;
 
     border-radius: 30.95px;
-    border: 1px solid var(--Green-deep, #3DCE94);
-    background: var(--Green-deep, #3DCE94);
+    border: 1px solid  $color-primary;
+    background:  $color-primary;
 }
 
 .kTitleRight span {
@@ -878,7 +878,7 @@ hr {
     align-items: center;
     gap: 15px;
 
-    color: var(--main-deep, #3DCE94);
+    color:  $color-primary;
     font-size: 14px;
 }
 
@@ -908,7 +908,7 @@ hr {
     justify-content: center;
     align-items: center;
     border-radius: 50px;
-    background: var(--main-deep, #3DCE94);
+    background: $color-primary;
 }
 
 .joinBtn p {

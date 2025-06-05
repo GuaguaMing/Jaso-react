@@ -21,7 +21,7 @@ const NavbarHidden = () => {
           <div className={styles.navRight2}>
             <div className={styles.member2}><Link to="/memberCenter">會員</Link></div>
             <a className={styles.shopList2}><Link to="/cart">
-              <img src="/assets/shop-list.svg" alt="" /></Link>
+              <img src={`${import.meta.env.BASE_URL}assets/shop-list.svg`} alt="" /></Link> 
             </a>
 
             <div className={styles.beanShape2}>

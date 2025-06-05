@@ -118,7 +118,7 @@ body {
 }
 
 .bannerRight .en {
-  color: var(--Green-deep, #3DCE94);
+  color: #3DCE94;
   font-family: "Noto Sans TC";
   font-size: 14px;
   font-style: normal;
@@ -167,7 +167,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--Green-deep, #3DCE94);
+  background: #3DCE94;
   width: 1210px;
   height: 49px;
   color: var(--Neutrue-White, #FFF);
@@ -302,7 +302,7 @@ body {
 
 .calcBtn {
   z-index: 1;
-  color: var(--Green-deep, #3DCE94);
+  color: #3DCE94;
   text-align: center;
   font-size: 15px;
   font-style: normal;
@@ -412,7 +412,7 @@ body {
 }
 
 .aboutBtn p {
-  color: var(--Green-deep, #3DCE94);
+  color: #3DCE94;
   text-align: justify;
   font-family: "Noto Sans TC";
   font-size: 20px;
@@ -449,7 +449,7 @@ body {
 }
 
 .pTitle h3 {
-  color: var(--Green-deep, #3DCE94);
+  color: #3DCE94;
   /* 標題3-40px */
   font-family: "Noto Sans TC";
   font-size: 40px;
@@ -649,7 +649,7 @@ body {
 
 .centerNeed {
   align-content: center;
-  color: var(--main-deep, #3DCE94);
+  color: #3DCE94;
   font-family: "Noto Sans TC";
   font-size: 48px;
   font-style: normal;
@@ -657,7 +657,7 @@ body {
 }
 
 .span0 {
-  color: var(--main-deep, #3DCE94);
+  color: #3DCE94;
   text-align: center;
   font-family: "Noto Sans TC";
   font-size: 24px;
@@ -768,7 +768,7 @@ body {
 }
 
 .kTitleLeft h3 {
-  color: var(--Green-deep, #3DCE94);
+  color: #3DCE94;
   text-align: center;
   /* 標題1-64px */
   font-family: "Noto Sans TC";
@@ -788,8 +788,8 @@ body {
   width: 150px;
   height: 49px;
   border-radius: 30.95px;
-  border: 1px solid var(--Green-deep, #3DCE94);
-  background: var(--Green-deep, #3DCE94);
+  border: 1px solid #3DCE94;
+  background: #3DCE94;
 }
 
 .kTitleRight span {
@@ -869,7 +869,7 @@ hr {
   justify-content: flex-end;
   align-items: center;
   gap: 15px;
-  color: var(--main-deep, #3DCE94);
+  color: #3DCE94;
   font-size: 14px;
 }
 
@@ -897,7 +897,7 @@ hr {
   justify-content: center;
   align-items: center;
   border-radius: 50px;
-  background: var(--main-deep, #3DCE94);
+  background: #3DCE94;
 }
 
 .joinBtn p {
