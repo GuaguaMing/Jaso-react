@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import NavbarHidden from "../1components/NavbarHidden";
 
 import CheckoutProgress from './components/CheckoutProgress';
 import CartToggle from './components/CartToggle';
@@ -10,6 +11,8 @@ import ShippingForm from './components/ShippingForm';
 import PaymentForm from './components/PaymentForm';
 import PaymentReview from './components/PaymentReview';
 import OrderSuccess from './components/OrderSuccess';
+import { useSearchParams } from 'react-router-dom';
+
 
 function AppCart() {
   const navigate = useNavigate();
@@ -49,8 +52,17 @@ function AppCart() {
     if (cartItems.length === 0) return;
     setCartAnimation(true);
     const timer = setTimeout(() => setCartAnimation(false), 300);
-    return () =>{ clearTimeout(timer);};
+    return () => { clearTimeout(timer); };
   }, [cartItems]);
+
+  // 清空購物車
+  const [searchParams] = useSearchParams();
+  useEffect(() => {
+    if (searchParams.get('reset') === 'true') {
+      setCartItems([]);
+      setStep(1);
+    }
+  }, []);
 
   const [usedCredits, setUsedCredits] = useState(100);
   const [availableCredits, setAvailableCredits] = useState(300);
@@ -75,7 +87,7 @@ function AppCart() {
   });
 
 
-
+  // shippingform表單
   const [localForm, setLocalForm] = useState({
     name: '',
     email: '',
@@ -87,8 +99,8 @@ function AppCart() {
     note: ''
   });
 
-  const shippingRef = useRef(null);
 
+  const shippingRef = useRef(null);
   useEffect(() => {
     setIsCartOpen(step === 1);
   }, [step]);
@@ -102,6 +114,7 @@ function AppCart() {
 
 
   return (
+    // <NavbarHidden />
     <div className="container py-4">
       <div className="navbar navbar-light bg-light mb-3">
         <div className='container-fluid'>
