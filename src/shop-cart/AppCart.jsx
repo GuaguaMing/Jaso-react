@@ -168,6 +168,7 @@ function AppCart() {
             <div ref={shippingRef}>
               <ShippingForm formData={formData} setFormData={setFormData} onNextStep={() => setStep(3)} />
             </div>
+             <RecentViewed products={products} cartItems={cartItems} onAddToCart={handleAddToCart} />
           </>
         )}
 
@@ -181,6 +182,7 @@ function AppCart() {
               <button className="btn btn-onback-light me-2" onClick={() => setStep(2)}>上一步：填寫寄送資訊</button>
               <button className="btn btn-brand" onClick={() => setStep(4)}>下一步：確認訂單</button>
             </div>
+             <RecentViewed products={products} cartItems={cartItems} onAddToCart={handleAddToCart} />
           </>
         )}
 
@@ -197,6 +199,7 @@ function AppCart() {
               onBack={() => setStep(3)}
               onSubmit={handleSubmitOrder}
             />
+             <RecentViewed products={products} cartItems={cartItems} onAddToCart={handleAddToCart} />
           </>
         )}
 
