@@ -6,8 +6,7 @@ const nutrientData = {
     partners: [
       {
         src: '../../public/images/friends/B12-yeast.svg',
-        hover: '',
-        hover2:'',
+        hover: '../../public/images/friends/B12-yeast2.svg',
         name: '酵母寶寶',
       }
     ],
@@ -42,20 +41,19 @@ const nutrientData = {
     partners: [
       {
         src: '../../public/images/friends/Ca-kale.svg',
-        hover: '',
-        hover2:'',
+        hover: '../../public/images/friends/Ca-kale2.svg',
         name: '芥藍'
       },
       {
-        src: '../../public/images/friends/pf-md.svg',
-        hover: '',
-        hover2:'',
+        src: '../../public/images/friends/pf-md1.svg',
+        hover: '../../public/images/friends/pf-md2.svg',
+        hover2:'../../public/images/friends/pf-md3.svg',
         name: '毛豆'
       },
       {
         src: '../../public/images/friends/Fe-blackS.svg',
-        hover: '',
-        hover2:'',
+        hover: '../../public/images/friends/Fe-blackS2.svg',
+        hover2:'../../public/images/friends/Fe-blackS3.svg',
         name: '黑芝麻'
       },
     ],
@@ -89,8 +87,8 @@ const nutrientData = {
     desc: '促進骨骼與牙齒健康的重要元素...',
     partners: [{
       src: '../../public/images/friends/D-mushroom.svg',
-      hover: '',
-      hover2:'',
+      hover: '../../public/images/friends/D-mushroom2.svg',
+      hover2:'../../public/images/friends/D-mushroom3.svg',
       name: '香菇'
     }, {
       src: '../../public/images/friends/D-fungus.svg',
@@ -99,8 +97,8 @@ const nutrientData = {
       name: '黑木耳'
     }, {
       src: '../../public/images/friends/D-sun.svg',
-      hover: '',
-      hover2:'',
+      hover: '../../public/images/friends/D-sun2.svg',
+      hover2:'../../public/images/friends/D-sun3.svg',
       name: '陽光'
     }],
     products: [
@@ -133,8 +131,8 @@ const nutrientData = {
     desc: '促進骨骼與牙齒健康的重要元素...',
     partners: [{
       src: '../../public/images/friends/Fe-blackS.svg',
-      hover: '',
-      hover2:'',
+      hover: '../../public/images/friends/Fe-blackS2.svg',
+      hover2:'../../public/images/friends/Fe-blackS3.svg',
       name: '黑芝麻'
     }, {
       src: '../../public/images/friends/Fe-bc.svg',
@@ -153,8 +151,7 @@ const nutrientData = {
       name: '黑豆'
     }, {
       src: '../../public/images/friends/Fe-pk.svg',
-      hover: '',
-      hover2:'',
+      hover: '../../public/images/friends/Fe-pk2.svg',
       name: '南瓜'
     },],
     products: [
@@ -186,19 +183,18 @@ const nutrientData = {
     title: 'Ca+ 鈣質',
     desc: '促進骨骼與牙齒健康的重要元素...',
     partners: [{
-      src: '../../public/images/friends/pf-md.svg',
-      hover: '',
-      hover2:'',
+      src: '../../public/images/friends/pf-md1.svg',
+      hover: '../../public/images/friends/pf-md2.svg',
+      hover2:'../../public/images/friends/pf-md3.svg',
       name: '毛豆'
     }, {
       src: '../../public/images/friends/pf-tofu.svg',
-      hover: '',
-      hover2:'',
+      hover: '../../public/images/friends/pf-tofu2.svg',
+      hover2:'../../public/images/friends/pf-tofu3.svg',
       name: '豆腐'
     }, {
-      src: '../../public/images/friends/pf-bd.svg',
-      hover: '',
-      hover2:'',
+      src: '../../public/images/friends/pf-bd1.svg',
+      hover: '../../public/images/friends/pf-bd2.svg',
       name: '扁豆'
     },],
     products: [
@@ -236,8 +232,8 @@ const nutrientData = {
       name: '亞麻籽'
     }, {
       src: '../../public/images/friends/omg3-chiaSeeds.svg',
-      hover: '',
-      hover2:'',
+      hover: '../../public/images/friends/omg3-chiaSeeds2.svg',
+      hover2:'../../public/images/friends/omg3-chiaSeeds3.svg',
       name: '奇亞籽'
     }, {
       src: '../../public/images/friends/omg3-walnut.svg',

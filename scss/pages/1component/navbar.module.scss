@@ -5,6 +5,7 @@
 @use "../../variable/var-space" as *;
 @use "../../variable/base" as *;
 
+
 .navbarMain {
     display: flex;
     width: 100%;
@@ -16,6 +17,10 @@
     flex-shrink: 0;
     z-index: 1;
     font-weight: $font-w-7;
+    //整合嘗試1
+      position: fixed;
+  top: 0;
+  width: 100%;
 
 }
 
