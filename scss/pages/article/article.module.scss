@@ -143,7 +143,7 @@ background: #F3F3F3;
 }
 
 .loadMore {
-  padding: 0 115px;
+  padding-right: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -158,4 +158,79 @@ background: #F3F3F3;
 .plus {
   width: 30px;
   height: auto;
+}
+
+// 加在 SCSS 最底部
+@media (max-width: 1024px) {
+  .searchSection {
+    padding-left: 5vw;
+
+    h1 {
+      font-size: 48px;
+    }
+
+    h3 {
+      font-size: 24px;
+    }
+  }
+
+  .searchBar {
+    input {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .cardSection {
+    padding-left: 5vw;
+    align-items: flex-start;
+  }
+
+  .column {
+    flex-wrap: wrap;
+    gap: 2rem 1.5rem;
+  }
+
+  .cardOutline {
+    width: calc(50% - 20px); // 兩欄
+    margin-right: 0;
+
+    p {
+      max-width: 100%;
+      font-size: 20px;
+    }
+  }
+
+  .like {
+    left: auto;
+    right: 1rem;
+    top: -2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .cardOutline {
+    width: 100%; // 單欄
+  }
+
+  .searchSection h1 {
+    font-size: 36px;
+  }
+
+  .searchSection h3 {
+    font-size: 20px;
+  }
+
+  .searchBar input {
+    max-width: 100%;
+  }
+
+  .loadMore {
+    padding-right: 0;
+  }
 }
