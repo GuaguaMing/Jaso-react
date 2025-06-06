@@ -1,47 +1,40 @@
+
 import React, { useState } from 'react';
-import './guide.css';
-import nutrientData from './nutrient-Data.js';
-import NutrientCard from './NutrientCard.jsx';
-import GuideModal from './GuideModal.jsx';
+import Navbar from '../1components/Navbar';
+import NutrientCard from './NutrientCard';
+import GuideDetail from './GuideDetail';
+import nutrientData from './nutrient-Data';
+import './styles/guide.css';
 
-const App = () => {
-  const [selectedNutrient, setSelectedNutrient] = useState(null);
-
-  const handleCardClick = (key) => {
-    setSelectedNutrient(nutrientData[key]);
+export default function AppGuide() {
+  const [selected, setSelected] = useState(null);
+  const handleSelect = (key) => {
+    console.log('點擊的營養素:', key);
+    setSelected(key);
   };
-
-  const handleClose = () => {
-    setSelectedNutrient(null);
-  };
+  const handleClose = () => setSelected(null);
 
   return (
-    <section className="vege-library">
-      <div className="vege-header">
-        <h1 className="vege-title">素食庫</h1>
-        <div className="vege-text">
-          <h3>六大營養素</h3>
-          <p>
-            素食者的飲食需要特別關注一些關鍵的營養素，包括維生素B12、維生素D、鈣質、鐵質、蛋白質和Omega-3脂肪酸。
-            由於這些營養素大多來自動物性食品，素食者需從蔬果和堅果等植物性來源補充或搭配素食補充產品。
-          </p>
+    <>
+      <Navbar />
+      <section className="vege-library">
+        <div className="card-container">
+          {Object.keys(nutrientData).map((key) => (
+            <NutrientCard
+              key={key}
+              nutrientKey={key}
+              data={nutrientData[key]}
+              onClick={() => handleSelect(key)}
+            />
+          ))}
         </div>
-      </div>
-
-      <div className="card-container">
-        {Object.entries(nutrientData).map(([key, data]) => (
-          <NutrientCard key={key} data={data} id={key} onClick={() => handleCardClick(key)} />
-        ))}
-      </div>
-
-      {selectedNutrient && (
-        <>
-          <div className="guide-overlay show" onClick={handleClose}></div>
-          <GuideModal data={selectedNutrient} onClose={handleClose} />
-        </>
-      )}
-    </section>
+        {selected && nutrientData[selected] && (
+          <>
+            <div className="guide-overlay show" onClick={handleClose} />
+            <GuideDetail data={nutrientData[selected]} onClose={handleClose} />
+          </>
+        )}
+      </section>
+    </>
   );
-};
-
-export default App;
+}

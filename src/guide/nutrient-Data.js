@@ -1,276 +1,353 @@
 const nutrientData = {
-  b12: {
-    icon: '../../public/assets/b12.svg',
-    title: 'B12 維生素B12',
-    desc: '維生素B12 有助於紅血球生成與神經系統健康...',
-    partners: [
+  "b12": {
+    "icon": "/assets/b12.svg",
+    "title": "B12 維生素B12",
+    "desc": "維生素B12 有助於紅血球生成與神經系統健康...",
+    "partners": [
       {
-        src: '../../public/images/friends/B12-yeast.svg',
-        hover: '../../public/images/friends/B12-yeast2.svg',
-        name: '酵母寶寶',
+        "src": "./images/friends/B12-yeast.svg",
+        "hover": "./images/friends/B12-yeast2.svg",
+        "hover2": "./images/friends/B12-yeast.svg",
+        "name": "酵母寶寶"
       }
     ],
-    products: [
+    "products": [
       {
-        img: '../../public/images/Pd/B12-hover.svg',
-        tags: ['手腳冰冷', '補血'],
-        title: 'B12超能素',
-        subtitle: '紅血球增生配方',
-        desc: '幫助補充每日B12需求，保護神經健康與血液循環。',
+        "img": "/images/Pd/B12-hover.svg",
+        "tags": [
+          "手腳冰冷",
+          "補血"
+        ],
+        "title": "B12超能素",
+        "subtitle": "紅血球增生配方",
+        "desc": "幫助補充每日B12需求，保護神經健康與血液循環。"
       },
       {
-        img: '../../public/images/Pd/Ca-hover.svg',
-        tags: ['代謝', '神經系統'],
-        title: '全能B群錠',
-        subtitle: 'B群＋鐵＋鋅',
-        desc: '專為素食者設計的複方B群補充劑，促進代謝與能量。',
+        "img": "/images/Pd/Ca-hover.svg",
+        "tags": [
+          "代謝",
+          "神經系統"
+        ],
+        "title": "全能B群錠",
+        "subtitle": "B群＋鐵＋鋅",
+        "desc": "專為素食者設計的複方B群補充劑，促進代謝與能量。"
       },
       {
-        img: '../../public/images/Pd/D-hover.svg',
-        tags: ['養氣', '補充能量'],
-        title: '活力寶',
-        subtitle: '日常補給必備',
-        desc: '輕鬆補充每日所需營養，維持整天好精神。',
-      },
-    ],
+        "img": "/images/Pd/D-hover.svg",
+        "tags": [
+          "養氣",
+          "補充能量"
+        ],
+        "title": "活力寶",
+        "subtitle": "日常補給必備",
+        "desc": "輕鬆補充每日所需營養，維持整天好精神。"
+      }
+    ]
   },
-  ca: {
-    icon: '../../public/assets/ca.svg',
-    title: 'Ca+ 鈣質',
-    desc: '促進骨骼與牙齒健康的重要元素...',
-    partners: [
+  "ca": {
+    "icon": "/assets/ca.svg",
+    "title": "Ca 鈣質",
+    "desc": "促進骨骼與牙齒健康的重要元素...",
+    "partners": [
       {
-        src: '../../public/images/friends/Ca-kale.svg',
-        hover: '../../public/images/friends/Ca-kale2.svg',
-        name: '芥藍'
+        "src": "./images/friends/Ca-kale.svg",
+        "hover": "./images/friends/Ca-kale2.svg",
+        "hover2": "./images/friends/Ca-kale.svg",
+        "name": "芥藍"
       },
       {
-        src: '../../public/images/friends/pf-md1.svg',
-        hover: '../../public/images/friends/pf-md2.svg',
-        hover2:'../../public/images/friends/pf-md3.svg',
-        name: '毛豆'
+        "src": "./images/friends/pf-md1.svg",
+        "hover": "./images/friends/pf-md2.svg",
+        "hover2": "./images/friends/pf-md3.svg",
+        "name": "毛豆"
       },
       {
-        src: '../../public/images/friends/Fe-blackS.svg',
-        hover: '../../public/images/friends/Fe-blackS2.svg',
-        hover2:'../../public/images/friends/Fe-blackS3.svg',
-        name: '黑芝麻'
-      },
+        "src": "./images/friends/Fe-blackS.svg",
+        "hover": "./images/friends/Fe-blackS2.svg",
+        "hover2": "./images/friends/Fe-blackS3.svg",
+        "name": "黑芝麻"
+      }
     ],
-    products: [
+    "products": [
       {
-        img: '../../public/images/Pd/B12-hover.svg',
-        tags: ['手腳冰冷', '補血'],
-        title: 'B12超能素',
-        subtitle: '紅血球增生配方',
-        desc: '幫助補充每日B12需求，保護神經健康與血液循環。',
+        "img": "/images/Pd/B12-hover.svg",
+        "tags": [
+          "手腳冰冷",
+          "補血"
+        ],
+        "title": "B12超能素",
+        "subtitle": "紅血球增生配方",
+        "desc": "幫助補充每日B12需求，保護神經健康與血液循環。"
       },
       {
-        img: '../../public/images/Pd/Ca-hover.svg',
-        tags: ['代謝', '神經系統'],
-        title: '全能B群錠',
-        subtitle: 'B群＋鐵＋鋅',
-        desc: '專為素食者設計的複方B群補充劑，促進代謝與能量。',
+        "img": "/images/Pd/Ca-hover.svg",
+        "tags": [
+          "代謝",
+          "神經系統"
+        ],
+        "title": "全能B群錠",
+        "subtitle": "B群＋鐵＋鋅",
+        "desc": "專為素食者設計的複方B群補充劑，促進代謝與能量。"
       },
       {
-        img: '../../public/images/Pd/D-hover.svg',
-        tags: ['養氣', '補充能量'],
-        title: '活力寶',
-        subtitle: '日常補給必備',
-        desc: '輕鬆補充每日所需營養，維持整天好精神。',
-      },
-    ],
+        "img": "/images/Pd/D-hover.svg",
+        "tags": [
+          "養氣",
+          "補充能量"
+        ],
+        "title": "活力寶",
+        "subtitle": "日常補給必備",
+        "desc": "輕鬆補充每日所需營養，維持整天好精神。"
+      }
+    ]
   },
-  d: {
-    icon: '../../public/assets/D@3x.svg',
-    title: 'Ca+ 鈣質',
-    desc: '促進骨骼與牙齒健康的重要元素...',
-    partners: [{
-      src: '../../public/images/friends/D-mushroom.svg',
-      hover: '../../public/images/friends/D-mushroom2.svg',
-      hover2:'../../public/images/friends/D-mushroom3.svg',
-      name: '香菇'
-    }, {
-      src: '../../public/images/friends/D-fungus.svg',
-      hover: '',
-      hover2:'',
-      name: '黑木耳'
-    }, {
-      src: '../../public/images/friends/D-sun.svg',
-      hover: '../../public/images/friends/D-sun2.svg',
-      hover2:'../../public/images/friends/D-sun3.svg',
-      name: '陽光'
-    }],
-    products: [
+  "d": {
+    "icon": "/assets/D@3x.svg",
+    "title": "D 維生素D",
+    "desc": "維生素D 有助於鈣質吸收與骨骼健康...",
+    "partners": [
       {
-        img: '../../public/images/Pd/B12-hover.svg',
-        tags: ['手腳冰冷', '補血'],
-        title: 'B12超能素',
-        subtitle: '紅血球增生配方',
-        desc: '幫助補充每日B12需求，保護神經健康與血液循環。',
+        "src": "./images/friends/D-mushroom.svg",
+        "hover": "./images/friends/D-mushroom2.svg",
+        "hover2": "./images/friends/D-mushroom3.svg",
+        "name": "香菇"
       },
       {
-        img: '../../public/images/Pd/Ca-hover.svg',
-        tags: ['代謝', '神經系統'],
-        title: '全能B群錠',
-        subtitle: 'B群＋鐵＋鋅',
-        desc: '專為素食者設計的複方B群補充劑，促進代謝與能量。',
+        "src": "./images/friends/D-fungus.svg",
+        "hover": "./images/friends/D-fungus.svg",
+        "hover2": "./images/friends/D-fungus.svg",
+   
+        "name": "黑木耳"
       },
       {
-        img: '../../public/images/Pd/D-hover.svg',
-        tags: ['養氣', '補充能量'],
-        title: '活力寶',
-        subtitle: '日常補給必備',
-        desc: '輕鬆補充每日所需營養，維持整天好精神。',
-      },
+        "src": "./images/friends/D-sun.svg",
+        "hover": "./images/friends/D-sun2.svg",
+        "hover2": "./images/friends/D-sun3.svg",
+        "name": "陽光"
+      }
     ],
+    "products": [
+      {
+        "img": "/images/Pd/B12-hover.svg",
+        "tags": [
+          "手腳冰冷",
+          "補血"
+        ],
+        "title": "B12超能素",
+        "subtitle": "紅血球增生配方",
+        "desc": "幫助補充每日B12需求，保護神經健康與血液循環。"
+      },
+      {
+        "img": "/images/Pd/Ca-hover.svg",
+        "tags": [
+          "代謝",
+          "神經系統"
+        ],
+        "title": "全能B群錠",
+        "subtitle": "B群＋鐵＋鋅",
+        "desc": "專為素食者設計的複方B群補充劑，促進代謝與能量。"
+      },
+      {
+        "img": "/images/Pd/D-hover.svg",
+        "tags": [
+          "養氣",
+          "補充能量"
+        ],
+        "title": "活力寶",
+        "subtitle": "日常補給必備",
+        "desc": "輕鬆補充每日所需營養，維持整天好精神。"
+      }
+    ]
   },
-  fe: {
-    icon: '../../public/assets/fe@3x.svg',
-    title: 'Ca+ 鈣質',
-    desc: '促進骨骼與牙齒健康的重要元素...',
-    partners: [{
-      src: '../../public/images/friends/Fe-blackS.svg',
-      hover: '../../public/images/friends/Fe-blackS2.svg',
-      hover2:'../../public/images/friends/Fe-blackS3.svg',
-      name: '黑芝麻'
-    }, {
-      src: '../../public/images/friends/Fe-bc.svg',
-      hover: '',
-      hover2:'',
-      name: '菠菜'
-    }, {
-      src: '../../public/images/friends/Fe-redM.svg',
-      hover: '',
-      hover2:'',
-      name: '紅藜麥'
-    }, {
-      src: '../../public/images/friends/Fe-BB.svg',
-      hover: '',
-      hover2:'',
-      name: '黑豆'
-    }, {
-      src: '../../public/images/friends/Fe-pk.svg',
-      hover: '../../public/images/friends/Fe-pk2.svg',
-      name: '南瓜'
-    },],
-    products: [
+  "fe": {
+    "icon": "/assets/fe@3x.svg",
+    "title": "Fe 鐵質",
+    "desc": "鐵質有助於血紅素形成，預防貧血與提升體力...",
+    "partners": [
       {
-        img: '../../public/images/Pd/B12-hover.svg',
-        tags: ['手腳冰冷', '補血'],
-        title: 'B12超能素',
-        subtitle: '紅血球增生配方',
-        desc: '幫助補充每日B12需求，保護神經健康與血液循環。',
+        "src": "./images/friends/Fe-blackS.svg",
+        "hover": "./images/friends/Fe-blackS2.svg",
+        "hover2": "./images/friends/Fe-blackS3.svg",
+        "name": "黑芝麻"
       },
       {
-        img: '../../public/images/Pd/Ca-hover.svg',
-        tags: ['代謝', '神經系統'],
-        title: '全能B群錠',
-        subtitle: 'B群＋鐵＋鋅',
-        desc: '專為素食者設計的複方B群補充劑，促進代謝與能量。',
+        "src": "./images/friends/Fe-bc.svg",
+        "hover": "./images/friends/Fe-bc.svg",
+        "hover2": "./images/friends/Fe-bc.svg",
+        "name": "菠菜"
       },
       {
-        img: '../../public/images/Pd/D-hover.svg',
-        tags: ['養氣', '補充能量'],
-        title: '活力寶',
-        subtitle: '日常補給必備',
-        desc: '輕鬆補充每日所需營養，維持整天好精神。',
+        "src": "./images/friends/Fe-redM.svg",
+        "hover": "./images/friends/Fe-redM.svg",
+        "hover2": "./images/friends/Fe-redM.svg",
+        "name": "紅藜麥"
       },
+      {
+        "src": "./images/friends/Fe-BB.svg",
+        "hover": "./images/friends/Fe-BB.svg",
+        "hover2": "./images/friends/Fe-BB.svg",
+        "name": "黑豆"
+      },
+      {
+        "src": "./images/friends/Fe-pk.svg",
+        "hover": "./images/friends/Fe-pk2.svg",
+        "hover2": "./images/friends/Fe-pk.svg",
+        "name": "南瓜"
+      }
     ],
+    "products": [
+      {
+        "img": "./images/Pd/B12-hover.svg",
+        "tags": [
+          "手腳冰冷",
+          "補血"
+        ],
+        "title": "B12超能素",
+        "subtitle": "紅血球增生配方",
+        "desc": "幫助補充每日B12需求，保護神經健康與血液循環。"
+      },
+      {
+        "img": "./images/Pd/Ca-hover.svg",
+        "tags": [
+          "代謝",
+          "神經系統"
+        ],
+        "title": "全能B群錠",
+        "subtitle": "B群＋鐵＋鋅",
+        "desc": "專為素食者設計的複方B群補充劑，促進代謝與能量。"
+      },
+      {
+        "img": "/images/Pd/D-hover.svg",
+        "tags": [
+          "養氣",
+          "補充能量"
+        ],
+        "title": "活力寶",
+        "subtitle": "日常補給必備",
+        "desc": "輕鬆補充每日所需營養，維持整天好精神。"
+      }
+    ]
   },
-  protein: {
-    icon: '../../public/assets/n@3x.svg',
-    title: 'Ca+ 鈣質',
-    desc: '促進骨骼與牙齒健康的重要元素...',
-    partners: [{
-      src: '../../public/images/friends/pf-md1.svg',
-      hover: '../../public/images/friends/pf-md2.svg',
-      hover2:'../../public/images/friends/pf-md3.svg',
-      name: '毛豆'
-    }, {
-      src: '../../public/images/friends/pf-tofu.svg',
-      hover: '../../public/images/friends/pf-tofu2.svg',
-      hover2:'../../public/images/friends/pf-tofu3.svg',
-      name: '豆腐'
-    }, {
-      src: '../../public/images/friends/pf-bd1.svg',
-      hover: '../../public/images/friends/pf-bd2.svg',
-      name: '扁豆'
-    },],
-    products: [
+  "protein": {
+    "icon": "/assets/n@3x.svg",
+    "title": "Protein 蛋白質",
+    "desc": "蛋白質是身體組織修復與成長的必要營養素...",
+    "partners": [
       {
-        img: '../../public/images/Pd/B12-hover.svg',
-        tags: ['手腳冰冷', '補血'],
-        title: 'B12超能素',
-        subtitle: '紅血球增生配方',
-        desc: '幫助補充每日B12需求，保護神經健康與血液循環。',
+        "src": "./images/friends/pf-md1.svg",
+        "hover": "./images/friends/pf-md2.svg",
+        "hover2": "./images/friends/pf-md3.svg",
+        "name": "毛豆"
       },
       {
-        img: '../../public/images/Pd/Ca-hover.svg',
-        tags: ['代謝', '神經系統'],
-        title: '全能B群錠',
-        subtitle: 'B群＋鐵＋鋅',
-        desc: '專為素食者設計的複方B群補充劑，促進代謝與能量。',
+        "src": "./images/friends/pf-tofu.svg",
+        "hover": "./images/friends/pf-tofu2.svg",
+        "hover2": "./images/friends/pf-tofu3.svg",
+        "name": "豆腐"
       },
       {
-        img: '../../public/images/Pd/D-hover.svg',
-        tags: ['養氣', '補充能量'],
-        title: '活力寶',
-        subtitle: '日常補給必備',
-        desc: '輕鬆補充每日所需營養，維持整天好精神。',
-      },
+        "src": "./images/friends/pf-bd1.svg",
+        "hover": "./images/friends/pf-bd2.svg",
+        "hover2": "./images/friends/pf-bd1.svg",
+        "name": "扁豆"
+      }
     ],
+    "products": [
+      {
+        "img": "/images/Pd/B12-hover.svg",
+        "tags": [
+          "手腳冰冷",
+          "補血"
+        ],
+        "title": "B12超能素",
+        "subtitle": "紅血球增生配方",
+        "desc": "幫助補充每日B12需求，保護神經健康與血液循環。"
+      },
+      {
+        "img": "/images/Pd/Ca-hover.svg",
+        "tags": [
+          "代謝",
+          "神經系統"
+        ],
+        "title": "全能B群錠",
+        "subtitle": "B群＋鐵＋鋅",
+        "desc": "專為素食者設計的複方B群補充劑，促進代謝與能量。"
+      },
+      {
+        "img": "/images/Pd/D-hover.svg",
+        "tags": [
+          "養氣",
+          "補充能量"
+        ],
+        "title": "活力寶",
+        "subtitle": "日常補給必備",
+        "desc": "輕鬆補充每日所需營養，維持整天好精神。"
+      }
+    ]
   },
-  omega: {
-    icon: '../../public/assets/omega3.svg',
-    title: 'Ca+ 鈣質',
-    desc: '促進骨骼與牙齒健康的重要元素...',
-    partners: [{
-      src: '../../public/images/friends/omg3-Flaxseed.svg',
-      hover: '',
-      hover2:'',
-      name: '亞麻籽'
-    }, {
-      src: '../../public/images/friends/omg3-chiaSeeds.svg',
-      hover: '../../public/images/friends/omg3-chiaSeeds2.svg',
-      hover2:'../../public/images/friends/omg3-chiaSeeds3.svg',
-      name: '奇亞籽'
-    }, {
-      src: '../../public/images/friends/omg3-walnut.svg',
-      hover: '',
-      hover2:'',
-      name: '核桃'
-    }, {
-      src: '../../public/images/friends/omg3-yellowb.svg',
-      hover: '',
-      hover2:'',
-      name: '黃豆'
-    },],
-    products: [
+  "omega": {
+    "icon": "/assets/omega3.svg",
+    "title": "Omega-3 脂肪酸",
+    "desc": "Omega-3 有助於心血管健康與大腦功能...",
+    "partners": [
       {
-        img: '../../public/images/Pd/B12-hover.svg',
-        tags: ['手腳冰冷', '補血'],
-        title: 'B12超能素',
-        subtitle: '紅血球增生配方',
-        desc: '幫助補充每日B12需求，保護神經健康與血液循環。',
+        "src": "./images/friends/omg3-Flaxseed.svg",
+        "hover": "./images/friends/omg3-Flaxseed.svg",
+        "hover2": "./images/friends/omg3-Flaxseed.svg",
+        "name": "亞麻籽"
       },
       {
-        img: '../../public/images/Pd/Ca-hover.svg',
-        tags: ['代謝', '神經系統'],
-        title: '全能B群錠',
-        subtitle: 'B群＋鐵＋鋅',
-        desc: '專為素食者設計的複方B群補充劑，促進代謝與能量。',
+        "src": "./images/friends/omg3-chiaSeeds.svg",
+        "hover": "./images/friends/omg3-chiaSeeds2.svg",
+        "hover2": "./images/friends/omg3-chiaSeeds3.svg",
+        "name": "奇亞籽"
       },
       {
-        img: '../../public/images/Pd/D-hover.svg',
-        tags: ['養氣', '補充能量'],
-        title: '活力寶',
-        subtitle: '日常補給必備',
-        desc: '輕鬆補充每日所需營養，維持整天好精神。',
+        "src": "./images/friends/omg3-walnut.svg",
+        "hover": "./images/friends/omg3-walnut.svg",
+        "hover2": "./images/friends/omg3-walnut.svg",
+        "name": "核桃"
       },
+      {
+        "src": "./images/friends/omg3-yellowb.svg",
+        "hover": "./images/friends/omg3-yellowb.svg",
+        "hover2": "./images/friends/omg3-yellowb.svg",
+        "name": "黃豆"
+      }
     ],
-  },
+    "products": [
+      {
+        "img": "/images/Pd/B12-hover.svg",
+        "tags": [
+          "手腳冰冷",
+          "補血"
+        ],
+        "title": "B12超能素",
+        "subtitle": "紅血球增生配方",
+        "desc": "幫助補充每日B12需求，保護神經健康與血液循環。"
+      },
+      {
+        "img": "/images/Pd/Ca-hover.svg",
+        "tags": [
+          "代謝",
+          "神經系統"
+        ],
+        "title": "全能B群錠",
+        "subtitle": "B群＋鐵＋鋅",
+        "desc": "專為素食者設計的複方B群補充劑，促進代謝與能量。"
+      },
+      {
+        "img": "/images/Pd/D-hover.svg",
+        "tags": [
+          "養氣",
+          "補充能量"
+        ],
+        "title": "活力寶",
+        "subtitle": "日常補給必備",
+        "desc": "輕鬆補充每日所需營養，維持整天好精神。"
+      }
+    ]
+  }
 };
-
 
 export default nutrientData;
