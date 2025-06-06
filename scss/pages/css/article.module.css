@@ -48,14 +48,18 @@ input, select, option {
 .articlePage {
   display: flex;
   flex-direction: column;
-  margin: auto 15vw;
+  margin: auto;
   justify-content: center;
+  align-items: flex-start;
+  max-width: 1374px;
+  width: 100%;
 }
 
 .searchSection {
-  padding: 20rem 0 5rem 115px;
+  padding: 5rem 0;
   display: flex;
   flex-direction: column;
+  padding-left: 60px;
 }
 .searchSection h1 {
   line-height: 100%;
@@ -67,29 +71,19 @@ input, select, option {
   font-size: 32px;
 }
 
-.hashtag {
-  margin: 10px 0;
-}
-
-.tags {
-  color: #fff;
-  border: 2px solid #6dd6a7;
-  border-radius: 999px;
-  background-color: #6dd6a7;
-  padding: 2px 4px;
-  margin: 2px 0;
-}
-
 .searchBar {
   display: flex;
+  align-items: center;
   padding: 10px 0;
   margin: 5px 0;
 }
 .searchBar input {
-  color: #d3d3d3;
-  width: 500px;
-  border: 1px solid #6dd6a7;
-  border-radius: 999px;
+  width: 660px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 25px;
+  background: #F3F3F3;
+  border: none;
   align-items: center;
   margin-right: 5px;
   font-size: 16px;
@@ -102,17 +96,19 @@ input, select, option {
   outline: none;
 }
 .searchBar img {
-  width: 30px;
-  height: auto;
+  width: 57px;
+  height: 58px;
+  flex-shrink: 0;
   cursor: pointer;
 }
 
 .cardSection {
   justify-content: center;
-  padding: 0 115px;
+  align-items: center;
   display: flex;
   flex-direction: column;
   margin-bottom: 5rem;
+  padding-left: 60px;
 }
 
 .column {
@@ -132,7 +128,7 @@ input, select, option {
 
 .like {
   position: relative;
-  top: -0.5rem;
+  top: 1rem;
   left: 20rem;
 }
 
@@ -140,11 +136,13 @@ input, select, option {
   width: 378px;
   height: 349px;
   background-color: #d3d3d3;
-  background-image: url("./assets/img/logo.svg");
+  background-size: 120px;
+  background-image: url("/images/logo.svg");
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 25px;
   margin-bottom: 10px;
+  z-index: 1;
 }
 .card .tags {
   position: relative;
@@ -153,7 +151,7 @@ input, select, option {
 }
 
 .loadMore {
-  padding: 0 115px;
+  padding-right: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -163,4 +161,67 @@ input, select, option {
   padding: 10px;
   font-size: 32px;
   font-weight: bold;
+}
+
+.plus {
+  width: 30px;
+  height: auto;
+}
+
+@media (max-width: 1024px) {
+  .searchSection {
+    padding-left: 5vw;
+  }
+  .searchSection h1 {
+    font-size: 48px;
+  }
+  .searchSection h3 {
+    font-size: 24px;
+  }
+  .searchBar input {
+    width: 100%;
+    max-width: 500px;
+  }
+  .searchBar img {
+    width: 40px;
+    height: 40px;
+  }
+  .cardSection {
+    padding-left: 5vw;
+    align-items: flex-start;
+  }
+  .column {
+    flex-wrap: wrap;
+    gap: 2rem 1.5rem;
+  }
+  .cardOutline {
+    width: calc(50% - 20px);
+    margin-right: 0;
+  }
+  .cardOutline p {
+    max-width: 100%;
+    font-size: 20px;
+  }
+  .like {
+    left: auto;
+    right: 1rem;
+    top: -2rem;
+  }
+}
+@media (max-width: 600px) {
+  .cardOutline {
+    width: 100%;
+  }
+  .searchSection h1 {
+    font-size: 36px;
+  }
+  .searchSection h3 {
+    font-size: 20px;
+  }
+  .searchBar input {
+    max-width: 100%;
+  }
+  .loadMore {
+    padding-right: 0;
+  }
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../1components/Navbar";
+// import Navbar from "../1components/Navbar";
 import styles from "../../scss/pages/login/appLogin.module.scss";
 export default function AppLogin() {
     const navigate = useNavigate();
@@ -51,7 +51,7 @@ export default function AppLogin() {
 
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
             <section className={styles.loginSection}>
                 <div className={styles.loginHeader}>
                     <h1>Hello!</h1>

@@ -40,7 +40,7 @@ export default function AppShop() {
 
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
 
             <section className={styles.shopBanner}>
                 <div className={styles.shopBannerContent}>

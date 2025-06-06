@@ -702,7 +702,7 @@ body {
 
 .dialog {
     background: $color-primary;
-    width: 160px;
+    width: 12rem;
     border-radius: 25px;
     padding: 20px 20px;
     border-radius: 20px;
@@ -710,26 +710,42 @@ body {
     color: white;
     display: inline-block;
     font-family: "Noto Sans TC";
+    z-index: 1;
 
 }
 
 .roundedTriangle {
-    position: relative;
-    bottom: 70px;
-    left: 50px;
+    // position: relative;
+    position: absolute;
+
+    bottom: 5%;
+    // left: 50px;
+    left: 50%;
+
     background-color: $color-primary;
     transform: rotate(-60deg) skewX(-35deg) scale(1, .95);
+
+    transform: translateX(-50%);
+    width: 20px;
+    height: 25px;
+    z-index: 0;
+    isolation: isolate;
 }
 
-.roundedTriangle:after {
+.roundedTriangle::after {
     content: '';
     position: absolute;
-    background-color: inherit;
+    // background-color: inherit;
+    background-color: $color-primary;
+
     width: 20px;
     height: 25px;
     border-top-right-radius: 30%;
-    transform: rotate(150deg) skewY(-45deg) scale(.780, 1.9) translate(50%);
+    transform: rotate(130deg) skewY(-45deg) scale(.780, 1.9) translate(50%);
+    z-index: -1;
+
 }
+
 
 .role {
     padding-top: 2rem;
@@ -785,6 +801,7 @@ body {
 }
 
 .kTitleRight {
+    z-index: 100;
     margin-right: 5rem;
 
     display: flex;
@@ -803,9 +820,6 @@ body {
     gap: 10px;
     color: var(--Neutrue-White, #FFF);
     text-align: center;
-
-    /* 按鈕/16px */
-    font-family: "Noto Sans TC";
     font-size: 16px;
     font-style: normal;
     font-weight: 700;

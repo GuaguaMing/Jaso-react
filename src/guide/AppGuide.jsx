@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import Navbar from '../1components/Navbar';
+// import Navbar from '../1components/Navbar';
 import NutrientCard from './NutrientCard';
 import GuideDetail from './GuideDetail';
 import nutrientData from './nutrient-Data';
@@ -16,7 +16,7 @@ export default function AppGuide() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <section className="vege-library">
         <div className="vege-header">
           <h1 className="vege-title">素食庫</h1>
