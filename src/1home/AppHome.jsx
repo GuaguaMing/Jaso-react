@@ -20,7 +20,7 @@ export default function AppHome() {
 
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
             <section className={styles.banner1}>
                 <div className={styles.titleTop}>
                     <div className={styles.bannerLeft}>
@@ -196,11 +196,16 @@ export default function AppHome() {
                             <img src="./images/logo.svg" style={{ width: '120px' }} alt="" />
                         </div>
                         <div className={styles.aCenter}>
-                            <p className={styles.title}>素食營養補充指南</p>
-                            <p>素食五大營養缺乏的風險與補充方案</p>
-                            <span className={styles.tags}>新手必看</span>
+                        <div className={styles.aCenterWord}>
+
+                            <p className={styles.title}>挑選素食保健品前你必須知道的五件事</p>
+                            <p>不是 Vegan 標籤就安心？看懂產品才不踩雷</p>
+                            <p>素食營養品怎麼挑才對？一文看懂 Vegan、無基改、吸收率與劑型選擇差異，買得聰明，補得安心。</p>
                         </div>
-                        <div className={styles.aRight}>more<img src="./images/plus.svg" alt="" /></div>
+                            <span className={styles.tags}>新手必看</span>
+
+                        </div>
+                        <div className={styles.aRight}>MORE<img src="./images/arrow.svg" alt="" /></div>
                     </div>
                     <hr />
                     <div className={styles.article}>
@@ -211,7 +216,24 @@ export default function AppHome() {
                             <p className={styles.title}>你吃對了嗎？六大類素食者食物分類與功能解析</p>
                             <span className={styles.tags}>營養攝取</span>
                         </div>
-                        <div className={styles.aRight}>more<img src="./images/plus.svg" alt="" /></div>
+                        <div className={styles.aRight}>MORE<img src="./images/arrow.svg" alt="" /></div>
+                    </div>
+                    <hr />
+                     <div className={styles.article}>
+                        <div className={styles.aLeft}>
+                            <img src="./images/logo.svg" style={{ width: '120px' }} alt="" />
+                        </div>
+                        <div className={styles.aCenter}>
+                        <div className={styles.aCenterWord}>
+
+                            <p className={styles.title}>挑選素食保健品前你必須知道的五件事</p>
+                            <p>不是 Vegan 標籤就安心？看懂產品才不踩雷</p>
+                            <p>素食營養品怎麼挑才對？一文看懂 Vegan、無基改、吸收率與劑型選擇差異，買得聰明，補得安心。</p>
+                        </div>
+                            <span className={styles.tags}>新手必看</span>
+
+                        </div>
+                        <div className={styles.aRight}>MORE<img src="./images/arrow.svg" alt="" /></div>
                     </div>
                     <hr />
                 </div>

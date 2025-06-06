@@ -1,0 +1,28 @@
+.navbarWrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  will-change: opacity, transform;
+  height: 130px;
+  display: flex;
+  align-items: center;
+}
+
+.dropDown {
+  animation: dropDownAnimation 0.4s ease forwards;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 110;
+}
+
+@keyframes dropDownAnimation {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
