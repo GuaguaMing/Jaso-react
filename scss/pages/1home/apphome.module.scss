@@ -785,6 +785,7 @@ body {
 }
 
 .kTitleRight {
+    z-index: 100;
     margin-right: 5rem;
 
     display: flex;
@@ -803,9 +804,6 @@ body {
     gap: 10px;
     color: var(--Neutrue-White, #FFF);
     text-align: center;
-
-    /* 按鈕/16px */
-    font-family: "Noto Sans TC";
     font-size: 16px;
     font-style: normal;
     font-weight: 700;

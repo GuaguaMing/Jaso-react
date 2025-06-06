@@ -1,6 +1,5 @@
 import React,{ useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Navbar from "../1components/Navbar";
 import styles from "../../scss/pages/1home/apphome.module.scss";
 
 

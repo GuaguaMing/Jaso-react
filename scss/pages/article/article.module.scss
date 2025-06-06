@@ -8,15 +8,19 @@
 .articlePage{
   display: flex;
   flex-direction: column;
-  margin: auto 15vw;
+  margin: auto ;
   justify-content: center;
+  align-items: flex-start;
+  max-width: 1374px;
+  width: 100%;
 
 }
 
 .searchSection {
-  padding: 20rem 0 5rem 115px;
+  padding: 5rem 0;
   display: flex;
   flex-direction: column;
+  padding-left: 60px;
 
   h1 {
     line-height: 100%;
@@ -30,31 +34,39 @@
   }
 }
 
-.hashtag {
-  margin: 10px 0;
-}
+// .hashtag {
+//   margin: 10px 0;
+// }
 
-.tags {
-  color: #fff;
-  border: 2px solid #6dd6a7;
-  border-radius: 999px;
-  background-color: #6dd6a7;
-  padding: 2px 4px;
-  margin: 2px 0;
+// .tags {
+//   color: #fff;
+//   border: 2px solid #6dd6a7;
+//   border-radius: 999px;
+//   background-color: #6dd6a7;
+//   padding: 2px 4px;
+//   margin: 2px 0;
 
   
-}
+// }
 
 .searchBar {
   display: flex;
+  align-items: center;
   padding: 10px 0;
   margin: 5px 0;
 
+  
+
   input {
-    color: #d3d3d3;
-    width: 500px;
-    border: 1px solid #6dd6a7;
-    border-radius: 999px;
+    width: 660px;
+height: 46px;
+flex-shrink: 0;
+
+    border-radius: 25px;
+background: #F3F3F3;
+
+    // color: #d3d3d3;
+    border: none;
     align-items: center;
     margin-right: 5px;
     font-size: 16px;
@@ -62,6 +74,8 @@
 
     &::placeholder {
       color: #d3d3d3;
+    
+
     }
 
     &:focus {
@@ -70,18 +84,21 @@
   }
 
   img {
-    width: 30px;
-    height: auto;
+    width: 57px;
+    height: 58px;
+    flex-shrink: 0;
     cursor: pointer;
   }
 }
 
 .cardSection {
   justify-content: center;
-  padding: 0 115px;
+  align-items: center;
+  // padding: 0 115px;
   display: flex;
   flex-direction: column;
   margin-bottom: 5rem;
+  padding-left: 60px;
 }
 
 .column {
@@ -102,7 +119,7 @@
 
 .like {
   position: relative;
-  top: -0.5rem;
+  top: 1rem;
   left: 20rem;
 }
 
@@ -110,11 +127,13 @@
   width: 378px;
   height: 349px;
   background-color: #d3d3d3;
-  background-image: url("./assets/img/logo.svg");
+  background-size: 120px ;
+  background-image: url("/images/logo.svg");
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 25px;
   margin-bottom: 10px;
+  z-index: 1;
 
   .tags {
     position: relative;
@@ -135,4 +154,8 @@
     font-size: 32px;
     font-weight: bold;
   }
+}
+.plus {
+  width: 30px;
+  height: auto;
 }
