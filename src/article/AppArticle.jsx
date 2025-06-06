@@ -23,7 +23,7 @@ export default function AppArticle() {
 
     <div className={styles.searchBar}>
       <input type="text" placeholder="請輸入關鍵字" />
-      <img src="./icons/img/j_icon_search.svg" alt="search" />
+      <img src="./imagesj_icon_search.svg" alt="search" />
     </div>
   </section>
 

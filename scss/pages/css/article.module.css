@@ -45,6 +45,13 @@ input, select, option {
   outline: none;
 }
 
+.articlePage {
+  display: flex;
+  flex-direction: column;
+  margin: auto 15vw;
+  justify-content: center;
+}
+
 .searchSection {
   padding: 20rem 0 5rem 115px;
   display: flex;

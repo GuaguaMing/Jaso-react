@@ -5,7 +5,13 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
 
-// 以下為整理後的 SCSS，保留原邏輯但統一命名風格與排版
+.articlePage{
+  display: flex;
+  flex-direction: column;
+  margin: auto 15vw;
+  justify-content: center;
+
+}
 
 .searchSection {
   padding: 20rem 0 5rem 115px;
@@ -35,6 +41,8 @@
   background-color: #6dd6a7;
   padding: 2px 4px;
   margin: 2px 0;
+
+  
 }
 
 .searchBar {

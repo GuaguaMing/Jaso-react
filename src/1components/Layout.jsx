@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useLocation, Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 import NavbarHidden from './NavbarHidden';
@@ -11,6 +11,10 @@ export default function Layout() {
   const [hideNavbar, setHideNavbar] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const SHOW_HIDDEN_NAVBAR_SCROLL_THRESHOLD = 100;
+  const [showNavbarHidden, setShowNavbarHidden] = useState(false);
+  const [fadeOutNavbarHidden, setFadeOutNavbarHidden] = useState(false);
+  const fadeOutTimerRef = useRef(null);
+
 
 
   const isQuizPage = location.pathname.startsWith('/quiz');
@@ -25,20 +29,44 @@ export default function Layout() {
       if (currentScroll <= 0) {
         setHideNavbar(false);
         setShowHiddenNavbar(false);
+          if (showNavbarHidden) {
+    setFadeOutNavbarHidden(true);
+    clearTimeout(fadeOutTimerRef.current); // 清掉舊的
+  fadeOutTimerRef.current = setTimeout(() => {
+    setShowNavbarHidden(false);
+  }, 400); // 等動畫時間結束後再關掉
+  }
+      // setFadeOutNavbarHidden(true);
+      // setTimeout(() => setShowNavbarHidden(false), 400);
       } else if (currentScroll > lastScrollTop + 10) {
         setHideNavbar(true);
         setShowHiddenNavbar(false);
+        if (showNavbarHidden) {
+        setFadeOutNavbarHidden(true);
+         clearTimeout(fadeOutTimerRef.current); // 避免 timer 疊加
+  fadeOutTimerRef.current = setTimeout(() => {
+    setShowNavbarHidden(false);
+  }, 400);
+      }
       } else if (currentScroll < lastScrollTop - 10) {
         setHideNavbar(false);
+        setFadeOutNavbarHidden(false);
         setShowHiddenNavbar(true);
+        setShowNavbarHidden(true);
       }
 
       setLastScrollTop(currentScroll);
     };
-
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollTop, isQuizPage]);
+
+      return () => {
+    window.removeEventListener('scroll', handleScroll);
+    clearTimeout(fadeOutTimerRef.current); // 這才是妳後來需要補的
+  };
+}, [lastScrollTop, isQuizPage, showNavbarHidden]);
+
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, [lastScrollTop, isQuizPage]);
 
   return (
     <>
@@ -50,15 +78,24 @@ export default function Layout() {
               hideNavbar || showHiddenNavbar ? styles.hidden : ''
             }`}
           >
+            
             <Navbar />
           </div>
 
           {/* 僅在往上滑且不是最頂端時顯示 HiddenNavbar */}
           {/* {showHiddenNavbar && scrollY > 0 && <NavbarHidden />} */}
-          {showHiddenNavbar && scrollY > SHOW_HIDDEN_NAVBAR_SCROLL_THRESHOLD &&  (  <div className={styles.dropDown}>
+          {/* {showHiddenNavbar && scrollY > SHOW_HIDDEN_NAVBAR_SCROLL_THRESHOLD &&  (  <div className={styles.dropDown}>
     <NavbarHidden />
-  </div>) }
-
+  </div>) } */}
+{showNavbarHidden && scrollY > SHOW_HIDDEN_NAVBAR_SCROLL_THRESHOLD && (
+  <div
+    className={`${styles.navHiddenWrapper} ${
+      fadeOutNavbarHidden ? styles.fadeOut : styles.fadeIn
+    }`}
+  >
+    <NavbarHidden />
+  </div>
+)}
         </>
       )}
       <Outlet />
