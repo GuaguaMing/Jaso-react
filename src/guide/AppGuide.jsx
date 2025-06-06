@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './guide.css';
-import nutrientData from './nutrient-Data';
-import NutrientCard from './NutrientCard';
-import GuideModal from './GuideModal';
+import nutrientData from './nutrient-Data.js';
+import NutrientCard from './NutrientCard.jsx';
+import GuideModal from './GuideModal.jsx';
 
 const App = () => {
   const [selectedNutrient, setSelectedNutrient] = useState(null);
