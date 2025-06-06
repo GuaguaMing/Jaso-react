@@ -118,12 +118,6 @@ function AppCart() {
     <>
     <Navbar/>
     <NavbarHidden />
-    <div className="container py-4">
-      <div className="navbar navbar-light bg-light mb-3">
-        <div className='container-fluid'>
-          <span className='navbar-brand'>結帳流程</span>
-        </div>
-      </div>
 
       {/* ✅ 右下角購物袋浮動按鈕 */}
       <div
@@ -204,7 +198,6 @@ function AppCart() {
       {step === 5 && (
         <OrderSuccess orderNumber={orderNumber} />
       )}
-    </div>
     </>
   );
 }
