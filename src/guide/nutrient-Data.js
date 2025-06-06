@@ -193,8 +193,8 @@ const nutrientData = {
       hover2:'../../public/images/friends/pf-tofu3.svg',
       name: '豆腐'
     }, {
-      src: '../../public/images/friends/pf-bd2.svg',
-      hover: '../../public/images/friends/pf-bd.svg',
+      src: '../../public/images/friends/pf-bd1.svg',
+      hover: '../../public/images/friends/pf-bd2.svg',
       name: '扁豆'
     },],
     products: [
