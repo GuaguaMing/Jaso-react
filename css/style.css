@@ -1059,6 +1059,9 @@ body {
   flex-shrink: 0;
   z-index: 1;
   font-weight: 700;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .navbarContainer {
@@ -1141,6 +1144,16 @@ body {
 }
 .goToShop a:hover {
   color: #ffffff;
+}
+
+.shopIcon {
+  width: 40px;
+  height: 40px;
+}
+.shopIcon img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .mobileMenu {

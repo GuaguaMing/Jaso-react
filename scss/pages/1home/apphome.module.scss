@@ -137,7 +137,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background:  $color-primary;
+    background: $color-primary;
     width: 1210px;
     height: 49px;
     color: var(--Neutrue-White, #FFF);
@@ -282,7 +282,7 @@ body {
 
 .calcBtn {
     z-index: 1;
-    color:  $color-primary;
+    color: $color-primary;
     text-align: center;
     font-size: 15px;
     font-style: normal;
@@ -401,7 +401,7 @@ body {
 }
 
 .aboutBtn p {
-    color:  $color-primary;
+    color: $color-primary;
     text-align: justify;
     font-family: "Noto Sans TC";
 
@@ -439,7 +439,7 @@ body {
 }
 
 .pTitle h3 {
-    color:  $color-primary;
+    color: $color-primary;
     /* 標題3-40px */
     font-family: "Noto Sans TC";
     font-size: 40px;
@@ -654,7 +654,7 @@ body {
 }
 
 .span0 {
-    color:  $color-primary;
+    color: $color-primary;
     text-align: center;
     font-family: "Noto Sans TC";
     font-size: 24px;
@@ -771,7 +771,7 @@ body {
 }
 
 .kTitleLeft h3 {
-    color:  $color-primary;
+    color: $color-primary;
     text-align: center;
 
     /* 標題1-64px */
@@ -794,8 +794,8 @@ body {
     height: 49px;
 
     border-radius: 30.95px;
-    border: 1px solid  $color-primary;
-    background:  $color-primary;
+    border: 1px solid $color-primary;
+    background: $color-primary;
 }
 
 .kTitleRight span {
@@ -818,14 +818,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 3rem;
 }
 
 hr {
     width: 1285px;
     border: none;
-    height: 3px;
+    height: 0;
     background-color: #E0DDDD;
-    margin: 3rem auto;
+    margin: auto;
 }
 
 .articles {
@@ -837,6 +838,28 @@ hr {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    background-image: linear-gradient(to right, #F5F5F5 0%, transparent 100%);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s ease;
+    margin: 3rem auto;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #F5F5F5;
+
+        .aLeft img {
+            transform: scale(1.1);
+        }
+
+        .aRight {
+            flex-direction: row-reverse;
+            gap: 4px;
+        }
+    }
 }
 
 .aLeft {
@@ -846,29 +869,52 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    img {
+        transition: transform 0.3s ease;
+    }
 }
 
 .aCenter {
-    width: 505px;
-
+    width: 500px;
+    padding-right: 3.5rem;
 }
 
 .aCenter .title {
     font-size: 18px;
+    margin-bottom: 1rem;
 }
 
 .aCenter p {
     font-size: 14px;
-    margin-bottom: 1rem;
+    font-weight: $font-w-4;
+    line-height: 167%;
+    /* 20.04px */
+    letter-spacing: 1.08px;
+}
+
+.aCenterWord {
+    margin: 2rem auto;
 }
 
 .aCenter .tags {
+display: flex;
+width: fit-content;
+padding: 5px 19px;
+justify-content: center;
+align-items: flex-start;
+
+    color: #3DCE94;
+    text-align: center;
+    font-weight: 500;
+    line-height: 121%;
+
     font-size: 14px;
-    color: #FFFFFF;
-    border: 2px solid #6dd6a7;
     border-radius: 999px;
-    background-color: #6dd6a7;
-    padding: 2px 4px;
+    // background-color: #6dd6a7;
+    margin-top: 2rem;
+    border: 1px solid #3DCE94;
+    background: #E6FBF3;
 }
 
 .aRight {
@@ -876,10 +922,23 @@ hr {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 15px;
 
-    color:  $color-primary;
+    font-size: 13px;
+    font-weight: $font-w-7;
+    line-height: 173%;
+    color: $color-primary;
     font-size: 14px;
+    transition: all 0.3s ease;
+
+    img {
+        width: 12px;
+        height: 12px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 10px;
+    }
 }
 
 .cta {
@@ -974,7 +1033,7 @@ hr {
 
 .footerGrid {
     padding: 10rem;
-    width: 10rem;
+    // width: 10rem;
     display: grid;
     grid-template-rows: repeat(4, 1fr);
     grid-template-columns: 1fr;
@@ -984,10 +1043,17 @@ hr {
 .footerHeading {
     font-size: 22px;
     font-weight: 500;
+
 }
 
 .footerGrid li {
     font-size: 17.6px;
+
+    a {
+        color: $color-white;
+        font-weight: $font-w-3;
+
+    }
 }
 
 .footerCta {
@@ -1021,7 +1087,7 @@ hr {
     flex-direction: column;
     align-items: center;
     width: 75px;
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 .copyright {
