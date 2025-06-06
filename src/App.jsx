@@ -9,6 +9,7 @@ import MemberCenter from "./member/MemberCenter";
 import AppLogin from "./login/AppLogin";
 import AppShop from "./shop/AppShop";
 import AppCart from "./shop-cart/AppCart";
+import OrderSuccess from './shop-cart/components/OrderSuccess';
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                 <Route path="/login" element={<AppLogin/>}/>
                 <Route path="/shop" element={<AppShop/>}/>
                 <Route path="/cart" element={<AppCart/>}/>
+                <Route path="/cart/success" element={<OrderSuccess />} />
             </Routes>
         </main>
     )

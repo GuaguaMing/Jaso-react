@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { CheckCircle } from 'react-bootstrap-icons';
 
 export default function OrderSuccess() {
@@ -17,6 +17,5 @@ export default function OrderSuccess() {
         返回購物車
       </Link>
     </div>
-
   );
 }
