@@ -89,7 +89,7 @@ function AppCart() {
   });
   // 購物金
   const [usedCredits, setUsedCredits] = useState(0);
-  const [availableCredits, setAvailableCredits] = useState(1000);
+  const [availableCredits, setAvailableCredits] = useState(100);
 
    // shippingform表單
   const [localForm, setLocalForm] = useState({
