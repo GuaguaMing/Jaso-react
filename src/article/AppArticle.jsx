@@ -7,7 +7,7 @@ import NavbarHidden from "../1components/NavbarHidden";
 export default function AppArticle() {
   return (
     <>
-      <NavbarHidden />
+      {/* <NavbarHidden /> */}
       <main className={styles.articlePage}>
   <section className={styles.searchSection}>
     <h1>search</h1>

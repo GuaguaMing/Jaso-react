@@ -91,6 +91,18 @@ function AppCart() {
   const [usedCredits, setUsedCredits] = useState(0);
   const [availableCredits, setAvailableCredits] = useState(1000);
 
+   // shippingform表單
+  const [localForm, setLocalForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    recipient: '',
+    recipientPhone: '',
+    address: '', // 你可以保留這個欄位當作「宅配地址」或未來擴充用
+    shippingMethod: '',
+    note: ''
+  });
+
   const shippingRef = useRef(null);
   useEffect(() => {
     setIsCartOpen(step === 1);
@@ -104,8 +116,8 @@ function AppCart() {
 
   return (
     <>
-      <Navbar />
-      <NavbarHidden />
+      {/* <Navbar /> */}
+      {/* <NavbarHidden /> */}
       <div className="container py-4">
         <div className="navbar navbar-light bg-light mb-3">
           <div className='container-fluid'>
