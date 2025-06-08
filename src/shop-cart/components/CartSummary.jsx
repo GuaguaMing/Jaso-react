@@ -55,7 +55,7 @@ export default function CartSummary({ cartItems, onNextStep, onUsePoints }) {
                 {/* 購物金折抵區塊 */}
                 <div className="text-end mb-3">
                     <div className="text-muted small mb-1 d-inline-flex align-items-center gap-2">
-                        <img src="./icons/point.svg" alt="購物金" style={{ width: 25, height: 25 }} />
+                        <img src="./images/icons/icon-point.svg" alt="購物金" style={{ width: 25, height: 25 }} />
                         <span>可用購物金：<strong>NT${availablePoints}</strong></span>
                     </div>
 

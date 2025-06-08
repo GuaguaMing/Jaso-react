@@ -26,8 +26,8 @@ export default function RecentViewed({
         className="btn-custom position-absolute top-50 start-0 translate-middle-y"
         style={{ zIndex: 10 }}
       >
-        <img src="./icons/leftdefault.svg" alt="left" className="icon-default" width={40} height={40} />
-        <img src="./icons/lefthover.svg" alt="left-hover" className="icon-hover" width={40} height={40} />
+        <img src="./images/icons/leftdefault.svg" alt="left" className="icon-default" width={40} height={40} />
+        <img src="./images/icons/lefthover.svg" alt="left-hover" className="icon-hover" width={40} height={40} />
       </button>
 
       {/* 右按鈕 */}
@@ -36,8 +36,8 @@ export default function RecentViewed({
         className="btn-custom position-absolute top-50 end-0 translate-middle-y"
         style={{ zIndex: 10 }}
       >
-        <img src="./icons/rightdefault.svg" alt="right" className="icon-default" width={40} height={40} />
-        <img src="./icons/righthover.svg" alt="right-hover" className="icon-hover" width={40} height={40} />
+        <img src="./images/icons/rightdefault.svg" alt="right" className="icon-default" width={40} height={40} />
+        <img src="./images/icons/righthover.svg" alt="right-hover" className="icon-hover" width={40} height={40} />
       </button>
 
       {/* 商品卡片列表 */}
