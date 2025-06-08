@@ -169,6 +169,38 @@ body {
   box-shadow: none;
 }
 
+.btn-RV {
+  background-color: #3dce94;
+  color: white;
+  border: none;
+  padding: 2px 10px;         /* 更窄的 padding */
+  font-size: 0.875rem;       /* 小一點的字體 */
+  line-height: 1.2;          /* 更緊湊的行高 */
+  border-radius: 999px;      /* 保持圓角 */
+  transition: all 0.3s ease;
+}
+
+.btn-RV:hover {
+  background-color: #fff;
+  color: #3dce94;
+  border: 2px solid #3dce94;
+  outline: none;
+  box-shadow: none;
+}
+
+.btn-RV-disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.btn-RV.btn-RV-disabled:hover {
+  background-color: #ccc;    /* 保持 disabled 狀態底色 */
+  color: #666;               /* 保持 disabled 狀態字色 */
+  border: none;              /* 取消 hover 時的邊框 */
+  box-shadow: none;          /* 取消陰影 */
+}
+
 .btn-custom {
   all: unset;
   width: 40px;

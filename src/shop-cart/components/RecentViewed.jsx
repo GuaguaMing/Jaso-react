@@ -3,14 +3,13 @@ import React, { useRef, useState } from "react";
 export default function RecentViewed({
   products = [],
   cartItems = [],
-  onAddToCart = () => {}
+  onToggleCartItem = () => { },
 }) {
   const scrollRef = useRef(null);
 
-  const handleAdd = (product) => {
-    onAddToCart(product);
+  const handleToggle = (product) => {
+    onToggleCartItem(product);
   };
-
   const scrollLeft = () => scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
   const scrollRight = () => scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
 
@@ -63,14 +62,14 @@ export default function RecentViewed({
               <div className="card-body p-2 d-flex flex-column justify-content-between">
                 <div>
                   <div className="small text-truncate">{product.name}</div>
-                  <div className="text-success fw-semibold small">NT${product.price}</div>
+                  <div className="fw-bold small"style={{ color: ' #3DCE94' }}>NT${product.price}</div>
                 </div>
                 <button
-                  className={`btn btn-sm mt-2 ${isAdded ? 'btn-secondary' : 'btn-outline-success'}`}
-                  onClick={() => handleAdd(product)}
-                  disabled={isAdded}
-                >
-                  {isAdded ? '✔ 已加入' : '加入購物袋'}
+                  className={`btn-RV rounded-pill px-2 py-1 fw-regular d-flex align-items-center justify-content-center gap-1 ${isAdded ? 'btn-RV-disabled' : ''}`}
+                  onClick={() => handleToggle(product)}
+                  style={{ marginTop: '12px' }}
+                > 
+                  {isAdded ? '取消加入' : '加入素購車'}
                 </button>
               </div>
             </div>

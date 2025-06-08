@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import Navbar from "../1components/Navbar";
 import NavbarHidden from "../1components/NavbarHidden";
-import './App.moudles.css';
+import './Appcart.css';
 
 import CheckoutProgress from './components/CheckoutProgress';
 import CartToggle from './components/CartToggle';
@@ -39,18 +39,20 @@ function AppCart() {
     { id: 6, name: "鐵了心膠囊", desc: "嚴選100%植物來源 植萃鐵+B群補給", price: 490, image: "./images/Pd/Fe-default.svg" },
   ];
 
-  const handleAddToCart = (product) => {
+  const handleToggleCartItem = (product) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.find(item => item.id === product.id);
       if (existingItem) {
-        return prevItems.map(item =>
-          item.id === product.id ? { ...item, qty: item.qty + 1 } : item
-        );
+        // 若已存在，取消加入（移除整個商品）
+        return prevItems.filter(item => item.id !== product.id);
       } else {
+        // 若不存在，加入購物車
         return [...prevItems, { ...product, qty: 1 }];
       }
     });
   };
+
+
 
   const [cartAnimation, setCartAnimation] = useState(false);
 
@@ -91,7 +93,7 @@ function AppCart() {
   const [usedCredits, setUsedCredits] = useState(0);
   const [availableCredits, setAvailableCredits] = useState(100);
 
-   // shippingform表單
+  // shippingform表單
   const [localForm, setLocalForm] = useState({
     name: '',
     email: '',
@@ -156,7 +158,11 @@ function AppCart() {
                 shippingRef.current?.scrollIntoView({ behavior: 'smooth' });
               }, 0);
             }} />
-            <RecentViewed products={products} cartItems={cartItems} onAddToCart={handleAddToCart} />
+            <RecentViewed
+              products={products}  // ✅ 使用你定義的 products
+              cartItems={cartItems}
+              onToggleCartItem={handleToggleCartItem}
+            />
           </>
         )}
 
@@ -168,7 +174,11 @@ function AppCart() {
             <div ref={shippingRef}>
               <ShippingForm formData={formData} setFormData={setFormData} onNextStep={() => setStep(3)} />
             </div>
-             <RecentViewed products={products} cartItems={cartItems} onAddToCart={handleAddToCart} />
+            <RecentViewed
+              products={products}  // ✅ 使用你定義的 products
+              cartItems={cartItems}
+              onToggleCartItem={handleToggleCartItem}
+            />
           </>
         )}
 
@@ -182,7 +192,11 @@ function AppCart() {
               <button className="btn btn-onback-light me-2" onClick={() => setStep(2)}>上一步：填寫寄送資訊</button>
               <button className="btn btn-brand" onClick={() => setStep(4)}>下一步：確認訂單</button>
             </div>
-             <RecentViewed products={products} cartItems={cartItems} onAddToCart={handleAddToCart} />
+            <RecentViewed
+              products={products}  // ✅ 使用你定義的 products
+              cartItems={cartItems}
+              onToggleCartItem={handleToggleCartItem}
+            />
           </>
         )}
 
@@ -199,7 +213,11 @@ function AppCart() {
               onBack={() => setStep(3)}
               onSubmit={handleSubmitOrder}
             />
-             <RecentViewed products={products} cartItems={cartItems} onAddToCart={handleAddToCart} />
+            <RecentViewed
+              products={products}  // ✅ 使用你定義的 products
+              cartItems={cartItems}
+              onToggleCartItem={handleToggleCartItem}
+            />
           </>
         )}
 

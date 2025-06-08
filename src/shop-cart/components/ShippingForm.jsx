@@ -32,9 +32,12 @@ function ShippingForm({ onNextStep, setFormData }) {
 
             <form className="row g-3 mt-1" onSubmit={handleSubmit}>
                 <div className="col-md-6">
-                    <label className="form-label d-flex align-items-center" style={{ gap: '2px' }}>
-                        <img src="./images/icons/icon-member.svg" alt="收件人" width={20} height={20} />
-                        收件人姓名</label>
+                    <label className="form-label">
+                        <div className="d-flex align-items-center" style={{ gap: '6px' }}>
+                            <img src="./images/icons/icon-member.svg" alt="收件人" style={{ width: '20px', height: '20px' }} />
+                            <span>收件人姓名</span>
+                        </div>
+                    </label>
                     <input
                         name="recipient"
                         type="text"
@@ -43,22 +46,27 @@ function ShippingForm({ onNextStep, setFormData }) {
                         placeholder="請輸入收件人姓名"
                     />
                 </div>
-                <div className="col-md-6">    
-                   <label className="form-label d-flex align-items-center" style={{ gap: '2px' }}>
-                        <img src="./icons/icon-phone.svg" alt="收件人" width={20} height={20} />
-                        聯絡電話</label>
+                <div className="col-md-6">
+                    <label className="form-label">
+                        <div className="d-flex align-items-center" style={{ gap: '6px' }}>
+                            <img src="./images/icons/icon-phone.svg" alt="收件人" style={{ width: '20px', height: '20px' }} />
+                            <span>聯絡電話</span>
+                        </div>
+                    </label>
                     <input
-                        name="recipientPhone"
+                        name="recipient"
                         type="text"
                         className="form-control"
                         onChange={handleChange}
-                        placeholder="例如：0912-345-678"
+                        placeholder="請輸入聯絡電話：0900-123-456"
                     />
                 </div>
                 <div className="col-12">
-                    <label className="form-label d-flex align-items-center" style={{ gap: '2px' }}>
-                        <img src="./icons/icon-shipping.svg" alt="送貨方式" width={20} height={20} />
-                        送貨方式
+                    <label className="form-labe">
+                        <div className="d-flex align-items-center" style={{ gap: '6px' }}>
+                        <img src="./images/icons/icon-shipping.svg" alt="送貨方式"style={{ width: '20px', height: '20px' }}  />
+                        <span>送貨方式</span>
+                        </div>
                     </label>
                     <select
                         name="shippingMethod"
@@ -86,10 +94,13 @@ function ShippingForm({ onNextStep, setFormData }) {
                     </div>
                 )}
                 <div className="col-md-6">
-                    
-                   <label className="form-label d-flex align-items-center" style={{ gap: '2px' }}>
-                        <img src="./icons/icon-email.svg" alt="email" width={20} height={20} />
-                        電子信箱</label>
+
+                      <label className="form-labe">
+                        <div className="d-flex align-items-center" style={{ gap: '6px' }}>
+                        <img src="./images/icons/icon-email.svg" alt="送貨方式"style={{ width: '20px', height: '20px' }}  />
+                        <span>電子信箱</span>
+                        </div>
+                    </label>
                     <input
                         name="email"
                         type="email"
@@ -109,8 +120,8 @@ function ShippingForm({ onNextStep, setFormData }) {
                     />
                 </div> */}
                 <div className="col-12">
-                     <label className="form-label d-flex align-items-center" style={{ gap: '2px' }}>
-                        <img src="./icons/icon-list.svg" alt="email" width={20} height={20} />
+                    <label className="form-label d-flex align-items-center" style={{ gap: '2px' }}>
+                        <img src="./images/icons/icon-list.svg" alt="備註" style={{ width: '20px', height: '20px' }} />
                         備註</label>
                     <textarea
                         name="note"

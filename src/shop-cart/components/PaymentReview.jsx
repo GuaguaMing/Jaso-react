@@ -21,9 +21,9 @@ export default function PaymentReview({
     <div className="row mt-4 gy-4">
       {/* 顧客資料 */}
       <div className="col-md-6">
-        <h5 className="mb-3">
+        <h5 className="mb-3 d-flex align-items-center">
           <img
-            src="./icons/icon-member.svg"
+            src="./images/icons/icon-member.svg"
             alt="姓名"
             style={{ width: 30, height: 30 }}
             className="me-2"
@@ -37,9 +37,9 @@ export default function PaymentReview({
 
       {/* 配送資料 */}
       <div className="col-md-6">
-        <h5 className="mb-3">
+        <h5 className="mb-3  d-flex align-items-center">
           <img
-            src="./icons/icon-shipping.svg"
+            src="./images/icons/icon-shipping.svg"
             alt="配送資訊"
             style={{ width: 30, height: 30 }}
             className="me-2"
@@ -92,9 +92,9 @@ export default function PaymentReview({
 
       {/* 訂單金額與購物金 */}
       <div className="col-6">
-        <h5 className="mb-3">
+        <h5 className="mb-3  d-flex align-items-center">
           <img
-            src="./icons/icon-list.svg"
+            src="./images/icons/icon-card.svg"
             alt="配送資訊"
             style={{ width: 30, height: 30 }}
             className="me-2"
@@ -108,6 +108,20 @@ export default function PaymentReview({
         <p className="fw-bold fs-5 mt-2" style={{ color: '#3dce94' }}>
           總金額：NT${total}
         </p>
+
+        {formData.note && (
+          <div className="alert alert-warning mt-3 d-flex align-items-start" role="alert">
+            <img
+              src="./images/icons/icon-list.svg"
+              alt="備註"
+              style={{ width: 20, height: 20 }}
+              className="me-2 mt-1"
+            />
+            <div>
+              <strong>備註：</strong>{formData.note}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* 動作按鈕 */}
