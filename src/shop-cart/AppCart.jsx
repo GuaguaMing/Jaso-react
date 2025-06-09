@@ -208,7 +208,7 @@ function AppCart() {
             <PaymentReview
               formData={formData}
               cartItems={cartItems}
-              usedCredits={usedCredits}               // ✅ 修正拼字
+              usedCredits={usedCredits}     // ✅ 修正拼字
               availableCredits={availableCredits}
               onBack={() => setStep(3)}
               onSubmit={handleSubmitOrder}
