@@ -13,11 +13,13 @@ import OrderSuccess from './shop-cart/components/OrderSuccess';
 
 import Layout from './1components/Layout'; //整合嘗試1
 
+
 function App() {
     return (
         <Routes>
             {/* 不套用 Layout 的頁面 */}
             <Route path="/quiz" element={<Quiz />} />
+            
 
             {/* 套用 Layout 的頁面 */}
             <Route element={<Layout />}>

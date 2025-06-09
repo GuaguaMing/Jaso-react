@@ -1,4 +1,4 @@
-import React,{ useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "../../scss/pages/1home/apphome.module.scss";
 
@@ -6,6 +6,8 @@ import styles from "../../scss/pages/1home/apphome.module.scss";
 export default function AppHome() {
     const navigate = useNavigate();
     const [showBackToTop, setShowBackToTop] = useState(false);
+      const [isHovered, setIsHovered] = useState(false);
+    
 
     useEffect(() => {
 
@@ -46,11 +48,18 @@ export default function AppHome() {
                 <div className={styles.titleBottom}>
                     <div className={styles.backgroundLogo}></div>
                     <div className={styles.update}>
-                        <div className={styles.updateLeft}>
-                            <p className={styles.fixed}>Update | </p>
-                            <p className={styles.content}>最新文章：挑選素食保健品前你必須知道的五件事!</p>
+                        <div className={styles.updateLeft} onClick={() => navigate('/article')}>
+                            <div className={styles.fixed}>Update | </div>
+                            <div className={styles.updateContent}>
+                            <div className={styles.content}>
+                                最新文章：挑選素食保健品前你必須知道的五件事!
+                                不是 Vegan 標籤就安心？看懂產品才不踩雷
+                                新手素食者最常缺的營養素...
+                            </div>
+                            </div>
                         </div>
                         <div className={styles.updateRight}>more</div>
+
                     </div>
                 </div>
             </section>
@@ -71,7 +80,7 @@ export default function AppHome() {
                             </div>
                         </div>
                         <div className={styles.chartRight}>
-                            <div className={styles.netWrapper}></div>
+                            <div className={styles.netWrapper} onClick={() => navigate('/quiz')}></div>
                         </div>
                     </div>
                 </div>
@@ -91,8 +100,12 @@ export default function AppHome() {
                             </p>
                         </div>
                     </div>
-                    <div className={styles.aboutBtn}>
-                        <img className={styles.plus} src="./images/plus.svg" alt="" />
+                    <div className={styles.aboutBtn} onClick={() => navigate('/')}
+                    onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}>
+            <img
+              src={isHovered ? "./images/plus-gray.svg" : "./images/plus.svg"} style={{ width: '17.5px', height: '17.5px' }}
+              alt="aboutUs" />
                         <p>VIEW ABOUT US</p>
                     </div>
                 </div>
@@ -107,7 +120,7 @@ export default function AppHome() {
                     <div className={styles.teamLeft}>
                         <img src="./images/wangDoc.svg" alt="" className={styles.doc1} />
                         <div className={styles.intro1}>
-                            <img src="./images/plus.svg" style={{ width: '33.272px', height: '33.272px' }} alt="" />
+                            <img className={styles.plus} src="./images/plus.svg" style={{ width: '33.272px', height: '33.272px' }} alt="" />
                             <div className={styles.intro}>
                                 <div className={styles.intro2}>
                                     <span>王昱程<p>營養師</p></span>
@@ -119,9 +132,9 @@ export default function AppHome() {
                         </div>
                     </div>
                     <div className={styles.teamRight}>
-                        <img src="./images/chengDoc.svg" alt="" className={styles.doc2} />
+                        <img  src="./images/chengDoc.svg" alt="" className={styles.doc2} />
                         <div className={styles.intro1}>
-                            <img src="./images/plus.svg" style={{ width: '33.272px', height: '33.272px' }} alt="" />
+                            <img className={styles.plus} src="./images/plus.svg" style={{ width: '33.272px', height: '33.272px' }} alt="" />
                             <div className={styles.intro}>
                                 <div className={styles.intro2}>
                                     <span>陳小莉<p>營養師</p></span>
@@ -139,7 +152,7 @@ export default function AppHome() {
                 <div className={styles.container}>
                     <div className={styles.card}>
                         <div className={styles.dialog}>
-                            自從吃素後感覺體力變差，運動完還一直肌肉痠痛？
+                            <p>自從吃素後感覺體力變差，運動完還一直肌肉痠痛？</p>
                             <div className={styles.roundedTriangle}></div>
                         </div>
                         <div className={styles.role}>
@@ -147,8 +160,8 @@ export default function AppHome() {
                         </div>
                     </div>
 
-                    <div className={styles.containerCenter}>
-                        <div className={styles.centerBox}>
+                    <div className={styles.containerCenter} >
+                        <div className={styles.centerBox} onClick={() => navigate('/shop')}>
                             <figure><img src="./images/main-product.svg" style={{ width: '400px', height: '502px' }} alt="" /></figure>
                             <div className={styles.centerBottom}>
                                 <div className={styles.centerNeed}>
@@ -164,6 +177,9 @@ export default function AppHome() {
                                 </div>
                             </div>
                         </div>
+                        <div className={styles.centerCorner} onClick={() => navigate('/cart')}>
+                        </div>
+
                     </div>
 
                     <div className={styles.containerSlides}>
@@ -184,7 +200,7 @@ export default function AppHome() {
                         <img src="./images/plus.svg" style={{ width: '56px' }} alt="" />
                         <h3>素食知識</h3>
                     </div>
-                    <div className={styles.kTitleRight}>
+                    <div className={styles.kTitleRight} onClick={() => navigate('/article')}>
                         <span>查看更多</span>
                     </div>
                 </div>
@@ -195,12 +211,12 @@ export default function AppHome() {
                             <img src="./images/logo.svg" style={{ width: '120px' }} alt="" />
                         </div>
                         <div className={styles.aCenter}>
-                        <div className={styles.aCenterWord}>
+                            <div className={styles.aCenterWord}>
 
-                            <p className={styles.title}>挑選素食保健品前你必須知道的五件事</p>
-                            <p>不是 Vegan 標籤就安心？看懂產品才不踩雷</p>
-                            <p>素食營養品怎麼挑才對？一文看懂 Vegan、無基改、吸收率與劑型選擇差異，買得聰明，補得安心。</p>
-                        </div>
+                                <p className={styles.title}>挑選素食保健品前你必須知道的五件事</p>
+                                <p>不是 Vegan 標籤就安心？看懂產品才不踩雷</p>
+                                <p>素食營養品怎麼挑才對？一文看懂 Vegan、無基改、吸收率與劑型選擇差異，買得聰明，補得安心。</p>
+                            </div>
                             <span className={styles.tags}>新手必看</span>
 
                         </div>
@@ -211,8 +227,8 @@ export default function AppHome() {
                         <div className={styles.aLeft}>
                             <img src="./images/logo.svg" style={{ width: '120px' }} alt="" />
                         </div>
-                        <div className={styles.aCenter}>                        <div className={styles.aCenterWord}>
-
+                        <div className={styles.aCenter}>                        
+                            <div className={styles.aCenterWord}>
                             <p className={styles.title}>新手素食者最常缺的營養素，你補對了嗎？</p>
                             <p>專為剛轉素或彈性素食者設計，轉素初期最容易缺乏的營養</p>
                             <p>如何從日常食材與保健品中補足，同時介紹外食族也方便攝取的懶人素食營養補充包。</p>
@@ -221,17 +237,17 @@ export default function AppHome() {
                         <div className={styles.aRight}>MORE<img src="./images/arrow.svg" alt="" /></div>
                     </div>
                     <hr />
-                     <div className={styles.article}>
+                    <div className={styles.article}>
                         <div className={styles.aLeft}>
                             <img src="./images/logo.svg" style={{ width: '120px' }} alt="" />
                         </div>
                         <div className={styles.aCenter}>
-                        <div className={styles.aCenterWord}>
+                            <div className={styles.aCenterWord}>
 
-                            <p className={styles.title}>你吃對了嗎？六大類素食者食物分類與功能解析</p>
-                            <p>掌握食物種類，營養補得剛剛好</p>
-                            <p>你知道植物奶與豆類在身體裡扮演的角色嗎？從全穀到堅果，六大分類圖文解析營養功能，幫助你打造均衡又有變化的素食生活。</p>
-                        </div>
+                                <p className={styles.title}>你吃對了嗎？六大類素食者食物分類與功能解析</p>
+                                <p>掌握食物種類，營養補得剛剛好</p>
+                                <p>你知道植物奶與豆類在身體裡扮演的角色嗎？從全穀到堅果，六大分類圖文解析營養功能，幫助你打造均衡又有變化的素食生活。</p>
+                            </div>
                             <span className={styles.tags}>素食原則</span>
 
                         </div>
@@ -241,78 +257,14 @@ export default function AppHome() {
                 </div>
             </section>
 
-            <div className={styles.cta}>
+            <div className={styles.loginCta}>
                 <h3>專屬於你的營養報告</h3>
-                <button className={styles.joinBtn}>
+                <button className={styles.joinBtn} onClick={() => navigate('/login')}>
                     <p>加入會員</p><span>馬上諮詢</span>
                 </button>
             </div>
 
-            <footer>
-                <div className={styles.footerBg}>
-                    <a href="#" className={`${styles.backToTop} ${showBackToTop ? styles.show : ""}`}>
-                        <img src="./images/icons/gotop-gray.svg" alt="Back to Top" />
-                    </a>
-                    <div className={styles.footerTop}>
-                        <div className={styles.footerGrid}>
-                            <div>
-                                <p className={styles.footerHeading}>認識JASO+素</p>
-                                <ul>
-                                    <li><a href="#">關於我們</a></li>
-                                    <li><a href="#">活動資訊</a></li>
-                                    <li><a href="#">最新消息</a></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <p className={styles.footerHeading}>購物須知</p>
-                                <ul>
-                                    <li><a href="#">如何訂購</a></li>
-                                    <li><a href="#">退換政策</a></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <p className={styles.footerHeading}>客戶須知</p>
-                                <ul>
-                                    <li><a href="#">服務條款</a></li>
-                                    <li><a href="#">隱私權政策</a></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <p className={styles.footerHeading}>客服中心</p>
-                                <ul>
-                                    <li><a href="#">線上客服</a></li>
-                                    <li><a href="#">常見問題</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className={styles.footerCta}>
-                            <div className={styles.cta}>
-                                <h3 style={{ color: '#FFF' }}>專屬於你的營養報告</h3>
-                                <a href="login.html" target="_blank">
-                                    <button className={styles.joinBtn}>
-                                        <p>加入會員</p><span>馬上諮詢</span>
-                                    </button>
-                                </a>
-                            </div>
-                            <div className={styles.footerSlogan}>
-                                <div>
-                                    <span>JASO+素</span>
-                                    <p>素食營養專家 | 健康素食新選擇</p>
-                                </div>
-                                <div className={styles.icon}>
-                                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                                        <img src="./images/icons/icon-ins-bright.svg" alt="Instagram" />
-                                    </a>
-                                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                                        <img src="./images/icons/icon-fb-bright.svg" alt="Facebook" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <p className={styles.copyright}>© 2025 JASO+素. All Rights Reserved.</p>
-                </div>
-            </footer>
+            
         </>
     );
 }

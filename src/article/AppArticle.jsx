@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "../../scss/pages/article/article.module.scss";
 import { useNavigate } from "react-router-dom";
-// import NavbarHidden from "../1components/NavbarHidden";
+import Footer from "../1components/Footer";
 
 
 export default function AppArticle() {
@@ -101,7 +101,7 @@ export default function AppArticle() {
 
 
 </main>
-
+{/* <Footer /> */}
     </>
   );
 }

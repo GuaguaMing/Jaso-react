@@ -489,7 +489,7 @@ body {
   transition: all 0.3s ease;
 }
 .cart-btn:hover {
-  background-image: url("/icons/img/shop-btn-hover.svg");
+  background-image: url("/icons/img/btn-shop-hover.svg");
   transform: scale(1.05);
 }
 .cart-btn.added {

@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useLocation, Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 import NavbarHidden from './NavbarHidden';
+import Footer from './Footer';
+
 import styles from '../../scss/pages/1component/layout.module.scss';
 
 export default function Layout() {
@@ -14,6 +16,7 @@ export default function Layout() {
   const [showNavbarHidden, setShowNavbarHidden] = useState(false);
   const [fadeOutNavbarHidden, setFadeOutNavbarHidden] = useState(false);
   const fadeOutTimerRef = useRef(null);
+  
 
 
 
@@ -99,6 +102,7 @@ export default function Layout() {
         </>
       )}
       <Outlet />
+      <Footer /> 
     </>
   );
 }

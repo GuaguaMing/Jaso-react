@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../1components/Navbar";
+// import Navbar from "../1components/Navbar";
 import TabBar from "./AppTab.jsx";
 import ProfileSection from "./porfileTab.jsx";
 import PointsSection from "./pointTab.jsx";
@@ -40,7 +40,7 @@ export default function MemberCenter() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div style={{ height: "80px" }} />
       <TabBar activeTab={activeTab} setActiveTab={setActiveTab} />
 

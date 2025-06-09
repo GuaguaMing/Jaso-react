@@ -47,7 +47,7 @@ input, select, option {
 
 .imageContainer {
   position: absolute;
-  right: 1rem;
+  right: 5vw;
   top: 45%;
   transform: translateY(-50%);
   width: 500px;
