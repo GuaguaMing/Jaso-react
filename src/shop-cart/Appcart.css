@@ -336,3 +336,12 @@ input[type=number]::-webkit-outer-spin-button {
     transform: scale(1);
   }
 }
+
+.cart-icon {
+  width: 50px;
+  transition: transform 0.2s ease;
+}
+
+.cart-icon:hover {
+  transform: scale(1.1);
+}
