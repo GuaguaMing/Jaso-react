@@ -114,7 +114,7 @@ const nutrientData = {
       },
       {
         "src": "./images/friends/D-fungus.svg",
-        "hover": "./images/friends/D-fungus.svg",
+        "hover": "./images/friends/D-fungus2.svg",
         "hover2": "./images/friends/D-fungus.svg",
    
         "name": "黑木耳"
@@ -178,14 +178,14 @@ const nutrientData = {
       },
       {
         "src": "./images/friends/Fe-redM.svg",
-        "hover": "./images/friends/Fe-redM.svg",
-        "hover2": "./images/friends/Fe-redM.svg",
+        "hover": "./images/friends/Fe-redM2.svg",
+        "hover2": "./images/friends/Fe-redM3.svg",
         "name": "紅藜麥"
       },
       {
         "src": "./images/friends/Fe-BB.svg",
-        "hover": "./images/friends/Fe-BB.svg",
-        "hover2": "./images/friends/Fe-BB.svg",
+        "hover": "./images/friends/Fe-BB2.svg",
+        "hover2": "./images/friends/Fe-BB3.svg",
         "name": "黑豆"
       },
       {
@@ -240,9 +240,9 @@ const nutrientData = {
         "name": "毛豆"
       },
       {
-        "src": "./images/friends/pf-tofu.svg",
-        "hover": "./images/friends/pf-tofu2.svg",
-        "hover2": "./images/friends/pf-tofu3.svg",
+        "src": "./assets/q1_step1.svg",
+        "hover": "./assets/q1_step2.svg",
+        "hover2": "./assets/q1_step3.svg",
         "name": "豆腐"
       },
       {
@@ -291,9 +291,9 @@ const nutrientData = {
     "desc": "Omega-3 有助於心血管健康與大腦功能...",
     "partners": [
       {
-        "src": "./images/friends/omg3-Flaxseed.svg",
-        "hover": "./images/friends/omg3-Flaxseed.svg",
-        "hover2": "./images/friends/omg3-Flaxseed.svg",
+        "src": "./assets/q4_step1.svg",
+        "hover": "./assets/q4_step2.svg",
+        "hover2": "./assets/q4_step3.svg",
         "name": "亞麻籽"
       },
       {
@@ -304,14 +304,14 @@ const nutrientData = {
       },
       {
         "src": "./images/friends/omg3-walnut.svg",
-        "hover": "./images/friends/omg3-walnut.svg",
-        "hover2": "./images/friends/omg3-walnut.svg",
+        "hover": "./images/friends/omg3-walnut2.svg",
+        "hover2": "./images/friends/omg3-walnut3.svg",
         "name": "核桃"
       },
       {
         "src": "./images/friends/omg3-yellowb.svg",
-        "hover": "./images/friends/omg3-yellowb.svg",
-        "hover2": "./images/friends/omg3-yellowb.svg",
+        "hover": "./images/friends/omg3-yellowb2.svg",
+        "hover2": "./images/friends/omg3-yellowb3.svg",
         "name": "黃豆"
       }
     ],
