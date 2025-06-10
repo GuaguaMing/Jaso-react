@@ -1,19 +1,23 @@
-import React from "react";
-import '../../css/style.min.css';
-import '../main.css';
+import React ,{useState}from "react";
+import styles from'../../scss/pages/member/MemberCenter.module.scss'
+import ProfileTab from "./ProfileTab";
+import PointTab from "./PointTab"
+import GuidesTab from "./GuidesTab";
+import OrderTab from "./OrderTab";
+import FavoritesTab from "./FavoritesTab";
+
 export default function MemberCenter() {
   const [activeTab, setActiveTab] = useState("profile");
 
   const handleTabChange = (tab) => setActiveTab(tab);
     return (
         <>
-            <Navbar />
             <div style={{ height: "80px" }} />
             <section className={styles.tabBar}>
                 {["profile", "points", "guides", "orders", "favorites"].map((tab) => (
                     <button
                         key={tab}
-                        className={`${styles.tabBtn} ${activeTab === tab ? styles.active : ""}`}
+                        className={`${styles.tabBtn} ${activeTab === tab ? styles.tabBtn +""+styles.active : ""}`}
                         onClick={() => handleTabChange(tab)}
                     >
                         {{
@@ -27,13 +31,12 @@ export default function MemberCenter() {
                 ))}
             </section>
 
-            {activeTab === "profile" && <ProfileSection />}
-            {activeTab === "points" && <PointsSection />}
-            {activeTab === "guides" && <GuidesSection />}
-            {activeTab === "orders" && <OrdersSection />}
-            {activeTab === "favorites" && <FavoritesSection />}
+            {activeTab === "profile" && <ProfileTab />}
+            {activeTab === "points" && <PointTab />}
+            {activeTab === "guides" && <GuidesTab />}
+            {activeTab === "orders" && <OrderTab />}
+            {activeTab === "favorites" && <FavoritesTab />}
 
-            <Footer />
         </>
     )
 }
