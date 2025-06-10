@@ -1,25 +1,26 @@
 import React from 'react';
+import styles from '../../scss/pages/member/MemberCenter.module.scss'
 
-export default function PointsTab() {
+export default function PointTab() {
   return (
-    <div className="tab-content" id="points">
-      <div className="points-section">
-        <div className="points-header">
-          <div className="points-icon">J</div>
-          <h2 className="points-title">點數紀錄</h2>
+    <div className={styles.tabContent} id="points">
+      <div className={styles.pointsSection}>
+        <div className={styles.pointsHeader}>
+          <div className={styles.pointsIcon}>J</div>
+          <h2 className={styles.pointsTitle}>點數紀錄</h2>
         </div>
 
-        <div className="points-summary">
-          <div className="points-info">
-            <p className="points-label">現有總點數</p>
-            <p className="points-total">
-              96<span>點</span>
+        <div className={styles.pointsSummary}>
+          <div className={styles.pointsInfo}>
+            <p className={styles.pointsLabel}>現有總點數</p>
+            <p className={styles.pointsTotal}>
+              92<span>點</span>
             </p>
           </div>
-          {/* <button className="points-exchange-btn">點數兌換</button> */}
+          {/* <button className={styles.pointsExchangeBtn}>點數兌換</button> */}
         </div>
 
-        <table className="points-table">
+        <table className={styles.pointsTable}>
           <thead>
             <tr>
               <th>日期</th>
@@ -32,29 +33,29 @@ export default function PointsTab() {
           <tbody>
             <tr>
               <td>2025.04.18</td>
+              <td>訂單0001223350</td>
+              <td className={styles.negative}>-4</td>
+              <td>永久到期</td>
+              <td>92</td>
+            </tr>
+            <tr>
+              <td>2025.04.18</td>
+              <td>訂單0001223350</td>
+              <td className={styles.negative}>-4</td>
+              <td>永久到期</td>
+              <td>96</td>
+            </tr>
+                        <tr>
+              <td>2025.04.18</td>
               <td>加入會員 - 新人禮金</td>
               <td>100</td>
               <td>永久到期</td>
               <td>100</td>
             </tr>
-            <tr>
-              <td>2025.04.18</td>
-              <td>訂單0001223350</td>
-              <td>100</td>
-              <td>永久到期</td>
-              <td className="negative">-4</td>
-            </tr>
-            <tr>
-              <td>2025.04.18</td>
-              <td>訂單0001223350</td>
-              <td>100</td>
-              <td>永久到期</td>
-              <td className="negative">-4</td>
-            </tr>
           </tbody>
         </table>
 
-        <p className="points-note">＊ 最多顯示 3 個月內點數資訊</p>
+        <p className={styles.pointsNote}>＊ 最多顯示 3 個月內點數資訊</p>
       </div>
     </div>
   );

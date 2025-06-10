@@ -1,11 +1,11 @@
 import React from 'react';
-
+import styles from '../../scss/pages/member/MemberCenter.module.scss'
 export default function OrdersTab() {
   return (
-    <div className="tab-content" id="orders">
-      <div className="order-section">
-        <div className="order-table-wrapper">
-          <table className="order-table">
+    <div className={styles.tabContent} id="orders">
+      <div className={styles.orderSection}>
+        <div className={styles.orderTableWrapper}>
+          <table className={styles.orderTable}>
             <thead>
               <tr>
                 <th>訂單號碼</th>
@@ -25,7 +25,7 @@ export default function OrdersTab() {
                   <td>$2,200</td>
                   <td>已付款</td>
                   <td>
-                    <button className="order-btn">
+                    <button className={styles.orderBtn}>
                       <a href="order.html">查詢</a>
                     </button>
                   </td>
@@ -35,11 +35,11 @@ export default function OrdersTab() {
           </table>
         </div>
 
-        <div className="order-note">
+        <div className={styles.orderNote}>
           <span>＊ 最多顯示3個月內點數資訊</span>
-          <a href="#" className="order-more">
-            <span className="text">MORE</span>
-            <span className="arrow">&gt;</span>
+          <a href="#" className={styles.orderMore}>
+            <span className={styles.text}>MORE</span>
+            <span className={styles.arrow}>&gt;</span>
           </a>
         </div>
       </div>

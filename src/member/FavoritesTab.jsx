@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../../scss/pages/member/MemberCenter.module.scss'
 
 export default function FavoritesTab() {
   // 假資料範例，後續可串接 API 或 props 傳入
@@ -11,36 +12,36 @@ export default function FavoritesTab() {
   });
 
   return (
-    <div className="tab-content" id="favorites">
-      <div className="product-list">
+    <div className={styles.tabContent} id="favorites">
+      <div className={styles.productList}>
         {products.map((product, index) => (
-          <div className="product-card" key={index}>
-            <div className="product-image-wrapper">
-              <img src={product.image} alt={`產品${index + 1}`} className="product-image" />
+          <div className={styles.productCard} key={index}>
+            <div className={styles.productImageWrapper}>
+              <img src={product.image} alt={`產品${index + 1}`} className={styles.productImage} />
             </div>
 
-            <div className="product-meta">
-              <div className="product-tags">
+            <div className={styles.productMeta}>
+              <div className={styles.productTags}>
                 {product.tags.map((tag, i) => (
-                  <span className="tag" key={i}>{tag}</span>
+                  <span className={styles.tag} key={i}>{tag}</span>
                 ))}
               </div>
-              <div className="product-icon">
-                <button className="cart-btn" aria-label="加入購物車"></button>
-                <button className="like-btn" aria-label="加入收藏"></button>
+              <div className={styles.productIcon}>
+                <button className={styles.cartBtn} aria-label="加入購物車"></button>
+                <button className={styles.likeBtn} aria-label="加入收藏"></button>
               </div>
             </div>
 
-            <div className="product-title">
+            <div className={styles.productTitle}>
               {product.title}
-              <span className="product-subtitle">{product.subtitle}</span>
+              <span className={styles.productSubtitle}>{product.subtitle}</span>
             </div>
 
-            <div className="product-desc">{product.desc}</div>
+            <div className={styles.productDesc}>{product.desc}</div>
 
-            <a href="#" className="product-link">
-              <span className="arrow">&gt;</span>
-              <span className="text">看完整產品內容</span>
+            <a href="#" className={styles.productLink}>
+              <span className={styles.arrow}>gt;</span>
+              <span className={styles.text}>看完整產品內容</span>
             </a>
           </div>
         ))}

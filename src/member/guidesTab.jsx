@@ -1,33 +1,34 @@
 import React from 'react';
+import styles from '../../scss/pages/member/MemberCenter.module.scss'
 
 export default function GuidesTab() {
   return (
-    <div className="tab-content" id="guides">
-      <div className="collect-articles">
+    <div className={styles.tabContent} id="guides">
+      <div className={styles.collectArticles}>
         {[1, 2, 3].map((_, index) => (
-          <div className="article-card" key={index}>
-            <div className="article-thumbnail">
-              <img src="./assets/img/A-card.svg" alt="文章封面" />
-              <button className="like-btn" aria-label="收藏">
+          <div className={styles.articleCard} key={index}>
+            <div className={styles.articleThumbnail}>
+              <img src={`${import.meta.env.BASE_URL}images/A-card.svg`} alt="文章封面" />
+              <button className={styles.likeBtn} aria-label="收藏">
                 <img
-                  src="./icons/img/j_icon_likegray.svg"
-                  className="default"
+                  src={`${import.meta.env.BASE_URL}./images/icons/btn-like-default.svg`}
+                  className={styles.default}
                   alt="收藏"
                 />
                 <img
-                  src="./icons/img/j_icon_like.svg"
-                  className="hover"
+                  src={`${import.meta.env.BASE_URL}./images/icons/btn-like-hover.svg`}
+                  className={styles.hover}
                   alt="已收藏"
                 />
               </button>
             </div>
-            <div className="article-info">
-              <h3 className="article-title">
+            <div className={styles.articleInfo}>
+              <h3 className={styles.articleTitle}>
                 挑選素食保健品前你必須知道的五件事
               </h3>
-              <div className="article-meta">
-                <span className="date">July 23,2024</span>
-                <span className="author">營養師 素素兒</span>
+              <div className={styles.articleMeta}>
+                <span className={styles.date}>July 23,2024</span>
+                <span className={styles.author}>營養師 素素兒</span>
               </div>
             </div>
           </div>
