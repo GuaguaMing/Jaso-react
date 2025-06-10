@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 // import Navbar from "../1components/Navbar";
 import TabBar from "./AppTab.jsx";
-import ProfileSection from "./porfileTab.jsx";
-import PointsSection from "./pointTab.jsx";
-import GuidesSection from "./guidesTab.jsx";
-import OrdersSection from "./orderTab.jsx";
+import ProfileSection from "./ProfileTab.jsx";
+import PointsSection from "./PointTab.jsx";
+import GuidesSection from "./GuidesTab.jsx";
+import OrdersSection from "./OrderTab.jsx";
 import FavoritesSection from "./FavoritesTab.jsx";
 /* import '../main.css';
 import './css/member_profile.css';
