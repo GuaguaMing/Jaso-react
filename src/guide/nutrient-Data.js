@@ -172,8 +172,8 @@ const nutrientData = {
       },
       {
         "src": "./images/friends/Fe-bc.svg",
-        "hover": "./images/friends/Fe-bc.svg",
-        "hover2": "./images/friends/Fe-bc.svg",
+        "hover": "./images/friends/Fe-bc2.svg",
+        "hover2": "./images/friends/Fe-bc3.svg",
         "name": "菠菜"
       },
       {
