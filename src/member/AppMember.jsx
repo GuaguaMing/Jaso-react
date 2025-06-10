@@ -5,7 +5,7 @@ import PointTab from "./PointTab"
 import GuidesTab from "./GuidesTab";
 import OrderTab from "./OrderTab";
 import FavoritesTab from "./FavoritesTab";
-
+//廢棄jsx，刪了
 export default function MemberCenter() {
   const [activeTab, setActiveTab] = useState("profile");
 

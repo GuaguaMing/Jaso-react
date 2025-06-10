@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
-// import Navbar from "../1components/Navbar";
+
 import TabBar from "./AppTab.jsx";
 import ProfileSection from "./ProfileTab.jsx";
 import PointsSection from "./PointTab.jsx";
 import GuidesSection from "./GuidesTab.jsx";
 import OrdersSection from "./OrderTab.jsx";
 import FavoritesSection from "./FavoritesTab.jsx";
-/* import '../main.css';
-import './css/member_profile.css';
-import './css/style.min.css'; */
 
 export default function MemberCenter() {
   const [activeTab, setActiveTab] = useState("profile");
