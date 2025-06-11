@@ -341,7 +341,7 @@ body {
   color: #3DCE94;
   text-align: center;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 150%;
   /* 按鈕/18px */
   font-family: "Noto Sans TC";
@@ -378,8 +378,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-repeat: no-repeat;
-  background-image: url(/images/chart.svg);
+}
+
+.netCanvas {
+  width: 100%;
+  height: auto;
+  display: block;
   cursor: pointer;
 }
 
@@ -1036,6 +1040,14 @@ hr {
   align-items: center;
   border-radius: 50px;
   background: #3DCE94;
+  cursor: pointer;
+}
+.joinBtn:hover {
+  border: 3px solid #3DCE94;
+  background: var(--Neutrue-White, #FFF);
+}
+.joinBtn:hover span, .joinBtn:hover p {
+  color: #3DCE94;
 }
 
 .joinBtn p {

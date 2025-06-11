@@ -295,6 +295,7 @@ body {
     z-index: 1;
 }
 
+
 .calc {
     display: flex;
     flex-direction: column;
@@ -335,7 +336,7 @@ body {
     color: $color-primary;
     text-align: center;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 150%;
 
 /* 按鈕/18px */
@@ -376,10 +377,18 @@ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-repeat: no-repeat;
-    background-image: url(/images/chart.svg);
-    cursor: pointer;
+    // background-repeat: no-repeat;
+    // background-image: url(/images/chart.svg);
 }
+// 六角動來動去怪物
+.netCanvas {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: pointer;
+
+  }
+  
 
 .about {
 
@@ -1074,6 +1083,7 @@ align-items: flex-start;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
 
 
 }
@@ -1094,6 +1104,15 @@ align-items: flex-start;
     align-items: center;
     border-radius: 50px;
     background: $color-primary;
+    cursor: pointer;
+    &:hover {
+        span, p{
+            color: $color-primary;
+
+        }
+border: 3px solid $color-primary;
+background: var(--Neutrue-White, #FFF);
+    }
 }
 
 .joinBtn p {

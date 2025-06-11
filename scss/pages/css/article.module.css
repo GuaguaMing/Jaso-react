@@ -71,6 +71,30 @@ input, select, option {
   font-size: 32px;
 }
 
+.hashtag {
+  display: flex;
+  margin: 10px 0;
+}
+
+.tags {
+  display: flex;
+  width: fit-content;
+  margin: auto 5px;
+  cursor: pointer;
+  padding: 5px 19px;
+  justify-content: center;
+  align-items: flex-start;
+  color: #3DCE94;
+  text-align: center;
+  font-weight: 500;
+  line-height: 121%;
+  font-size: 14px;
+  border-radius: 999px;
+  margin-top: 2rem;
+  border: 1px solid #3DCE94;
+  background: #E6FBF3;
+}
+
 .searchBar {
   display: flex;
   align-items: center;
@@ -130,6 +154,8 @@ input, select, option {
   position: relative;
   top: 1rem;
   left: 20rem;
+  width: 22px;
+  height: 22px;
 }
 
 .card {

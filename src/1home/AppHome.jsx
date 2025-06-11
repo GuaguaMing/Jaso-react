@@ -1,12 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "../../scss/pages/1home/apphome.module.scss";
+import AnimatedRadarChart from "./AnimatedRadarChart";
+
 
 
 export default function AppHome() {
+
     const navigate = useNavigate();
     const [showBackToTop, setShowBackToTop] = useState(false);
       const [isHovered, setIsHovered] = useState(false);
+    const chartRef = useRef(null);
+  
+    // 處理 hover 狀態變化
+    const handleHoverChange = (hovered) => {
+      setIsHovered(hovered);
+    };
+  
+    // 按鈕 hover 事件
+    const handleButtonMouseEnter = () => {
+      setIsHovered(true);
+      if (chartRef.current) {
+        chartRef.current.setHoverState(true);
+      }
+    };
+  
+    const handleButtonMouseLeave = () => {
+      setIsHovered(false);
+      if (chartRef.current) {
+        chartRef.current.setHoverState(false);
+      }
+    };
+  
     
 
     useEffect(() => {
@@ -74,13 +99,24 @@ export default function AppHome() {
                                     我們根據個人健康數據與素食飲食需求，<br />
                                     計算出每日所需營養素，透過專業分析提供你完整報告
                                 </p>
-                                <button className={styles.calcBtn} onClick={() => navigate('/quiz')}>
+                                {/* <button className={styles.calcBtn} onClick={() => navigate('/quiz')}> */}
+                                <button 
+                className={`${styles.calcBtn} ${isHovered ? styles.calcBtnHovered : ''}`}
+                onClick={() => navigate('/quiz')}                
+                onMouseEnter={handleButtonMouseEnter}
+                onMouseLeave={handleButtonMouseLeave}>
                                     馬上素算
                                 </button>
                             </div>
                         </div>
                         <div className={styles.chartRight}>
-                            <div className={styles.netWrapper} onClick={() => navigate('/quiz')}></div>
+                        <div className={styles.netWrapper}>
+                        <AnimatedRadarChart 
+                ref={chartRef}
+                onHoverChange={handleHoverChange}
+              />
+  </div>
+                            {/* <div className={styles.netWrapper} onClick={() => navigate('/quiz')}></div> */}
                         </div>
                     </div>
                 </div>
@@ -177,7 +213,7 @@ export default function AppHome() {
                                 </div>
                             </div>
                         </div>
-                        <div className={styles.centerCorner} onClick={() => navigate('/cart')}>
+                        <div className={styles.centerCorner} onClick={() => navigate('/shop')}>
                         </div>
 
                     </div>
