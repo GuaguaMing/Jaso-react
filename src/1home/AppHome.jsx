@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "../../scss/pages/1home/apphome.module.scss";
 import AnimatedRadarChart from "./AnimatedRadarChart";
+import ProductSlider from "./ProductSlider";
 
 
 
