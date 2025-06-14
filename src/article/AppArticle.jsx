@@ -69,7 +69,7 @@ export default function AppArticle() {
         </div>
       </div>
 
-      <div className={styles.cardOutline}>
+      <div className={styles.cardOutline}  onClick={() => navigate('/article3')}>
         <div className={styles.card}>
           {/* <span className={styles.tags}>維生素B12</span> */}
           <div className={styles.like}>

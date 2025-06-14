@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AppHome from './1home/AppHome';
 import AppGuide from './guide/AppGuide';
 import AppArticle from './article/AppArticle';
-// import Article1 from './article/Article1';
+import Article3 from './article/Article3';
 import Quiz from './quiz/Quiz';
 import Result from './quiz/Result';
 import MemberCenter from "./member/MemberCenter";
@@ -27,7 +27,7 @@ function App() {
                     <Route path="/" element={<AppHome />} />
                     <Route path="/guide" element={<AppGuide />} />
                     <Route path="/article" element={<AppArticle />} />
-                    {/* <Route path="/article1" element={<Article1 />} /> */}
+                    <Route path="/article3" element={<Article3 />} />
 
                     <Route path="/memberCenter" element={<MemberCenter />} />
                     <Route path="/login" element={<AppLogin />} />

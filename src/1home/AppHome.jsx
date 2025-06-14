@@ -52,8 +52,10 @@ export default function AppHome() {
                     <div className={styles.bannerLeft}>
                         <div className={styles.line1}>
                             <div className={styles.bannerLogo}>
-                                <img className={styles.logo} src="./images/logo-banner.svg" alt="" />
-                                <img className={styles.plus} src="./images/plus.svg" alt="" />
+                        <img src={`${import.meta.env.BASE_URL}assets/nav-logo.svg`} alt="JasoLogo" />
+
+                                <img className={styles.logo} src={`${import.meta.env.BASE_URL}images/logo-banner.svg`} alt="JasoLogo" />
+                                <img className={styles.plus} src={`${import.meta.env.BASE_URL}images/plus.svg`} alt="plus" />
                             </div>
                             <h3>是專為素食者</h3>
                         </div>
