@@ -141,7 +141,8 @@ export default function AppHome() {
                     onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}>
             <img
-              src={isHovered ? "./images/plus-gray.svg" : "./images/plus.svg"} style={{ width: '17.5px', height: '17.5px' }}
+  src={`${import.meta.env.BASE_URL}images/${isHovered ? 'plus-gray.svg' : 'plus.svg'}`}
+  style={{ width: '17.5px', height: '17.5px' }}
               alt="aboutUs" />
                         <p>VIEW ABOUT US</p>
                     </div>
