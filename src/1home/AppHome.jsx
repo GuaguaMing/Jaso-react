@@ -52,16 +52,15 @@ export default function AppHome() {
                     <div className={styles.bannerLeft}>
                         <div className={styles.line1}>
                             <div className={styles.bannerLogo}>
-                        <img src={`${import.meta.env.BASE_URL}assets/nav-logo.svg`} alt="JasoLogo" />
-
-                                <img className={styles.logo} src={`${import.meta.env.BASE_URL}images/logo-banner.svg`} alt="JasoLogo" />
-                                <img className={styles.plus} src={`${import.meta.env.BASE_URL}images/plus.svg`} alt="plus" />
+                        <img src={`${import.meta.env.BASE_URL}images/logo-banner.svg`} alt="LogoBanner" />
+                        <img src={`${import.meta.env.BASE_URL}images/plus.svg`} alt="" />
+                    
                             </div>
                             <h3>是專為素食者</h3>
                         </div>
                         <div className={styles.line2}>
                             <h3>打造的營養管理平台</h3>
-                            <div className={styles.bannerEmoji}><img src="./images/banner-emoji.svg" alt="" /></div>
+                            <div className={styles.bannerEmoji}><img src={`${import.meta.env.BASE_URL}images/banner-emoji.svg`} alt="" /></div>
                         </div>
                     </div>
                     <div className={styles.bannerRight}>
@@ -128,7 +127,7 @@ export default function AppHome() {
                 <div className={styles.aboutAll}>
                     <div className={styles.aboutContent}>
                         <div className={styles.aboutLeft}>
-                            <img src="./images/logo-big.svg" alt="" />
+                            <img src={`${import.meta.env.BASE_URL}images/logo-big.svg`} alt="" />
                         </div>
                         <div className={styles.aboutRight}>
                             <h1>ABOUT<br />US</h1>
@@ -156,9 +155,9 @@ export default function AppHome() {
                 </div>
                 <div className={styles.team}>
                     <div className={styles.teamLeft}>
-                        <img src="./images/wangDoc.svg" alt="" className={styles.doc1} />
+                        <img src={`${import.meta.env.BASE_URL}images/wangDoc.svg`} alt="" className={styles.doc1} />
                         <div className={styles.intro1}>
-                            <img className={styles.plus} src="./images/plus.svg" style={{ width: '33.272px', height: '33.272px' }} alt="" />
+                            <img className={styles.plus} src={`${import.meta.env.BASE_URL}images/plus.svg`} style={{ width: '33.272px', height: '33.272px' }} alt="" />
                             <div className={styles.intro}>
                                 <div className={styles.intro2}>
                                     <span>王昱程<p>營養師</p></span>
@@ -170,9 +169,9 @@ export default function AppHome() {
                         </div>
                     </div>
                     <div className={styles.teamRight}>
-                        <img  src="./images/chengDoc.svg" alt="" className={styles.doc2} />
+                        <img  src={`${import.meta.env.BASE_URL}images/chengDoc.svg`} alt="" className={styles.doc2} />
                         <div className={styles.intro1}>
-                            <img className={styles.plus} src="./images/plus.svg" style={{ width: '33.272px', height: '33.272px' }} alt="" />
+                            <img className={styles.plus} src={`${import.meta.env.BASE_URL}images/plus.svg`} style={{ width: '33.272px', height: '33.272px' }} alt="" />
                             <div className={styles.intro}>
                                 <div className={styles.intro2}>
                                     <span>陳小莉<p>營養師</p></span>
@@ -194,13 +193,13 @@ export default function AppHome() {
                             <div className={styles.roundedTriangle}></div>
                         </div>
                         <div className={styles.role}>
-                            <img src="./images/N.svg" style={{ width: '338px', height: '338px' }} alt="" />
+                            <img src={`${import.meta.env.BASE_URL}images/N.svg`} style={{ width: '338px', height: '338px' }} alt="" />
                         </div>
                     </div>
 
                     <div className={styles.containerCenter} >
                         <div className={styles.centerBox} onClick={() => navigate('/shop')}>
-                            <figure><img src="./images/main-product.svg" style={{ width: '400px', height: '502px' }} alt="" /></figure>
+                            <figure><img src={`${import.meta.env.BASE_URL}images/main-product.svg`} style={{ width: '400px', height: '502px' }} alt="" /></figure>
                             <div className={styles.centerBottom}>
                                 <div className={styles.centerNeed}>
                                     Need <br />
@@ -222,9 +221,9 @@ export default function AppHome() {
 
                     <div className={styles.containerSlides}>
                         <ul>
-                            <li className={styles.rTop}><img src="./images/D.svg" alt="" /></li>
-                            <li className={styles.rMiddle}><img src="./images/omega.svg" alt="" /></li>
-                            <li className={styles.rBottom}><img src="./images/fe.svg" alt="" /></li>
+                            <li className={styles.rTop}><img src={`${import.meta.env.BASE_URL}images/D.svg`} alt="" /></li>
+                            <li className={styles.rMiddle}><img src={`${import.meta.env.BASE_URL}images/omega.svg`} alt="" /></li>
+                            <li className={styles.rBottom}><img src={`${import.meta.env.BASE_URL}images/fe.svg`} alt="" /></li>
                         </ul>
                     </div>
 
@@ -235,7 +234,7 @@ export default function AppHome() {
             <section className={styles.knowledge}>
                 <div className={styles.kTitle}>
                     <div className={styles.kTitleLeft}>
-                        <img src="./images/plus.svg" style={{ width: '56px' }} alt="" />
+                        <img src={`${import.meta.env.BASE_URL}images/plus.svg`} style={{ width: '56px' }} alt="" />
                         <h3>素食知識</h3>
                     </div>
                     <div className={styles.kTitleRight} onClick={() => navigate('/article')}>
@@ -246,7 +245,7 @@ export default function AppHome() {
                 <div className={styles.articles}>
                     <div className={styles.article}>
                         <div className={styles.aLeft}>
-                            <img src="./images/logo.svg" style={{ width: '120px' }} alt="" />
+                            <img src={`${import.meta.env.BASE_URL}images/logo.svg`} style={{ width: '120px' }} alt="" />
                         </div>
                         <div className={styles.aCenter}>
                             <div className={styles.aCenterWord}>
@@ -256,14 +255,13 @@ export default function AppHome() {
                                 <p>素食營養品怎麼挑才對？一文看懂 Vegan、無基改、吸收率與劑型選擇差異，買得聰明，補得安心。</p>
                             </div>
                             <span className={styles.tags}>新手必看</span>
-
                         </div>
-                        <div className={styles.aRight}>MORE<img src="./images/arrow.svg" alt="" /></div>
+                        <div className={styles.aRight}>MORE<img src={`${import.meta.env.BASE_URL}images/arrow.svg`} alt="" /></div>
                     </div>
                     <hr />
                     <div className={styles.article}>
                         <div className={styles.aLeft}>
-                            <img src="./images/logo.svg" style={{ width: '120px' }} alt="" />
+                            <img src={`${import.meta.env.BASE_URL}images/logo.svg`} style={{ width: '120px' }} alt="" />
                         </div>
                         <div className={styles.aCenter}>                        
                             <div className={styles.aCenterWord}>
@@ -272,12 +270,12 @@ export default function AppHome() {
                             <p>如何從日常食材與保健品中補足，同時介紹外食族也方便攝取的懶人素食營養補充包。</p>
                         </div><span className={styles.tags}>營養攝取</span>
                         </div>
-                        <div className={styles.aRight}>MORE<img src="./images/arrow.svg" alt="" /></div>
+                        <div className={styles.aRight}>MORE<img src={`${import.meta.env.BASE_URL}images/arrow.svg`} alt="" /></div>
                     </div>
                     <hr />
                     <div className={styles.article}>
                         <div className={styles.aLeft}>
-                            <img src="./images/logo.svg" style={{ width: '120px' }} alt="" />
+                            <img src={`${import.meta.env.BASE_URL}images/logo.svg`} style={{ width: '120px' }} alt="" />
                         </div>
                         <div className={styles.aCenter}>
                             <div className={styles.aCenterWord}>
@@ -289,7 +287,7 @@ export default function AppHome() {
                             <span className={styles.tags}>素食原則</span>
 
                         </div>
-                        <div className={styles.aRight}>MORE<img src="./images/arrow.svg" alt="" /></div>
+                        <div className={styles.aRight}>MORE<img src={`${import.meta.env.BASE_URL}images/arrow.svg`} alt="" /></div>
                     </div>
                     <hr />
                 </div>
