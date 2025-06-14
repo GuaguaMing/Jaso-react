@@ -123,11 +123,17 @@ background: #F3F3F3;
   height: 30rem;
   border-color: #6dd6a7;
   margin-right: 38px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+      transform: scale(1.025);
+  }
 
   p {
     max-width: 25vw;
     font-size: 24px;
   }
+
 }
 
 .like {
@@ -150,10 +156,34 @@ background: #F3F3F3;
   margin-bottom: 10px;
   z-index: 1;
 
-  .tags {
-    position: relative;
-    left: 15px;
-    top: 15px;
+
+
+}
+
+.aDetail {
+  margin: 2px auto; 
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+  color: #000;
+  text-align: center;
+font-family: "Noto Sans TC";
+
+  span{
+
+
+/* 內文2-12px */
+font-size: 14px;
+font-weight: 400;
+line-height: 167%; /* 20.04px */
+letter-spacing: 1.08px;
+  }
+  p {
+/* 按鈕/16px */
+font-size: 16px;
+font-weight: 500;
+line-height: 150%; /* 24px */
+letter-spacing: 1.44px;
   }
 }
 
@@ -164,7 +194,14 @@ background: #F3F3F3;
   align-items: center;
   margin-bottom: 30px;
 
+  &:hover {
+    img{
+      transform: scale(1.05);
+    }
+}
+
   p {
+
     padding: 10px;
     font-size: 32px;
     font-weight: bold;
@@ -173,8 +210,42 @@ background: #F3F3F3;
 .plus {
   width: 30px;
   height: auto;
+  transition: transform 0.3s ease;
+  &:hover {
+    animation: tiltRight 0.3s forwards;
+    
+}
+}
+.less {
+  width: 30px;
+  height: auto;
+  transition: transform 0.3s ease;
+  &:hover {
+    animation: tiltLeft 0.3s forwards;
+    
+}
 }
 
+
+// ＋往右傾斜
+@keyframes tiltRight {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(15deg);
+  }
+}
+// ＋往左傾斜
+
+@keyframes tiltLeft {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-15deg);
+  }
+}
 // 加在 SCSS 最底部
 @media (max-width: 1024px) {
   .searchSection {
@@ -221,7 +292,7 @@ background: #F3F3F3;
     }
   }
 
-  .like {
+  .like3 {
     left: auto;
     right: 1rem;
     top: -2rem;

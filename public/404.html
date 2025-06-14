@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jaso+素 | 專屬素食者的健康方案</title>
+  <script type="text/javascript">
+    // GitHub Pages SPA routing hack:
+    // 1. 把目前 URL 中的路徑拆分
+    // 2. 重定向到根目錄 + "?/" + 原路徑(不含根目錄)
+    var l = window.location;
+    var pathSegmentsToKeep = 1; // 根據 repo 名稱深度調整，Jaso-react => 1層
+    l.replace(
+      l.protocol + "//" + l.host +
+      l.pathname.split("/").slice(0, 1 + pathSegmentsToKeep).join("/") +
+      "/?/" +
+      l.pathname.slice(1).split("/").slice(pathSegmentsToKeep).join("/").replace(/&/g, "~and~") +
+      (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+      l.hash
+    );
+  </script>
+</head>
+<body></body>
+</html>
