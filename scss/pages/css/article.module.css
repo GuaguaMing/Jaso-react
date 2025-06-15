@@ -67,8 +67,12 @@ input, select, option {
   font-weight: bold;
 }
 .searchSection h3 {
+  cursor: pointer;
   margin: 10px 0;
   font-size: 32px;
+}
+.searchSection h3:hover {
+  font-weight: 500;
 }
 
 .hashtag {
@@ -94,10 +98,18 @@ input, select, option {
   border: 1px solid #3DCE94;
   background: #E6FBF3;
 }
+.tags:hover {
+  color: #ffffff;
+  background: #3DCE94;
+}
+.tags.active {
+  color: #ffffff;
+  background: #3DCE94;
+}
 
 .searchBar {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   padding: 10px 0;
   margin: 5px 0;
 }
@@ -129,14 +141,9 @@ input, select, option {
 .cardSection {
   justify-content: center;
   align-items: center;
-  display: flex;
-  flex-direction: column;
   margin-bottom: 5rem;
   padding-left: 60px;
-}
-
-.column {
-  display: flex;
+  margin: auto;
 }
 
 .cardOutline {
@@ -144,21 +151,28 @@ input, select, option {
   height: 30rem;
   border-color: #6dd6a7;
   margin-right: 38px;
+  transition: transform 0.3s ease;
 }
 .cardOutline p {
+  cursor: pointer;
   max-width: 25vw;
   font-size: 24px;
+  transition: transform 0.3s ease;
 }
-
-.like {
+.cardOutline p:hover {
+  transform: scale(1.025);
+}
+.cardOutline p:hover ~ .card {
+  background-size: 110%;
+}
+.cardOutline .like {
   position: relative;
   top: 1rem;
   left: 20rem;
   width: 22px;
   height: 22px;
 }
-
-.card {
+.cardOutline .card {
   width: 378px;
   height: 349px;
   background-color: #d3d3d3;
@@ -169,11 +183,46 @@ input, select, option {
   border-radius: 25px;
   margin-bottom: 10px;
   z-index: 1;
+  transition: background-size 0.3s ease;
 }
-.card .tags {
-  position: relative;
-  left: 15px;
-  top: 15px;
+
+.column {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .column {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .column {
+    grid-template-columns: 1fr;
+  }
+}
+.aDetail {
+  margin: 2px auto;
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+  color: #000;
+  text-align: center;
+  font-family: "Noto Sans TC";
+}
+.aDetail span {
+  /* 內文2-12px */
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 167%; /* 20.04px */
+  letter-spacing: 1.08px;
+}
+.aDetail .author {
+  /* 按鈕/16px */
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%; /* 24px */
+  letter-spacing: 1.44px;
 }
 
 .loadMore {
@@ -182,6 +231,9 @@ input, select, option {
   flex-direction: column;
   align-items: center;
   margin-bottom: 30px;
+}
+.loadMore:hover img {
+  transform: scale(1.05);
 }
 .loadMore p {
   padding: 10px;
@@ -192,8 +244,56 @@ input, select, option {
 .plus {
   width: 30px;
   height: auto;
+  transition: transform 0.3s ease;
+}
+.plus:hover {
+  animation: tiltRight 0.3s forwards;
 }
 
+.less {
+  width: 30px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+.less:hover {
+  animation: tiltLeft 0.3s forwards;
+}
+
+.noResults {
+  padding-right: 60px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #666;
+}
+.noResults p {
+  margin: 0.5rem 0;
+}
+.noResults p:first-child {
+  font-weight: 500;
+  color: #333;
+}
+
+@keyframes tiltRight {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(15deg);
+  }
+}
+@keyframes tiltLeft {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-15deg);
+  }
+}
 @media (max-width: 1024px) {
   .searchSection {
     padding-left: 5vw;
@@ -228,7 +328,7 @@ input, select, option {
     max-width: 100%;
     font-size: 20px;
   }
-  .like {
+  .like3 {
     left: auto;
     right: 1rem;
     top: -2rem;

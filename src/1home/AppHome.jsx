@@ -10,7 +10,16 @@ export default function AppHome() {
     const navigate = useNavigate();
     const [showBackToTop, setShowBackToTop] = useState(false);
       const [isHovered, setIsHovered] = useState(false);
+      const [hovered, setHovered] = useState(false);
     const chartRef = useRef(null);
+    // hr
+    const CustomHR = () => {
+        return (
+          <svg xmlns="http://www.w3.org/2000/svg" width="1285" height="2" viewBox="0 0 1285 2" fill="none">
+            <path d="M0 1.5H1285" stroke="#E0DDDD" strokeWidth="1"/>
+          </svg>
+        );
+      };
   
     // 處理 hover 狀態變化
     const handleHoverChange = (hovered) => {
@@ -52,8 +61,8 @@ export default function AppHome() {
                     <div className={styles.bannerLeft}>
                         <div className={styles.line1}>
                             <div className={styles.bannerLogo}>
-                        <img src={`${import.meta.env.BASE_URL}images/logo-banner.svg`} alt="LogoBanner" />
-                        <img src={`${import.meta.env.BASE_URL}images/plus.svg`} alt="" />
+                        <img className={styles.bigLogo} src={`${import.meta.env.BASE_URL}images/logo-banner.svg`} alt="LogoBanner" />
+                        <img className={styles.logoPlus} src={`${import.meta.env.BASE_URL}images/plus.svg`} alt="" />
                     
                             </div>
                             <h3>是專為素食者</h3>
@@ -129,21 +138,26 @@ export default function AppHome() {
                         <div className={styles.aboutLeft}>
                             <img src={`${import.meta.env.BASE_URL}images/logo-big.svg`} alt="" />
                         </div>
-                        <div className={styles.aboutRight}>
-                            <h1>ABOUT<br />US</h1>
+                        <div className={styles.aboutRight }
+                                onMouseEnter={() => setHovered(true)}
+                                onMouseLeave={() => setHovered(false)}
+                        >
+                            <h1 className={hovered ? styles.hovered : ""}  onClick={() => navigate('/about')}>ABOUT<br />US</h1>
                             <p>
                                 JASO+ 音讀作台語發音"呷素"來自一群對「純淨健康」的堅持<br />
                                 與素食生活熱愛的人。
                             </p>
                         </div>
                     </div>
-                    <div className={styles.aboutBtn} onClick={() => navigate('/')}
-                    onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}>
+                    <div className={`${styles.aboutBtn} ${hovered ? styles.hoveredBtn : ""}`} onClick={() => navigate('/about')}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}>
+                 
             <img
-  src={`${import.meta.env.BASE_URL}images/${isHovered ? 'plus-gray.svg' : 'plus.svg'}`}
-  style={{ width: '17.5px', height: '17.5px' }}
-              alt="aboutUs" />
+            src={`${import.meta.env.BASE_URL}images/${hovered ? 'plus-gray.svg' : 'plus.svg'}`}
+            style={{ width: '17.5px', height: '17.5px', marginLeft: '0.5rem' }}
+            alt="aboutUs" />
+              
                         <p>VIEW ABOUT US</p>
                     </div>
                 </div>
@@ -242,9 +256,10 @@ export default function AppHome() {
                         <span>查看更多</span>
                     </div>
                 </div>
-                <hr />
+                
                 <div className={styles.articles}>
-                    <div className={styles.article}>
+                <CustomHR />
+                    <div className={styles.article} onClick={() => navigate('/article1')}>
                         <div className={styles.aLeft}>
                             <img src={`${import.meta.env.BASE_URL}images/logo.svg`} style={{ width: '120px' }} alt="" />
                         </div>
@@ -255,12 +270,13 @@ export default function AppHome() {
                                 <p>不是 Vegan 標籤就安心？看懂產品才不踩雷</p>
                                 <p>素食營養品怎麼挑才對？一文看懂 Vegan、無基改、吸收率與劑型選擇差異，買得聰明，補得安心。</p>
                             </div>
-                            <span className={styles.tags}>新手必看</span>
+                            <span className={styles.tags}>素食原則</span>
                         </div>
                         <div className={styles.aRight}>MORE<img src={`${import.meta.env.BASE_URL}images/arrow.svg`} alt="" /></div>
                     </div>
-                    <hr />
-                    <div className={styles.article}>
+                    <CustomHR />
+                    <div className={styles.article} onClick={() => navigate('/article2')}>
+
                         <div className={styles.aLeft}>
                             <img src={`${import.meta.env.BASE_URL}images/logo.svg`} style={{ width: '120px' }} alt="" />
                         </div>
@@ -269,28 +285,29 @@ export default function AppHome() {
                             <p className={styles.title}>新手素食者最常缺的營養素，你補對了嗎？</p>
                             <p>專為剛轉素或彈性素食者設計，轉素初期最容易缺乏的營養</p>
                             <p>如何從日常食材與保健品中補足，同時介紹外食族也方便攝取的懶人素食營養補充包。</p>
-                        </div><span className={styles.tags}>營養攝取</span>
+                        </div><span className={styles.tags}>新手必看</span>
                         </div>
                         <div className={styles.aRight}>MORE<img src={`${import.meta.env.BASE_URL}images/arrow.svg`} alt="" /></div>
                     </div>
-                    <hr />
-                    <div className={styles.article}>
+                    <CustomHR />
+                    <div className={styles.article} onClick={() => navigate('/article3')}>
+
                         <div className={styles.aLeft}>
                             <img src={`${import.meta.env.BASE_URL}images/logo.svg`} style={{ width: '120px' }} alt="" />
                         </div>
                         <div className={styles.aCenter}>
                             <div className={styles.aCenterWord}>
 
-                                <p className={styles.title}>你吃對了嗎？六大類素食者食物分類與功能解析</p>
+                                <p className={styles.title}>你吃對了嗎？六大類素食者食物分類與功能</p>
                                 <p>掌握食物種類，營養補得剛剛好</p>
                                 <p>你知道植物奶與豆類在身體裡扮演的角色嗎？從全穀到堅果，六大分類圖文解析營養功能，幫助你打造均衡又有變化的素食生活。</p>
                             </div>
-                            <span className={styles.tags}>素食原則</span>
+                            <span className={styles.tags}>營養攝取</span>
 
                         </div>
                         <div className={styles.aRight}>MORE<img src={`${import.meta.env.BASE_URL}images/arrow.svg`} alt="" /></div>
                     </div>
-                    <hr />
+                    <CustomHR />
                 </div>
             </section>
 
