@@ -72,14 +72,14 @@ const NavbarHidden = () => {
             </div>
 
             {isLoggedIn && (
-              <a className={styles.shopList2}>
+              <div className={styles.shopList2}>
                 <Link to="/cart"
                  onClick={(e) => handleLinkClick(e, '/cart')}
                  className={location.pathname === '/cart' ? 'active' : ''}
                 >
                   <img src={`${import.meta.env.BASE_URL}assets/shop-list.svg`} alt="cart" />
                 </Link>
-              </a>
+              </div>
             )}
 
             <div className={styles.beanShape2}>

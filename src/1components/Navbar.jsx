@@ -67,7 +67,7 @@ export default function Navbar() {
           {isLoggedIn && (
 <div className={styles.shopIcon}>
   <Link to="/cart">
-              <img src="./assets/shop-list.svg" alt="" /></Link> 
+              <img src={`${import.meta.env.BASE_URL}assets/shop-list.svg`} alt="" /></Link> 
             </div>
               
           )}
