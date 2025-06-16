@@ -1,0 +1,213 @@
+.cart-icon {
+  width: 50px;
+  transition: transform 0.2s ease;
+}
+
+.cart-icon:hover {
+  transform: scale(1.1);
+}
+
+.card.cart {
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, 0.075);
+  border: none;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.card.cart .card-header {
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.card.cart .card-body .empty-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #6c757d;
+  padding: 3rem 0;
+  min-height: 200px;
+}
+
+.card.cart .card-body .empty-cart img {
+  margin-bottom: 1rem;
+  width: 150px;
+  max-width: 30%;
+  min-width: 60px;
+}
+
+.cart-header-row {
+  font-weight: 600;
+  color: #6c757d;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: .5rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.cart-item-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #dee2e6;
+  padding: 1rem 0;
+}
+
+.cart-item-row img {
+  width: 180px;
+  height: 184px;
+  object-fit: cover;
+}
+
+.cart-item-info {
+  font-weight: 600;
+}
+
+.cart-item-desc {
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+.quantity-btn {
+  border: 1px solid #ced4da;
+  background-color: #fff;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  line-height: 1;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.qty-input {
+  width: 50px;
+  text-align: center;
+  padding: 0.25rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.cart-subtotal {
+  font-weight: 600;
+}
+
+.btn-delete {
+  background: transparent;
+  border: none;
+  padding: 0.25rem;
+  cursor: pointer;
+}
+
+.btn-delete img {
+  width: 25px;
+  height: 25px;
+}
+
+/* Card 容器 */
+.cart-summary-card {
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, 0.075);
+  border: none;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* 卡片標題列 */
+.cart-summary-card .card-header {
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* 當購物車為空時的樣式 */
+.cart-body .empty-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #6c757d;
+  padding: 3rem 0;
+  min-height: 200px;
+}
+
+.cart-body .empty-cart img {
+  margin-bottom: 1rem;
+  width: 150px;
+  max-width: 30%;
+  min-width: 60px;
+}
+
+/* 表頭 */
+.cart-header-row {
+  font-weight: 600;
+  color: #6c757d;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+/* 每筆商品列 */
+.cart-item-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #dee2e6;
+  padding: 1rem 0;
+}
+
+/* 商品圖片 */
+.cart-item-image {
+  width: 180px;
+  height: 184px;
+  object-fit: cover;
+}
+
+/* 商品文字資訊 */
+.cart-item-info {
+  font-weight: 600;
+}
+
+.cart-item-desc {
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+/* 數量操作按鈕 */
+.quantity-btn {
+  border: 1px solid #ced4da;
+  background-color: #fff;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  line-height: 1;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+/* 數量輸入框 */
+.qty-input {
+  width: 50px;
+  text-align: center;
+  padding: 0.25rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+/* 小計金額 */
+.cart-subtotal {
+  font-weight: 600;
+}
+
+/* 刪除按鈕 */
+.btn-delete {
+  background: transparent;
+  border: none;
+  padding: 0.25rem;
+  cursor: pointer;
+}
+
+.btn-delete img {
+  width: 25px;
+  height: 25px;
+}

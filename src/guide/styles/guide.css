@@ -14,11 +14,39 @@
 
 .vege-title {
     font-size: 96px;
-    color: #22b573;
-    width: 252px;
+    color: #3DCE94;
     font-weight: 700;
-    margin-top: 0;
-    text-orientation: upright;
+    margin: 0;
+    line-height: 1.1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.vege-line {
+    display: flex;
+    align-items: center;
+}
+
+.plus-icon {
+    width: 60px;
+    height: 60px;
+    margin-left: 25px;
+    transition: transform 0.3s ease;
+}
+
+.plus-icon:hover {
+    transform: scale(1.1) rotate(15deg);
+}
+
+@keyframes tiltRight {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(15deg);
+    }
 }
 
 .vege-text h3 {
@@ -85,6 +113,7 @@
     font-size: 40px;
     font-weight: 700;
     margin: 0;
+    text-transform: capitalize;
 }
 
 .label p {
@@ -122,7 +151,6 @@
     background: #22b573;
 }
 
-/* 指南區塊 */
 .guide-detail {
     display: none;
     flex-direction: column;
@@ -130,10 +158,6 @@
     border-radius: 20px;
     padding: 40px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    /* position: fixed;
-    z-index: 100;
-    top: 50%;
-    left: 50%; */
     transform: translate(-50%, -50%);
     max-width: 1000px;
     width: 90%;
@@ -217,7 +241,6 @@
     border-radius: 4px;
 }
 
-/* 好夥伴 */
 .guide-partners {
     display: flex;
     gap: 70px;
@@ -251,7 +274,6 @@
 .img-default {
     opacity: 1;
     z-index: 2;
-    /* 保證預設圖在最上面 */
 }
 
 .img-hover1,
@@ -307,7 +329,6 @@
     color: #444;
 }
 
-/* 推薦商品卡 */
 .guide-products {
     display: flex;
     flex-wrap: wrap;
@@ -343,20 +364,18 @@
 
 .product-tags {
     display: flex;
-    /* 使用 flexbox 來排列標籤 */
-    gap: 6px;
+    gap: 10px;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .product-tags .tag {
-    padding: 4px 16px;
     font-size: 14px;
     font-weight: 500;
     color: #3DCE94;
     border: 1px solid #3DCE94;
     background-color: #E6FBF3;
     border-radius: 999px;
-    display: inline-block;
 }
 
 .product-icon button {
@@ -401,7 +420,6 @@
     font-size: 14px;
     color: #555;
     line-height: 1.6;
-    margin-bottom: 12px;
 }
 
 .product-link {
@@ -411,36 +429,38 @@
     font-size: 14px;
     color: #3DCE94;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .arrow,
 .text {
-    margin-left: 10px;
+    margin-left: 0px;
     display: inline-block;
     transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 .arrow {
-    transform: translateX(-8px);
+    transform: translateX(0);
     opacity: 1;
 }
 
 .text {
-    transform: translateX(-8px);
+    transform: translateX(0);
     opacity: 1;
 }
 
 .product-link:hover .arrow {
     transform: translateX(100px);
     opacity: 2;
+    color: #888888;
 }
 
 .product-link:hover .text {
     transform: translateX(-20px);
     opacity: 1;
+    color: #888888;
 }
 
-/* 卡片動畫 */
 @keyframes float-updown {
     0% {
         transform: translateY(0);
@@ -459,7 +479,6 @@
     animation: float-updown 1s ease-in-out infinite;
 }
 
-/* 組件容器 */
 .partnerList {
     display: flex;
     gap: 16px;

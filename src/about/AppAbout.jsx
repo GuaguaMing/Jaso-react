@@ -1,32 +1,12 @@
 import React from "react";
 import '../../css/style.min.css';
 import '../main.css';
+import styles from '../../scss/pages/about/AppAbout.module.css';
 export default function AppAbout() {
 
     return (
         <>
             <div>
-                {/* Header */}
-                <header className={styles.mainNavbar}>
-                    <div className={styles.navbarContainer}>
-                        <div className={styles.navbarLeft}>
-                            <img src="/images/nav-logo.svg" alt="Jaso Logo" className={styles.navbarLogo} />
-                        </div>
-                        <div className={styles.navbarCenter}>
-                            <nav className={styles.navbarLinks}>
-                                <a href="#">食物庫</a>
-                                <a href="#">素食知識</a>
-                                <a href="#">營養素算</a>
-                            </nav>
-                        </div>
-                        <div className={styles.navbarRight}>
-                            <div className={styles.member}>會員</div>
-                            <div className={styles.beanShape}>
-                                <div className={styles.goToShop}>素購</div>
-                            </div>
-                        </div>
-                    </div>
-                </header>
 
                 {/* Hero */}
                 <section className={styles.hero}>

@@ -1,6 +1,7 @@
 import React from "react";
 import Tag from './Tag';
 
+
 export default function CartToggle({ cartItems, setCartItems, isOpen, setIsOpen }) {
   const handleDelete = (id) => {
     setCartItems(cartItems.filter(item => item.id !== id));
@@ -34,7 +35,7 @@ export default function CartToggle({ cartItems, setCartItems, isOpen, setIsOpen 
   };
 
   return (
-    <div className="card shadow-sm border-0 rounded-4 mb-4">
+    <div className="cart-card shadow-sm border-0 rounded-4 mb-4">
       <div
         className="card-header bg-light d-flex justify-content-between align-items-center"
         style={{ cursor: "pointer" }}
@@ -45,7 +46,7 @@ export default function CartToggle({ cartItems, setCartItems, isOpen, setIsOpen 
       </div>
 
       {isOpen && (
-        <div className="card-body">
+        <div className="cart-body">
           {cartItems.length === 0 ? (
             <div
               className="d-flex flex-column align-items-center justify-content-center text-muted py-5"

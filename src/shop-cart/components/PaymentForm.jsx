@@ -7,7 +7,9 @@ export default function PaymentForm({ formData, setFormData }) {
   };
 
   return (
-    <div className="row gy-4">
+    <div className="row gy-4 payment-layout">
+       {/* 左側：表單區塊 */}
+      <div className="col-md-8 payment-form"></div>
       {/* 付款方式 */}
       <div className="col-12">
         <h5><i className="bi bi-cash-coin me-2"></i>付款方式</h5>
