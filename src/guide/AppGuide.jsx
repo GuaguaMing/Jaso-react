@@ -19,7 +19,17 @@ export default function AppGuide() {
       {/* <Navbar /> */}
       <section className="vege-library">
         <div className="vege-header">
-          <h1 className="vege-title">素食庫</h1>
+          <h1 className="vege-title">
+            <span className="vege-line">
+              素
+              <img
+                src={`${import.meta.env.BASE_URL}images/icons/pluss.svg`}
+                alt="plus icon"
+                className="plus-icon"
+              />
+            </span>
+            <span className="vege-line">食庫</span>
+          </h1>
           <div className="vege-text">
             <h3>六大營養素</h3>
             <p>
@@ -28,7 +38,7 @@ export default function AppGuide() {
             </p>
           </div>
         </div>
-        
+
         {/* 卡片區塊 */}
         <div className="card-container">
           {Object.keys(nutrientData).map((key) => (

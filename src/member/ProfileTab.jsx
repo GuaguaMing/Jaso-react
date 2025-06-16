@@ -3,14 +3,25 @@ import styles from '../../scss/pages/member/MemberCenter.module.scss'
 
 export default function ProfileTab() {
   return (
-    <div className={styles.tabContent } id="profile">
+    <div className={styles.tabContent} id="profile">
       <div className={styles.profileContainer}>
         {/* 左上：會員資訊區塊 */}
         <div className={styles.profileLeftTop}>
           <div className={styles.userNameRank}>
-            <img src={`${import.meta.env.BASE_URL}images/icons/j_member_normal.svg`} alt="member" className={styles.icon}/>
-            <p className={styles.userName}>王小明</p>
-            <div className={styles.userRankBadge}>一般會員</div>
+            <span className={styles.greeting}>Hello！</span>
+
+            <div className={styles.iconNameRow}>
+              <div className={styles.leftGroup}>
+                <img
+                  src={`${import.meta.env.BASE_URL}images/icons/j_member_normal.svg`}
+                  alt="member"
+                  className={styles.icon}
+                />
+                <p className={styles.userName}>王小明</p>
+                <div className={styles.userRankBadge}>一般會員</div>
+              </div>
+              <button className={styles.logoutButton}>登出</button>
+            </div>
           </div>
           <div className={styles.rankRuleBox}>
             <div className={styles.rankRuleItem}>
