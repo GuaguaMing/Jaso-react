@@ -51,7 +51,6 @@ input, select, option {
   justify-content: center;
   align-items: center;
   max-width: 1920px;
-  min-height: 800px;
   position: relative;
 }
 

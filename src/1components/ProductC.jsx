@@ -7,25 +7,29 @@ const ProductC = ({ products, currentProduct, currentIndex, transitioning, handl
   const containerRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
   const [orbitRotation, setOrbitRotation] = useState(0);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  // 3D軌道位置計算函數 - 調整為順時針旋轉且右側顯示3個角色
+  // 3D軌道位置計算函數 - 6個角色在軌道上輪轉，右側固定3個位置
   const getCharacterPosition = (index, totalItems = products.length) => {
     // 計算相對於當前展示角色的位置偏移
     const relativeIndex = (index - currentIndex + totalItems) % totalItems;
     
-    // 順時針角度計算，從右側開始（0度），向下到左側（180度）
+    // 當前展示角色不顯示在軌道上
+    if (relativeIndex === 0) return null;
+    
+    // 計算軌道角度 - 6個角色平均分布在圓形軌道上
     const baseAngle = (relativeIndex * 360) / totalItems;
     const angle = baseAngle + orbitRotation;
     const radian = (angle * Math.PI) / 180;
     
-    // 3D橢圓軌道參數 - 調整為更適合右側顯示3個角色的參數
-    const radiusX = 500; // 水平半徑
-    const radiusY = 180;  // 垂直半徑，增加以便容納更多角色
-    const centerX = -400; // 軌道中心向左移動
+    // 3D橢圓軌道參數
+    const radiusX = 450; // 水平半徑
+    const radiusY = 160;  // 垂直半徑
+    const centerX = -350; // 軌道中心向左移動
     const centerY = 0;
     
-    // 軌道仰角參數，調整角度讓右側能看到3個角色
-    const elevationAngle = 25; // 增加仰角，讓軌道更傾斜
+    // 軌道仰角參數
+    const elevationAngle = 20;
     const elevationRadian = (elevationAngle * Math.PI) / 180;
     
     // 基本橢圓位置
@@ -39,25 +43,30 @@ const ProductC = ({ products, currentProduct, currentIndex, transitioning, handl
     // Z軸深度效果
     const depth = (baseY * Math.sin(elevationRadian)) / radiusY;
     
-    // 根據深度調整大小和透明度
-    const baseScale = 0.9;
-    const depthScale = 0.5 + (depth + 1) * 0.4; // 調整縮放範圍
-    const finalScale = baseScale * depthScale;
+    // 判斷是否應該顯示 - 只顯示接下來要展示的3個角色
+    // relativeIndex 1,2,3 分別是下一個、下下個、下下下個要展示的角色
+    const isVisible = relativeIndex >= 1 && relativeIndex <= 3;
     
-    // 透明度基於深度
-    const opacity = 0.4 + (depth + 1) * 0.5;
+    // 根據深度調整大小
+    const baseScale = 0.8;
+    const depthScale = 0.6 + (depth + 1) * 0.3;
     
-    // 判斷是否在前景
-    const isInFront = depth > -0.2; // 調整閾值以顯示更多角色
+    // 根據相對位置調整大小 - 下一個展示的角色(relativeIndex=1)稍大
+    const positionScale = relativeIndex === 1 ? 1.2 : 1.0;
+    const finalScale = baseScale * depthScale * positionScale;
+    
+    // 透明度
+    const opacity = 0.7 + (depth + 1) * 0.2;
     
     return {
       x,
       y,
       scale: finalScale,
-      opacity: Math.max(0.3, opacity), // 確保最小透明度
-      isInFront,
+      opacity: Math.max(0.5, opacity),
       depth,
-      zIndex: Math.round((depth + 1) * 30) // 調整 z-index 範圍
+      zIndex: Math.round((depth + 1) * 30) + (relativeIndex === 1 ? 10 : 0), // 下一個展示角色z-index最高
+      relativeIndex,
+      isVisible
     };
   };
 
@@ -77,9 +86,9 @@ const ProductC = ({ products, currentProduct, currentIndex, transitioning, handl
   useEffect(() => {
     const rotationInterval = setInterval(() => {
       if (!isHovered) {
-        setOrbitRotation(prev => (prev + 1) % 360); // 增加旋轉速度
+        setOrbitRotation(prev => (prev + 1) % 360);
       }
-    }, 80); // 調整旋轉間隔
+    }, 80);
 
     return () => clearInterval(rotationInterval);
   }, [isHovered]);
@@ -116,7 +125,6 @@ const ProductC = ({ products, currentProduct, currentIndex, transitioning, handl
                 width: '250px',
                 height: '250px',
                 objectFit: 'contain',
-                filter: 'drop-shadow(0 10px 25px rgba(0,0,0,0.15))',
                 transition: 'all 0.5s ease',
                 transform: transitioning ? 'scale(1.1)' : 'scale(1)'
               }}
@@ -139,8 +147,7 @@ const ProductC = ({ products, currentProduct, currentIndex, transitioning, handl
                 style={{
                   width: '400px',
                   height: '502px',
-                  objectFit: 'contain',
-                  filter: 'drop-shadow(0 8px 20px rgba(0,0,0,0.1))'
+                  objectFit: 'contain'
                 }}
               />
             </figure>
@@ -163,7 +170,7 @@ const ProductC = ({ products, currentProduct, currentIndex, transitioning, handl
           <div className={styles.centerCorner} onClick={handleShopClick} />
         </div>
 
-        {/* 右側：3D軌道角色圓環 */}
+        {/* 右側：3D軌道角色圓環 - 6個角色輪轉，右側固定顯示可見的角色 */}
         <div className={styles.containerSlides}>
           <ul>
             {products.map((item, index) => {
@@ -171,35 +178,33 @@ const ProductC = ({ products, currentProduct, currentIndex, transitioning, handl
               const isActive = index === currentIndex;
 
               // 當前展示的角色不顯示在軌道上
-              if (isActive) {
+              if (isActive || !position || !position.isVisible) {
                 return null;
               }
 
-              // 只顯示在可見範圍內的角色（右側區域）
-              const isVisible = position.x > -200 && position.isInFront;
-
-              if (!isVisible) {
-                return null;
-              }
+              const isHoveredItem = hoveredIndex === index;
 
               return (
                 <li
                   key={item.id}
                   style={{
-                    transform: `translate(-50%, -50%) translate(${position.x}px, ${position.y}px) scale(${position.scale})`,
+                    transform: `translate(-50%, -50%) translate(${position.x}px, ${position.y}px) scale(${position.scale * (isHoveredItem ? 1.2 : 1)})`,
                     opacity: position.opacity,
                     zIndex: position.zIndex,
-                    transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
-                    filter: `blur(${position.isInFront ? 0 : 1}px) brightness(${0.8 + position.opacity * 0.2})`
+                    transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
                   }}
                   onClick={() => goToSlide(index)}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
                 >
                   <div
                     className={`${styles.card} ${styles.card3d}`}
                     style={{
-                      boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
+                      boxShadow: isHoveredItem ? '0 8px 25px rgba(0, 0, 0, 0.3)' : '0 4px 15px rgba(0, 0, 0, 0.2)',
                       border: '1px solid rgba(255, 255, 255, 0.3)',
-                      cursor: 'pointer'
+                      cursor: 'pointer',
+                      transform: isHoveredItem ? 'translateY(-5px)' : 'translateY(0)',
+                      transition: 'all 0.3s ease'
                     }}
                   >
                     <img
