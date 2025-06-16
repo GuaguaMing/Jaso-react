@@ -21,7 +21,8 @@ return (
             <footer>
                 <div className={styles.footerBg}>
                     <a href="#" className={`${styles.backToTop} ${showBackToTop ? styles.show : ""}`}>
-                        <img src="./images/icons/gotop-gray.svg" alt="Back to Top" />
+                        <img src={`${import.meta.env.BASE_URL}images/icons/gotop-gray.svg`} alt="Back to Top" />
+                        
                     </a>
                     <div className={styles.footerTop}>
                         <div className={styles.footerGrid}>
@@ -71,10 +72,10 @@ return (
                                 </div>
                                 <div className={styles.icon}>
                                     <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                                        <img src="./images/icons/icon-ins-bright.svg" alt="Instagram" />
+                                        <img src={`${import.meta.env.BASE_URL}images/icons/icon-ins-bright.svg`} alt="Instagram" />
                                     </a>
                                     <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                                        <img src="./images/icons/icon-fb-bright.svg" alt="Facebook" />
+                                        <img src={`${import.meta.env.BASE_URL}images/icons/icon-fb-bright.svg`} alt="Facebook" />
                                     </a>
                                 </div>
                             </div>

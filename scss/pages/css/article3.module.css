@@ -48,7 +48,7 @@ input, select, option {
 .articlePage {
   max-width: 720px;
   margin: auto;
-  padding: 2rem 0;
+  padding: 2rem;
   font-family: "Noto Sans TC";
 }
 .articlePage .title {
@@ -91,10 +91,6 @@ input, select, option {
   margin-left: 1rem;
 }
 .articlePage .intro {
-  position: relative;
-  padding-left: 1rem;
-  border-left: 4px solid #3DCE94;
-  margin: 1.5rem 0;
   font-size: 1rem;
   line-height: 1.8;
   margin-bottom: 2rem;
@@ -146,97 +142,4 @@ input, select, option {
   color: #888;
   margin-top: 2rem;
   font-style: italic;
-}
-
-.otherPage .articles {
-  font-family: "Noto Sans TC";
-  padding: 0 5rem;
-}
-.otherPage .article {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-image: linear-gradient(to right, #F5F5F5 0%, transparent 100%);
-  background-size: 0% 100%;
-  background-repeat: no-repeat;
-  transition: background-size 0.4s ease;
-  margin: 3rem 15%;
-  padding: 10px;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-}
-.otherPage .article:hover {
-  background-color: #F5F5F5;
-}
-.otherPage .article:hover .aLeft img {
-  transform: scale(1.1);
-}
-.otherPage .article:hover .aRight {
-  flex-direction: row-reverse;
-  gap: 4px;
-}
-.otherPage .aLeft {
-  width: 300px;
-  height: 200px;
-  background-color: #F5F5F5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.otherPage .aLeft img {
-  transition: transform 0.3s ease;
-}
-.otherPage .aCenter {
-  width: 500px;
-  padding: 0 3.5rem;
-}
-.otherPage .aCenter .title {
-  font-size: 18px;
-  margin-bottom: 1rem;
-}
-.otherPage .aCenter p {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 167%;
-  /* 20.04px */
-  letter-spacing: 1.08px;
-}
-.otherPage .aCenterWord {
-  margin: 2rem auto;
-}
-.otherPage .aCenter .tags {
-  display: flex;
-  width: fit-content;
-  padding: 5px 19px;
-  justify-content: center;
-  align-items: flex-start;
-  color: #3DCE94;
-  text-align: center;
-  font-weight: 500;
-  line-height: 121%;
-  font-size: 14px;
-  border-radius: 999px;
-  margin-top: 2rem;
-  border: 1px solid #3DCE94;
-  background: #E6FBF3;
-}
-.otherPage .aRight {
-  height: 24px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 173%;
-  color: #3DCE94;
-  font-size: 14px;
-  transition: all 0.3s ease;
-}
-.otherPage .aRight img {
-  width: 12px;
-  height: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 10px;
 }

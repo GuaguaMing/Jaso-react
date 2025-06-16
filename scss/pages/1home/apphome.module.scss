@@ -48,22 +48,16 @@ body {
 .bannerLogo {
     display: flex;
     align-items: flex-start;
-
+    .bigLogo {
+        width: 253px;
+        padding-top: 2.5rem;
+        align-items: flex-end;
+    }
+    .logoPlus {
+        width: 50px;
+        align-items: flex-start;
+    }
 }
-
-.bannerLogo .logo {
-    width: 253px;
-    padding-top: 2rem;
-    align-items: flex-end;
-
-
-}
-
-.banner-logo .plus {
-    width: 60px;
-    align-items: flex-start;
-}
-
 
 .line2 {
     display: flex;
@@ -435,6 +429,7 @@ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
 .aboutRight h1 {
+    cursor: pointer;
     color: rgba(61, 206, 148, 0.59);
     text-align: right;
     /* font-family: "Noto Sans TC"; */
@@ -445,6 +440,12 @@ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     font-weight: 700;
     line-height: 96%;
     /* 122.88px */
+    transition: transform 0.3s ease, color 0.3s ease;
+
+    &.hovered {
+      transform: scale(1.03);
+      color: $color-primary;
+    }
 }
 .plus {
     transition: transform 0.3s ease;
@@ -462,6 +463,7 @@ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
 .aboutBtn {
+    cursor: pointer;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -470,30 +472,35 @@ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     margin: 0 auto;
     transition: transform 0.3s ease;
 
-
-    &:hover p{
-    transform: scale(1.015);
+    &.hoveredBtn p {
+        transform: scale(1.015);
+        // color: $color-primary;
 
       
         color: $color-gray;
+      }
+    // &:hover p{
+    
+    // }
+    p {
+        margin-left: 0.5rem;
+    // color: rgba(61, 206, 148, 0.59);
+
+        color: $color-primary;
+        font-family: "Noto Sans TC";
+    
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 186%;
+        /* 37.2px */
+        letter-spacing: 1px;
     }
 }
 
 
 
 
-.aboutBtn p {
-    margin-left: 0.5rem;
-    color: $color-primary;
-    font-family: "Noto Sans TC";
-
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 186%;
-    /* 37.2px */
-    letter-spacing: 1px;
-}
 
 .pTitle {
     max-width: 1440px;
@@ -749,6 +756,7 @@ background-image: url(../../../public/images/icons/btn-shop-hover.svg);
     gap: 1rem;
     width: 100%;
     height: 100%;
+    align-items: flex-end;
 }
 
 .centerNeed {
@@ -956,14 +964,6 @@ background: var(--Neutrue-White, #FFF);
     margin-bottom: 3rem;
 }
 
-hr {
-    width: 1285px;
-    border: none;
-    height: 0;
-    background-color: #E0DDDD;
-    margin: auto;
-}
-
 .articles {
     font-family: "Noto Sans TC";
     padding: 0 5rem;
@@ -1131,122 +1131,122 @@ background: var(--Neutrue-White, #FFF);
 }
 
 
-.footerBg {
-    margin: auto;
-    overflow: hidden;
-    color: var(--Neutrue-White, #FFF);
-    font-family: "Noto Sans TC";
-    background-size: cover;
-    background-color: #252527;
-    position: relative;
-    width: 100%;
-}
+// .footerBg {
+//     margin: auto;
+//     overflow: hidden;
+//     color: var(--Neutrue-White, #FFF);
+//     font-family: "Noto Sans TC";
+//     background-size: cover;
+//     background-color: #252527;
+//     position: relative;
+//     width: 100%;
+// }
 
 
 
-.backToTop {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-    position: fixed;
-    right: 130px;
-    bottom: 50px;
-    z-index: 1;
-    cursor: pointer;
-}
+// .backToTop {
+//     opacity: 0;
+//     visibility: hidden;
+//     transition: opacity 0.5s ease, visibility 0.5s ease;
+//     position: fixed;
+//     right: 130px;
+//     bottom: 50px;
+//     z-index: 1;
+//     cursor: pointer;
+// }
 
-.backToTop.show {
-    opacity: 1;
-    visibility: visible;
-}
+// .backToTop.show {
+//     opacity: 1;
+//     visibility: visible;
+// }
 
-.backToTop img {
-    width: 75px;
-    /* 設置圖標大小 */
-    padding: 0;
-    /* 去掉內邊距 */
-    border: none;
-    height: auto;
-    transition: transform 0.3s ease;
+// .backToTop img {
+//     width: 75px;
+//     /* 設置圖標大小 */
+//     padding: 0;
+//     /* 去掉內邊距 */
+//     border: none;
+//     height: auto;
+//     transition: transform 0.3s ease;
 
-    &:hover {
-        transform: translateY(-5px);
-        /* 懸停時的輕微浮動效果 */
-    }
-}
+//     &:hover {
+//         transform: translateY(-5px);
+//         /* 懸停時的輕微浮動效果 */
+//     }
+// }
 
 
-.footerGrid {
-    padding: 10rem;
-    // width: 10rem;
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: 1fr;
-    gap: 4rem;
-}
+// .footerGrid {
+//     padding: 10rem;
+//     // width: 10rem;
+//     display: grid;
+//     grid-template-rows: repeat(4, 1fr);
+//     grid-template-columns: 1fr;
+//     gap: 4rem;
+// }
 
-.footerHeading {
-    font-size: 22px;
-    font-weight: 500;
+// .footerHeading {
+//     font-size: 22px;
+//     font-weight: 500;
 
-}
+// }
 
-.footerGrid li {
-    font-size: 17.6px;
+// .footerGrid li {
+//     font-size: 17.6px;
 
-    a {
-        color: $color-white;
-        font-weight: $font-w-3;
+//     a {
+//         color: $color-white;
+//         font-weight: $font-w-3;
 
-    }
-}
+//     }
+// }
 
-.footerCta {
-    width: 600px;
-}
+// .footerCta {
+//     width: 600px;
+// }
 
-.footerTop {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20rem;
-}
+// .footerTop {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     gap: 20rem;
+// }
 
-.footerSlogan {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+// .footerSlogan {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
 
-.footerSlogan span {
-    font-size: 70px;
-}
+// .footerSlogan span {
+//     font-size: 70px;
+// }
 
-.footerSlogan p {
-    font-size: 20px;
-}
+// .footerSlogan p {
+//     font-size: 20px;
+// }
 
-.icon {
-    gap: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 75px;
-    padding: auto 0.5rem;
-a{
-    transition: transform 0.3s ease;
+// .icon {
+//     gap: 1rem;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     width: 75px;
+//     padding: auto 0.5rem;
+// a{
+//     transition: transform 0.3s ease;
 
-    &:hover {
-                  transform: scale(1.05);
+//     &:hover {
+//                   transform: scale(1.05);
 
-}
-}
-}
+// }
+// }
+// }
 
-.copyright {
-    display: flex;
-    justify-content: center;
-}
+// .copyright {
+//     display: flex;
+//     justify-content: center;
+// }
 // hover前排搖滾：
 // 跑馬燈
 @keyframes scroll-left {

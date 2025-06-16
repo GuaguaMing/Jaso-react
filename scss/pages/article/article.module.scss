@@ -29,8 +29,16 @@
   }
 
   h3 {
+    cursor: pointer;
     margin: 10px 0;
     font-size: 32px;
+    &:hover {
+      font-weight: 500;
+
+
+
+
+    }
   }
 }
 
@@ -60,11 +68,20 @@ cursor: pointer;
       margin-top: 2rem;
       border: 1px solid #3DCE94;
       background: #E6FBF3;
+      &:hover {
+        color: $color-white;
+      background: $color-primary;
+
+      }
+      &.active {
+        color: $color-white;
+      background: $color-primary;
+      }
   }
 
 .searchBar {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   padding: 10px 0;
   margin: 5px 0;
 
@@ -108,27 +125,46 @@ background: #F3F3F3;
   justify-content: center;
   align-items: center;
   // padding: 0 115px;
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   margin-bottom: 5rem;
   padding-left: 60px;
+margin: auto;
+  
 }
 
-.column {
-  display: flex;
-}
+
 
 .cardOutline {
+
+  
   width: 25rem;
   height: 30rem;
   border-color: #6dd6a7;
   margin-right: 38px;
+  transition: transform 0.3s ease;
+
+
 
   p {
+    cursor: pointer;
     max-width: 25vw;
     font-size: 24px;
+    transition: transform 0.3s ease;
+    &:hover {
+        transform: scale(1.025);
+    
+        
+          
+          // 當 p hover 時，讓同層或後面的 card 背景放大
+          ~ .card {
+            background-size: 110%; // 放大背景圖片
+          }
+        }
   }
-}
+  
+ 
+  
 
 .like {
   position: relative;
@@ -149,11 +185,55 @@ background: #F3F3F3;
   border-radius: 25px;
   margin-bottom: 10px;
   z-index: 1;
+  transition: background-size 0.3s ease;
 
-  .tags {
-    position: relative;
-    left: 15px;
-    top: 15px;
+
+}
+
+}
+.column {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  // gap: 3rem 2.5rem;
+}
+
+@media (max-width: 1024px) {
+  .column {
+    grid-template-columns: repeat(2, 1fr);
+    // gap: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .column {
+    grid-template-columns: 1fr;
+    // gap: 2rem;
+  }
+}
+.aDetail {
+  margin: 2px auto; 
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+  color: #000;
+  text-align: center;
+font-family: "Noto Sans TC";
+
+  span{
+
+
+/* 內文2-12px */
+font-size: 14px;
+font-weight: 400;
+line-height: 167%; /* 20.04px */
+letter-spacing: 1.08px;
+  }
+  .author {
+/* 按鈕/16px */
+font-size: 16px;
+font-weight: 500;
+line-height: 150%; /* 24px */
+letter-spacing: 1.44px;
   }
 }
 
@@ -164,7 +244,14 @@ background: #F3F3F3;
   align-items: center;
   margin-bottom: 30px;
 
+  &:hover {
+    img{
+      transform: scale(1.05);
+    }
+}
+
   p {
+
     padding: 10px;
     font-size: 32px;
     font-weight: bold;
@@ -173,8 +260,64 @@ background: #F3F3F3;
 .plus {
   width: 30px;
   height: auto;
+  transition: transform 0.3s ease;
+  &:hover {
+    animation: tiltRight 0.3s forwards;
+    
+}
+}
+.less {
+  width: 30px;
+  height: auto;
+  transition: transform 0.3s ease;
+  &:hover {
+    animation: tiltLeft 0.3s forwards;
+    
+}
 }
 
+.noResults {
+  padding-right: 60px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #666;
+  
+  p {
+    margin: 0.5rem 0;
+    
+    &:first-child {
+      font-weight: 500;
+      color: #333;
+    }
+  }
+}
+
+
+// ＋往右傾斜
+@keyframes tiltRight {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(15deg);
+  }
+}
+// ＋往左傾斜
+
+@keyframes tiltLeft {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-15deg);
+  }
+}
 // 加在 SCSS 最底部
 @media (max-width: 1024px) {
   .searchSection {
@@ -221,7 +364,7 @@ background: #F3F3F3;
     }
   }
 
-  .like {
+  .like3 {
     left: auto;
     right: 1rem;
     top: -2rem;
