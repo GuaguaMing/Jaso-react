@@ -1,0 +1,237 @@
+@charset "UTF-8";
+/* reset CSS */
+* {
+  box-sizing: border-box;
+  /*不要家邊框及內鉅*/
+}
+
+/* reset CSS */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* 重置字體 */
+body {
+  font-family: "Noto Sans TC", sans-serif, sans-serif;
+  background: #ffffff;
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+input, select, option {
+  outline: none;
+}
+
+.aRight {
+  height: 24px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 173%;
+  color: #3DCE94;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+.aRight img {
+  width: 12px;
+  height: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.loginCta {
+  padding: 5rem;
+  font-family: "Noto Sans TC";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginCta h3 {
+  color: #676767;
+  font-size: 64px;
+  letter-spacing: 14.08px;
+}
+
+.joinBtn {
+  margin: 2rem;
+  width: 520px;
+  height: 66px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  background: #3DCE94;
+  cursor: pointer;
+}
+.joinBtn:hover {
+  border: 3px solid #3DCE94;
+  background: var(--Neutrue-White, #FFF);
+}
+.joinBtn:hover span, .joinBtn:hover p {
+  color: #3DCE94;
+}
+
+.joinBtn p {
+  color: var(--Neutrue-White, #FFF);
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 2.7px;
+}
+
+.joinBtn span {
+  color: var(--Neutrue-White, #FFF);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1.8px;
+}
+
+.footerBg {
+  margin: auto;
+  overflow: hidden;
+  color: var(--Neutrue-White, #FFF);
+  font-family: "Noto Sans TC";
+  background-size: cover;
+  background-color: #252527;
+  position: relative;
+  width: 100%;
+}
+
+.backToTop {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  position: fixed;
+  right: 130px;
+  bottom: 50px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.backToTop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.backToTop img {
+  width: 75px;
+  /* 設置圖標大小 */
+  padding: 0;
+  /* 去掉內邊距 */
+  border: none;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+.backToTop img:hover {
+  transform: translateY(-5px);
+  /* 懸停時的輕微浮動效果 */
+}
+
+.footerGrid {
+  padding: 10rem;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+
+.footerHeading {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.footerGrid li {
+  font-size: 17.6px;
+}
+.footerGrid li a {
+  color: #ffffff;
+  font-weight: 300;
+}
+
+.footerCta {
+  width: 600px;
+}
+
+.footerTop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20rem;
+}
+
+.footerSlogan {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.footerSlogan span {
+  font-size: 70px;
+}
+
+.footerSlogan p {
+  font-size: 20px;
+}
+
+.icon {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.icon a {
+  transition: transform 0.3s ease;
+}
+.icon a img {
+  width: 50px;
+}
+.icon a:hover {
+  transform: scale(1.05);
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1440px) {
+  footer {
+    max-width: 1440px;
+    /* 可選，讓區塊置中 */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}/*# sourceMappingURL=footer.module.css.map */

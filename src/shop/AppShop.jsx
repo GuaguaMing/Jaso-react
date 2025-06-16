@@ -47,9 +47,13 @@ export default function AppShop() {
                     <h3 className={styles.shopBannerSubtitle}>素食者需要的，我們都精挑細選。</h3>
                     <button className={`${styles.shopButton} ${styles.shopButtonPrimary}`}>馬上速購</button>
                 </div>
-                <ConveyorAni/>
+                <div className={styles.conveyorWrapper}>
+                    <ConveyorAni />
+                </div>
             </section>
-           <img src={`${import.meta.env.BASE_URL}images/shop-banner.svg`} width="48" alt="" />
+            <div className={styles.shopCTA}>
+                <img src={`${import.meta.env.BASE_URL}images/shop-banner.svg`} width="48" alt="" />
+            </div>
 
             <RecentViewed products={products} cartItems={cartItems} onAddToCart={handleAddToCart} />
         </>
