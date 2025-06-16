@@ -46,7 +46,7 @@ export default function GuideDetail({ data, onClose }) {
             </div>
             <div className="product-desc">{product.desc}</div>
             <a href="#" className="product-link">
-              <span className="arrow">→</span><span className="text">看完整產品內容</span>
+              <span className="arrow">&gt;</span><span className="text">看完整產品內容</span>
             </a>
           </div>
         ))}

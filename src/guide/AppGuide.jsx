@@ -19,7 +19,10 @@ export default function AppGuide() {
       {/* <Navbar /> */}
       <section className="vege-library">
         <div className="vege-header">
-          <h1 className="vege-title">素食庫</h1>
+          <h1 className="vege-title">
+            素 <span className="plus">＋</span>
+            食庫
+          </h1>
           <div className="vege-text">
             <h3>六大營養素</h3>
             <p>
@@ -28,7 +31,7 @@ export default function AppGuide() {
             </p>
           </div>
         </div>
-        
+
         {/* 卡片區塊 */}
         <div className="card-container">
           {Object.keys(nutrientData).map((key) => (
