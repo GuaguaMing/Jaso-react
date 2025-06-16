@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 import styles from '../../scss/pages/shop/shop.module.scss';
+import ConveyorAni from './components/ConveyorAni';
 import RecentViewed from '../shop-cart/components/RecentViewed';
-import Navbar from "../1components/Navbar";
+/* import Test from './test.jsx'; */
 
 export default function AppShop() {
 
@@ -40,14 +41,13 @@ export default function AppShop() {
 
     return (
         <>
-            {/* <Navbar /> */}
-
             <section className={styles.shopBanner}>
                 <div className={styles.shopBannerContent}>
                     <h1 className={styles.shopBannerTitle}>Vegan Care.</h1>
                     <h3 className={styles.shopBannerSubtitle}>素食者需要的，我們都精挑細選。</h3>
-                    <button className={styles.shopButton.shopButtonPrimary}>馬上速購</button>
+                    <button className={`${styles.shopButton} ${styles.shopButtonPrimary}`}>馬上速購</button>
                 </div>
+                <ConveyorAni/>
             </section>
            <img src={`${import.meta.env.BASE_URL}images/shop-banner.svg`} width="48" alt="" />
 

@@ -1,0 +1,320 @@
+@charset "UTF-8";
+/* reset CSS */
+* {
+  box-sizing: border-box;
+  /*不要家邊框及內鉅*/
+}
+
+/* reset CSS */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* 重置字體 */
+body {
+  font-family: "Noto Sans TC", sans-serif, sans-serif;
+  background: #ffffff;
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+input, select, option {
+  outline: none;
+}
+
+.shopMedicineContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 40px 60px;
+  background-color: #fff;
+}
+.shopMedicineContainer .productLeft {
+  flex: 1;
+  min-width: 300px;
+}
+.shopMedicineContainer .productLeft .productImage {
+  width: 100%;
+  border-radius: 12px;
+}
+.shopMedicineContainer .productRight {
+  flex: 1;
+  min-width: 300px;
+}
+.shopMedicineContainer .productRight .tag {
+  background-color: #3DCE94;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: #ffffff;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.shopMedicineContainer .productRight .shopTitle {
+  font-size: 36px bold;
+  margin-bottom: 15px;
+}
+.shopMedicineContainer .productRight .featureList {
+  margin-bottom: 20px;
+}
+.shopMedicineContainer .productRight .featureList li {
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #2A2324;
+}
+.shopMedicineContainer .productRight .ingredientIcons {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+  justify-content: flex-start;
+}
+.shopMedicineContainer .productRight .ingredientIcons li {
+  width: 120px;
+  height: 80px;
+}
+.shopMedicineContainer .productRight .ingredientIcons li img {
+  width: 100%;
+  height: 100%;
+}
+.shopMedicineContainer .productRight .productMedicineLink {
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #3DCE94;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  margin: 12px 0 0 12px;
+}
+.shopMedicineContainer .productRight .productMedicineLink .arrow,
+.shopMedicineContainer .productRight .productMedicineLink .text {
+  display: inline-block;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.shopMedicineContainer .productRight .productMedicineLink .arrow {
+  transform: translateX(-8px);
+  opacity: 1;
+}
+.shopMedicineContainer .productRight .productMedicineLink .text {
+  transform: translateX(-8px);
+  opacity: 1;
+}
+.shopMedicineContainer .productRight .productMedicineLink:hover .arrow {
+  transform: translateX(100px);
+  opacity: 2;
+}
+.shopMedicineContainer .productRight .productMedicineLink:hover .text {
+  transform: translateX(-20px);
+  opacity: 1;
+}
+.shopMedicineContainer .productRight .shopMedicinePrice {
+  margin-bottom: 20px;
+}
+.shopMedicineContainer .productRight .shopMedicinePrice h1 {
+  font-size: 28px;
+  color: black;
+}
+.shopMedicineContainer .productRight .shopMedicinePrice h3 {
+  font-size: 16px;
+  color: #aaa;
+  text-decoration: line-through;
+}
+.shopMedicineContainer .productRight .shopMedicinePrice p {
+  font-size: 14px;
+  color: #3DCE94;
+  background-color: #e0f5e9;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-top: 8px;
+}
+
+.shopMedicineImg {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.shopMedicineCa {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.shopMedicineCa .productImage {
+  width: 150px;
+  height: auto;
+}
+.shopMedicineCa .tag {
+  background-color: #3DCE94;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  color: #ffffff;
+}
+.shopMedicineCa .shopH2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.shopMedicineCa ul {
+  margin-top: 10px;
+}
+.shopMedicineCa ul li {
+  font-size: 14px;
+  color: #AAA6A8;
+  margin-bottom: 5px;
+}
+
+.shopMedicineTagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.shopMedicineTagList .shopLi {
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  background-color: #8FE3C1;
+  color: #2A2324;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.2;
+  justify-content: center;
+}
+.shopMedicineTagList .shopLi:nth-child(1) {
+  background-color: #8FE3C1;
+  color: #2A2324;
+}
+
+.shopMedicineCa + div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+.shopMedicineCa + div ul {
+  display: flex;
+  gap: 10px;
+}
+.shopMedicineCa + div ul li {
+  list-style-type: none;
+  width: 50px;
+  height: 50px;
+}
+.shopMedicineCa + div ul li img {
+  width: 100%;
+  height: 100%;
+}
+.shopMedicineCa + div .productMedicineLink {
+  display: flex;
+  align-items: center;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+}
+.shopMedicineCa + div .productMedicineLink .arrow {
+  margin-left: 5px;
+}
+
+.shopPrice {
+  margin-top: 20px;
+}
+.shopPrice h1 {
+  font-size: 32px;
+  color: black;
+}
+.shopPrice .originalPrice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.shopPrice .originalPrice h3 {
+  font-size: 18px;
+  color: #aaa;
+  text-decoration: line-through;
+}
+.shopPrice .originalPrice p {
+  font-size: 14px;
+  color: #3DCE94;
+  background-color: #e0f5e9;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.shopQuantity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.shopQuantity p {
+  font-size: 16px;
+}
+.shopQuantity input[type=number] {
+  width: 60px;
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+  border: 2px solid #AAA6A8;
+  border-radius: 8px;
+}
+.shopQuantity button {
+  display: flex;
+  background-color: #3DCE94;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.shopQuantity button:hover {
+  background-color: #37b683;
+}
+
+.shopMedicineShopBtn {
+  display: flex;
+  width: 500px;
+  align-items: center;
+  background-color: #ffffff;
+  color: #AAA6A8;
+  padding: 15px 20px;
+  border-color: #AAA6A8;
+  font-size: 18px;
+  margin-top: 30px;
+  justify-content: center;
+  cursor: pointer;
+}
+.shopMedicineShopBtn img {
+  width: 30px;
+  margin-right: 10px;
+}
+.shopMedicineShopBtn:hover {
+  background-color: #dcfcef;
+}

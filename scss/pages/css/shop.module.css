@@ -48,15 +48,19 @@ input, select, option {
   padding: 60px 240px;
   text-align: left;
 }
-.shopBanner_content h1,
-.shopBanner_content h3 {
+
+.shopBannerContent h1,
+.shopBannerContent h3 {
   margin: 16px auto;
 }
-.shopBanner_title {
+
+.shopBannerTitle {
   color: #3DCE94;
+  font-weight: bold;
   font-size: 6rem;
 }
-.shopBanner_subtitle {
+
+.shopBannerSubtitle {
   font-size: 1.5rem;
   font-weight: normal;
 }

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @use "../../function/reset" as *;
 @use "../../variable/var-color" as *;
 @use "../../variable/var-font" as *;
@@ -10,25 +9,26 @@
 .shopBanner {
   padding: 60px 240px;
   text-align: left;
+}
 
-  &_content {
-
-    h1,
-    h3 {
-      margin: 16px auto;
-    }
-  }
-
-  &_title {
-    color: $color-primary;
-    font-size: map-get($font-size, 5xl);
-  }
-
-  &_subtitle {
-    font-size: 1.5rem;
-    font-weight: normal;
+.shopBannerContent {
+  h1,
+  h3 {
+    margin: 16px auto;
   }
 }
+
+.shopBannerTitle {
+  color: $color-primary;
+  font-weight: bold;
+  font-size: map-get($font-size, 5xl);
+}
+
+.shopBannerSubtitle {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
 
 //商店頁btn
 .shopButton {
