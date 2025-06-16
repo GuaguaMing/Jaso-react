@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import Navbar from "../1components/Navbar";
-import NavbarHidden from "../1components/NavbarHidden";
+// import Navbar from "../1components/Navbar";
+// import NavbarHidden from "../1components/NavbarHidden";
 import './Appcart.css';
 
 import CheckoutProgress from './components/CheckoutProgress';
@@ -121,7 +121,7 @@ function AppCart() {
       {/* <Navbar /> */}
       {/* <NavbarHidden /> */}
       <div className="container py-4">
-        <div className="navbar navbar-light bg-light mb-3">
+        <div className="mb-3"style={{ height: "1.5rem", visibility: "hidden" }}>
           <div className='container-fluid'>
             <span className='navbar-brand'>結帳流程</span>
           </div>
@@ -129,13 +129,7 @@ function AppCart() {
 
         {/* 右下角購物袋浮動按鈕 */}
         <div
-          className="position-fixed"
-          style={{
-            bottom: "24px",
-            right: "24px",
-            zIndex: 9999,
-            cursor: "pointer",
-          }}
+          className="cart-float-btn"
           onClick={() => setIsCartOpen(!isCartOpen)}
         >
           <div className="position-relative">

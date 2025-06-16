@@ -87,15 +87,13 @@ body {
   display: flex;
   align-items: flex-start;
 }
-
-.bannerLogo .logo {
+.bannerLogo .bigLogo {
   width: 253px;
-  padding-top: 2rem;
+  padding-top: 2.5rem;
   align-items: flex-end;
 }
-
-.banner-logo .plus {
-  width: 60px;
+.bannerLogo .logoPlus {
+  width: 50px;
   align-items: flex-start;
 }
 
@@ -341,7 +339,7 @@ body {
   color: #3DCE94;
   text-align: center;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 150%;
   /* 按鈕/18px */
   font-family: "Noto Sans TC";
@@ -378,8 +376,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-repeat: no-repeat;
-  background-image: url(/images/chart.svg);
+}
+
+.netCanvas {
+  width: 100%;
+  height: auto;
+  display: block;
   cursor: pointer;
 }
 
@@ -424,6 +426,7 @@ body {
 }
 
 .aboutRight h1 {
+  cursor: pointer;
   color: rgba(61, 206, 148, 0.59);
   text-align: right;
   /* font-family: "Noto Sans TC"; */
@@ -433,6 +436,11 @@ body {
   font-weight: 700;
   line-height: 96%;
   /* 122.88px */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.aboutRight h1.hovered {
+  transform: scale(1.03);
+  color: #3DCE94;
 }
 
 .plus {
@@ -448,6 +456,7 @@ body {
 }
 
 .aboutBtn {
+  cursor: pointer;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -456,11 +465,10 @@ body {
   margin: 0 auto;
   transition: transform 0.3s ease;
 }
-.aboutBtn:hover p {
+.aboutBtn.hoveredBtn p {
   transform: scale(1.015);
   color: #AAA6A8;
 }
-
 .aboutBtn p {
   margin-left: 0.5rem;
   color: #3DCE94;
@@ -715,6 +723,7 @@ body {
   gap: 1rem;
   width: 100%;
   height: 100%;
+  align-items: flex-end;
 }
 
 .centerNeed {
@@ -902,14 +911,6 @@ body {
   margin-bottom: 3rem;
 }
 
-hr {
-  width: 1285px;
-  border: none;
-  height: 0;
-  background-color: #E0DDDD;
-  margin: auto;
-}
-
 .articles {
   font-family: "Noto Sans TC";
   padding: 0 5rem;
@@ -923,20 +924,26 @@ hr {
   background-size: 0% 100%;
   background-repeat: no-repeat;
   transition: background-size 0.4s ease;
-  margin: 3rem auto;
-  padding: 10px;
+  padding: 3rem 10px;
   transition: background-color 0.3s ease;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 .article:hover {
   background-color: #F5F5F5;
 }
 .article:hover .aLeft img {
   transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
 .article:hover .aRight {
-  flex-direction: row-reverse;
+  transition: transform 0.3s ease;
+  transform: translateX(30px);
   gap: 4px;
+}
+.article:hover .aRight img {
+  transition: transform 0.3s ease;
+  transform: translateX(-80px);
 }
 
 .aLeft {
@@ -970,7 +977,7 @@ hr {
 }
 
 .aCenterWord {
-  margin: 2rem auto;
+  margin: rem auto;
 }
 
 .aCenter .tags {
@@ -985,7 +992,7 @@ hr {
   line-height: 121%;
   font-size: 14px;
   border-radius: 999px;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   border: 1px solid #3DCE94;
   background: #E6FBF3;
 }
@@ -1036,6 +1043,15 @@ hr {
   align-items: center;
   border-radius: 50px;
   background: #3DCE94;
+  cursor: pointer;
+}
+.joinBtn:hover {
+  border: 3px solid #3DCE94;
+  background: var(--Neutrue-White, #FFF);
+}
+.joinBtn:hover span,
+.joinBtn:hover p {
+  color: #3DCE94;
 }
 
 .joinBtn p {
@@ -1051,113 +1067,6 @@ hr {
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 1.8px;
-}
-
-.footerBg {
-  margin: auto;
-  overflow: hidden;
-  color: var(--Neutrue-White, #FFF);
-  font-family: "Noto Sans TC";
-  background-size: cover;
-  background-color: #252527;
-  position: relative;
-  width: 100%;
-}
-
-.backToTop {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
-  position: fixed;
-  right: 130px;
-  bottom: 50px;
-  z-index: 1;
-  cursor: pointer;
-}
-
-.backToTop.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-.backToTop img {
-  width: 75px;
-  /* 設置圖標大小 */
-  padding: 0;
-  /* 去掉內邊距 */
-  border: none;
-  height: auto;
-  transition: transform 0.3s ease;
-}
-.backToTop img:hover {
-  transform: translateY(-5px);
-  /* 懸停時的輕微浮動效果 */
-}
-
-.footerGrid {
-  padding: 10rem;
-  display: grid;
-  grid-template-rows: repeat(4, 1fr);
-  grid-template-columns: 1fr;
-  gap: 4rem;
-}
-
-.footerHeading {
-  font-size: 22px;
-  font-weight: 500;
-}
-
-.footerGrid li {
-  font-size: 17.6px;
-}
-.footerGrid li a {
-  color: #ffffff;
-  font-weight: 300;
-}
-
-.footerCta {
-  width: 600px;
-}
-
-.footerTop {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20rem;
-}
-
-.footerSlogan {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.footerSlogan span {
-  font-size: 70px;
-}
-
-.footerSlogan p {
-  font-size: 20px;
-}
-
-.icon {
-  gap: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 75px;
-  padding: auto 0.5rem;
-}
-.icon a {
-  transition: transform 0.3s ease;
-}
-.icon a:hover {
-  transform: scale(1.05);
-}
-
-.copyright {
-  display: flex;
-  justify-content: center;
 }
 
 @keyframes scroll-left {

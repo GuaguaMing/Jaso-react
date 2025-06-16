@@ -49,7 +49,7 @@ export default function CartSummary({ cartItems, onNextStep, onUsePoints }) {
     const total = subtotal + shipping - usedPoints;
 
     return (
-        <div className="card shadow-sm border-0 rounded-4 mb-4">
+        <div className="cart-card shadow-sm border-0 rounded-4 mb-4">
             <div className="card-body text-end">
 
                 {/* 購物金折抵區塊 */}

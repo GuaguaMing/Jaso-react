@@ -4,3 +4,269 @@
 @use "../../function/reset";
 
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
+
+.articlePage {
+    max-width: 720px;
+    margin: auto;
+    padding: 2rem 0;
+    font-family: "Noto Sans TC";
+  
+    .title {
+      font-size: 1.75rem;
+      font-weight: bold;
+    }
+    .hashtag {
+      display: flex;
+      margin: 1rem auto;
+    }
+    
+    .tags {
+      display: flex;
+      width: fit-content;
+      margin: auto 5px;
+      padding: 5px 19px;
+      justify-content: center;
+      align-items: flex-start;
+      
+          color: #3DCE94;
+          text-align: center;
+          font-weight: 500;
+          line-height: 121%;
+      
+          font-size: 14px;
+          border-radius: 999px;
+          // background-color: #6dd6a7;
+          border: 1px solid #3DCE94;
+          background: #E6FBF3;
+      }
+  
+    .meta {
+      color: #000;
+font-family: "Noto Sans TC";
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 132%; /* 15.84px */
+letter-spacing: 1.08px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: flex-start;
+      span {
+        margin-left: 1rem;
+      }
+    }
+  
+    .intro {
+      position: relative;
+      padding-left: 1rem; 
+      border-left: 4px solid $color-primary; 
+      margin: 1.5rem 0;
+
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+  
+    .nutrients {
+      .nutrientBlock {
+        margin-bottom: 2rem;
+        p {
+          // margin-bottom: 0.5rem;
+          // line-height: 1.6;
+          // font-size: 0.95rem;
+
+          color: #000;
+          font-size: 0.95rem;
+          line-height: 1.8;
+          margin-bottom: 1rem;
+
+        }
+  
+        h2 {
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
+          color: var(--Neutrue-Dark, #2A2324);
+font-family: "Noto Sans TC";
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+letter-spacing: 1.8px;
+        }
+
+  
+        ul {
+          li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+          }
+        }
+      }
+    }
+  
+    .whySupplement {
+      background: #f4f4f4;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+  
+      h2 {
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+      }
+  
+      ul {
+        padding-left: 1.25rem;
+        li {
+          margin-bottom: 0.5rem;
+          font-size: 0.95rem;
+        }
+      }
+    }
+  
+    .note {
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 2rem;
+      font-style: italic;
+    }
+   
+  }
+  .otherPage{
+    max-width: 1200px;
+    margin: auto;
+
+  
+  .articles {
+      font-family: "Noto Sans TC";
+      // padding: 0 5rem;
+  }
+  
+  .article {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  
+      background-image: linear-gradient(to right, #F5F5F5 0%, transparent 100%);
+      background-size: 0% 100%;
+      background-repeat: no-repeat;
+      transition: background-size 0.4s ease;
+      margin: auto ;
+    padding: 3rem 0;
+
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+      transition: all 0.3s ease;
+  
+   &:hover {
+        background-color: #F5F5F5;
+
+        .aLeft img {
+            transform: scale(1.1);
+          transition: transform 0.3s ease;
+
+        }
+
+        .aRight {
+            // 也可以做整塊右區塊左右滑動（視覺上更明顯）
+          transition: transform 0.3s ease;
+
+            transform: translateX(25px);
+            gap: 4px;
+
+            img {
+          transition: transform 0.3s ease;
+
+                transform: translateX(-80px); //  箭頭往左滑
+
+            }
+        }
+
+    }
+  }
+  
+  .aLeft {
+      width: 300px;
+      height: 200px;
+      background-color: #F5F5F5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      img {
+          transition: transform 0.3s ease;
+      }
+  }
+  
+  .aCenter {
+      width: 500px;
+      padding: 0 3.5rem;
+  }
+  
+  .aCenter .title {
+      font-size: 18px;
+      margin-bottom: 1rem;
+  }
+  
+  .aCenter p {
+      font-size: 14px;
+      font-weight: $font-w-4;
+      line-height: 167%;
+      /* 20.04px */
+      letter-spacing: 1.08px;
+  }
+  
+  .aCenterWord {
+    margin: 1rem auto;
+
+  }
+  
+  .aCenter .tags {
+  display: flex;
+  width: fit-content;
+  padding: 5px 19px;
+  justify-content: center;
+  align-items: flex-start;
+  
+      color: #3DCE94;
+      text-align: center;
+      font-weight: 500;
+      line-height: 121%;
+  
+      font-size: 14px;
+      border-radius: 999px;
+      // background-color: #6dd6a7;
+    margin-top: 0.5rem;
+
+      border: 1px solid #3DCE94;
+      background: #E6FBF3;
+  }
+  
+  .aRight {
+      height: 24px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+  
+      font-size: 13px;
+      font-weight: $font-w-7;
+      line-height: 173%;
+      color: $color-primary;
+      font-size: 14px;
+      transition: all 0.3s ease;
+  
+      img {
+          width: 12px;
+          height: 12px;
+  
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-left: 10px;
+      }
+  }
+  
+  }
+
+  

@@ -49,21 +49,17 @@ body {
     display: flex;
     align-items: flex-start;
 
+    .bigLogo {
+        width: 253px;
+        padding-top: 2.5rem;
+        align-items: flex-end;
+    }
+
+    .logoPlus {
+        width: 50px;
+        align-items: flex-start;
+    }
 }
-
-.bannerLogo .logo {
-    width: 253px;
-    padding-top: 2rem;
-    align-items: flex-end;
-
-
-}
-
-.banner-logo .plus {
-    width: 60px;
-    align-items: flex-start;
-}
-
 
 .line2 {
     display: flex;
@@ -154,13 +150,15 @@ body {
     cursor: pointer;
 
     &:hover {
-    width: 1216px;
+        width: 1216px;
 
-        .content{
-      animation-play-state: paused;
+        .content {
+            animation-play-state: paused;
 
-        };
-        
+        }
+
+        ;
+
     }
 
 }
@@ -202,19 +200,21 @@ body {
         margin-left: 10px;
     }
 }
-.updateContent{
+
+.updateContent {
     max-width: 900px;
     width: 100%;
     position: relative;
     overflow: hidden;
     z-index: 0;
 }
+
 .content {
     font-family: "Noto Sans TC";
     width: fit-content;
     overflow: visible;
-    
-    
+
+
     position: relative;
     white-space: nowrap;
     /* 不換行 */
@@ -227,10 +227,10 @@ body {
     animation: scroll-left 12s linear infinite; // <--- 變慢：從 10s 改為 30s
 
     &:hover {
-      animation-play-state: paused;
+        animation-play-state: paused;
     }
-  
-  
+
+
 
 }
 
@@ -295,6 +295,7 @@ body {
     z-index: 1;
 }
 
+
 .calc {
     display: flex;
     flex-direction: column;
@@ -335,16 +336,16 @@ body {
     color: $color-primary;
     text-align: center;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 150%;
 
-/* 按鈕/18px */
-font-family: "Noto Sans TC";
-font-size: 18px;
-border: none;
+    /* 按鈕/18px */
+    font-family: "Noto Sans TC";
+    font-size: 18px;
+    border: none;
     border-radius: 25px;
-background: #FFF;
-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
     width: 133px;
     height: 38px;
@@ -354,8 +355,8 @@ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
         color: #FFF;
         border: none;
         border-radius: 25px;
-background-color: #3DCE94;
-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+        background-color: #3DCE94;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     }
 
 }
@@ -376,10 +377,19 @@ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-repeat: no-repeat;
-    background-image: url(/images/chart.svg);
-    cursor: pointer;
+    // background-repeat: no-repeat;
+    // background-image: url(/images/chart.svg);
 }
+
+// 六角動來動去怪物
+.netCanvas {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: pointer;
+
+}
+
 
 .about {
 
@@ -426,6 +436,7 @@ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
 .aboutRight h1 {
+    cursor: pointer;
     color: rgba(61, 206, 148, 0.59);
     text-align: right;
     /* font-family: "Noto Sans TC"; */
@@ -436,13 +447,20 @@ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     font-weight: 700;
     line-height: 96%;
     /* 122.88px */
+    transition: transform 0.3s ease, color 0.3s ease;
+
+    &.hovered {
+        transform: scale(1.03);
+        color: $color-primary;
+    }
 }
+
 .plus {
     transition: transform 0.3s ease;
 
     &:hover {
-                  transform: scale(1.05);
-      animation: tiltRight 0.3s forwards;
+        transform: scale(1.05);
+        animation: tiltRight 0.3s forwards;
     }
 
 }
@@ -453,6 +471,7 @@ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
 .aboutBtn {
+    cursor: pointer;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -461,30 +480,36 @@ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     margin: 0 auto;
     transition: transform 0.3s ease;
 
+    &.hoveredBtn p {
+        transform: scale(1.015);
+        // color: $color-primary;
 
-    &:hover p{
-    transform: scale(1.015);
 
-      
         color: $color-gray;
+    }
+
+    // &:hover p{
+
+    // }
+    p {
+        margin-left: 0.5rem;
+        // color: rgba(61, 206, 148, 0.59);
+
+        color: $color-primary;
+        font-family: "Noto Sans TC";
+
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 186%;
+        /* 37.2px */
+        letter-spacing: 1px;
     }
 }
 
 
 
 
-.aboutBtn p {
-    margin-left: 0.5rem;
-    color: $color-primary;
-    font-family: "Noto Sans TC";
-
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 186%;
-    /* 37.2px */
-    letter-spacing: 1px;
-}
 
 .pTitle {
     max-width: 1440px;
@@ -700,13 +725,14 @@ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     z-index: 2;
     position: relative;
     cursor: pointer;
-    
 
 
-    
+
+
 
 }
-.centerCorner{
+
+.centerCorner {
     cursor: pointer;
     position: absolute;
     bottom: 0%;
@@ -715,10 +741,11 @@ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     width: 60px;
     height: 60px;
     background-size: cover;
-background-image: url(../../../public/images/icons/btn-shop.svg);
-&:hover {
-background-image: url(../../../public/images/icons/btn-shop-hover.svg);
-}
+    background-image: url(../../../public/images/icons/btn-shop.svg);
+
+    &:hover {
+        background-image: url(../../../public/images/icons/btn-shop-hover.svg);
+    }
 }
 
 
@@ -731,7 +758,8 @@ background-image: url(../../../public/images/icons/btn-shop-hover.svg);
     transition: transform 0.3s ease;
 
     &:hover {
-                  transform: scale(1.05);}
+        transform: scale(1.05);
+    }
 }
 
 .centerBottom {
@@ -740,6 +768,7 @@ background-image: url(../../../public/images/icons/btn-shop-hover.svg);
     gap: 1rem;
     width: 100%;
     height: 100%;
+    align-items: flex-end;
 }
 
 .centerNeed {
@@ -810,7 +839,8 @@ background-image: url(../../../public/images/icons/btn-shop-hover.svg);
     display: inline-block;
     font-family: "Noto Sans TC";
     z-index: 1;
-    p{
+
+    p {
         position: relative;
         z-index: 99;
     }
@@ -917,13 +947,15 @@ background-image: url(../../../public/images/icons/btn-shop-hover.svg);
     border: 1px solid $color-primary;
     background: $color-primary;
     cursor: pointer;
+
     &:hover {
-        span{
+        span {
             color: $color-primary;
 
         }
-border: 3px solid $color-primary;
-background: var(--Neutrue-White, #FFF);
+
+        border: 3px solid $color-primary;
+        background: var(--Neutrue-White, #FFF);
     }
 }
 
@@ -947,14 +979,6 @@ background: var(--Neutrue-White, #FFF);
     margin-bottom: 3rem;
 }
 
-hr {
-    width: 1285px;
-    border: none;
-    height: 0;
-    background-color: #E0DDDD;
-    margin: auto;
-}
-
 .articles {
     font-family: "Noto Sans TC";
     padding: 0 5rem;
@@ -969,22 +993,35 @@ hr {
     background-size: 0% 100%;
     background-repeat: no-repeat;
     transition: background-size 0.4s ease;
-    margin: 3rem auto;
-    padding: 10px;
+    padding: 3rem 10px;
     transition: background-color 0.3s ease;
     cursor: pointer;
+    transition: all 0.3s ease;
 
     &:hover {
         background-color: #F5F5F5;
 
         .aLeft img {
             transform: scale(1.1);
+          transition: transform 0.3s ease;
+
         }
 
         .aRight {
-            flex-direction: row-reverse;
+            // 也可以做整塊右區塊左右滑動（視覺上更明顯）
+          transition: transform 0.3s ease;
+
+            transform: translateX(30px);
             gap: 4px;
+
+            img {
+          transition: transform 0.3s ease;
+
+                transform: translateX(-80px); //  箭頭往左滑
+
+            }
         }
+
     }
 }
 
@@ -1020,15 +1057,15 @@ hr {
 }
 
 .aCenterWord {
-    margin: 2rem auto;
+    margin: rem auto;
 }
 
 .aCenter .tags {
-display: flex;
-width: fit-content;
-padding: 5px 19px;
-justify-content: center;
-align-items: flex-start;
+    display: flex;
+    width: fit-content;
+    padding: 5px 19px;
+    justify-content: center;
+    align-items: flex-start;
 
     color: #3DCE94;
     text-align: center;
@@ -1038,7 +1075,7 @@ align-items: flex-start;
     font-size: 14px;
     border-radius: 999px;
     // background-color: #6dd6a7;
-    margin-top: 2rem;
+    margin-top: 0.5rem;
     border: 1px solid #3DCE94;
     background: #E6FBF3;
 }
@@ -1076,6 +1113,7 @@ align-items: flex-start;
     justify-content: center;
 
 
+
 }
 
 .loginCta h3 {
@@ -1094,6 +1132,19 @@ align-items: flex-start;
     align-items: center;
     border-radius: 50px;
     background: $color-primary;
+    cursor: pointer;
+
+    &:hover {
+
+        span,
+        p {
+            color: $color-primary;
+
+        }
+
+        border: 3px solid $color-primary;
+        background: var(--Neutrue-White, #FFF);
+    }
 }
 
 .joinBtn p {
@@ -1112,141 +1163,145 @@ align-items: flex-start;
 }
 
 
-.footerBg {
-    margin: auto;
-    overflow: hidden;
-    color: var(--Neutrue-White, #FFF);
-    font-family: "Noto Sans TC";
-    background-size: cover;
-    background-color: #252527;
-    position: relative;
-    width: 100%;
-}
+// .footerBg {
+//     margin: auto;
+//     overflow: hidden;
+//     color: var(--Neutrue-White, #FFF);
+//     font-family: "Noto Sans TC";
+//     background-size: cover;
+//     background-color: #252527;
+//     position: relative;
+//     width: 100%;
+// }
 
 
 
-.backToTop {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-    position: fixed;
-    right: 130px;
-    bottom: 50px;
-    z-index: 1;
-    cursor: pointer;
-}
+// .backToTop {
+//     opacity: 0;
+//     visibility: hidden;
+//     transition: opacity 0.5s ease, visibility 0.5s ease;
+//     position: fixed;
+//     right: 130px;
+//     bottom: 50px;
+//     z-index: 1;
+//     cursor: pointer;
+// }
 
-.backToTop.show {
-    opacity: 1;
-    visibility: visible;
-}
+// .backToTop.show {
+//     opacity: 1;
+//     visibility: visible;
+// }
 
-.backToTop img {
-    width: 75px;
-    /* 設置圖標大小 */
-    padding: 0;
-    /* 去掉內邊距 */
-    border: none;
-    height: auto;
-    transition: transform 0.3s ease;
+// .backToTop img {
+//     width: 75px;
+//     /* 設置圖標大小 */
+//     padding: 0;
+//     /* 去掉內邊距 */
+//     border: none;
+//     height: auto;
+//     transition: transform 0.3s ease;
 
-    &:hover {
-        transform: translateY(-5px);
-        /* 懸停時的輕微浮動效果 */
-    }
-}
+//     &:hover {
+//         transform: translateY(-5px);
+//         /* 懸停時的輕微浮動效果 */
+//     }
+// }
 
 
-.footerGrid {
-    padding: 10rem;
-    // width: 10rem;
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: 1fr;
-    gap: 4rem;
-}
+// .footerGrid {
+//     padding: 10rem;
+//     // width: 10rem;
+//     display: grid;
+//     grid-template-rows: repeat(4, 1fr);
+//     grid-template-columns: 1fr;
+//     gap: 4rem;
+// }
 
-.footerHeading {
-    font-size: 22px;
-    font-weight: 500;
+// .footerHeading {
+//     font-size: 22px;
+//     font-weight: 500;
 
-}
+// }
 
-.footerGrid li {
-    font-size: 17.6px;
+// .footerGrid li {
+//     font-size: 17.6px;
 
-    a {
-        color: $color-white;
-        font-weight: $font-w-3;
+//     a {
+//         color: $color-white;
+//         font-weight: $font-w-3;
 
-    }
-}
+//     }
+// }
 
-.footerCta {
-    width: 600px;
-}
+// .footerCta {
+//     width: 600px;
+// }
 
-.footerTop {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20rem;
-}
+// .footerTop {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     gap: 20rem;
+// }
 
-.footerSlogan {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+// .footerSlogan {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
 
-.footerSlogan span {
-    font-size: 70px;
-}
+// .footerSlogan span {
+//     font-size: 70px;
+// }
 
-.footerSlogan p {
-    font-size: 20px;
-}
+// .footerSlogan p {
+//     font-size: 20px;
+// }
 
-.icon {
-    gap: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 75px;
-    padding: auto 0.5rem;
-a{
-    transition: transform 0.3s ease;
+// .icon {
+//     gap: 1rem;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     width: 75px;
+//     padding: auto 0.5rem;
+// a{
+//     transition: transform 0.3s ease;
 
-    &:hover {
-                  transform: scale(1.05);
+//     &:hover {
+//                   transform: scale(1.05);
 
-}
-}
-}
+// }
+// }
+// }
 
-.copyright {
-    display: flex;
-    justify-content: center;
-}
+// .copyright {
+//     display: flex;
+//     justify-content: center;
+// }
 // hover前排搖滾：
 // 跑馬燈
 @keyframes scroll-left {
     0% {
-      transform: translateX(80%);
+        transform: translateX(80%);
     }
+
     100% {
-      transform: translateX(-100%);
+        transform: translateX(-100%);
     }
-  }
+}
+
 // ＋往右傾斜
 @keyframes tiltRight {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
+
     100% {
-      transform: rotate(15deg);
+        transform: rotate(15deg);
     }
-  }
+}
+
 // RWD忽胖忽瘦
 @media (max-width: 1440px) {
 

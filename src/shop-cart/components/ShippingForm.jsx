@@ -62,7 +62,7 @@ function ShippingForm({ onNextStep, setFormData }) {
                     />
                 </div>
                 <div className="col-12">
-                    <label className="form-labe">
+                    <label className="form-label">
                         <div className="d-flex align-items-center" style={{ gap: '6px' }}>
                         <img src="./images/icons/icon-shipping.svg" alt="送貨方式"style={{ width: '20px', height: '20px' }}  />
                         <span>送貨方式</span>

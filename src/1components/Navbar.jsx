@@ -33,7 +33,11 @@ export default function Navbar() {
         {/* 左側 logo 首頁不顯示 */}
         {!isHome && (
           <div className={styles.navLeft}>
-            <a href="/"><img src="./assets/nav-logo.svg" alt="Jaso Logo" className="navbarLogo" /></a>
+                    <a className={styles.navbarLogo}>
+                      <Link to="/">
+                        <img src={`${import.meta.env.BASE_URL}assets/nav-logo.svg`} alt="JasoLogo" />
+                      </Link>
+                    </a>
           </div>
         )}
 
@@ -63,7 +67,7 @@ export default function Navbar() {
           {isLoggedIn && (
 <div className={styles.shopIcon}>
   <Link to="/cart">
-              <img src="./assets/shop-list.svg" alt="" /></Link> 
+              <img src={`${import.meta.env.BASE_URL}assets/shop-list.svg`} alt="" /></Link> 
             </div>
               
           )}

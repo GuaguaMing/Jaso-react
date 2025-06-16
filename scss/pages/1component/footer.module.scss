@@ -56,6 +56,15 @@
     align-items: center;
     border-radius: 50px;
     background: $color-primary;
+    cursor: pointer;
+    &:hover {
+        span, p {
+            color: $color-primary;
+
+        }
+border: 3px solid $color-primary;
+background: var(--Neutrue-White, #FFF);
+    }
 }
 
 .joinBtn p {
@@ -158,7 +167,8 @@
 .footerSlogan {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
+    gap: 1rem;
 }
 
 .footerSlogan span {
@@ -174,9 +184,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 75px;
-    padding: auto 0.5rem;
-a{
+
+a{   
+
+    img {
+    width: 50px;
+
+    }
     transition: transform 0.3s ease;
 
     &:hover {
