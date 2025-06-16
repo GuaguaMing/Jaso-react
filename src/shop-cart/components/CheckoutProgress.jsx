@@ -6,7 +6,7 @@ export default function CheckoutProgress({ step }) {
   return (
     <div className="d-flex justify-content-between align-items-center mb-4">
       {steps.map((label, i) => (
-        <div key={i} className="text-center flex-fill">
+        <div key={i} className="text-center checkout-step">
           <div
             className={`rounded-circle mx-auto mb-1 d-flex align-items-center justify-content-center ${
               i < step ? '' : 'bg-light border'

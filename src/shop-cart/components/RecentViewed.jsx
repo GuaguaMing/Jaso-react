@@ -14,7 +14,7 @@ export default function RecentViewed({
   const scrollRight = () => scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
 
   return (
-    <div className="card shadow-sm border-0 rounded-4 mb-4 position-relative">
+    <div className="cart-card shadow-sm border-0 rounded-4 mb-4 position-relative">
       <div className="card-header bg-white">
         <h5 className="mb-0">最近瀏覽商品</h5>
       </div>
@@ -49,7 +49,7 @@ export default function RecentViewed({
 
           return (
             <div
-              className="card border-0 shadow-sm d-flex flex-column"
+              className="cart-card border-0 shadow-sm d-flex flex-column"
               key={product.id}
               style={{ minWidth: 200, height: "100%" }}
             >
