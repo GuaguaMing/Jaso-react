@@ -20,8 +20,15 @@ export default function AppGuide() {
       <section className="vege-library">
         <div className="vege-header">
           <h1 className="vege-title">
-            素 <span className="plus">＋</span>
-            食庫
+            <span className="vege-line">
+              素
+              <img
+                src={`${import.meta.env.BASE_URL}images/icons/pluss.svg`}
+                alt="plus icon"
+                className="plus-icon"
+              />
+            </span>
+            <span className="vege-line">食庫</span>
           </h1>
           <div className="vege-text">
             <h3>六大營養素</h3>

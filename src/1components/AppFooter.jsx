@@ -31,33 +31,33 @@ export default function AppFooter() {
                     <div>
                         <p className={styles.footerHeading}>認識JASO+素</p>
                         <ul>
-                            <li><a href="faq.html">關於我們</a></li>
-                            <li><a href="faq.html">活動資訊</a></li>
-                            <li><a href="faq.html">最新消息</a></li>
+                            <li><a href="AppFaq.jsx">關於我們</a></li>
+                            <li><a href="AppFaq.jsx">活動資訊</a></li>
+                            <li><a href="AppFaq.jsx">最新消息</a></li>
                         </ul>
                     </div>
 
                     <div>
                         <p className={styles.footerHeading}>購物須知</p>
                         <ul>
-                            <li><a href="faq.html">如何訂購</a></li>
-                            <li><a href="faq.html">退換政策</a></li>
+                            <li><a href="AppFaq.jsx">如何訂購</a></li>
+                            <li><a href="AppFaq.jsx">退換政策</a></li>
                         </ul>
                     </div>
 
                     <div>
                         <p className={styles.footerHeading}>客戶須知</p>
                         <ul>
-                            <li><a href="faq.html">服務條款</a></li>
-                            <li><a href="faq.html">隱私權政策</a></li>
+                            <li><a href="AppFaq.jsx">服務條款</a></li>
+                            <li><a href="AppFaq.jsx">隱私權政策</a></li>
                         </ul>
                     </div>
 
                     <div>
                         <p className={styles.footerHeading}>客服中心</p>
                         <ul>
-                            <li><a href="faq.html">線上客服</a></li>
-                            <li><a href="faq.html">常見問題</a></li>
+                            <li><a href="AppFaq.jsx">線上客服</a></li>
+                            <li><a href="AppFaq.jsx">常見問題</a></li>
                         </ul>
                     </div>
                 </div>

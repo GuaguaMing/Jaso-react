@@ -17,7 +17,7 @@ import AppShop from "./shop/AppShop";
 import AppAbout from "./about/AppAbout";
 import AppCart from "./shop-cart/AppCart";
 import OrderSuccess from './shop-cart/components/OrderSuccess';
-
+import AppFaq from "./faq/AppFaq";
 import Layout from './1components/Layout'; //首頁＋footer
 
 
@@ -48,6 +48,7 @@ function App() {
                     <Route path="/cart" element={<AppCart />} />
                     <Route path="/result" element={<Result />} />
                     <Route path="/cart/success" element={<OrderSuccess />} />
+                    <Route path="/faq" element={<AppFaq />} />
                 </Route>
             </Routes>
     );
