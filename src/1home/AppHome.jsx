@@ -12,7 +12,7 @@ const productData = [
     speech: '自從吃素後感覺體力變差，運動完還一直肌肉痠痛？',
     name: '維生素超群膠囊',
     subtitle: '植萃綜合維他命配方',
-    description: '素食飲食可能缺乏的關鍵營養素，如B群、鐵、鋅與維生素D。這些營養素對能量代謝',
+    description: '素食飲食可能缺乏的關鍵營養素。',
     color: '#FFE4B5'
   },
   {
