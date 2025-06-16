@@ -1,19 +1,62 @@
-import React from "react";
-import '../../css/style.min.css';
-import '../main.css';
-import '../../scss/pages/FAQ/Appfaq.css';
+import React, { useState, useEffect, useRef } from "react";
+import "../../css/style.min.css";
+import "../main.css";
+import "../../scss/pages/FAQ/Appfaq.css";
 
 export default function AppFaq() {
+  const [activeTab, setActiveTab] = useState("terms");
+  const [isStickyStopped, setIsStickyStopped] = useState(false);
+  const sidebarRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sidebar = sidebarRef.current;
+      const footer = document.querySelector("footer");
+      if (!sidebar || !footer) return;
+
+      const sidebarBottom = sidebar.getBoundingClientRect().bottom;
+      const footerTop = footer.getBoundingClientRect().top;
+
+      if (sidebarBottom + 40 > footerTop) {
+        setIsStickyStopped(true);
+      } else {
+        setIsStickyStopped(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="policy-container">
       {/* 側邊導覽 */}
-      <aside className="policy-sidebar">
+      <aside
+        className={`policy-sidebar ${isStickyStopped ? "stopped" : ""}`}
+        ref={sidebarRef}
+      >
         <ul>
-          <li className="active"><a href="#terms">服務條款</a></li>
-          <li><a href="#privacy">隱私權政策</a></li>
-          <li><a href="#faq">常見問題</a></li>
+          <li
+            className={activeTab === "terms" ? "active" : ""}
+            onClick={() => setActiveTab("terms")}
+          >
+            <a href="#terms">服務條款</a>
+          </li>
+          <li
+            className={activeTab === "privacy" ? "active" : ""}
+            onClick={() => setActiveTab("privacy")}
+          >
+            <a href="#privacy">隱私權政策</a>
+          </li>
+          <li
+            className={activeTab === "faq" ? "active" : ""}
+            onClick={() => setActiveTab("faq")}
+          >
+            <a href="#faq">常見問題</a>
+          </li>
         </ul>
       </aside>
+
 
       {/* 主文區塊 */}
       <main className="policy-content">

@@ -5,6 +5,8 @@ body {
   background-color: #fff;
 }
 
+
+
 .policy-container {
   display: flex;
   max-width: 1200px;
@@ -13,19 +15,30 @@ body {
   gap: 60px;
   box-sizing: border-box;
   align-items: flex-start;
+
+  /* 加入這段來保留 sidebar 空間 */
+  padding-left: 240px;
+  /* sidebar 寬度 160px + 左側間距 60px + buffer */
 }
 
 .policy-sidebar {
-  position: sticky;
-  top: 120px;
+  position: fixed;
+  top: 300px;
+  left: 300px;
   width: 160px;
-  height: fit-content;
   background: #fff;
   border-radius: 25px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 8px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+}
+
+.policy-sidebar.stopped {
+  position: absolute !important;
+  top: auto;
+  bottom: 40px;
 }
 
 .policy-sidebar ul {

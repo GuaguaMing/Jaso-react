@@ -10,39 +10,39 @@ export default function AppHome() {
 
     const navigate = useNavigate();
     const [showBackToTop, setShowBackToTop] = useState(false);
-      const [isHovered, setIsHovered] = useState(false);
-      const [hovered, setHovered] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
+    const [hovered, setHovered] = useState(false);
     const chartRef = useRef(null);
     // hr
     const CustomHR = () => {
         return (
-          <svg xmlns="http://www.w3.org/2000/svg" width="1285" height="2" viewBox="0 0 1285 2" fill="none">
-            <path d="M0 1.5H1285" stroke="#E0DDDD" strokeWidth="1"/>
-          </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="1285" height="2" viewBox="0 0 1285 2" fill="none">
+                <path d="M0 1.5H1285" stroke="#E0DDDD" strokeWidth="1" />
+            </svg>
         );
-      };
-  
+    };
+
     // 處理 hover 狀態變化
     const handleHoverChange = (hovered) => {
-      setIsHovered(hovered);
+        setIsHovered(hovered);
     };
-  
+
     // 按鈕 hover 事件
     const handleButtonMouseEnter = () => {
-      setIsHovered(true);
-      if (chartRef.current) {
-        chartRef.current.setHoverState(true);
-      }
+        setIsHovered(true);
+        if (chartRef.current) {
+            chartRef.current.setHoverState(true);
+        }
     };
-  
+
     const handleButtonMouseLeave = () => {
-      setIsHovered(false);
-      if (chartRef.current) {
-        chartRef.current.setHoverState(false);
-      }
+        setIsHovered(false);
+        if (chartRef.current) {
+            chartRef.current.setHoverState(false);
+        }
     };
-  
-    
+
+
 
     useEffect(() => {
 
@@ -62,9 +62,9 @@ export default function AppHome() {
                     <div className={styles.bannerLeft}>
                         <div className={styles.line1}>
                             <div className={styles.bannerLogo}>
-                        <img className={styles.bigLogo} src={`${import.meta.env.BASE_URL}images/logo-banner.svg`} alt="LogoBanner" />
-                        <img className={styles.logoPlus} src={`${import.meta.env.BASE_URL}images/plus.svg`} alt="" />
-                    
+                                <img className={styles.bigLogo} src={`${import.meta.env.BASE_URL}images/logo-banner.svg`} alt="LogoBanner" />
+                                <img className={styles.logoPlus} src={`${import.meta.env.BASE_URL}images/plus.svg`} alt="" />
+
                             </div>
                             <h3>是專為素食者</h3>
                         </div>
@@ -87,11 +87,11 @@ export default function AppHome() {
                         <div className={styles.updateLeft} onClick={() => navigate('/article')}>
                             <div className={styles.fixed}>Update | </div>
                             <div className={styles.updateContent}>
-                            <div className={styles.content}>
-                                最新文章：挑選素食保健品前你必須知道的五件事!
-                                不是 Vegan 標籤就安心？看懂產品才不踩雷
-                                新手素食者最常缺的營養素...
-                            </div>
+                                <div className={styles.content}>
+                                    最新文章：挑選素食保健品前你必須知道的五件事!
+                                    不是 Vegan 標籤就安心？看懂產品才不踩雷
+                                    新手素食者最常缺的營養素...
+                                </div>
                             </div>
                         </div>
                         <div className={styles.updateRight}>more</div>
@@ -111,22 +111,22 @@ export default function AppHome() {
                                     計算出每日所需營養素，透過專業分析提供你完整報告
                                 </p>
                                 {/* <button className={styles.calcBtn} onClick={() => navigate('/quiz')}> */}
-                                <button 
-                className={`${styles.calcBtn} ${isHovered ? styles.calcBtnHovered : ''}`}
-                onClick={() => navigate('/quiz')}                
-                onMouseEnter={handleButtonMouseEnter}
-                onMouseLeave={handleButtonMouseLeave}>
+                                <button
+                                    className={`${styles.calcBtn} ${isHovered ? styles.calcBtnHovered : ''}`}
+                                    onClick={() => navigate('/quiz')}
+                                    onMouseEnter={handleButtonMouseEnter}
+                                    onMouseLeave={handleButtonMouseLeave}>
                                     馬上素算
                                 </button>
                             </div>
                         </div>
                         <div className={styles.chartRight}>
-                        <div className={styles.netWrapper}>
-                        <AnimatedRadarChart 
-                ref={chartRef}
-                onHoverChange={handleHoverChange}
-              />
-  </div>
+                            <div className={styles.netWrapper}>
+                                <AnimatedRadarChart
+                                    ref={chartRef}
+                                    onHoverChange={handleHoverChange}
+                                />
+                            </div>
                             {/* <div className={styles.netWrapper} onClick={() => navigate('/quiz')}></div> */}
                         </div>
                     </div>
@@ -137,13 +137,16 @@ export default function AppHome() {
                 <div className={styles.aboutAll}>
                     <div className={styles.aboutContent}>
                         <div className={styles.aboutLeft}>
-                            <img src={`${import.meta.env.BASE_URL}images/logo-big.svg`} alt="" />
+                            <Link to="/about" onClick={() => navigate('/about')}>
+                                <img src={`${import.meta.env.BASE_URL}images/logo-big.svg`} alt="" />
+                            </Link>
                         </div>
-                        <div className={styles.aboutRight }
-                                onMouseEnter={() => setHovered(true)}
-                                onMouseLeave={() => setHovered(false)}
-                        >
-                            <h1 className={hovered ? styles.hovered : ""}  onClick={() => navigate('/about')}>ABOUT<br />US</h1>
+                        <div className={styles.aboutRight}
+                            onMouseEnter={() => setHovered(true)}
+                            onMouseLeave={() => setHovered(false)}
+                        > <Link to="/about" onClick={() => navigate('/about')}>
+                                <h1 className={hovered ? styles.hovered : ""} onClick={() => navigate('/about')}>ABOUT<br />US</h1>
+                            </Link>
                             <p>
                                 JASO+ 音讀作台語發音"呷素"來自一群對「純淨健康」的堅持<br />
                                 與素食生活熱愛的人。
@@ -151,14 +154,14 @@ export default function AppHome() {
                         </div>
                     </div>
                     <div className={`${styles.aboutBtn} ${hovered ? styles.hoveredBtn : ""}`} onClick={() => navigate('/about')}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}>
-                 
-            <img
-            src={`${import.meta.env.BASE_URL}images/${hovered ? 'plus-gray.svg' : 'plus.svg'}`}
-            style={{ width: '17.5px', height: '17.5px', marginLeft: '0.5rem' }}
-            alt="aboutUs" />
-              
+                        onMouseEnter={() => setHovered(true)}
+                        onMouseLeave={() => setHovered(false)}>
+
+                        <img
+                            src={`${import.meta.env.BASE_URL}images/${hovered ? 'plus-gray.svg' : 'plus.svg'}`}
+                            style={{ width: '17.5px', height: '17.5px', marginLeft: '0.5rem' }}
+                            alt="aboutUs" />
+
                         <p>VIEW ABOUT US</p>
                     </div>
                 </div>
@@ -185,7 +188,7 @@ export default function AppHome() {
                         </div>
                     </div>
                     <div className={styles.teamRight}>
-                        <img  src={`${import.meta.env.BASE_URL}images/chengDoc.svg`} alt="" className={styles.doc2} />
+                        <img src={`${import.meta.env.BASE_URL}images/chengDoc.svg`} alt="" className={styles.doc2} />
                         <div className={styles.intro1}>
                             <img className={styles.plus} src={`${import.meta.env.BASE_URL}images/plus.svg`} style={{ width: '33.272px', height: '33.272px' }} alt="" />
                             <div className={styles.intro}>
@@ -257,9 +260,9 @@ export default function AppHome() {
                         <span>查看更多</span>
                     </div>
                 </div>
-                
+
                 <div className={styles.articles}>
-                <CustomHR />
+                    <CustomHR />
                     <div className={styles.article} onClick={() => navigate('/article1')}>
                         <div className={styles.aLeft}>
                             <img src={`${import.meta.env.BASE_URL}images/logo.svg`} style={{ width: '120px' }} alt="" />
@@ -281,12 +284,12 @@ export default function AppHome() {
                         <div className={styles.aLeft}>
                             <img src={`${import.meta.env.BASE_URL}images/logo.svg`} style={{ width: '120px' }} alt="" />
                         </div>
-                        <div className={styles.aCenter}>                        
+                        <div className={styles.aCenter}>
                             <div className={styles.aCenterWord}>
-                            <p className={styles.title}>新手素食者最常缺的營養素，你補對了嗎？</p>
-                            <p>專為剛轉素或彈性素食者設計，轉素初期最容易缺乏的營養</p>
-                            <p>如何從日常食材與保健品中補足，同時介紹外食族也方便攝取的懶人素食營養補充包。</p>
-                        </div><span className={styles.tags}>新手必看</span>
+                                <p className={styles.title}>新手素食者最常缺的營養素，你補對了嗎？</p>
+                                <p>專為剛轉素或彈性素食者設計，轉素初期最容易缺乏的營養</p>
+                                <p>如何從日常食材與保健品中補足，同時介紹外食族也方便攝取的懶人素食營養補充包。</p>
+                            </div><span className={styles.tags}>新手必看</span>
                         </div>
                         <div className={styles.aRight}>MORE<img src={`${import.meta.env.BASE_URL}images/arrow.svg`} alt="" /></div>
                     </div>
@@ -319,7 +322,7 @@ export default function AppHome() {
                 </button>
             </div>
 
-            
+
         </>
     );
 }
