@@ -48,11 +48,13 @@ body {
 .bannerLogo {
     display: flex;
     align-items: flex-start;
+
     .bigLogo {
         width: 253px;
         padding-top: 2.5rem;
         align-items: flex-end;
     }
+
     .logoPlus {
         width: 50px;
         align-items: flex-start;
@@ -148,13 +150,15 @@ body {
     cursor: pointer;
 
     &:hover {
-    width: 1216px;
+        width: 1216px;
 
-        .content{
-      animation-play-state: paused;
+        .content {
+            animation-play-state: paused;
 
-        };
-        
+        }
+
+        ;
+
     }
 
 }
@@ -196,19 +200,21 @@ body {
         margin-left: 10px;
     }
 }
-.updateContent{
+
+.updateContent {
     max-width: 900px;
     width: 100%;
     position: relative;
     overflow: hidden;
     z-index: 0;
 }
+
 .content {
     font-family: "Noto Sans TC";
     width: fit-content;
     overflow: visible;
-    
-    
+
+
     position: relative;
     white-space: nowrap;
     /* 不換行 */
@@ -221,10 +227,10 @@ body {
     animation: scroll-left 12s linear infinite; // <--- 變慢：從 10s 改為 30s
 
     &:hover {
-      animation-play-state: paused;
+        animation-play-state: paused;
     }
-  
-  
+
+
 
 }
 
@@ -333,13 +339,13 @@ body {
     font-weight: 500;
     line-height: 150%;
 
-/* 按鈕/18px */
-font-family: "Noto Sans TC";
-font-size: 18px;
-border: none;
+    /* 按鈕/18px */
+    font-family: "Noto Sans TC";
+    font-size: 18px;
+    border: none;
     border-radius: 25px;
-background: #FFF;
-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
     width: 133px;
     height: 38px;
@@ -349,8 +355,8 @@ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
         color: #FFF;
         border: none;
         border-radius: 25px;
-background-color: #3DCE94;
-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+        background-color: #3DCE94;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     }
 
 }
@@ -374,6 +380,7 @@ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     // background-repeat: no-repeat;
     // background-image: url(/images/chart.svg);
 }
+
 // 六角動來動去怪物
 .netCanvas {
     width: 100%;
@@ -381,8 +388,8 @@ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     display: block;
     cursor: pointer;
 
-  }
-  
+}
+
 
 .about {
 
@@ -443,16 +450,17 @@ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     transition: transform 0.3s ease, color 0.3s ease;
 
     &.hovered {
-      transform: scale(1.03);
-      color: $color-primary;
+        transform: scale(1.03);
+        color: $color-primary;
     }
 }
+
 .plus {
     transition: transform 0.3s ease;
 
     &:hover {
-                  transform: scale(1.05);
-      animation: tiltRight 0.3s forwards;
+        transform: scale(1.05);
+        animation: tiltRight 0.3s forwards;
     }
 
 }
@@ -476,19 +484,20 @@ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
         transform: scale(1.015);
         // color: $color-primary;
 
-      
+
         color: $color-gray;
-      }
+    }
+
     // &:hover p{
-    
+
     // }
     p {
         margin-left: 0.5rem;
-    // color: rgba(61, 206, 148, 0.59);
+        // color: rgba(61, 206, 148, 0.59);
 
         color: $color-primary;
         font-family: "Noto Sans TC";
-    
+
         font-size: 20px;
         font-style: normal;
         font-weight: 700;
@@ -716,13 +725,14 @@ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     z-index: 2;
     position: relative;
     cursor: pointer;
-    
 
 
-    
+
+
 
 }
-.centerCorner{
+
+.centerCorner {
     cursor: pointer;
     position: absolute;
     bottom: 0%;
@@ -731,10 +741,11 @@ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     width: 60px;
     height: 60px;
     background-size: cover;
-background-image: url(../../../public/images/icons/btn-shop.svg);
-&:hover {
-background-image: url(../../../public/images/icons/btn-shop-hover.svg);
-}
+    background-image: url(../../../public/images/icons/btn-shop.svg);
+
+    &:hover {
+        background-image: url(../../../public/images/icons/btn-shop-hover.svg);
+    }
 }
 
 
@@ -747,7 +758,8 @@ background-image: url(../../../public/images/icons/btn-shop-hover.svg);
     transition: transform 0.3s ease;
 
     &:hover {
-                  transform: scale(1.05);}
+        transform: scale(1.05);
+    }
 }
 
 .centerBottom {
@@ -827,7 +839,8 @@ background-image: url(../../../public/images/icons/btn-shop-hover.svg);
     display: inline-block;
     font-family: "Noto Sans TC";
     z-index: 1;
-    p{
+
+    p {
         position: relative;
         z-index: 99;
     }
@@ -934,13 +947,15 @@ background-image: url(../../../public/images/icons/btn-shop-hover.svg);
     border: 1px solid $color-primary;
     background: $color-primary;
     cursor: pointer;
+
     &:hover {
-        span{
+        span {
             color: $color-primary;
 
         }
-border: 3px solid $color-primary;
-background: var(--Neutrue-White, #FFF);
+
+        border: 3px solid $color-primary;
+        background: var(--Neutrue-White, #FFF);
     }
 }
 
@@ -978,22 +993,35 @@ background: var(--Neutrue-White, #FFF);
     background-size: 0% 100%;
     background-repeat: no-repeat;
     transition: background-size 0.4s ease;
-    margin: 3rem auto;
-    padding: 10px;
+    padding: 3rem 10px;
     transition: background-color 0.3s ease;
     cursor: pointer;
+    transition: all 0.3s ease;
 
     &:hover {
         background-color: #F5F5F5;
 
         .aLeft img {
             transform: scale(1.1);
+          transition: transform 0.3s ease;
+
         }
 
         .aRight {
-            flex-direction: row-reverse;
+            // 也可以做整塊右區塊左右滑動（視覺上更明顯）
+          transition: transform 0.3s ease;
+
+            transform: translateX(30px);
             gap: 4px;
+
+            img {
+          transition: transform 0.3s ease;
+
+                transform: translateX(-80px); //  箭頭往左滑
+
+            }
         }
+
     }
 }
 
@@ -1029,15 +1057,15 @@ background: var(--Neutrue-White, #FFF);
 }
 
 .aCenterWord {
-    margin: 2rem auto;
+    margin: rem auto;
 }
 
 .aCenter .tags {
-display: flex;
-width: fit-content;
-padding: 5px 19px;
-justify-content: center;
-align-items: flex-start;
+    display: flex;
+    width: fit-content;
+    padding: 5px 19px;
+    justify-content: center;
+    align-items: flex-start;
 
     color: #3DCE94;
     text-align: center;
@@ -1047,7 +1075,7 @@ align-items: flex-start;
     font-size: 14px;
     border-radius: 999px;
     // background-color: #6dd6a7;
-    margin-top: 2rem;
+    margin-top: 0.5rem;
     border: 1px solid #3DCE94;
     background: #E6FBF3;
 }
@@ -1083,7 +1111,7 @@ align-items: flex-start;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+
 
 
 }
@@ -1105,13 +1133,17 @@ align-items: flex-start;
     border-radius: 50px;
     background: $color-primary;
     cursor: pointer;
+
     &:hover {
-        span, p{
+
+        span,
+        p {
             color: $color-primary;
 
         }
-border: 3px solid $color-primary;
-background: var(--Neutrue-White, #FFF);
+
+        border: 3px solid $color-primary;
+        background: var(--Neutrue-White, #FFF);
     }
 }
 
@@ -1251,21 +1283,25 @@ background: var(--Neutrue-White, #FFF);
 // 跑馬燈
 @keyframes scroll-left {
     0% {
-      transform: translateX(80%);
+        transform: translateX(80%);
     }
+
     100% {
-      transform: translateX(-100%);
+        transform: translateX(-100%);
     }
-  }
+}
+
 // ＋往右傾斜
 @keyframes tiltRight {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
+
     100% {
-      transform: rotate(15deg);
+        transform: rotate(15deg);
     }
-  }
+}
+
 // RWD忽胖忽瘦
 @media (max-width: 1440px) {
 

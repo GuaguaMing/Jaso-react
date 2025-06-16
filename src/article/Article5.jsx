@@ -4,18 +4,18 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Article5 = () => {
   const navigate = useNavigate();
-  const CustomHR = () => {
-    return (
-      <svg xmlns="http://www.w3.org/2000/svg" width="1085" height="2" viewBox="0 0 1085 2" fill="none"   style={{
-        display: 'block',
-        margin: '0 auto',
-        width: '100%',
-        maxWidth: '1085px'
-      }}>
-        <path d="M0 1.5H1085" stroke="#E0DDDD" strokeWidth="1"/>
-      </svg>
-    );
-  };
+          const CustomHR = () => {
+            return (
+              <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="2" viewBox="0 0 1200 2" fill="none"   style={{
+                display: 'block',
+                margin: '0 auto',
+                width: '100%',
+                maxWidth: '1200px'
+              }}>
+                <path d="M0 1H1200" stroke="#E0DDDD" strokeWidth="1"/>
+              </svg>
+            );
+          };
 
   return (
     <article>

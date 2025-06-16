@@ -134,11 +134,13 @@ letter-spacing: 1.8px;
    
   }
   .otherPage{
+    max-width: 1200px;
+    margin: auto;
 
   
   .articles {
       font-family: "Noto Sans TC";
-      padding: 0 5rem;
+      // padding: 0 5rem;
   }
   
   .article {
@@ -150,23 +152,38 @@ letter-spacing: 1.8px;
       background-size: 0% 100%;
       background-repeat: no-repeat;
       transition: background-size 0.4s ease;
-      margin: 3rem 15%;
-      padding: 10px;
+      margin: auto ;
+    padding: 3rem 0;
+
       transition: background-color 0.3s ease;
       cursor: pointer;
+      transition: all 0.3s ease;
   
-      &:hover {
-          background-color: #F5F5F5;
-  
-          .aLeft img {
-              transform: scale(1.1);
-          }
-  
-          .aRight {
-              flex-direction: row-reverse;
-              gap: 4px;
-          }
-      }
+   &:hover {
+        background-color: #F5F5F5;
+
+        .aLeft img {
+            transform: scale(1.1);
+          transition: transform 0.3s ease;
+
+        }
+
+        .aRight {
+            // 也可以做整塊右區塊左右滑動（視覺上更明顯）
+          transition: transform 0.3s ease;
+
+            transform: translateX(25px);
+            gap: 4px;
+
+            img {
+          transition: transform 0.3s ease;
+
+                transform: translateX(-80px); //  箭頭往左滑
+
+            }
+        }
+
+    }
   }
   
   .aLeft {
@@ -201,7 +218,8 @@ letter-spacing: 1.8px;
   }
   
   .aCenterWord {
-      margin: 2rem auto;
+    margin: 1rem auto;
+
   }
   
   .aCenter .tags {
@@ -219,7 +237,8 @@ letter-spacing: 1.8px;
       font-size: 14px;
       border-radius: 999px;
       // background-color: #6dd6a7;
-      margin-top: 2rem;
+    margin-top: 0.5rem;
+
       border: 1px solid #3DCE94;
       background: #E6FBF3;
   }

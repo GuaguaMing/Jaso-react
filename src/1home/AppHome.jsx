@@ -2,9 +2,70 @@ import React, { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "../../scss/pages/1home/apphome.module.scss";
 import AnimatedRadarChart from "./AnimatedRadarChart";
-import ProductSlider from "./ProductSlider";
+import ProductC from "../1components/ProductC";
 
-
+const productData = [
+  {
+    id: 'protein',
+    product: `${import.meta.env.BASE_URL}assets/product_N.png`, 
+    role: `${import.meta.env.BASE_URL}assets/protein.svg`,
+    speech: '自從吃素後感覺體力變差，運動完還一直肌肉痠痛？',
+    name: '維生素超群膠囊',
+    subtitle: '植萃綜合維他命配方',
+    description: '素食飲食可能缺乏的關鍵營養素，如B群、鐵、鋅與維生素D。這些營養素對能量代謝',
+    color: '#FFE4B5'
+  },
+  {
+    id: 'b12',
+    product: `${import.meta.env.BASE_URL}assets/product_B12.png`, 
+    role: `${import.meta.env.BASE_URL}assets/b12.svg`,
+    speech: '總是體力不支、難集中精神，懷疑自己缺乏B12？',
+    name: '素食B12補充膠囊',
+    subtitle: '植物來源維生素B12',
+    description: '維持神經系統健康，改善疲勞與注意力',
+    color: '#FFB6C1'
+  },
+  {
+    id: 'iron', 
+    product: `${import.meta.env.BASE_URL}assets/product_Fe.png`, 
+    role: `${import.meta.env.BASE_URL}assets/iron.svg`,
+    speech: '容易臉色蒼白、頭暈虛弱，可能是缺鐵惹的禍？',
+    name: '素食鐵補充膠囊',
+    subtitle: '植物性鐵與維生素C',
+    description: '高吸收率鐵質，改善缺鐵性貧血',
+    color: '#FFA07A'
+  },
+  {
+    id: 'omega',
+    product: `${import.meta.env.BASE_URL}assets/product_Omg.png`, 
+    role: `${import.meta.env.BASE_URL}assets/omega3.svg`,
+    speech: '老是感覺疲倦又心情低落，是不是缺Omega-3？',
+    name: 'Omega-3植物膠囊',
+    subtitle: '海藻Omega-3 DHA與EPA',
+    description: '植物性DHA，促進大腦健康與情緒穩定',
+    color: '#98FB98'
+  },
+  {
+    id: 'vitaminD',
+    product: `${import.meta.env.BASE_URL}assets/product_D.png`, 
+    role: `${import.meta.env.BASE_URL}assets/d.svg`,
+    speech: '白天待在室內不曬太陽，整天昏沉沒精神嗎？',
+    name: '維生素D素食膠囊',
+    subtitle: '植物來源維生素D3',
+    description: '強化骨骼健康，提升免疫力與精神狀態',
+    color: '#F0E68C'
+  },
+  {
+    id: 'ca',
+    product: `${import.meta.env.BASE_URL}assets/product_Ca.png`, 
+    role: `${import.meta.env.BASE_URL}assets/ca.svg`,
+    speech: '牙齒變敏感、膝蓋痠痛，可能是鈣質攝取不足？',
+    name: '鈣心定植物鈣',
+    subtitle: '藻鈣＋D3雙效配方',
+    description: '鈣是維持骨骼與牙齒結構的關鍵營養素!',
+    color: '#3DCE94'
+  }
+];
 
 export default function AppHome() {
 
@@ -16,8 +77,14 @@ export default function AppHome() {
     // hr
     const CustomHR = () => {
         return (
-          <svg xmlns="http://www.w3.org/2000/svg" width="1285" height="2" viewBox="0 0 1285 2" fill="none">
-            <path d="M0 1.5H1285" stroke="#E0DDDD" strokeWidth="1"/>
+          <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="2" viewBox="0 0 1280 2" fill="none"
+          style={{
+                display: 'block',
+                margin: '0 auto',
+                width: '100%',
+                maxWidth: '1280px'
+          }}>
+            <path d="M0 1H1280" stroke="#E0DDDD" strokeWidth="1"/>
           </svg>
         );
       };
@@ -41,8 +108,44 @@ export default function AppHome() {
         chartRef.current.setHoverState(false);
       }
     };
-  
-    
+    const [currentIndex, setCurrentIndex] = useState(0);
+  const [transitioning, setTransitioning] = useState(false);
+    const products = [...productData]; // 用內建資料，不拆檔
+  const currentProduct = products[currentIndex];
+
+  // 點擊右側角色卡時切換
+  const goToSlide = (index) => {
+    if (index === currentIndex) return;
+    setTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex(index);
+      setTransitioning(false);
+    }, 500);
+  };
+
+  const getCharacterPosition = (index) => {
+    const total = products.length;
+    const diff = (index - currentIndex + total) % total;
+    const angle = (diff / total) * 2 * Math.PI;
+    const radius = 150;
+
+    return {
+      x: radius * Math.cos(angle),
+      y: radius * Math.sin(angle),
+      scale: 0.8 + 0.2 * Math.cos(angle),
+      opacity: 0.4 + 0.6 * Math.cos(angle),
+      isInFront: Math.cos(angle) > 0.5
+    };
+  };
+
+  const handleShopClick = () => {
+    navigate('/shop')
+    // alert('前往商店（可換成 router 導向）');
+  };
+
+  const handleProductClick = (product) => {
+    console.log('點擊產品角色：', product.name);
+  };
 
     useEffect(() => {
 
@@ -202,7 +305,17 @@ export default function AppHome() {
             </section>
 
             <section className={styles.shop}>
-                <div className={styles.container}>
+                                <ProductC
+                    products={products}
+                    currentProduct={currentProduct}
+                    currentIndex={currentIndex}
+                    transitioning={transitioning}
+                    handleShopClick={handleShopClick}
+                    handleProductClick={handleProductClick}
+                    goToSlide={goToSlide}
+                    getCharacterPosition={getCharacterPosition}
+                />
+                {/* <div className={styles.container}>
                     <div className={styles.card}>
                         <div className={styles.dialog}>
                             <p>自從吃素後感覺體力變差，運動完還一直肌肉痠痛？</p>
@@ -244,7 +357,7 @@ export default function AppHome() {
                     </div>
 
                     <div className={styles.rightBackground}></div>
-                </div>
+                </div> */}
             </section>
 
             <section className={styles.knowledge}>
@@ -275,6 +388,7 @@ export default function AppHome() {
                         </div>
                         <div className={styles.aRight}>MORE<img src={`${import.meta.env.BASE_URL}images/arrow.svg`} alt="" /></div>
                     </div>
+                    
                     <CustomHR />
                     <div className={styles.article} onClick={() => navigate('/article2')}>
 

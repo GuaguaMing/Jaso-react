@@ -81,7 +81,7 @@ return (
                             </div>
                         </div>
                     </div>
-                    <p className={styles.copyright}>© 2025 JASO+素. All Rights Reserved.</p>
+                    <p className={styles.copyright}>Copyright© 2025 JASO+素 All Rights Reserved. 本網站為學生作品，無任何商業營利行為。</p>
                 </div>
             </footer>
             </>

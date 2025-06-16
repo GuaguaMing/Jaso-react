@@ -148,9 +148,12 @@ input, select, option {
   font-style: italic;
 }
 
+.otherPage {
+  max-width: 1200px;
+  margin: auto;
+}
 .otherPage .articles {
   font-family: "Noto Sans TC";
-  padding: 0 5rem;
 }
 .otherPage .article {
   display: flex;
@@ -160,20 +163,27 @@ input, select, option {
   background-size: 0% 100%;
   background-repeat: no-repeat;
   transition: background-size 0.4s ease;
-  margin: 3rem 15%;
-  padding: 10px;
+  margin: auto;
+  padding: 3rem 0;
   transition: background-color 0.3s ease;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 .otherPage .article:hover {
   background-color: #F5F5F5;
 }
 .otherPage .article:hover .aLeft img {
   transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
 .otherPage .article:hover .aRight {
-  flex-direction: row-reverse;
+  transition: transform 0.3s ease;
+  transform: translateX(25px);
   gap: 4px;
+}
+.otherPage .article:hover .aRight img {
+  transition: transform 0.3s ease;
+  transform: translateX(-80px);
 }
 .otherPage .aLeft {
   width: 300px;
@@ -202,7 +212,7 @@ input, select, option {
   letter-spacing: 1.08px;
 }
 .otherPage .aCenterWord {
-  margin: 2rem auto;
+  margin: 1rem auto;
 }
 .otherPage .aCenter .tags {
   display: flex;
@@ -216,7 +226,7 @@ input, select, option {
   line-height: 121%;
   font-size: 14px;
   border-radius: 999px;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   border: 1px solid #3DCE94;
   background: #E6FBF3;
 }
