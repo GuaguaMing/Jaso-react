@@ -1,7 +1,7 @@
 import React from "react";
 import '../../css/style.min.css';
 import '../main.css';
-import styles from '../../scss/pages/about/AppAbout.module.css';
+import styles from '../../scss/pages/about/AppAbout-module.css';
 export default function AppAbout() {
 
     return (
@@ -10,7 +10,7 @@ export default function AppAbout() {
 
                 {/* Hero */}
                 <section className={styles.hero}>
-                    <img src="/about_us/img/about-mage.svg" alt="產品圖片" />
+                    <img src="./public/images/about_us/about-mage.svg" alt="產品圖片" />
                     <h1 className={styles.aboutTitle}>ABOUT<br />US</h1>
                 </section>
 
@@ -19,7 +19,7 @@ export default function AppAbout() {
                     <div className={styles.sectionContainer}>
                         <h2 className={styles.sectionGreenAbout}>關於</h2>
                         <div className={styles.aboutSimple}>
-                            <img src="/assets/img/LOGO1.svg" alt="JaSo+ LOGO" className={styles.aboutLogo} />
+                            <img src="./public/images/about_us/jaso-logo.svg" alt="JaSo+ LOGO" className={styles.aboutLogo} />
                             <p className={styles.aboutText}>
                                 JaSo+來自對「純淨健康」的堅持與對素食生活的熱愛。<br />
                                 我們專注於提供優質、天然、純素的保健食品，為每一位重視身心健康、尊重生命的你打造更安心的選擇。<br />
@@ -45,7 +45,7 @@ export default function AppAbout() {
                     </div>
                     <div className={styles.certGrid}>
                         {[...Array(8)].map((_, idx) => (
-                            <img key={idx} src={`/about_us/img/pf${idx + 1}.svg`} alt={`cert ${idx + 1}`} />
+                            <img key={idx} src={`./public/images/about_us/pf${idx + 1}.svg`} alt={`cert ${idx + 1}`} />
                         ))}
                     </div>
                 </section>
@@ -63,8 +63,8 @@ export default function AppAbout() {
                             </p>
                         </div>
                         <div className={styles.certVeganGrid}>
-                            <img src="/about_us/img/Vpf1.svg" alt="vegan1" />
-                            <img src="/about_us/img/Vpf2.svg" alt="vegan2" />
+                            <img src="./public/images/about_us/Vpf1.svg" alt="vegan1" />
+                            <img src="./public/images/about_us/Vpf2.svg" alt="vegan2" />
                         </div>
                     </div>
                 </section>
@@ -85,9 +85,9 @@ export default function AppAbout() {
                                 </div>
                                 <div className={styles.faqBottom}>
                                     <a href="#" className={styles.moreBtn}>
-                                        <span className={styles.plusLeft}><img src="/about_us/img/greenplus.svg" alt="+" /></span>
+                                        <span className={styles.plusLeft}><img src="./public/images/about_us/greenplus.svg" alt="+" /></span>
                                         <span className={styles.moreText}>more</span>
-                                        <span className={styles.plusRight}><img src="/about_us/img/greenplus.svg" alt="+" /></span>
+                                        <span className={styles.plusRight}><img src="./public/images/about_us/greenplus.svg" alt="+" /></span>
                                     </a>
                                     <div className={styles.faqLine}></div>
                                 </div>
@@ -95,8 +95,6 @@ export default function AppAbout() {
                         </div>
                     </div>
                 </section>
-
-                {/* Footer 略，可拆成 Footer.jsx */}
             </div>
         </>
     )
