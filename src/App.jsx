@@ -47,6 +47,7 @@ function App() {
                     <Route path="/shop" element={<AppShop />} />
                     <Route path="/cart" element={<AppCart />} />
                     <Route path="/result" element={<Result />} />
+
                     <Route path="/cart/success" element={<OrderSuccess />} />
                     <Route path="/faq" element={<AppFaq />} />
                 </Route>

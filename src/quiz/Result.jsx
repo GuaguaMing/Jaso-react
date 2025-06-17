@@ -1,15 +1,67 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import html2canvas from "html2canvas";
 import styles from "../../scss/pages/quiz/result.module.scss";
 import { RadarChart, PolarGrid, PolarAngleAxis, Radar, ResponsiveContainer } from "recharts";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import DownloadOk from "./DownloadOk";
 
 const Result = () => {
-
-
-
   const location = useLocation();
   const navigate = useNavigate();
+  const [showDownload, setShowDownload] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
+  const resultRef = useRef(null);
+
+  const handleShareClick = async () => {
+    setIsDownloading(true);
+    
+    try {
+      // 等待一小段時間確保所有元素都已渲染
+      await new Promise(resolve => setTimeout(resolve, 100));
+      
+      const canvas = await html2canvas(resultRef.current, {
+        backgroundColor: '#ffffff',
+        scale: 2, // 提高清晰度
+        useCORS: true, // 允許跨域圖片
+        allowTaint: true,
+        scrollX: 0,
+        scrollY: 0,
+        windowWidth: window.innerWidth,
+        windowHeight: window.innerHeight,
+        onclone: (clonedDoc) => {
+          // 確保克隆的文檔中的圖片正確載入
+          const images = clonedDoc.querySelectorAll('img');
+          images.forEach(img => {
+            if (img.src.startsWith('blob:')) {
+              img.style.display = 'none';
+            }
+          });
+        }
+      });
+
+      // 創建下載連結
+      const link = document.createElement('a');
+      link.download = `營養分析結果_${new Date().toLocaleDateString('zh-TW')}.png`;
+      link.href = canvas.toDataURL('image/png');
+      
+      // 觸發下載
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // 顯示成功提示
+      setShowDownload(true);
+      setTimeout(() => {
+        setShowDownload(false);
+      }, 2000);
+      
+    } catch (error) {
+      console.error('下載失敗:', error);
+      alert('下載失敗，請稍後再試');
+    } finally {
+      setIsDownloading(false);
+    }
+  };
 
   const resultData = location.state;
   if (!resultData) {
@@ -22,6 +74,7 @@ const Result = () => {
     radarScores,
     conditions
   } = resultData;
+  
   // 六大營養素的紅配綠
   const getBubble = (score) => {
     let levelClass = "";
@@ -44,6 +97,7 @@ const Result = () => {
       </div>
     );
   };
+  
   const suggestions = {
     protein: "．建議多攝取豆製品、堅果等植物性蛋白，補足蛋白質需求。",
     b12: "．純素飲食容易缺乏B12，建議選擇B12補充品。",
@@ -52,7 +106,6 @@ const Result = () => {
     d: "．建議多曬太陽，搭配適量維生素D補充品。",
     omg: "．建議攝取亞麻仁籽、奇亞籽等富含Omega-3的植物性食材。"
   };
-
 
   const nutrientKeys = ["protein", "b12", "iron", "omega3", "ca", "d"];
   const nutrientLabels = {
@@ -72,18 +125,11 @@ const Result = () => {
     ca: "鈣",
     d: "維生素D"
   };
+  
   const radarData = Object.keys(radarScores).map((key) => ({
     nutrient: radarLabels[key],
     score: radarScores[key],
   }));
-  // 雷達圖格式化成 Recharts 需要的格式
-  // const radarData = Object.entries(radarScores).map(([nutrient, score]) => ({
-  //   nutrient,
-  //   score,
-  // }));
-
-
-
 
   // 蛋白質建議與三大營養素分配（以 TDEE 推算）
   const proteinNeed = Math.round(tdee * 0.15 / 4);
@@ -134,7 +180,6 @@ const Result = () => {
     ]
   };
 
-
   const handleRetry = () => {
     navigate("/quiz"); // 返回測驗頁面
   };
@@ -151,40 +196,32 @@ const Result = () => {
     }
   };
 
-
   return (
-
-    <div className={styles.result}>
+    <div className={styles.result} ref={resultRef}>
       {/* 1. Header 檢測叮嚀 */}
       <section className={styles.header}>
-
         <h2 className={styles.title}>檢測完成，專屬你的營養分析已出爐！ </h2>
-        <p className={styles.subtitle}>“多曬太陽，常保好心情！“</p>
+        <p className={styles.subtitle}>"多曬太陽，常保好心情！"</p>
       </section>
 
       {/* 2.角色+雷達圖 */}
       <section className={styles.radarSection}>
         {/* 左：六大營養素 */}
-
         <div className={styles.radarLeft}>
-
           <div className={styles.radarCharacter}>
             {nutrientKeys.map((key) => (
               <div key={key} className={styles.characterBox}>
                 <div className={styles.characterImgWrapper}>
                   {getBubble(radarScores[key])}
-                  {/* <img src={`/assets/${key}.svg`} alt={nutrientLabels[key]} /> */}
                   <img
                     src={`${import.meta.env.BASE_URL}assets/${key}.svg`}
                     alt={nutrientLabels[key]}
                   />
-
                 </div>
-
                 <div className={styles.bubbleText}>
-                  <span>{nutrientLabels[key]}</span></div>
+                  <span>{nutrientLabels[key]}</span>
+                </div>
               </div>
-
             ))}
           </div>
 
@@ -199,11 +236,7 @@ const Result = () => {
           </div>
         </div>
 
-
-
         {/* 右：雷達圖 */}
-
-
         <div className={styles.radarChart}>
           <ResponsiveContainer width={400} height={360}>
             <RadarChart
@@ -227,13 +260,10 @@ const Result = () => {
           </ResponsiveContainer>
           {/* 右下：雷達小語 */}
           <div className={styles.chartText}>
-
             <h4 className={styles.chartTitle}><div className={styles.circle}></div>實際攝取量</h4>
             <p className={styles.chartNote}>本圖為六大營養素攝取平衡圖，角落越接近圓心表示該營養素攝取不足。
               建議每日攝取針對性保健食品不足該營養素。</p>
           </div>
-
-
         </div>
       </section>
 
@@ -243,17 +273,27 @@ const Result = () => {
           協助你掌握當前狀況並找到適合的改善方式。</h4>
         <h3>營養攝取建議</h3>
         <div className={styles.barGroup}>
-
-          <div className={styles.bar}><div className={styles.fill} style={{ width: `${(tdee / 3000) * 100}%` }}><label>TDEE每日總熱量消耗（千卡）</label></div>{tdee}</div>
-
-          <div className={styles.bar}><div className={styles.fill} style={{ width: `${(bmr / 2000) * 100}%` }}><label>BMR基礎代謝率</label></div>{bmr}</div>
-
-          <div className={styles.bar}><div className={styles.fill} style={{ width: `${(bmi / 30) * 100}%` }}><label>BMI身體質量指數</label></div>{bmi}</div>
+          <div className={styles.bar}>
+            <div className={styles.fill} style={{ width: `${(tdee / 3000) * 100}%` }}>
+              <label>TDEE每日總熱量消耗（千卡）</label>
+            </div>
+            {tdee}
+          </div>
+          <div className={styles.bar}>
+            <div className={styles.fill} style={{ width: `${(bmr / 2000) * 100}%` }}>
+              <label>BMR基礎代謝率</label>
+            </div>
+            {bmr}
+          </div>
+          <div className={styles.bar}>
+            <div className={styles.fill} style={{ width: `${(bmi / 30) * 100}%` }}>
+              <label>BMI身體質量指數</label>
+            </div>
+            {bmi}
+          </div>
         </div>
-
         <div className={styles.protein}>每日蛋白質需求＝<p><strong>{proteinNeed}g</strong></p></div>
       </section>
-
 
       {/* 推薦產品 */}
       <section className={styles.productList}>
@@ -264,34 +304,34 @@ const Result = () => {
             <div className={styles.card} key={`${symptomKey}-${idx}`}>
               <img src={`${import.meta.env.BASE_URL}${product.image.replace(/^\//, '')}`} alt={product.name} />
               <div className={styles.needWhat}>
-
                 <div className={styles.needLeft}>
-
                   <h4>Need </h4>
                   <span>補營養！</span>
                 </div>
                 <div className={styles.needRight}>
-
                   <span>{product.name}</span>
                   <p>{product.desc}</p>
                 </div>
               </div>
-
             </div>
           ));
         })}
       </section>
+      
       {/* 行動按鈕 */}
       <section className={styles.actions}>
-        <button className={styles.share} onClick={handleShare}>分享結果</button>
+        <button 
+          className={styles.share} 
+          onClick={handleShareClick}
+          disabled={isDownloading}
+        >
+          {isDownloading ? '下載中...' : '分享結果'}
+        </button>
+        {showDownload && <DownloadOk />}
         <button className={styles.retry} onClick={handleRetry}>再測一次</button>
-
       </section>
     </div>
-
-
   );
 };
-
 
 export default Result;
