@@ -81,7 +81,7 @@
 
 .navMember a {
     color: $color-dark;
-    padding: 0px 15px;
+    padding: 0px 11px;
     border: 1px solid;
     border-radius: $radius-ex;
     font-size: map.get($font-size, 2xs);
@@ -125,6 +125,61 @@
     display: block;
   }
 }
+
+.navMember {
+  position: relative;
+.avatarWrapper {
+  display: inline-block;
+//   width:fit-content; 
+
+}
+
+.avatarContent {
+  position: relative;
+//   width:fit-content; 
+  height: 32px;
+  padding: 11px;
+  white-space: nowrap;
+}
+
+.avatarIcon {
+    align-items: center;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.userName {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+    color: #3DCE94;
+text-align: center;
+font-size: 16px;
+font-weight: 500;
+
+}
+
+/* Hover 切換效果 */
+.avatarWrapper:hover .avatarIcon {
+  display: none;
+}
+
+.avatarWrapper:hover .userName {
+  display: flex;
+}
+.avatarWrapper:hover .avatarContent {
+      width: auto;
+
+}
+
+}     
 
 .mobileMenu {
     background-color: $color-lightgray2;
