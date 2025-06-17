@@ -397,6 +397,132 @@ input::placeholder {
   color: $color-gray;
   margin-top: 0.5rem;
 }
+.form-input {
+  width: 80%;
+  padding: 10px;
+  background-color: $color-lightgray1;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 2px solid transparent; // 新增
+  transition: all 0.3s ease; // 新增
+
+  &:hover {
+    background-color: $color-lightgray2;
+  }
+
+  // 新增錯誤狀態
+  &.error {
+    border-color: #e74c3c;
+    background-color: #ffeaea;
+  }
+
+  // 新增成功狀態
+  &.success {
+    border-color: #27ae60;
+    background-color: #eafaf1;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+}
+.option-1 {
+  padding: 10px 15px;
+  background-color: $color-lightgray1;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 2px solid transparent; // 新增
+  transition: all 0.3s ease; // 新增
+
+  input {
+    display: none;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+  
+  &.selected {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+
+  // 新增錯誤狀態
+  &.error {
+    border-color: #e74c3c;
+  }
+}
+.drop {
+  position: relative;
+  background-color: $color-lightgray1;
+  border-radius: 15px;
+  cursor: pointer;
+  border: 2px solid transparent; // 新增
+  transition: all 0.3s ease; // 新增
+
+  // 新增錯誤狀態
+  &.error {
+    border-color: #e74c3c;
+    background-color: #ffeaea;
+  }
+
+  // 新增成功狀態
+  &.success {
+    border-color: #27ae60;
+    background-color: #eafaf1;
+  }
+
+  // ... 其他原有樣式保持不變
+}
+// 錯誤訊息樣式
+.error-message {
+  color: #e74c3c;
+  font-size: map.get($font-size, 3xs);
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  
+  &::before {
+    content: "⚠️";
+  }
+}
+
+// 成功訊息樣式
+.success-message {
+  color: #27ae60;
+  font-size: map.get($font-size, 3xs);
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  
+  &::before {
+    content: "✅";
+  }
+}
+
+// 必填標記
+.required-mark {
+  color: #e74c3c;
+  margin-left: 2px;
+}
+.field-label {
+  width: 5rem;
+  margin-right: 1rem;
+  transition: color 0.3s ease; // 新增
+
+  // 新增錯誤狀態
+  &.error {
+    color: #e74c3c;
+  }
+}
 
 @keyframes bounce {
   0% {

@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@use "sass:map";
+
 @use "../../function/reset" as *;
 @use "../../variable/var-color" as *;
 @use "../../variable/var-font" as *;
@@ -67,7 +69,7 @@
         li a {
             color: $color-dark;
             font-weight: bold;
-            font-size: map-get($font-size, 2xs);
+            font-size: map.get($font-size, 2xs);
             transition: color 0.3 ease;
 
             &:hover {
@@ -82,7 +84,7 @@
     padding: 0px 15px;
     border: 1px solid;
     border-radius: $radius-ex;
-    font-size: map-get($font-size, 2xs);
+    font-size: map.get($font-size, 2xs);
     transition: color 0.3 ease;
 
     &:hover {
@@ -107,7 +109,7 @@
 
 .goToShop a {
     color: $color-white;
-    font-size: map-get($font-size, m);
+    font-size: map.get($font-size, m);
 
     &:hover {
         color: $color-white;
@@ -145,7 +147,7 @@
 
             a {
                 color: $color-dark;
-                font-size: map-get($font-size, s);
+                font-size: map.get($font-size, s);
                 font-weight: bold;
 
                 &:hover {

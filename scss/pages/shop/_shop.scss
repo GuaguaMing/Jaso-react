@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@use "sass:map";
+
 @use "../../function/reset" as *;
 @use "../../variable/var-color" as *;
 @use "../../variable/var-font" as *;
@@ -21,7 +23,7 @@
 
   &_title {
     color: $color-primary;
-    font-size: map-get($font-size, 5xl);
+    font-size: map.get($font-size, 5xl);
   }
 
   &_subtitle {

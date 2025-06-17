@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @use "../variable/var-color" as *;
 @use "../variable/var-font" as *;
 
@@ -57,14 +59,14 @@ footer {
 }
 
 .footer-heading {
-  font-size: map-get($font-size, s); // 約 20px
+  font-size: map.get($font-size, s); // 約 20px
   font-weight: 500;
   font-family: $font-all;
 }
 
 .footer-grid li {
   color: $color-white;
-  font-size: map-get($font-size, xs); // 約 17.6px
+  font-size: map.get($font-size, xs); // 約 17.6px
   font-family: $font-all;
 }
 
@@ -129,12 +131,12 @@ footer {
   align-items: center;
 
   span {
-    font-size: map-get($font-size, 4xl); // 70px ≈ 5rem
+    font-size: map.get($font-size, 4xl); // 70px ≈ 5rem
     font-family: $font-all;
   }
 
   p {
-    font-size: map-get($font-size, s); // 約 20px
+    font-size: map.get($font-size, s); // 約 20px
     font-family: $font-all;
   }
 
@@ -152,7 +154,7 @@ footer {
   display: flex;
   justify-content: center;
   font-family: $font-all;
-  font-size: map-get($font-size, xs); // 約 17.6px
+  font-size: map.get($font-size, xs); // 約 17.6px
 }
 
 @media (max-width: 1440px) {

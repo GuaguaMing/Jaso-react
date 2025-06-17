@@ -173,7 +173,7 @@ else if (relativeIndex === 3) scale = 1.0; // 最後一位
                   key={item.id}
                   style={{
                     transform: `translate(-50%, -50%) translate(${position.x}px, ${position.y}px) scale(${position.scale})`,
-                    transition: 'transform 0.6s ease, opacity 0.4s ease',
+                    // transition: 'transform 0.6s ease, opacity 0.4s ease',
 
                     opacity: position.opacity,
                     zIndex: position.zIndex,

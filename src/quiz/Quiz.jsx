@@ -125,9 +125,62 @@ const Quiz = () => {
     }
   };
 
+
   const handleChange = (name, value) => {
-    setAnswers((prev) => ({ ...prev, [name]: value }));
-  };
+  setAnswers((prev) => ({ ...prev, [name]: value }));
+  
+  // 加入驗證
+  const fieldErrors = validateField(name, value);
+  setErrors(prev => ({ ...prev, ...fieldErrors }));
+  
+  if (Object.keys(fieldErrors).length === 0) {
+    setErrors(prev => {
+      const newErrors = { ...prev };
+      delete newErrors[name];
+      return newErrors;
+    });
+  }
+};
+
+  // 驗證函數
+const validateField = (name, value) => {
+  const errors = {};
+  
+  switch (name) {
+    case 'age':
+      if (!value || value === '') {
+        errors.age = '請輸入年齡';
+      } else if (value < 1 || value > 120) {
+        errors.age = '請輸入有效範圍（1~120）';
+      }
+      break;
+    case 'height':
+      if (!value || value === '') {
+        errors.height = '請輸入身高';
+      } else if (value < 50 || value > 250) {
+        errors.height = '請輸入有效範圍（50-250）';
+      }
+      break;
+    case 'weight':
+      if (!value || value === '') {
+        errors.weight = '請輸入體重';
+      } else if (value < 20 || value > 300) {
+        errors.weight = '請輸入有效範圍（20~300）';
+      }
+      break;
+    case 'gender':
+      if (!value) errors.gender = '請選擇生理性別';
+      break;
+    case 'activity':
+      if (!value) errors.activity = '請選擇運動量';
+      break;
+  }
+  return errors;
+};
+
+// 在現有的 useState 後面加入：
+const [errors, setErrors] = useState({});
+const [showErrors, setShowErrors] = useState({});
 
 
   const handleRadioClick = (qIdx, value) => {
@@ -155,24 +208,55 @@ const Quiz = () => {
   const handleMouseLeave = () => setIsDropdownOpen(false);
 
   const [isHovered, setIsHovered] = useState(false);
+  // const next = () => {
+  //   if (questions[currentQuestion].type === "form") {
+  //     const requiredFields = questions[currentQuestion].fields.map(f => f.name);
+  //     const isAllFilled = requiredFields.every(field => answers[field] !== undefined && answers[field] !== "");
+
+  //     if (!isAllFilled) {
+  //       alert("請填入全部欄位");
+  //       return;
+  //     }
+  //   }
+
+  //   if (currentQuestion < questions.length - 1) {
+  //     setCurrentQuestion(currentQuestion + 1);
+  //   } else {
+  //     console.log("問卷完成", answers);
+  //     navigate("/result", { state: { answers } }); // 假設你用的是 React Router 的 navigate
+  //   }
+  // };
   const next = () => {
-    if (questions[currentQuestion].type === "form") {
-      const requiredFields = questions[currentQuestion].fields.map(f => f.name);
-      const isAllFilled = requiredFields.every(field => answers[field] !== undefined && answers[field] !== "");
+  if (questions[currentQuestion].type === "form") {
+    const requiredFields = questions[currentQuestion].fields.map(f => f.name);
+    let hasErrors = false;
+    const newShowErrors = {};
 
-      if (!isAllFilled) {
-        alert("請填入全部欄位");
-        return;
+    requiredFields.forEach(field => {
+      const value = answers[field];
+      const fieldErrors = validateField(field, value);
+      
+      if (Object.keys(fieldErrors).length > 0) {
+        hasErrors = true;
+        newShowErrors[field] = true;
+        setErrors(prev => ({ ...prev, ...fieldErrors }));
       }
-    }
+    });
 
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      console.log("問卷完成", answers);
-      navigate("/result", { state: { answers } }); // 假設你用的是 React Router 的 navigate
+    if (hasErrors) {
+      setShowErrors(prev => ({ ...prev, ...newShowErrors }));
+      return; // 阻止進入下一題
     }
-  };
+  }
+
+  // 原有的 next 邏輯
+  if (currentQuestion < questions.length - 1) {
+    setCurrentQuestion(currentQuestion + 1);
+  } else {
+    console.log("問卷完成", answers);
+    navigate("/result", { state: { answers } });
+  }
+};
 
   const handleSubmit = () => {
     setIsSubmitting(true); // 顯示 Loading 畫面
@@ -353,11 +437,15 @@ const Quiz = () => {
                 if (field.type === "radio") {
                   return (
                     <div key={idx} className={styles["form-group-1"]}>
-                      <label className={styles["field-label"]}>{field.label}</label>
+                      <label className={styles["field-label"]}>
+  {field.label} <span className={styles["required-mark"]}>*</span>
+</label>
                       <div className={styles["option-group"]}>
                         {field.options.map((opt) => (
-                          <label key={opt} className={`${styles["option-1"]} 
-                              ${answers[field.name] === opt ? styles.selected : ''}`}>
+
+                                <label key={opt} className={`${styles["option-1"]} 
+  ${answers[field.name] === opt ? styles.selected : ''}
+  ${showErrors[field.name] && errors[field.name] ? styles.error : ''}`}>
                             <input
                               type="radio"
                               name={field.name}
@@ -379,10 +467,15 @@ const Quiz = () => {
                   return (
                     <div key={idx}>
                       <div className={styles["form-group"]}>
-                        <label className={styles["field-label"]}>{field.label}</label>
+                          <label className={styles["field-label"]}>
+  {field.label} <span className={styles["required-mark"]}>*</span>
+</label>
 
                         <div className={styles["container"]}>
-                          <div className={styles["drop"]}
+                          <div className={`${styles["drop"]} ${
+  showErrors[field.name] && errors[field.name] ? styles.error : 
+  answers[field.name] && !errors[field.name] && showErrors[field.name] ? styles.success : ''
+}`}
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}>
                             <div
@@ -427,17 +520,26 @@ const Quiz = () => {
                   return (
                     <div key={idx}>
                       <div className={styles["form-group"]}>
-                        <label className={styles["field-label"]}>{field.label}</label>
+                                                  <label className={styles["field-label"]}>
+  {field.label} <span className={styles["required-mark"]}>*</span>
+</label>
 
                         <input
-                          className={styles["form-input"]}
-                          type={field.type}
-                          name={field.name}
-                          value={answers[field.name] || ""} // 加這行可回上一題保留數值
-                          placeholder={field.placeholder}
-                          onChange={(e) => handleChange(field.name, e.target.value)}
-
-                        />
+  className={`${styles["form-input"]} ${
+    showErrors[field.name] && errors[field.name] ? styles.error : 
+    answers[field.name] && !errors[field.name] && showErrors[field.name] ? styles.success : ''
+  }`}
+  type={field.type}
+  name={field.name}
+  value={answers[field.name] || ""}
+  placeholder={field.placeholder}
+  onChange={(e) => handleChange(field.name, e.target.value)}
+  onBlur={() => setShowErrors(prev => ({ ...prev, [field.name]: true }))}
+/>{showErrors[field.name] && errors[field.name] && (
+  <div className={styles["error-message"]}>
+    {errors[field.name]}
+  </div>
+)}
                       </div>
                     </div>
 

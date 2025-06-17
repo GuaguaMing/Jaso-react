@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@use "sass:map";
+
 @use "../../function/reset" as *;
 @use "../../variable/var-color" as *;
 @use "../../variable/var-font" as *;
@@ -74,7 +76,7 @@
         li a {
             color: $color-dark;
             font-weight: bold;
-            font-size: map-get($font-size, 2xs);
+            font-size: map.get($font-size, 2xs);
             transition: color 0.3 ease;
 
             &:hover {
