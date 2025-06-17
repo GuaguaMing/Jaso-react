@@ -91,7 +91,7 @@ export default function AppLogin() {
                         </div>
 
                         <div className={styles.loginActions}>
-                            <button type="submit" className={styles.primary.btnBrand} onClick={()=>navigate('/')}>登入</button>
+                            <button type="submit" className={`${styles.btnBrand} ${styles.primary}`} onClick={()=>navigate('/')}>登入</button>
                         </div>
 
                         <p className={styles.signupTip}>
