@@ -1,25 +1,105 @@
 import React, { useState, useEffect, useRef } from "react";
-import html2canvas from "html2canvas";
 import styles from "../../scss/pages/quiz/result.module.scss";
-import { RadarChart, PolarGrid, PolarAngleAxis, Radar, ResponsiveContainer } from "recharts";
 import { useLocation, useNavigate } from "react-router-dom";
 import DownloadOk from "./DownloadOk";
+
+// 動態載入圖表組件
+const LazyRadarChart = ({ radarData }) => {
+  const [chartComponents, setChartComponents] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const loadChart = async () => {
+      try {
+        const module = await import('recharts');
+        const { RadarChart, PolarGrid, PolarAngleAxis, Radar, ResponsiveContainer } = module;
+        
+        setChartComponents(() => (
+          <ResponsiveContainer width={400} height={360}>
+            <RadarChart
+              data={radarData}
+              cx="50%"
+              cy="50%"
+              outerRadius="80%"
+              startAngle={0}
+              endAngle={-360}
+            >
+              <PolarGrid stroke="#AAA6A8" />
+              <PolarAngleAxis dataKey="nutrient" tick={{ fontSize: 12 }} />
+              <Radar
+                name="營養分數"
+                dataKey="score"
+                stroke="#3DCE94"
+                fill="#3DCE94"
+                fillOpacity={0.75}
+              />
+            </RadarChart>
+          </ResponsiveContainer>
+        ));
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Failed to load chart:', error);
+        setIsLoading(false);
+      }
+    };
+
+    loadChart();
+  }, [radarData]);
+
+  if (isLoading) {
+    return (
+      <div style={{ 
+        width: 400, 
+        height: 360, 
+        backgroundColor: '#f0f0f0', 
+        borderRadius: '8px', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center' 
+      }}>
+        <span>圖表載入中...</span>
+      </div>
+    );
+  }
+
+  return chartComponents;
+};
 
 const Result = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [showDownload, setShowDownload] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
+  const [html2canvas, setHtml2canvas] = useState(null);
   const resultRef = useRef(null);
+
+  // Lazy load html2canvas when needed
+  const loadHtml2Canvas = async () => {
+    if (!html2canvas) {
+      try {
+        const module = await import('html2canvas');
+        const html2canvasFunc = module.default;
+        setHtml2canvas(() => html2canvasFunc);
+        return html2canvasFunc;
+      } catch (error) {
+        console.error('Failed to load html2canvas:', error);
+        throw error;
+      }
+    }
+    return html2canvas;
+  };
 
   const handleShareClick = async () => {
     setIsDownloading(true);
     
     try {
+      // Lazy load html2canvas
+      const html2canvasModule = await loadHtml2Canvas();
+      
       // 等待一小段時間確保所有元素都已渲染
       await new Promise(resolve => setTimeout(resolve, 100));
       
-      const canvas = await html2canvas(resultRef.current, {
+      const canvas = await html2canvasModule(resultRef.current, {
         backgroundColor: '#ffffff',
         scale: 2, // 提高清晰度
         useCORS: true, // 允許跨域圖片
@@ -67,6 +147,7 @@ const Result = () => {
   if (!resultData) {
     return <p>請先完成測驗</p>
   }
+  
   const {
     bmi,
     bmr,
@@ -181,7 +262,7 @@ const Result = () => {
   };
 
   const handleRetry = () => {
-    navigate("/quiz"); // 返回測驗頁面
+    navigate("/quiz");
   };
 
   const handleShare = () => {
@@ -236,28 +317,9 @@ const Result = () => {
           </div>
         </div>
 
-        {/* 右：雷達圖 */}
+        {/* 右：雷達圖 - 使用自定義 Lazy Loading */}
         <div className={styles.radarChart}>
-          <ResponsiveContainer width={400} height={360}>
-            <RadarChart
-              data={radarData}
-              cx="50%"
-              cy="50%"
-              outerRadius="80%"
-              startAngle={0}
-              endAngle={-360}
-            >
-              <PolarGrid stroke="#AAA6A8" />
-              <PolarAngleAxis dataKey="nutrient" tick={{ fontSize: 12 }} />
-              <Radar
-                name="營養分數"
-                dataKey="score"
-                stroke="#3DCE94"
-                fill="#3DCE94"
-                fillOpacity={0.75}
-              />
-            </RadarChart>
-          </ResponsiveContainer>
+          <LazyRadarChart radarData={radarData} />
           {/* 右下：雷達小語 */}
           <div className={styles.chartText}>
             <h4 className={styles.chartTitle}><div className={styles.circle}></div>實際攝取量</h4>

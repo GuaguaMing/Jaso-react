@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @use "../../function/reset" as *;
 @use "../../variable/var-color" as *;
 @use "../../variable/var-font" as *;
@@ -28,7 +30,7 @@
 .shopBannerTitle {
   color: $color-primary;
   font-weight: bold;
-  font-size: map-get($font-size, 5xl);
+  font-size: map.get($font-size, 5xl);
 }
 
 .shopBannerSubtitle {

@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @use "../../variable/var-color" as *;
 @use "../../variable/var-font" as *;
 @use "../../function/reset";
@@ -25,12 +27,12 @@ body {
 
     h4 {
       color: $color-primary;
-      font-size: map-get($font-size, sm);
+      font-size: map.get($font-size, sm);
       font-weight: bold;
     }
 
     h2 {
-      font-size: map-get($font-size, lg);
+      font-size: map.get($font-size, lg);
       margin-top: 10px;
       color: $color-dark;
     }
@@ -70,13 +72,13 @@ body {
 
       display: flex;
       font-weight: bold;
-      font-size: map-get($font-size, l1);
+      font-size: map.get($font-size, l1);
       color: $color-primary;
 
     }
 
     .intro-question {
-      font-size: map-get($font-size, s);
+      font-size: map.get($font-size, s);
       margin-top: 10px;
       color: $color-light-black;
     }

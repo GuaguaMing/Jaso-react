@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @use "variable" as *;
 @use "function" as *;
 @use "reset";
@@ -102,7 +104,7 @@
 
 
         font-family: $font-en;
-        font-size: map-get($font-size, xxxxl);
+        font-size: map.get($font-size, xxxxl);
         /*權重 !important>id>class>element*/
         line-height: 1.5 !important;
         border-bottom: $border-l $color-black;
@@ -110,7 +112,7 @@
 
     h3 {
         font-family: $font-title;
-        font-size: map-get($font-size, m);
+        font-size: map.get($font-size, m);
         text-align: center;
         /*文字水平置中*/
     }
@@ -145,7 +147,7 @@ main.index {
 
     #contact-form {
         width: 30%;
-        font-size: map-get($font-size, xs);
+        font-size: map.get($font-size, xs);
 
         * {
             display: block;
@@ -153,7 +155,7 @@ main.index {
         }
 
         label {
-            font-size: map-get($font-size, xs);
+            font-size: map.get($font-size, xs);
             padding-top: $space-m;
 
         }
@@ -163,7 +165,7 @@ main.index {
             @extend %input-style;
         }
         small{
-            font-size: map-get($font-size, xs);
+            font-size: map.get($font-size, xs);
         }
 
         button {

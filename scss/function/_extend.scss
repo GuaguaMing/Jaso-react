@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @use"../variable" as*;
 
 //繼承extend%(直接匯入，不需要調用)
@@ -13,11 +15,11 @@
     border: 1px solid $color-lesser2;
     border-radius: $radius-s;
     padding: 4px;
-    font-size: map-get($font-size, s);
+    font-size: map.get($font-size, s);
 
     &::placeholder {
         color: $color-lesser2;
-        font-size: map-get($font-size, xs);
+        font-size: map.get($font-size, xs);
     }
 }
 

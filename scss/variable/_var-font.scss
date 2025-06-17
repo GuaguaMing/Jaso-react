@@ -1,8 +1,10 @@
+@use "sass:map";
+
 // font family
 $font-all: "Noto Sans TC", sans-serif;
     
 // font-size
-$font-size: ( /*map-get($font-size,*/
+$font-size: ( /*map.get($font-size,*/
   5xs: 0.75rem,     // 12px
   4xs: 0.87rem,     // 13.92px
   3xs: 0.875rem,    // 14px
