@@ -1,7 +1,7 @@
 import React from "react";
 import '../../css/style.min.css';
 import '../main.css';
-import styles from '../../scss/pages/about/AppAbout-module.css';
+import styles from './AppAbout.module.css';
 export default function AppAbout() {
 
     return (
@@ -32,21 +32,24 @@ export default function AppAbout() {
 
                 {/* Certification */}
                 <section className={styles.certifications}>
-                    <div className={styles.certContent}>
-                        <div className={styles.certTitleBlock}>
-                            <h2 className={styles.sectionGreenTitle}>國際認證 <br />與標章</h2>
-                            <h3 className={styles.aboutSubtitle}>JaSo 食品安全製造的核心</h3>
+                    <div className={styles.sectionContainer}>
+                        <div className={styles.certContent}>
+                            <div className={styles.certTitleBlock}>
+                                <h2 className={styles.sectionGreenTitle}>國際認證 <br />與標章</h2>
+                                <h3 className={styles.aboutSubtitle}>JaSo 食品安全製造的核心</h3>
+                            </div>
+                            <div className={styles.certTextBlock}>
+                                <p>透過第三方公正的認證，JaSo+能以最高標準提供產品及值得信賴的品質。
+                                    證書和標章不僅是對我們品牌和產品的認可，同時也是消費者選擇優質產品的重要依據。</p>
+                                <p>高度關注消費者使用的產品效果、安全、品質，並遵守認證機構和政府法規的要求，不斷優化我們的產品。使我們能確保您的健康更美好、簡單。</p>
+                                <p>我們非常重視我們所有原料廠商的食品安全管理，我們要求他們嚴格遵守國際標準並獲得各種認證。透過科學和客觀的管理，致力於建立最高水平的食品安全標準。</p>
+                            </div>
                         </div>
-                        <div className={styles.certTextBlock}>
-                            <p>透過第三方公正的認證...重要依據。</p>
-                            <p>高度關注消費者使用...簡單。</p>
-                            <p>我們非常重視...最高水平的食品安全標準。</p>
+                        <div className={styles.certGrid}>
+                            {[...Array(8)].map((_, idx) => (
+                                <img key={idx} src={`./public/images/about_us/pf${idx + 1}.svg`} alt={`cert ${idx + 1}`} />
+                            ))}
                         </div>
-                    </div>
-                    <div className={styles.certGrid}>
-                        {[...Array(8)].map((_, idx) => (
-                            <img key={idx} src={`./public/images/about_us/pf${idx + 1}.svg`} alt={`cert ${idx + 1}`} />
-                        ))}
                     </div>
                 </section>
 
@@ -59,7 +62,8 @@ export default function AppAbout() {
                                 <h3 className={styles.sectionH3}>素食認證</h3>
                             </div>
                             <p className={styles.veganDesc}>
-                                通過英國、美國素食協會認證...保健食品選擇。
+                                通過英國、美國素食協會認證，國際認證，純素有保障。 <br />
+                                清楚標示純素、奶素等，給素食朋友們最安心的保健食品選擇。
                             </p>
                         </div>
                         <div className={styles.certVeganGrid}>
@@ -85,9 +89,9 @@ export default function AppAbout() {
                                 </div>
                                 <div className={styles.faqBottom}>
                                     <a href="#" className={styles.moreBtn}>
-                                        <span className={styles.plusLeft}><img src="./public/images/about_us/greenplus.svg" alt="+" /></span>
+                                        <span className={styles.plusLeft}><img src="./public/images/icons/pluss.svg" alt="+" /></span>
                                         <span className={styles.moreText}>more</span>
-                                        <span className={styles.plusRight}><img src="./public/images/about_us/greenplus.svg" alt="+" /></span>
+                                        <span className={styles.plusRight}><img src="./public/images/icons/pluss.svg" alt="+" /></span>
                                     </a>
                                     <div className={styles.faqLine}></div>
                                 </div>
