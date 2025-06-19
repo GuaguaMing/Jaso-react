@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from '../../scss/pages/1component/navbar.module.scss';
 
-
-export default function Navbar() {
+export default function Navbar({ cartItems = [], cartAnimation = false, onToggleCart }) {
   const location = useLocation();
+  const navigate = useNavigate();
   const isHome = location.pathname === "/";
-  const [menuOpen, setMenuOpen] = useState(false); // 控制 menu 狀態
+  const [menuOpen, setMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("陳素食");
 
@@ -26,6 +26,52 @@ export default function Navbar() {
     setMenuOpen(!menuOpen);
   };
 
+  // 修正版本1: 根據 onToggleCart 的存在決定行為
+  const handleCartClick = (e) => {
+    console.log('Cart clicked', { cartItems });
+    
+    if (onToggleCart && typeof onToggleCart === 'function') {
+      // 如果有 onToggleCart 函數，先執行它
+      e.preventDefault();
+      onToggleCart();
+      // 如果 onToggleCart 不會處理導航，手動導航到購物車
+      // 你可以根據實際需求決定是否需要這行
+      // navigate('/cart');
+    }
+    // 如果沒有 onToggleCart，讓 Link 正常導航
+  };
+
+  // 修正版本2: 總是導航到購物車頁面
+  const handleCartClickAlternative = (e) => {
+    console.log('Cart clicked', { cartItems });
+    
+    // 如果有 onToggleCart 函數，執行它（但不阻止導航）
+    if (onToggleCart && typeof onToggleCart === 'function') {
+      onToggleCart();
+    }
+    // 讓 Link 正常導航到 /cart（不使用 preventDefault）
+  };
+
+  // 修正版本3: 使用 navigate 手動控制導航
+  const handleCartClickManual = (e) => {
+    e.preventDefault(); // 總是阻止 Link 的預設行為
+    console.log('Cart clicked', { cartItems });
+    
+    // 如果有 onToggleCart 函數，執行它
+    if (onToggleCart && typeof onToggleCart === 'function') {
+      onToggleCart();
+    }
+    
+    // 手動導航到購物車頁面
+    navigate('/cart');
+  };
+
+  // 計算購物車商品總數量
+  const getTotalCartItems = () => {
+    if (!Array.isArray(cartItems)) return 0;
+    return cartItems.reduce((sum, item) => sum + (item.qty || 0), 0);
+  };
+
   return (
     <header className={styles.navbarMain}>
       <div className={styles.navbarContainer}>
@@ -33,11 +79,11 @@ export default function Navbar() {
         {/* 左側 logo 首頁不顯示 */}
         {!isHome && (
           <div className={styles.navLeft}>
-                    <a className={styles.navbarLogo}>
-                      <Link to="/">
-                        <img src={`${import.meta.env.BASE_URL}assets/nav-logo.svg`} alt="JasoLogo" />
-                      </Link>
-                    </a>
+            <a className={styles.navbarLogo}>
+              <Link to="/">
+                <img src={`${import.meta.env.BASE_URL}assets/nav-logo.svg`} alt="JasoLogo" />
+              </Link>
+            </a>
           </div>
         )}
 
@@ -54,54 +100,43 @@ export default function Navbar() {
 
         {/* 右側會員與購物按鈕 */}
         <div className={styles.navRight}>
-          {/* {isLoggedIn ? (
-            <div className={styles.navMember}>
-              <Link to="/memberCenter">Hi, {userName}</Link>
-            </div>
+          {isLoggedIn ? (
+            <>
+              <div className={styles.navMember}>
+                <Link to="/memberCenter" className={styles.avatarWrapper}>
+                  <div className={styles.avatarContent}>
+                    <img
+                      src={`${import.meta.env.BASE_URL}images/icons/btn-member-default.svg`}
+                      style={{ width: '40px', height: '10px' }}
+                      alt="會員頭像"
+                      className={styles.avatarIcon}
+                    />
+                    <div className={styles.userName}>Hello, {userName}</div>
+                  </div>
+                </Link>
+              </div>
+
+              {/* 購物車圖示 - 使用修正版本3 */}
+              <div className={styles.shopIcon} style={{ position: 'relative' }}>
+                <Link to="/cart" onClick={handleCartClickManual}>
+                  <img 
+                    src={`${import.meta.env.BASE_URL}assets/shop-list.svg`} 
+                    alt="購物車" 
+                    className={styles.cartIcon} 
+                  />
+                  {getTotalCartItems() > 0 && (
+                    <span className={`${styles.cartCountBadge} ${cartAnimation ? styles.bump : ''}`}>
+                      {getTotalCartItems()}
+                    </span>
+                  )}
+                </Link>
+              </div>
+            </>
           ) : (
             <div className={styles.navMember}>
               <Link to="/login">登入</Link>
             </div>
-          )} */}
-{isLoggedIn ? (
-  <>
-<div className={styles.navMember}>
-  <Link to="/memberCenter" className={styles.avatarWrapper}>
-    <div className={styles.avatarContent}>
-      <img
-        src={`${import.meta.env.BASE_URL}images/icons/btn-member-default.svg`}
-       style={{ width: '40px', height: '10px' }}
-
-        alt="會員頭像"
-        className={styles.avatarIcon}
-      />
-      <div className={styles.userName}>Hello, {userName}</div>
-    </div>
-  </Link>
-</div>
-
-
-    <div className={styles.shopIcon}>
-      <Link to="/cart">
-        <img src={`${import.meta.env.BASE_URL}assets/shop-list.svg`} alt="購物車" />
-      </Link>
-    </div>
-  </>
-) : (
-  <div className={styles.navMember}>
-    <Link to="/login">登入</Link>
-  </div>
-)}
-
-          {/* {isLoggedIn && (
-<div className={styles.shopIcon}>
-  <Link to="/cart">
-              <img src={`${import.meta.env.BASE_URL}assets/shop-list.svg`} alt="" /></Link> 
-            </div>
-              
-          )} */}
-
-
+          )}
 
           <div className={styles.beanShape}>
             {/* 漢堡 */}
@@ -125,9 +160,25 @@ export default function Navbar() {
             <li><Link to="/shop">素購</Link></li>
           </ul>
           <ul>
-            <li><Link to="/cart"><img src={`${import.meta.env.BASE_URL}images/icons/btn-shop.svg`} alt="cart" className={styles.navIcon}/></Link> </li>
-    
-            <li><Link to="/memberCenter" className={styles.navHamburgerMember}>登入</Link></li>
+            <li>
+              <Link to="/cart" onClick={handleCartClickManual}>
+                <img 
+                  src={`${import.meta.env.BASE_URL}images/icons/btn-shop.svg`} 
+                  alt="cart" 
+                  className={styles.navIcon}
+                />
+                {getTotalCartItems() > 0 && (
+                  <span className={styles.cartCountBadge}>
+                    {getTotalCartItems()}
+                  </span>
+                )}
+              </Link>
+            </li>
+            <li>
+              <Link to="/memberCenter" className={styles.navHamburgerMember}>
+                {isLoggedIn ? `Hi, ${userName}` : '登入'}
+              </Link>
+            </li>
           </ul>
         </div>
       )}

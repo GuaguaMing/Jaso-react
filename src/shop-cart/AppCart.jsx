@@ -12,23 +12,57 @@ import ShippingForm from './components/ShippingForm';
 import PaymentForm from './components/PaymentForm';
 import PaymentReview from './components/PaymentReview';
 
-function AppCart() {
+function AppCart({ cartItems = [], setCartItems = () => {} }) {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   const [step, setStep] = useState(1);
   const [isCartOpen, setIsCartOpen] = useState(true);
-  const [cartItems, setCartItems] = useState([]);
+  
+  // 如果父組件沒有傳入 cartItems 和 setCartItems，則使用內部狀態
+  const [internalCartItems, setInternalCartItems] = useState([]);
+  const [cartAnimation, setCartAnimation] = useState(false);
+  
+  // 判斷是否使用內部狀態管理
+  const isUsingInternalState = cartItems.length === 0 && typeof setCartItems === 'function' && setCartItems.toString() === '() => {}';
+  const currentCartItems = isUsingInternalState ? internalCartItems : cartItems;
+  const currentSetCartItems = isUsingInternalState ? setInternalCartItems : setCartItems;
 
+  // 從 localStorage 載入購物車資料
   useEffect(() => {
     const stored = localStorage.getItem("cart");
-    if (stored) {
-      setCartItems(JSON.parse(stored));
+    if (stored && isUsingInternalState) {
+      try {
+        const parsedItems = JSON.parse(stored);
+        setInternalCartItems(parsedItems);
+      } catch (error) {
+        console.error('Error parsing cart items from localStorage:', error);
+      }
     }
-  }, []);
+  }, [isUsingInternalState]);
 
+  // 儲存購物車資料到 localStorage
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cartItems));
-  }, [cartItems]);
+    if (currentCartItems.length >= 0) {
+      localStorage.setItem("cart", JSON.stringify(currentCartItems));
+    }
+  }, [currentCartItems]);
+
+  // 購物車動畫效果
+  useEffect(() => {
+    if (currentCartItems.length === 0) return;
+    setCartAnimation(true);
+    const timer = setTimeout(() => setCartAnimation(false), 300);
+    return () => { clearTimeout(timer); };
+  }, [currentCartItems]);
+
+  // 支援 ?reset=true 清空購物車
+  useEffect(() => {
+    if (searchParams.get('reset') === 'true') {
+      currentSetCartItems([]);
+      setStep(1);
+    }
+  }, [searchParams, currentSetCartItems]);
 
   const products = [
     { id: 1, name: "鈣心定植物鈣", desc: "維鈣+D3雙效配方", price: 365, image: "./images/Pd/Ca-default.svg" },
@@ -40,37 +74,27 @@ function AppCart() {
   ];
 
   const handleToggleCartItem = (product) => {
-    setCartItems((prevItems) => {
+    console.log('handleToggleCartItem called with:', product); // 調試用
+    
+    currentSetCartItems((prevItems) => {
+      console.log('Previous items:', prevItems); // 調試用
+      
       const existingItem = prevItems.find(item => item.id === product.id);
+      let newItems;
+      
       if (existingItem) {
         // 若已存在，取消加入（移除整個商品）
-        return prevItems.filter(item => item.id !== product.id);
+        newItems = prevItems.filter(item => item.id !== product.id);
+        console.log('Removing item, new items:', newItems); // 調試用
       } else {
         // 若不存在，加入購物車
-        return [...prevItems, { ...product, qty: 1 }];
+        newItems = [...prevItems, { ...product, qty: 1 }];
+        console.log('Adding item, new items:', newItems); // 調試用
       }
+      
+      return newItems;
     });
   };
-
-
-
-  const [cartAnimation, setCartAnimation] = useState(false);
-
-  useEffect(() => {
-    if (cartItems.length === 0) return;
-    setCartAnimation(true);
-    const timer = setTimeout(() => setCartAnimation(false), 300);
-    return () => { clearTimeout(timer); };
-  }, [cartItems]);
-
-  // 支援 ?reset=true 清空購物車
-  const [searchParams] = useSearchParams();
-  useEffect(() => {
-    if (searchParams.get('reset') === 'true') {
-      setCartItems([]);
-      setStep(1);
-    }
-  }, [searchParams]);
 
   const [formData, setFormData] = useState({
     name: '陳素食',
@@ -89,6 +113,7 @@ function AppCart() {
     securityCode: '',
     shippingMethod: ''
   });
+
   // 購物金
   const [usedCredits, setUsedCredits] = useState(0);
   const [availableCredits, setAvailableCredits] = useState(100);
@@ -100,12 +125,13 @@ function AppCart() {
     phone: '',
     recipient: '',
     recipientPhone: '',
-    address: '', // 你可以保留這個欄位當作「宅配地址」或未來擴充用
+    address: '',
     shippingMethod: '',
     note: ''
   });
 
   const shippingRef = useRef(null);
+  
   useEffect(() => {
     setIsCartOpen(step === 1);
   }, [step]);
@@ -115,28 +141,19 @@ function AppCart() {
     navigate('/cart/success', { state: { orderNumber: generatedOrderNumber } });
   };
 
-
   return (
     <>
-      {/* <Navbar /> */}
+      {/* 傳遞購物車資料給 Navbar */}
+      {/* <Navbar 
+        cartItems={currentCartItems} 
+        cartAnimation={cartAnimation}
+        onToggleCart={() => setIsCartOpen(!isCartOpen)}
+      /> */}
       {/* <NavbarHidden /> */}
       <div className="container py-4">
-        <div className="mb-3"style={{ height: "1.5rem", visibility: "hidden" }}>
+        <div className="mb-3" style={{ height: "1.5rem", visibility: "hidden" }}>
           <div className='container-fluid'>
             <span className='navbar-brand'>結帳流程</span>
-          </div>
-        </div>
-
-        {/* 右下角購物袋浮動按鈕 */}
-        <div
-          className="cart-float-btn"
-          onClick={() => setIsCartOpen(!isCartOpen)}
-        >
-          <div className="position-relative">
-            <img src="./images/icons/icon-cart.svg" className="cart-icon" alt="cart" />
-            <span className={`cart-count-badge ${cartAnimation ? "bump" : ""}`}>
-              {cartItems.reduce((sum, item) => sum + item.qty, 0)}
-            </span>
           </div>
         </div>
 
@@ -145,16 +162,25 @@ function AppCart() {
         {/* Step 1: 購物車 */}
         {step === 1 && (
           <>
-            <CartToggle cartItems={cartItems} setCartItems={setCartItems} isOpen={isCartOpen} setIsOpen={setIsCartOpen} cartAnimation={cartAnimation} />
-            <CartSummary cartItems={cartItems} onNextStep={() => {
-              setStep(2);
-              setTimeout(() => {
-                shippingRef.current?.scrollIntoView({ behavior: 'smooth' });
-              }, 0);
-            }} />
+            <CartToggle 
+              cartItems={currentCartItems} 
+              setCartItems={currentSetCartItems} 
+              isOpen={isCartOpen} 
+              setIsOpen={setIsCartOpen} 
+              cartAnimation={cartAnimation} 
+            />
+            <CartSummary 
+              cartItems={currentCartItems} 
+              onNextStep={() => {
+                setStep(2);
+                setTimeout(() => {
+                  shippingRef.current?.scrollIntoView({ behavior: 'smooth' });
+                }, 0);
+              }} 
+            />
             <RecentViewed
-              products={products}  // ✅ 使用你定義的 products
-              cartItems={cartItems}
+              products={products}
+              cartItems={currentCartItems}
               onToggleCartItem={handleToggleCartItem}
             />
           </>
@@ -163,14 +189,20 @@ function AppCart() {
         {/* Step 2: 配送資訊 */}
         {step === 2 && (
           <>
-            <CartToggle cartItems={cartItems} setCartItems={setCartItems} isOpen={isCartOpen} setIsOpen={setIsCartOpen} cartAnimation={cartAnimation} />
-            <CartSummary cartItems={cartItems} />
+            <CartToggle 
+              cartItems={currentCartItems} 
+              setCartItems={currentSetCartItems} 
+              isOpen={isCartOpen} 
+              setIsOpen={setIsCartOpen} 
+              cartAnimation={cartAnimation} 
+            />
+            <CartSummary cartItems={currentCartItems} />
             <div ref={shippingRef}>
               <ShippingForm formData={formData} setFormData={setFormData} onNextStep={() => setStep(3)} />
             </div>
             <RecentViewed
-              products={products}  // ✅ 使用你定義的 products
-              cartItems={cartItems}
+              products={products}
+              cartItems={currentCartItems}
               onToggleCartItem={handleToggleCartItem}
             />
           </>
@@ -179,16 +211,22 @@ function AppCart() {
         {/* Step 3: 付款方式與發票 */}
         {step === 3 && (
           <>
-            <CartToggle cartItems={cartItems} setCartItems={setCartItems} isOpen={isCartOpen} setIsOpen={setIsCartOpen} cartAnimation={cartAnimation} />
-            <CartSummary cartItems={cartItems} />
+            <CartToggle 
+              cartItems={currentCartItems} 
+              setCartItems={currentSetCartItems} 
+              isOpen={isCartOpen} 
+              setIsOpen={setIsCartOpen} 
+              cartAnimation={cartAnimation} 
+            />
+            <CartSummary cartItems={currentCartItems} />
             <PaymentForm formData={formData} setFormData={setFormData} />
             <div className="text-end mt-3">
               <button className="btn btn-onback-light me-2" onClick={() => setStep(2)}>上一步：填寫寄送資訊</button>
               <button className="btn btn-brand" onClick={() => setStep(4)}>下一步：確認訂單</button>
             </div>
             <RecentViewed
-              products={products}  // ✅ 使用你定義的 products
-              cartItems={cartItems}
+              products={products}
+              cartItems={currentCartItems}
               onToggleCartItem={handleToggleCartItem}
             />
           </>
@@ -197,19 +235,25 @@ function AppCart() {
         {/* Step 4: 付款確認 */}
         {step === 4 && (
           <>
-            <CartToggle cartItems={cartItems} setCartItems={setCartItems} isOpen={isCartOpen} setIsOpen={setIsCartOpen} cartAnimation={cartAnimation} />
-            <CartSummary cartItems={cartItems} />
+            <CartToggle 
+              cartItems={currentCartItems} 
+              setCartItems={currentSetCartItems} 
+              isOpen={isCartOpen} 
+              setIsOpen={setIsCartOpen} 
+              cartAnimation={cartAnimation} 
+            />
+            <CartSummary cartItems={currentCartItems} />
             <PaymentReview
               formData={formData}
-              cartItems={cartItems}
-              usedCredits={usedCredits}     // ✅ 修正拼字
+              cartItems={currentCartItems}
+              usedCredits={usedCredits}
               availableCredits={availableCredits}
               onBack={() => setStep(3)}
               onSubmit={handleSubmitOrder}
             />
             <RecentViewed
-              products={products}  // ✅ 使用你定義的 products
-              cartItems={cartItems}
+              products={products}
+              cartItems={currentCartItems}
               onToggleCartItem={handleToggleCartItem}
             />
           </>
@@ -221,9 +265,3 @@ function AppCart() {
 }
 
 export default AppCart;
-
-
-
-
-
-
