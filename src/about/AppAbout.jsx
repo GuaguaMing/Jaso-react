@@ -1,6 +1,7 @@
 import React from "react";
 import '../../css/style.min.css';
 import '../main.css';
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from './AppAbout.module.css';
 export default function AppAbout() {
 
@@ -88,11 +89,13 @@ export default function AppAbout() {
                                     <p>常見問題（FAQ）</p>
                                 </div>
                                 <div className={styles.faqBottom}>
-                                    <a href="#" className={styles.moreBtn}>
+                                     <Link to="/faq">
+                                    <a className={styles.moreBtn}>
                                         <span className={styles.plusLeft}><img src="./public/images/icons/pluss.svg" alt="+" /></span>
                                         <span className={styles.moreText}>more</span>
                                         <span className={styles.plusRight}><img src="./public/images/icons/pluss.svg" alt="+" /></span>
                                     </a>
+                                    </Link>
                                     <div className={styles.faqLine}></div>
                                 </div>
                             </div>

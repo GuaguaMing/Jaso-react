@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 // import Navbar from "../1components/Navbar";
 import styles from "../../scss/pages/login/appLogin.module.scss";
 export default function AppLogin() {
@@ -91,11 +91,13 @@ export default function AppLogin() {
                         </div>
 
                         <div className={styles.loginActions}>
-                            <button type="submit" className={`${styles.btnBrand} ${styles.primary}`} onClick={()=>navigate('/')}>登入</button>
+                            <button type="submit" className={`${styles.btnBrand} ${styles.primary}`} onClick={() => navigate('/')}>登入</button>
                         </div>
 
                         <p className={styles.signupTip}>
-                            你還不素會員？<button onClick={()=>navigate('/signup')} className={styles.signupLink}>馬上註冊！</button>
+                            <Link to="/signup">
+                                你還不素會員？<button className={styles.signupLink}>馬上註冊！</button>
+                            </Link>
                         </p>
                     </form>
                 </div>

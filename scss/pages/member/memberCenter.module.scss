@@ -73,14 +73,14 @@
 }
 
 .helloWrapper {
-  position: relative;         // 讓 z-index 生效
-  z-index: 10;                // 比其他容器高
-  max-width: 1560px;
-  margin: 0 auto;
-  padding: 0 40px;
-  margin-left: 106px;
-  margin-bottom: -50px;       // 貼 icon，但不佔空間
-  pointer-events: none;       // 不會干擾下層互動（可選）
+    position: relative; // 讓 z-index 生效
+    z-index: 10; // 比其他容器高
+    max-width: 1560px;
+    margin: 0 auto;
+    padding: 0 40px;
+    margin-left: 106px;
+    margin-bottom: -50px; // 貼 icon，但不佔空間
+    pointer-events: none; // 不會干擾下層互動（可選）
 }
 
 .greeting {
@@ -140,13 +140,12 @@
     margin: 0;
 }
 
-.userRankBadge,
+
 .logoutButton {
     font-size: 14px;
     font-weight: 500;
     color: #333;
     border: 1px solid #333;
-    display: flex;
     width: 100px;
     padding: 6px 20px;
     border-radius: 20px;
@@ -157,6 +156,23 @@
     justify-content: center;
     cursor: pointer;
 }
+
+.userRankBadge {
+    width: 60px;
+    height: 17px;
+    font-size: 9px;
+    font-weight: 500;
+    color: #333;
+    border: 1px solid #333;
+    border-radius: 20px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
 
 .logoutButton:hover {
     // background-color: #f5f5f5;
@@ -484,7 +500,7 @@ html {
     overflow-y: scroll;
 }
 
-.signup-section {
+.signupSection {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -493,75 +509,95 @@ html {
     font-family: "Noto Sans TC", sans-serif;
 }
 
-.signup-section .signup-title-wrapper {
+.signupSection .signupTitleWrapper {
     position: relative;
     text-align: center;
     margin-bottom: 20px;
 }
 
-.signup-section .signup-title-wrapper h1 {
+.signupSection .signupTitleWrapper h1 {
     font-size: 64px;
     font-weight: 900;
     color: #3DCE94;
     text-align: center;
 }
 
-.signup-section .signup-title-wrapper .icon-left,
-.signup-section .signup-title-wrapper .icon-right {
+.signupSection .signupTitleWrapper .iconLeft,
+.signupSection .signupTitleWrapper .iconRight {
     position: absolute;
     animation: float 1.5s ease-in-out infinite alternate;
 }
 
 
 
-.signup-section .signup-title-wrapper .icon-left {
+.signupSection .signupTitleWrapper .iconLeft {
     left: -60px;
     width: 110px;
     height: 95px;
     flex-shrink: 0;
-    top: 25%;
+    top: -50px;
     left: -37%;
     transform: translateY(-60%);
     animation-delay: 0s;
 }
 
-.signup-section .signup-title-wrapper .icon-right {
+.signupSection .signupTitleWrapper .iconRight {
     right: -60px;
     width: 70px;
     height: 70px;
     flex-shrink: 0;
-    top: 15%;
+    top: -35px;
     transform: translateY(-60%);
     animation-delay: 2s;
 }
 
-.signup-section .signup-subtitle {
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+.iconLeft {
+    animation: float 1.5s ease-in-out infinite alternate;
+}
+
+.iconRight {
+    animation: float 1.5s ease-in-out infinite alternate;
+    animation-delay: 0.8s;
+    /* 讓它們時間錯開，看起來更自然 */
+}
+
+.signupSection .signupSubtitle {
     font-size: 16px;
     color: #AAA6A8;
     margin-bottom: 48px;
 }
 
-.signup-section .signup-form {
+.signupSection .signupForm {
     max-width: 1440px;
     margin: 0 auto;
     font-size: 18px;
     width: 637px;
 }
 
-.signup-section .signup-form .input-row {
+.signupSection .signupForm .inputRow {
     display: grid;
     grid-template-columns: 100px 1fr;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.signup-section .signup-form .input-row .input-label {
+.signupSection .signupForm .inputRow .inputLabel {
     font-size: 18px;
     font-weight: 500;
     text-align: left;
 }
 
-.signup-section .signup-form .input-row .rounded-input {
+.signupSection .signupForm .inputRow .roundedInput {
     padding: 12px 20px;
     border-radius: 999px;
     background: #F6EFEF;
@@ -571,32 +607,34 @@ html {
     width: 100%;
 }
 
-.signup-section .signup-form .input-row .rounded-input::placeholder {
+.signupSection .signupForm .inputRow .roundedInput::placeholder {
     color: #AAA6A8;
     opacity: 1;
 }
 
-.signup-section .signup-login-tip {
+.signupSection .signupLoginTip {
     margin-top: 22px;
     font-size: 16px;
     color: #AAA6A8;
     text-align: center;
 }
 
-.signup-section .signup-login-tip .login-link {
+.signupSection .signupLoginTip .loginLink {
     color: #3DCE94;
     text-decoration: none;
     margin-left: 4px;
     font-weight: 500;
 }
 
-.signup-section .signup-login-tip .login-link:hover {
+
+.signupSection .signupLoginTip .loginLink:hover {
     text-decoration: underline;
 }
 
-.signup-section .signup-button {
+.signupSection .signupButton {
     margin-top: 22px;
     align-self: center;
+    margin-left: 230px;
     background-color: #3DCE94;
     color: white;
     padding: 12px 60px;
@@ -609,170 +647,10 @@ html {
     transition: all 0.3s ease;
 }
 
-.signup-section .signup-button:hover {
+.signupSection .signupButton:hover {
     background-color: white;
     color: #3DCE94;
     border: 2px solid #3DCE94;
-}
-
-.login-section {
-    text-align: center;
-    padding: 60px 20px;
-    font-family: "Noto Sans TC", sans-serif;
-}
-
-.login-section .login-header {
-    margin-bottom: 40px;
-}
-
-.login-section .login-header h1 {
-    font-style: normal;
-    font-size: 64px;
-    font-weight: 700;
-    color: #3DCE94;
-    margin-bottom: 16px;
-}
-
-.login-section .login-header .face-wrapper {
-    position: relative;
-    width: 200px;
-    height: 160px;
-    margin: 0 auto;
-}
-
-.login-section .login-header .face-wrapper .login-icon {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.login-section .login-header .face-wrapper .eye-wrapper {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    pointer-events: none;
-}
-
-.login-section .login-header .face-wrapper .rotating-eye {
-    width: 100%;
-    height: 100%;
-    transform-origin: center center;
-    transition: transform 0.1s linear;
-}
-
-.login-section .login-header .face-wrapper .eye-left {
-    top: 50px;
-    left: 30px;
-}
-
-.login-section .login-header .face-wrapper .eye-right {
-    top: 50px;
-    right: 30px;
-}
-
-.login-section .login-form {
-    max-width: 500px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.login-section .login-form .input-row {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-.login-section .login-form .input-row .input-label {
-    min-width: 100px;
-    font-size: 18px;
-    font-weight: 500;
-    text-align: left;
-}
-
-.login-section .login-form .input-row .rounded-input {
-    flex: 1;
-    padding: 12px 20px;
-    border-radius: 999px;
-    background: #F6EFEF;
-    border: none;
-    font-size: 16px;
-    color: #333;
-}
-
-.login-section .login-actions {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    margin: 40px 0;
-}
-
-.login-section .login-actions .btn {
-    min-width: 200px;
-    padding: 12px 60px;
-    font-size: 16px;
-    border-radius: 999px;
-    border: 2px solid transparent;
-    cursor: pointer;
-    font-weight: 500;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-    margin-top: 50px;
-}
-
-.login-section .login-actions .btn.primary {
-    background-color: #3DCE94;
-    color: #fff;
-}
-
-.login-section .login-actions .btn.secondary {
-    background-color: #3DCE94;
-    color: #fff;
-}
-
-.login-section .login-actions .btn:hover {
-    background-color: white;
-    color: #3DCE94;
-    border: 2px solid #3DCE94;
-}
-
-.login-section .signup-tip {
-    text-align: center;
-    font-size: 14px;
-    color: #999;
-}
-
-.login-section .signup-tip .signup-link {
-    color: #3DCE94;
-    margin-left: 4px;
-    text-decoration: none;
-}
-
-.login-section .signup-tip .signup-link:hover {
-    text-decoration: underline;
-}
-
-.login-section .password-row {
-    position: relative;
-}
-
-.login-section .password-row .forgot-password {
-    position: absolute;
-    left: 130px;
-    bottom: -50px;
-    font-size: 14px;
-    color: #999;
-    margin: 0;
-}
-
-.login-section .password-row .forgot-password a {
-    color: #999;
-    text-decoration: none;
-}
-
-.login-section .password-row .forgot-password a:hover {
-    color: #3DCE94;
-    text-decoration: underline;
 }
 
 .pointsSection {
@@ -1556,8 +1434,8 @@ body {
     background: #fff;
     padding: 20px;
     border-radius: 20px;
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 100%;
+    max-height: 100%;
     overflow: auto;
     position: relative;
 

@@ -6,11 +6,25 @@ import styles from '../../../scss/pages/shop/productDetail.module.scss';
 export default function ProductDetail() {
   const { id } = useParams();
   const product = products.find(p => p.id === Number(id));
+  const navigate = useNavigate();
 
   if (!product) return <div>找不到商品</div>;
 
   return (
     <div className={styles.productDetailContainer}>
+      {/* 返回按鈕 */}
+      <button
+        className={styles.backButton}
+        onClick={() => navigate('/shop',{ state: { scrollToProductList: true }})}>
+        素購
+      </button >
+
+      &nbsp;＞&nbsp;&nbsp;
+
+      <span className={styles.productName}>
+        {product.name}
+      </span>
+
       <div className={styles.productDetailTop}>
         <div className={styles.productLeft}>
           <img
@@ -26,9 +40,16 @@ export default function ProductDetail() {
           <div className={styles.shopPrice}>
             <h1>NT${product.price}</h1>
           </div>
-          {/* 其他區塊... */}
+
+
+
         </div>
+
       </div>
+      <img
+        src={`${import.meta.env.BASE_URL}${product.detailImage.replace(/^\.*\//, '')}`}
+        width="48"
+        alt="" />
     </div>
   );
 }

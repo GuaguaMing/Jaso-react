@@ -1,8 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import styles from '../../scss/pages/member/MemberCenter.module.scss'
 
 export default function ProfileTab() {
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
+
+  // 未登入防護機制
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      navigate('/login');
+    }
+  }, [navigate]);
+
+  // 登出邏輯
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userName");
+    window.location.href = "/"; // 或 navigate('/')
+  };
+
   return (
     <>
       <div className={styles.tabContent} id="profile">
@@ -23,7 +41,7 @@ export default function ProfileTab() {
                   <p className={styles.userName}>王小明</p>
                   <div className={styles.userRankBadge}>一般會員</div>
                 </div>
-                <button className={styles.logoutButton}>登出</button>
+                <button className={styles.logoutButton} onClick={handleLogout}>登出</button>
               </div>
             </div>
             <div className={styles.rankRuleBox}>
@@ -57,7 +75,6 @@ export default function ProfileTab() {
               </div>
             </div>
           </div>
-
 
           {/* 左下：個人資料 */}
           <div className={styles.profileLeftBottom}>
@@ -106,9 +123,8 @@ export default function ProfileTab() {
         showModal && (
           <div className={styles.modalOverlay} onClick={() => setShowModal(false)}>
             <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
-              <button className={styles.closeBtn} onClick={() => setShowModal(false)}>關閉</button>
-              <img src={`${import.meta.env.BASE_URL}images/rankPage.svg`}
-                alt="會員等級說明" />
+              <button className={styles.closeBtn} onClick={() => setShowModal(false)}>X</button>
+              <img src={`${import.meta.env.BASE_URL}images/rankPage.svg`} alt="會員等級說明" />
             </div>
           </div>
         )
