@@ -157,7 +157,7 @@ input, select, option {
   font-weight: 500;
 }
 
-.shopList2:hover {
+.shopIcon:hover {
   animation: pendulum 1s ease-in-out infinite;
 }
 
@@ -217,6 +217,42 @@ input, select, option {
   margin: 0 11px;
 }
 
+.cartCountBadge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #dc3545;
+  color: white;
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  animation: none;
+  transition: transform 0.3s ease;
+}
+
+/* 動畫效果 */
+.cart-count-badge.bump {
+  animation: bump 300ms ease-out;
+}
+
+@keyframes bump {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.3);
+  }
+  30% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 @keyframes pendulum {
   0% {
     transform: rotate(0deg);

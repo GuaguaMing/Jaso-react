@@ -6,7 +6,8 @@ import Footer from './Footer';
 
 import styles from '../../scss/pages/1component/layout.module.scss';
 
-export default function Layout() {
+export default function Layout({ cartItems = [], cartAnimation = false, onToggleCartItem }) {
+  console.log('Layout received cartItems:', cartItems);
   const location = useLocation();
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [showHiddenNavbar, setShowHiddenNavbar] = useState(false);
@@ -82,7 +83,15 @@ export default function Layout() {
             }`}
           >
             
-            <Navbar />
+              <Navbar 
+        cartItems={cartItems} 
+        cartAnimation={cartAnimation}
+        onToggleCart={() => {
+          // 這裡可以處理購物車切換邏輯
+          console.log('Toggle cart from navbar');
+        }}
+      />
+
           </div>
 
           {/* 僅在往上滑且不是最頂端時顯示 HiddenNavbar */}
@@ -96,12 +105,18 @@ export default function Layout() {
       fadeOutNavbarHidden ? styles.fadeOut : styles.fadeIn
     }`}
   >
-    <NavbarHidden />
+    <NavbarHidden 
+        cartItems={cartItems} 
+        cartAnimation={cartAnimation}
+        onToggleCart={() => {
+          // 這裡可以處理購物車切換邏輯
+          console.log('Toggle cart from navbar');
+        }}/>
   </div>
 )}
         </>
       )}
-      <Outlet />
+      <Outlet context={{ cartItems, onToggleCartItem }} />
       <Footer /> 
     </>
   );

@@ -107,7 +107,7 @@ const questions = [
 
 
 
-const Quiz = () => {
+const Quiz = ({ cartItems = [], cartAnimation = false, onToggleCart }) => {
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSubmitButton, setShowSubmitButton] = useState(false);
@@ -609,7 +609,13 @@ const [showErrors, setShowErrors] = useState({});
   }
   return (
     <>
-    <NavbarHidden />
+     <NavbarHidden 
+        cartItems={cartItems} 
+        cartAnimation={cartAnimation}
+        onToggleCart={() => {
+          // 這裡可以處理購物車切換邏輯
+          console.log('Toggle cart from navbar');
+        }}/>
     <div className={styles.quizContainer}>
       {/* 問題內容 */}
       {renderQuestion()}
