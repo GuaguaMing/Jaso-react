@@ -45,7 +45,7 @@ export default function Navbar() {
         <div className={styles.navbarCenter}>
           <nav className={styles.navbarLinks}>
             <ul>
-              <li><Link to="/guide">食物庫</Link></li>
+              <li><Link to="/guide">素食庫</Link></li>
               <li><Link to="/article">素食知識</Link></li>
               <li><Link to="/quiz">營養素算</Link></li>
             </ul>

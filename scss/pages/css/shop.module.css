@@ -45,10 +45,18 @@ input, select, option {
 }
 
 .shopBanner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 60px 240px;
   text-align: left;
+  gap: 2rem;
 }
 
+.shopBannerContent {
+  flex: 1;
+  max-width: 50%;
+}
 .shopBannerContent h1,
 .shopBannerContent h3 {
   margin: 16px auto;
@@ -100,6 +108,21 @@ input, select, option {
 .shopProductFilter_title {
   margin: 0;
   font-size: 1.5rem;
+}
+
+.conveyorWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  max-width: 100%;
+  transform: translateY(-30px) scale(2);
+}
+
+.shopCTA {
+  flex: 1;
+  display: flex;
+  max-width: 100%;
+  padding: 9rem;
 }
 
 .shopTagList {

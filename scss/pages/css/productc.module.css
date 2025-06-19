@@ -100,7 +100,7 @@ input, select, option {
 }
 
 .centerBox {
-  margin: auto 2rem;
+  margin: auto 6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -131,15 +131,15 @@ input, select, option {
 
 .centerBottom {
   display: grid;
-  justify-content: center;
+  justify-content: left;
   grid-template-columns: repeat(2, auto);
-  gap: 1rem;
+  gap: 3rem;
   width: 100%;
   align-items: flex-end;
 }
 
 .centerNeed {
-  justify-content: left;
+  justify-content: center;
   align-content: center;
   color: #3DCE94;
   font-family: "Noto Sans TC";
@@ -266,17 +266,13 @@ input, select, option {
   left: 50%;
   top: 50%;
   cursor: pointer;
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
-}
-.containerSlides li:hover {
-  transform: scale(1.2) !important;
-  z-index: 20 !important;
 }
 
 .card {
-  width: 134px;
-  height: 134px;
+  width: 150px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -285,17 +281,28 @@ input, select, option {
   transition: all 0.3s ease;
 }
 .card img {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   transition: all 0.3s ease;
 }
 
 .card3d {
-  backdrop-filter: blur(10px);
   position: relative;
 }
 
+.cardHovered {
+  animation: floatHover 0.3s ease-out forwards;
+}
+
+@keyframes floatHover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
 .orbit3d {
   position: absolute;
   left: 50%;
@@ -313,7 +320,7 @@ input, select, option {
   height: 120px;
   border: 2px solid rgba(61, 206, 148, 0.3);
   border-radius: 50%;
-  animation: rotate3d 20s linear infinite;
+  animation: rotate3d 25s linear infinite;
 }
 
 .trackEllipseInner {
@@ -325,7 +332,7 @@ input, select, option {
   height: 90px;
   border: 1px dashed rgba(61, 206, 148, 0.2);
   border-radius: 50%;
-  animation: rotate3dInner 15s linear infinite reverse;
+  animation: rotate3dInner 20s linear infinite reverse;
 }
 
 .trackEllipseOuter {
@@ -337,7 +344,7 @@ input, select, option {
   height: 150px;
   border: 1px dotted rgba(61, 206, 148, 0.15);
   border-radius: 50%;
-  animation: rotate3dOuter 25s linear infinite;
+  animation: rotate3dOuter 30s linear infinite;
 }
 
 .trackCircle {
@@ -387,7 +394,7 @@ input, select, option {
 }
 @keyframes productSlideIn {
   0% {
-    transform: translateX(50px) scale(0.9);
+    transform: translateX(30px) scale(0.95);
     opacity: 0;
   }
   100% {
@@ -397,7 +404,7 @@ input, select, option {
 }
 @keyframes fadeInUp {
   0% {
-    transform: translateY(30px);
+    transform: translateY(20px);
     opacity: 0;
   }
   100% {

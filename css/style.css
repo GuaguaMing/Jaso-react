@@ -1,6 +1,4 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap");
 /* reset CSS */
 * {
   box-sizing: border-box;
@@ -44,226 +42,6 @@ a {
 
 input, select, option {
   outline: none;
-}
-
-body {
-  font-family: "Noto Sans TC", sans-serif;
-  margin: 0;
-  background: #ffffff;
-}
-
-.question-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 50px 20px;
-  min-height: 80vh;
-}
-.question-container .question-left {
-  flex: 1;
-}
-.question-container .question-left h4 {
-  color: #3DCE94;
-  font-size: 1.125rem;
-  font-weight: bold;
-}
-.question-container .question-left h2 {
-  font-size: 1.875rem;
-  margin-top: 10px;
-  color: #2A2324;
-}
-.question-container .question-left .options {
-  margin-top: 30px;
-  justify-content: flex-start;
-}
-.question-container .question-left .options .option {
-  margin-bottom: 15px;
-  padding: 10px 30px;
-  background-color: #D9D9D9;
-  border-radius: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  cursor: pointer;
-}
-.question-container .question-left .options .option:hover {
-  background-color: #3DCE94;
-}
-.question-container .question-left .options .option:hover input {
-  margin-right: 10px;
-}
-.question-container .question-left .title {
-  display: flex;
-}
-.question-container .question-left .intro-title {
-  display: flex;
-  font-weight: bold;
-  font-size: 2.25rem;
-  color: #3DCE94;
-}
-.question-container .question-left .intro-question {
-  font-size: 1.25rem;
-  margin-top: 10px;
-  color: #424242;
-}
-.question-container .question-left .form-fields .form-group {
-  margin-bottom: 20px;
-  color: #424242;
-  display: flex;
-  align-items: baseline;
-  padding: 0 2px;
-}
-.question-container .question-left .form-fields .form-group label {
-  display: flex;
-  margin-bottom: 5px;
-  width: 5rem;
-}
-.question-container .question-left .form-fields .form-group .option {
-  padding: 10px 15px;
-  background-color: #D9D9D9;
-  border-radius: 25px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-.question-container .question-left .form-fields .form-group .option:hover {
-  background-color: #3DCE94;
-}
-.question-container .question-left .form-fields .form-group .option:hover input {
-  margin-right: 10px;
-}
-.question-container .question-left .form-fields .form-group input,
-.question-container .question-left .form-fields .form-group select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #AAA6A8;
-}
-.question-container .question-left .form-fields .form-group-1 {
-  margin-bottom: 20px;
-  color: #424242;
-  display: flex;
-  align-items: baseline;
-  padding: 0 2px;
-}
-.question-container .question-left .form-fields .form-group-1 label {
-  display: flex;
-  margin-bottom: 5px;
-  width: 5rem;
-}
-.question-container .question-left .form-fields .form-group-1 .option-1 {
-  padding: 10px 15px;
-  background-color: #D9D9D9;
-  border-radius: 25px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-.question-container .question-left .form-fields .form-group-1 .option-1:hover {
-  background-color: #3DCE94;
-}
-.question-container .question-left .form-fields .form-group-1 .option-1:hover input {
-  margin-right: 10px;
-}
-.question-container .options.horizontal {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-.question-container .option {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 20px;
-  border-radius: 25px;
-  background-color: #D9D9D9;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  font-weight: 500;
-}
-.question-container .option input[type=radio] {
-  display: none;
-}
-.question-container .option:hover {
-  background-color: #6dd6a7;
-  color: #ffffff;
-}
-.question-container .option input[type=radio]:checked + span {
-  font-weight: bold;
-  background-color: #3DCE94;
-  color: #ffffff;
-  padding: 4px 12px;
-  border-radius: 20px;
-}
-.question-container .question-right {
-  flex: 0 0 300px;
-  text-align: center;
-}
-.question-container .question-right img {
-  width: 200px;
-  max-width: 100%;
-  height: auto;
-}
-
-.navigation-buttons {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin: 30px auto 10px;
-}
-.navigation-buttons button {
-  margin: 0 10px;
-  padding: 10px 20px;
-  border: none;
-  background-color: #3DCE94;
-  color: #ffffff;
-  font-size: 16px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-.navigation-buttons button:hover {
-  background-color: #6dd6a7;
-}
-
-.progress-bar {
-  height: 8px;
-  background-color: #D9D9D9;
-  margin: 0 auto 40px;
-  width: 80%;
-  border-radius: 5px;
-  overflow: hidden;
-}
-.progress-bar .progress {
-  height: 100%;
-  background-color: #3DCE94;
-  width: 0%;
-  transition: width 0.3s ease;
-}
-
-.quiz__step {
-  display: none;
-}
-
-.quiz__step.active {
-  display: block;
-}
-
-.option input[type=radio]:checked + span {
-  background-color: #3DCE94;
-  color: #ffffff;
-}
-
-.option-1 input[type=radio]:checked + span {
-  background-color: #3DCE94;
-  color: #ffffff;
-}
-
-body {
-  font-family: "Noto Sans TC", sans-serif;
-  margin: 0;
-  background: #ffffff;
 }
 
 .shop-banner {
@@ -1115,7 +893,7 @@ body {
 
 .navMember a {
   color: #2A2324;
-  padding: 0px 15px;
+  padding: 0px 11px;
   border: 1px solid;
   border-radius: 99px;
   font-size: 1rem;
@@ -1154,6 +932,51 @@ body {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.navMember {
+  position: relative;
+  /* Hover 切換效果 */
+}
+.navMember .avatarWrapper {
+  display: inline-block;
+}
+.navMember .avatarContent {
+  position: relative;
+  height: 32px;
+  padding: 11px;
+  white-space: nowrap;
+}
+.navMember .avatarIcon {
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.navMember .userName {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: #3DCE94;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+.navMember .avatarWrapper:hover .avatarIcon {
+  display: none;
+}
+.navMember .avatarWrapper:hover .userName {
+  display: flex;
+}
+.navMember .avatarWrapper:hover .avatarContent {
+  width: auto;
+  min-width: 80px;
+  margin: 0 11px;
 }
 
 .mobileMenu {
