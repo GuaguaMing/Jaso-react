@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './styles/guide.css';
+import styles from './styles/guide.module.scss';
 
 const PartnerImage = ({ src, hover, hover2, name }) => {
   const [currentIndex, setCurrentIndex] = useState(0);

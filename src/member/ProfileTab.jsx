@@ -11,6 +11,7 @@ export default function ProfileTab() {
     address: ''
   });
   const [showModal, setShowModal] = useState(false);
+  const [showComplete, setShowComplete] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -54,6 +55,11 @@ export default function ProfileTab() {
     localStorage.setItem('profileData', JSON.stringify(cleared));
   };
 
+  const handleEdit = () => {
+    setShowComplete(true);
+    setTimeout(() => setShowComplete(false), 2000);
+  };
+
   return (
     <>
       <div className={styles.tabContent} id="profile">
@@ -61,7 +67,6 @@ export default function ProfileTab() {
           <span className={styles.greeting}>Hello！</span>
         </div>
         <div className={styles.profileContainer}>
-          {/* 左上：會員資訊區塊 */}
           <div className={styles.profileLeftTop}>
             <div className={styles.userNameRank}>
               <div className={styles.iconNameRow}>
@@ -92,7 +97,6 @@ export default function ProfileTab() {
             <p className={styles.userBonus}>．訂閱制會員，商品一律7折優惠</p>
           </div>
 
-          {/* 右上：12個月累計消費 */}
           <div className={styles.profileRightTop}>
             <div className={styles.summaryHeader}>
               <img src={`${import.meta.env.BASE_URL}images/icons/icon_gift.svg`} alt="gift" className={styles.giftIcon} />
@@ -109,7 +113,6 @@ export default function ProfileTab() {
             </div>
           </div>
 
-          {/* 左下：個人資料 */}
           <div className={styles.profileLeftBottom}>
             <div className={styles.genderRow}>
               <span className={styles.shippingTitle}>生理性別</span>
@@ -127,7 +130,6 @@ export default function ProfileTab() {
             </div>
           </div>
 
-          {/* 右下：送貨與付款 */}
           <div className={styles.profileRightBottom}>
             <div className={styles.shippingHeader}>
               <img src={`${import.meta.env.BASE_URL}images/icons/icon-shipping.svg`} alt="truck" className={styles.icon} />
@@ -143,25 +145,29 @@ export default function ProfileTab() {
             </div>
           </div>
 
-          {/* profile-container 下方的按鈕區塊 */}
           <div className={styles.editButtonWrapper}>
-            <button className={styles.cancelButton} onClick={handleCancel} >取消</button>
-            <button className={styles.editButton}>更改資料</button>
+            <button className={styles.cancelButton} onClick={handleCancel}>取消</button>
+            <button className={styles.editButton} onClick={handleEdit}>更改資料</button>
           </div>
         </div>
       </div >
 
-      {/* 彈窗區塊 */}
-      {
-        showModal && (
-          <div className={styles.modalOverlay} onClick={() => setShowModal(false)}>
-            <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
-              <button className={styles.closeBtn} onClick={() => setShowModal(false)}>X</button>
-              <img src={`${import.meta.env.BASE_URL}images/rankPage.svg`} alt="會員等級說明" />
-            </div>
+      {showModal && (
+        <div className={styles.modalOverlay} onClick={() => setShowModal(false)}>
+          <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
+            <button className={styles.closeBtn} onClick={() => setShowModal(false)}>X</button>
+            <img src={`${import.meta.env.BASE_URL}images/rankPage.svg`} alt="會員等級說明" />
           </div>
-        )
-      }
+        </div>
+      )}
+
+      {showComplete && (
+        <div className={styles.modalOverlay} onClick={() => setShowComplete(false)}>
+          <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
+            <img src={`${import.meta.env.BASE_URL}images/success.svg`} alt="完成提示" />
+          </div>
+        </div>
+      )}
     </>
   );
 }

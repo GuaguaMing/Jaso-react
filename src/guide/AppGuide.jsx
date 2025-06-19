@@ -1,10 +1,9 @@
 
 import React, { useState } from 'react';
-// import Navbar from '../1components/Navbar';
 import NutrientCard from './NutrientCard';
 import GuideDetail from './GuideDetail';
 import nutrientData from './nutrient-Data';
-import './styles/guide.css';
+import styles from './styles/guide.module.css';
 
 export default function AppGuide() {
   const [selected, setSelected] = useState(null);
@@ -17,20 +16,20 @@ export default function AppGuide() {
   return (
     <>
       {/* <Navbar /> */}
-      <section className="vege-library">
-        <div className="vege-header">
-          <h1 className="vege-title">
-            <span className="vege-line">
+      <section className={styles.vegeLibrary}>
+        <div className={styles.vegeHeader}>
+          <h1 className={styles.vegeTitle}>
+            <span className={styles.vegeLine}>
               素
               <img
                 src={`${import.meta.env.BASE_URL}images/icons/pluss.svg`}
                 alt="plus icon"
-                className="plus-icon"
+                className={styles.plusIcon}
               />
             </span>
-            <span className="vege-line">食庫</span>
+            <span className={styles.vegeLine}>食庫</span>
           </h1>
-          <div className="vege-text">
+          <div className={styles.vegeText}>
             <h3>六大營養素</h3>
             <p>
               素食者的飲食需要特別關注一些關鍵的營養素，包括維生素B12、維生素D、鈣質、鐵質、蛋白質和Omega-3脂肪酸。
@@ -40,7 +39,7 @@ export default function AppGuide() {
         </div>
 
         {/* 卡片區塊 */}
-        <div className="card-container">
+        <div className={styles.cardContainer}>
           {Object.keys(nutrientData).map((key) => (
             <NutrientCard
               key={key}
@@ -54,7 +53,10 @@ export default function AppGuide() {
         {/* 彈窗區塊 */}
         {selected && nutrientData[selected] && (
           <>
-            <div className="guide-overlay show" onClick={handleClose} />
+            <div
+              className={`${styles.guideOverlay} ${styles.show}`}
+              onClick={handleClose}
+            />
             <GuideDetail data={nutrientData[selected]} onClose={handleClose} />
           </>
         )}

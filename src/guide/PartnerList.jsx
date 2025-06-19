@@ -1,31 +1,15 @@
 import React from 'react';
+import styles from './styles/guide.module.css';
 
-// const PartnerList = ({ partners }) => {
-//   return (
-//     <div className={styles.partnerList}>
-//       {partners.map((partner, index) => (
-//         <PartnerImage
-//           key={index}
-//           src={partner.src}
-//           hover={partner.hover}
-//           hover2={partner.hover2}
-//           name={partner.name}
-//         />
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default PartnerList;
 export default function PartnerList({ partners }) {
   return (
-    <div className="partnerList">
+    <div className={styles.partnerList}>
       {partners.map((partner, idx) => (
-        <div className="partnerItem" key={idx}>
-          <div className="img-hover-wrap">
-            <img src={partner.src} alt={partner.name} className="img-default" />
-            {partner.hover && <img src={partner.hover} alt="" className="img-hover1" />}
-            {partner.hover2 && <img src={partner.hover2} alt="" className="img-hover2" />}
+        <div className={styles.partnerItem} key={idx}>
+          <div className={styles.imgHoverWrap}>
+            <img src={partner.src} alt={partner.name} className={styles.imgDefault} />
+            {partner.hover && <img src={partner.hover} alt="" className={styles.imgHover1} />}
+            {partner.hover2 && <img src={partner.hover2} alt="" className={styles.imgHover2} />}
           </div>
           <p>{partner.name}</p>
         </div>
