@@ -15,7 +15,7 @@ export default function AppShop() {
     const [cartAnimation, setCartAnimation] = useState(false);
   const navigate = useNavigate();
   // 這裡假設你用 localStorage 判斷登入
-  const isLoggedIn = !!localStorage.getItem('userToken'); // 依你專案實際情況調整
+  const isLoggedIn = !!localStorage.getItem('token'); // 依你專案實際情況調整
 
   const handleBannerClick = () => {
     if (isLoggedIn) {
