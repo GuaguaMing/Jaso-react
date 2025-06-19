@@ -45,7 +45,7 @@ export default function Navbar() {
         <div className={styles.navbarCenter}>
           <nav className={styles.navbarLinks}>
             <ul>
-              <li><Link to="/guide">食物庫</Link></li>
+              <li><Link to="/guide">素食庫</Link></li>
               <li><Link to="/article">素食知識</Link></li>
               <li><Link to="/quiz">營養素算</Link></li>
             </ul>
@@ -54,7 +54,7 @@ export default function Navbar() {
 
         {/* 右側會員與購物按鈕 */}
         <div className={styles.navRight}>
-          {isLoggedIn ? (
+          {/* {isLoggedIn ? (
             <div className={styles.navMember}>
               <Link to="/memberCenter">Hi, {userName}</Link>
             </div>
@@ -62,15 +62,46 @@ export default function Navbar() {
             <div className={styles.navMember}>
               <Link to="/login">登入</Link>
             </div>
-          )}
+          )} */}
+{isLoggedIn ? (
+  <>
+<div className={styles.navMember}>
+  <Link to="/memberCenter" className={styles.avatarWrapper}>
+    <div className={styles.avatarContent}>
+      <img
+        src={`${import.meta.env.BASE_URL}images/icons/btn-member-default.svg`}
+       style={{ width: '40px', height: '10px' }}
 
-          {isLoggedIn && (
+        alt="會員頭像"
+        className={styles.avatarIcon}
+      />
+      <div className={styles.userName}>Hello, {userName}</div>
+    </div>
+  </Link>
+</div>
+
+
+    <div className={styles.shopIcon}>
+      <Link to="/cart">
+        <img src={`${import.meta.env.BASE_URL}assets/shop-list.svg`} alt="購物車" />
+      </Link>
+    </div>
+  </>
+) : (
+  <div className={styles.navMember}>
+    <Link to="/login">登入</Link>
+  </div>
+)}
+
+          {/* {isLoggedIn && (
 <div className={styles.shopIcon}>
   <Link to="/cart">
               <img src={`${import.meta.env.BASE_URL}assets/shop-list.svg`} alt="" /></Link> 
             </div>
               
-          )}
+          )} */}
+
+
 
           <div className={styles.beanShape}>
             {/* 漢堡 */}

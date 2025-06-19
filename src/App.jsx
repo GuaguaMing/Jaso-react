@@ -14,6 +14,7 @@ import Result from './quiz/Result';
 import MemberCenter from "./member/MemberCenter";
 import AppLogin from "./login/AppLogin";
 import AppShop from "./shop/AppShop";
+import ProductDetail from './shop/components/ProductDetail';
 import AppAbout from "./about/AppAbout";
 import AppCart from "./shop-cart/AppCart";
 import OrderSuccess from './shop-cart/components/OrderSuccess';
@@ -23,35 +24,36 @@ import Layout from './1components/Layout'; //首頁＋footer
 
 function App() {
     return (
-            <Routes>
-                {/* 不套用 Layout 的頁面 */}
-                <Route path="/quiz" element={<Quiz />} />
+        <Routes>
+            {/* 不套用 Layout 的頁面 */}
+            <Route path="/quiz" element={<Quiz />} />
 
-                {/* 套用 Layout 的頁面 */}
-                <Route element={<Layout />}>
+            {/* 套用 Layout 的頁面 */}
+            <Route element={<Layout />}>
 
-                    <Route path="/" element={<AppHome />} />
-                    <Route path="/guide" element={<AppGuide />} />
-                    <Route path="/about" element={<AppAbout />} />
-                    <Route path="/article" element={<AppArticle />} />
+                <Route path="/" element={<AppHome />} />
+                <Route path="/guide" element={<AppGuide />} />
+                <Route path="/about" element={<AppAbout />} />
+                <Route path="/article" element={<AppArticle />} />
 
-                    <Route path="/article1" element={<Article1 />} />
-                    <Route path="/article2" element={<Article2 />} />
-                    <Route path="/article3" element={<Article3 />} />
-                    <Route path="/article4" element={<Article4 />} />
-                    <Route path="/article5" element={<Article5 />} />
-                    <Route path="/article6" element={<Article6 />} />
+                <Route path="/article1" element={<Article1 />} />
+                <Route path="/article2" element={<Article2 />} />
+                <Route path="/article3" element={<Article3 />} />
+                <Route path="/article4" element={<Article4 />} />
+                <Route path="/article5" element={<Article5 />} />
+                <Route path="/article6" element={<Article6 />} />
 
-                    <Route path="/memberCenter" element={<MemberCenter />} />
-                    <Route path="/login" element={<AppLogin />} />
-                    <Route path="/shop" element={<AppShop />} />
-                    <Route path="/cart" element={<AppCart />} />
-                    <Route path="/result" element={<Result />} />
+                <Route path="/memberCenter" element={<MemberCenter />} />
+                <Route path="/login" element={<AppLogin />} />
+                <Route path="/shop" element={<AppShop />} />
+                <Route path="/shop/product/:id" element={<ProductDetail />} />
+                <Route path="/cart" element={<AppCart />} />
+                <Route path="/result" element={<Result />} />
 
-                    <Route path="/cart/success" element={<OrderSuccess />} />
-                    <Route path="/faq" element={<AppFaq />} />
-                </Route>
-            </Routes>
+                <Route path="/cart/success" element={<OrderSuccess />} />
+                <Route path="/faq" element={<AppFaq />} />
+            </Route>
+        </Routes>
     );
 }
 export default App;
