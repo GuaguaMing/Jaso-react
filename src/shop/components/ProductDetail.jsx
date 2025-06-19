@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import products from '../../productData/products';
 import styles from '../../../scss/pages/shop/productDetail.module.scss';
+import LikeButton from '../../1components/LikeButton'; 
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -104,7 +105,7 @@ export default function ProductDetail() {
                 {isAdded ? '取消加入' : '加入素購車'}
               </button>
 
-              {isLoggedIn && (
+              {/* {isLoggedIn && (
                 <button
                   className={`${styles.likeBtn} ${liked ? styles.active : ''}`}
                   aria-label="收藏"
@@ -120,7 +121,16 @@ export default function ProductDetail() {
                     style={{ width: 30, height: 30 }}
                   />
                 </button>
-              )}
+              )} */}
+
+{isLoggedIn && (
+  <LikeButton
+    productId={product.id}
+    className={styles.likeBtn}
+    style={{ width: 40, height: 40 }}
+  />
+)}
+
             </div>
 
             {!isLoggedIn && (

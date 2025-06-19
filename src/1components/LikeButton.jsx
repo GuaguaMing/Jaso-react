@@ -1,49 +1,78 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-export default function LikeButton({ articleId }) {
+export default function LikeButton({ 
+  productId, 
+  articleId, 
+  className, 
+  style,
+  type = "auto" // "product", "article", "auto"
+}) {
   const [isLiked, setIsLiked] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
-  // 初始：從 localStorage 檢查是否已收藏
+  const getStorageConfig = () => {
+    if (type === "product" || (type === "auto" && productId)) {
+      return {
+        storageKey: "likedProducts",
+        itemId: productId
+      };
+    } else if (type === "article" || (type === "auto" && articleId)) {
+      return {
+        storageKey: "likedArticles", 
+        itemId: articleId
+      };
+    }
+    throw new Error("請提供 productId 或 articleId");
+  };
+
+  const { storageKey, itemId } = getStorageConfig();
+
   useEffect(() => {
-    const likedItems = JSON.parse(localStorage.getItem("likedArticles") || "[]");
-    setIsLiked(likedItems.includes(articleId));
-  }, [articleId]);
+    const likedItems = JSON.parse(localStorage.getItem(storageKey) || "[]");
+    setIsLiked(likedItems.includes(itemId));
+  }, [itemId, storageKey]);
 
   const toggleLike = () => {
-    const liked = JSON.parse(localStorage.getItem("likedArticles") || "[]");
+    const liked = JSON.parse(localStorage.getItem(storageKey) || "[]");
     let updated;
 
     if (isLiked) {
-      updated = liked.filter(id => id !== articleId);
+      updated = liked.filter(id => id !== itemId);
     } else {
-      updated = [...liked, articleId];
+      updated = [...liked, itemId];
     }
 
-    localStorage.setItem("likedArticles", JSON.stringify(updated));
+    localStorage.setItem(storageKey, JSON.stringify(updated));
     setIsLiked(!isLiked);
   };
 
-  const iconSrc = isLiked
-    ? "./images/icons/icon-like.svg" // 無hover
-    : isHovered
-    ? "./images/icons/icon-like.svg" // 未收藏 + hover  
-    : "./images/icons/icon-like-default.svg"; // 未收藏 + 沒 hover 
+  const getIconSrc = () => {
+    const baseUrl = import.meta.env?.BASE_URL || "./";
+    
+    if (isLiked) {
+      return `${baseUrl}images/icons/icon-like.svg`;
+    } else if (isHovered) {
+      return `${baseUrl}images/icons/icon-like.svg`;
+    } else {
+      return `${baseUrl}images/icons/icon-like-default.svg`;
+    }
+  };
 
   return (
     <motion.div
-  onClick={toggleLike}
-  onMouseEnter={() => setIsHovered(true)}
-  onMouseLeave={() => setIsHovered(false)}
-  whileTap={
-    isLiked
-      ? { scale: 0.95, rotate: [0, 0.5, 0], transition: { duration: 0.2 } }  // 收回動畫
-      : { scale: 1.2, rotate: [0, -10, 0, 10, 0], transition: { duration: 0.4 } } // 收藏動畫（放大晃動）
-  }
-  style={{ width: 40, height: 40, cursor: "pointer" }}
->
-      <img src={iconSrc} alt="like" style={{ width: 40, height: 40 }} />
+      onClick={toggleLike}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      whileTap={
+        isLiked
+          ? { scale: 0.95, rotate: [0, 0.5, 0], transition: { duration: 0.2 } }
+          : { scale: 1.2, rotate: [0, -10, 0, 10, 0], transition: { duration: 0.4 } }
+      }
+      className={className}
+      style={{ width: 40, height: 40, cursor: "pointer", ...style }}
+    >
+      <img src={getIconSrc()} alt="收藏" />
     </motion.div>
   );
 }

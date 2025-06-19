@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../../../scss/pages/shop/shop.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
+import LikeButton from '../../1components/LikeButton'; 
+
 
 // 收藏商品管理 Hook
 const useFavorites = () => {
@@ -151,19 +153,17 @@ function ProductCard({ product, cartItems = [], setCartItems = () => {} }) {
         >
           {isAdded ? '取消加入' : '加入素購車'}
         </button>
-        <button
-          className={isFavorite(product.id) ? `${styles.likeBtn} ${styles.active}` : styles.likeBtn}
-          aria-label={isFavorite(product.id) ? "取消收藏" : "加入收藏"}
-          onClick={handleToggleFavorite}
-        >
-          <img
-            src={isFavorite(product.id)
-              ? `${import.meta.env.BASE_URL}images/icons/btn-like-hover.svg`
-              : `${import.meta.env.BASE_URL}images/icons/btn-like-default.svg`}
-            alt={isFavorite(product.id) ? "已收藏" : "取消收藏"}
+        <div className={styles.likeBtn}>
+          <LikeButton
+            productId={product.id}
+            className={styles.likeBtn}
+            
+            // className={isFavorite(product.id) ? `${styles.likeBtn} ${styles.active}` : styles.likeBtn}
+          // aria-label={isFavorite(product.id) ? "取消收藏" : "加入收藏"}
             style={{ width: 30, height: 30 }}
           />
-        </button>
+
+        </div>
       </div>
     </div>
   );
