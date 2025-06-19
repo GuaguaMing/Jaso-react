@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from '../../scss/pages/member/MemberCenter.module.scss'
 
 export default function ProfileTab() {
@@ -23,7 +24,9 @@ export default function ProfileTab() {
                   <p className={styles.userName}>王小明</p>
                   <div className={styles.userRankBadge}>一般會員</div>
                 </div>
+                 <Link to="/">
                 <button className={styles.logoutButton}>登出</button>
+                </Link>
               </div>
             </div>
             <div className={styles.rankRuleBox}>
