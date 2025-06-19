@@ -1166,22 +1166,22 @@ html {
 
 
 
-.order-details {
+.orderDetails {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
     font-family: "Noto Sans TC", sans-serif;
 }
 
-.order-details .order-items {
+.orderDetails .orderItems {
     border: 1px solid #ccc;
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 40px;
 }
 
-.order-details .order-items .order-header,
-.order-details .order-items .order-row {
+.orderDetails .orderItems .orderHeader,
+.orderDetails .orderItems .orderRow {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
     padding: 16px;
@@ -1189,23 +1189,23 @@ html {
     font-size: 14px;
 }
 
-.order-details .order-items .order-header .cell-align,
-.order-details .order-items .order-row .cell-align {
+.orderDetails .orderItems .orderHeader .cellAlign,
+.orderDetails .orderItems .order-row .cellAlign {
     margin-top: 28px;
 }
 
-.order-details .order-items .order-header {
+.orderDetails .orderItems .orderHeader {
     background-color: #f9f9f9;
     font-weight: bold;
 }
 
-.order-details .order-items .product-info {
+.orderDetails .orderItems .productInfo {
     display: flex;
     align-items: stretch;
     gap: 15px;
 }
 
-.order-details .order-items .product-info img {
+.orderDetails .orderItems .productInfo img {
     width: 180px;
     height: auto;
     object-fit: cover;
@@ -1215,7 +1215,7 @@ html {
     border-radius: 8px;
 }
 
-.order-details .order-items .product-info .order-id {
+.orderDetails .orderItems .productInfo .orderId {
     background: #aaa;
     color: #fff;
     padding: 2px 8px;
@@ -1226,20 +1226,20 @@ html {
     margin-top: 10px;
 }
 
-.order-details .order-items .product-info .product-name {
+.orderDetails .orderItems .productInfo .productName {
     font-weight: 500;
     font-size: 18px;
     margin-bottom: 5px;
 }
 
-.order-details .order-items .product-info .product-subtitle {
+.orderDetails .orderItems .productInfo .productSubtitle {
     font-size: 14px;
     color: #000;
     margin-bottom: 4px;
     font-weight: 400;
 }
 
-.order-details .order-items .product-info .product-tags .tag {
+.orderDetails .orderItems .productInfo .productTags .tag {
     background-color: #e6fbf3;
     color: #3DCE94;
     font-size: 12px;
@@ -1249,14 +1249,14 @@ html {
     margin-top: 4px;
 }
 
-.order-details .order-items .badges {
+.orderDetails .orderItems .badges {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-.order-details .order-items .badges .badge-green,
-.order-details .order-items .badges .badge-orange {
+.orderDetails .orderItems .badges .badgeGreen,
+.orderDetails .orderItems .badges .badgeOrange {
     font-size: 12px;
     padding: 2px 6px;
     border-radius: 999px;
@@ -1265,24 +1265,24 @@ html {
     width: fit-content;
 }
 
-.order-details .order-items .badges .badge-green {
+.orderDetails .orderItems .badges .badgeGreen {
     color: #3DCE94;
     border-color: #3DCE94;
 }
 
-.order-details .order-items .badges .badge-orange {
+.orderDetails .orderItems .badges .badgeOrange {
     color: #FFA726;
     border-color: #FFA726;
 }
 
-.order-details .order-items .origin-price {
+.orderDetails .orderItems .originPrice {
     font-size: 12px;
     color: #aaa;
     text-decoration: line-through;
     margin-top: 4px;
 }
 
-.order-details .order-items .totals {
+.orderDetails .orderItems .totals {
     max-width: 600px;
     margin-left: auto;
     font-size: 14px;
@@ -1290,37 +1290,37 @@ html {
     padding: 24px 20px;
 }
 
-.order-details .order-items .totals .totals-row {
+.orderDetails .orderItems .totals .totalsRow {
     display: flex;
     justify-content: space-between;
     margin-bottom: 14px;
 }
 
-.order-details .order-items .totals .totals-row .label {
+.orderDetails .orderItems .totals .totalsRow .label {
     color: #333;
     font-weight: 400;
     font-size: 16px;
 }
 
-.order-details .order-items .totals .totals-row .value {
+.orderDetails .orderItems .totals .totalsRow .value {
     font-weight: 500;
     color: #000;
     font-size: 16px;
     margin-right: 21px;
 }
 
-.order-details .order-items .totals .total-amount .value {
+.orderDetails .orderItems .totals .totalAmount .value {
     color: #000;
 }
 
-.order-details .order-items .totals .points-earned .value {
+.orderDetails .orderItems .totals .pointsEarned .value {
     color: #3DCE94;
     display: flex;
     align-items: center;
     gap: 6px;
 }
 
-.order-details .order-items .totals .points-earned .value .points-icon {
+.orderDetails .orderItems .totals .pointsEarned .value .pointsIcon {
     background-color: #3DCE94;
     color: #fff;
     font-weight: 500;
@@ -1333,19 +1333,19 @@ html {
     justify-content: center;
 }
 
-.order-details .info-grid {
+.orderDetails .infoGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 32px;
 }
 
-.order-details .info-grid .info-box {
+.orderDetails .infoGrid .infoBox {
     background: rgba(212, 212, 212, 0.46);
     padding: 24px;
     border-radius: 10px;
 }
 
-.order-details .info-grid .info-box h3 {
+.orderDetails .infoGrid .infoBox h3 {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -1354,23 +1354,23 @@ html {
     margin-bottom: 12px;
 }
 
-.order-details .info-grid .info-box h3 img {
+.orderDetails .infoGrid .infoBox h3 img {
     width: 20px;
     height: 20px;
 }
 
-.order-details .info-grid .info-box p {
+.orderDetails .infoGrid .infoBox p {
     margin: 4px 0;
     font-size: 14px;
     color: #333;
 }
 
-.order-details .info-grid .info-box1 {
+.orderDetails .infoGrid .infoBox1 {
     padding: 24px;
     border-radius: 10px;
 }
 
-.order-details .info-grid .info-box1 h3 {
+.orderDetails .infoGrid .infoBox1 h3 {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -1379,12 +1379,12 @@ html {
     margin-bottom: 12px;
 }
 
-.order-details .info-grid .info-box1 h3 img {
+.orderDetails .infoGrid .infoBox1 h3 img {
     width: 20px;
     height: 20px;
 }
 
-.order-details .info-grid .info-box1 p {
+.orderDetails .infoGrid .infoBox1 p {
     margin: 4px 0;
     font-size: 14px;
     color: #333;
@@ -1455,4 +1455,17 @@ body {
     font-size: 20px;
     color: #333;
     cursor: pointer;
+}
+
+.backBtn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 10;
+
+    img {
+        width: 32px;
+        height: 32px;
+    }
 }

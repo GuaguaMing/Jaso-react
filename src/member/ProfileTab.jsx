@@ -3,22 +3,55 @@ import { useNavigate } from "react-router-dom";
 import styles from '../../scss/pages/member/MemberCenter.module.scss'
 
 export default function ProfileTab() {
+  const [formData, setFormData] = useState({
+    gender: '',
+    birth: '',
+    email: '',
+    phone: '',
+    address: ''
+  });
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
-  // 未登入防護機制
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (!token) {
-      navigate('/login');
+    if (!token) navigate('/login');
+
+    const saved = localStorage.getItem('profileData');
+    if (saved) {
+      try {
+        setFormData(JSON.parse(saved));
+      } catch (e) {
+        console.error('Error parsing saved profile data:', e);
+      }
     }
   }, [navigate]);
 
-  // 登出邏輯
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userName");
-    window.location.href = "/"; // 或 navigate('/')
+    window.location.href = "/";
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => {
+      const updated = { ...prev, [name]: value };
+      localStorage.setItem('profileData', JSON.stringify(updated));
+      return updated;
+    });
+  };
+
+  const handleCancel = () => {
+    const cleared = {
+      gender: '',
+      birth: '',
+      email: '',
+      phone: '',
+      address: ''
+    };
+    setFormData(cleared);
+    localStorage.setItem('profileData', JSON.stringify(cleared));
   };
 
   return (
@@ -80,17 +113,17 @@ export default function ProfileTab() {
           <div className={styles.profileLeftBottom}>
             <div className={styles.genderRow}>
               <span className={styles.shippingTitle}>生理性別</span>
-              <label><input type="checkbox" name="gender" /> 男</label>
-              <label><input type="checkbox" name="gender" /> 女</label>
-              <label><input type="checkbox" name="gender" /> 不透露</label>
+              <label><input type="checkbox" name="gender" value="男" checked={formData.gender === '男'} onChange={handleChange} /> 男</label>
+              <label><input type="checkbox" name="gender" value="女" checked={formData.gender === '女'} onChange={handleChange} /> 女</label>
+              <label><input type="checkbox" name="gender" value="不透露" checked={formData.gender === '不透露'} onChange={handleChange} /> 不透露</label>
             </div>
             <div className={styles.inputRow}>
               <span className={styles.inputLabel}>出生年月日</span>
-              <input type="date" className={styles.roundedInput} />
+              <input type="date" name="birth" value={formData.birth} onChange={handleChange} className={styles.roundedInput} />
             </div>
             <div className={styles.inputRow}>
               <span className={styles.inputLabel}>電子信箱</span>
-              <input type="email" placeholder="請輸入" className={styles.roundedInput} />
+              <input type="email" name="email" placeholder="請輸入" value={formData.email} onChange={handleChange} className={styles.roundedInput} />
             </div>
           </div>
 
@@ -102,17 +135,17 @@ export default function ProfileTab() {
             </div>
             <div className={styles.inputRow}>
               <span className={styles.inputLabel}>聯絡電話</span>
-              <input type="text" placeholder="請輸入" className={styles.roundedInput} />
+              <input type="text" name="phone" placeholder="請輸入" value={formData.phone} onChange={handleChange} className={styles.roundedInput} />
             </div>
             <div className={styles.inputRow}>
               <span className={styles.inputLabel}>儲存地址</span>
-              <input type="text" placeholder="請輸入" className={styles.roundedInput} />
+              <input type="text" name="address" placeholder="請輸入" value={formData.address} onChange={handleChange} className={styles.roundedInput} />
             </div>
           </div>
 
           {/* profile-container 下方的按鈕區塊 */}
           <div className={styles.editButtonWrapper}>
-            <button className={styles.cancelButton}>取消</button>
+            <button className={styles.cancelButton} onClick={handleCancel} >取消</button>
             <button className={styles.editButton}>更改資料</button>
           </div>
         </div>
