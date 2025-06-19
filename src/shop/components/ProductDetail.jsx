@@ -1,26 +1,32 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import products from '../../productData/products';
-import styles from '../../../scss/pages/shop/shop.module.scss';
+import styles from '../../../scss/pages/shop/productDetail.module.scss';
 
 export default function ProductDetail() {
   const { id } = useParams();
-  const navigate = useNavigate();
-  const product = products.find(p => String(p.id) === id);
+  const product = products.find(p => p.id === Number(id));
 
   if (!product) return <div>找不到商品</div>;
 
   return (
-    <div className={styles.productDetailPage}>
-      <button className={styles.backBtn} onClick={() => navigate('/shop')}>← 返回商店</button>
-      <div className={styles.productDetailContent}>
-        <div className={styles.productDetailImage}>
-          <img src={`${import.meta.env.BASE_URL}${product.image.default}`} alt={product.name} />
+    <div className={styles.productDetailContainer}>
+      <div className={styles.productDetailTop}>
+        <div className={styles.productLeft}>
+          <img
+            src={`${import.meta.env.BASE_URL}${product.image.default.replace(/^\.*\//, '')}`}
+            alt={product.name}
+            className={styles.productImage}
+          />
         </div>
-        <div className={styles.productDetailInfo}>
-          <h2>{product.name}</h2>
-          <p>{product.desc}</p>
-          {/* 這裡可以根據你的 shop-medicine.html 加入更多欄位 */}
+        <div className={styles.productRight}>
+          <span className={styles.tag}>{product.tags}</span>
+          <h2 className={styles.shopTitle}>{product.name}</h2>
+          <div className={styles.productDesc}>{product.desc}</div>
+          <div className={styles.shopPrice}>
+            <h1>NT${product.price}</h1>
+          </div>
+          {/* 其他區塊... */}
         </div>
       </div>
     </div>
