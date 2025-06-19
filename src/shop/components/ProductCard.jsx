@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 function ProductCard({ product, onAddToCart }) {
   const [isHover, setIsHover] = useState(false);
   const [liked, setLiked] = useState(false);
+  const likeDefault = `${import.meta.env.BASE_URL}images/icons/btn-like-default.svg`;
+  const likeActive = `${import.meta.env.BASE_URL}images/icons/btn-like-hover.svg`;
 
   return (
     <div
@@ -37,14 +39,16 @@ function ProductCard({ product, onAddToCart }) {
           加入購物車
         </button>
         <button
-          className={
-            liked
-              ? `${styles.likeBtn} ${styles.active}`
-              : styles.likeBtn
-          }
+          className={liked ? `${styles.likeBtn} ${styles.active}` : styles.likeBtn}
           aria-label="加入收藏"
           onClick={() => setLiked((prev) => !prev)}
-        ></button>
+        >
+          <img
+            src={liked ? likeActive : likeDefault}
+            alt={liked ? "已收藏" : "加入收藏"}
+            style={{ width: 30, height: 30 }}
+          />
+        </button>
       </div>
     </div>
   );
