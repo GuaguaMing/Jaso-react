@@ -309,7 +309,6 @@
 .likeBtn {
   width: 30px;
   height: 30px;
-  background: url("images/icons/btn-like-default.svg") no-repeat center/contain;
   background-color: transparent;
   border: none;
   padding: 0;
@@ -317,7 +316,6 @@
   transition: all 0.3s ease;
 
   &.active {
-    background-image: url("images/icons/btn-like-hover.svg");
     transform: scale(1.05);
   }
 
