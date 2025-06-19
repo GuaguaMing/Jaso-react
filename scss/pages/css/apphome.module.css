@@ -1002,6 +1002,7 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  margin-right: 2rem;
   font-size: 13px;
   font-weight: 700;
   line-height: 173%;
