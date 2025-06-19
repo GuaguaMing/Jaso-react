@@ -45,7 +45,7 @@ const NavbarHidden = () => {
             <ul>
               <li><Link to="/guide" onClick={(e) => handleLinkClick(e, '/guide')}
                 className={location.pathname === '/guide' ? 'active' : ''}
-                >食物庫</Link></li>
+                >素食庫</Link></li>
               <li><Link to="/article" 
                               onClick={(e) => handleLinkClick(e, '/article')}
                               className={location.pathname === '/article' ? 'active' : ''}
@@ -58,7 +58,9 @@ const NavbarHidden = () => {
           </div>
 
           <div className={styles.navRight2}>
-            <div className={styles.member2}>
+
+            
+            {/* <div className={styles.member2}>
               {isLoggedIn
                 ? <Link to="/memberCenter" 
                 onClick={(e) => handleLinkClick(e, '/memberCenter')}
@@ -80,8 +82,37 @@ const NavbarHidden = () => {
                   <img src={`${import.meta.env.BASE_URL}assets/shop-list.svg`} alt="cart" />
                 </Link>
               </div>
-            )}
+            )} */}
 
+{isLoggedIn ? (
+  <>
+<div className={styles.navMember}>
+  <Link to="/memberCenter" className={styles.avatarWrapper}>
+    <div className={styles.avatarContent}>
+      <img
+        src={`${import.meta.env.BASE_URL}images/icons/btn-member-default.svg`}
+       style={{ width: '40px', height: '10px' }}
+
+        alt="會員頭像"
+        className={styles.avatarIcon}
+      />
+      <div className={styles.userName}>Hello, {userName}</div>
+    </div>
+  </Link>
+</div>
+
+
+    <div className={styles.shopIcon}>
+      <Link to="/cart">
+        <img src={`${import.meta.env.BASE_URL}assets/shop-list.svg`} alt="購物車" />
+      </Link>
+    </div>
+  </>
+) : (
+  <div className={styles.navMember}>
+    <Link to="/login">登入</Link>
+  </div>
+)}
             <div className={styles.beanShape2}>
               <div className={styles.goToShop2}><Link to="/shop"
                onClick={(e) => handleLinkClick(e, '/shop')}

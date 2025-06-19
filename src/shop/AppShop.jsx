@@ -62,6 +62,7 @@ export default function AppShop() {
             <ProductCardList products={products} onAddToCart={handleAddToCart} />
            {/*  <RecentViewed products={products} cartItems={cartItems} onAddToCart={handleAddToCart} /> */}
         </>
+        
 
     )
 }

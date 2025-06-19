@@ -176,6 +176,8 @@ font-weight: 500;
 }
 .avatarWrapper:hover .avatarContent {
       width: auto;
+      min-width: 80px; // 這裡設置最小寬度，保證容器不會縮小
+      margin: 0 11px;
 
 }
 

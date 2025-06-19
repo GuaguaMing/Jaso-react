@@ -164,6 +164,76 @@
     animation: pendulum 1s ease-in-out infinite;
       }
   }
+
+  .navMember {
+  position: relative;
+a {
+    color: $color-dark;
+    padding: 0px 11px;
+    border: 1px solid;
+    border-radius: $radius-ex;
+    font-size: map.get($font-size, 2xs);
+    transition: color 0.3 ease;
+
+    &:hover {
+        color: $color-primary;
+
+    }
+}
+.avatarWrapper {
+  display: inline-block;
+//   width:fit-content; 
+
+}
+
+.avatarContent {
+  position: relative;
+//   width:fit-content; 
+  height: 32px;
+  padding: 11px;
+  white-space: nowrap;
+}
+
+.avatarIcon {
+    align-items: center;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.userName {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+    color: #3DCE94;
+text-align: center;
+font-size: 16px;
+font-weight: 500;
+
+}
+
+/* Hover 切換效果 */
+.avatarWrapper:hover .avatarIcon {
+  display: none;
+}
+
+.avatarWrapper:hover .userName {
+  display: flex;
+}
+.avatarWrapper:hover .avatarContent {
+      width: auto;
+      min-width: 80px; // 這裡設置最小寬度，保證容器不會縮小
+      margin: 0 11px;
+
+}
+
+}   
   
   @keyframes pendulum {
     0% { transform: rotate(0deg); }
