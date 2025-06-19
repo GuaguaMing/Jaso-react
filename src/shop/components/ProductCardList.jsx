@@ -6,7 +6,10 @@ function ProductCardList({ products, onAddToCart }) {
   return (
     <div className={styles.productList}>
       {products.map(product => (
-        <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} />
+        <ProductCard
+          key={product.id}
+          product={product}
+          onAddToCart={onAddToCart}/>
       ))}
     </div>
   );
