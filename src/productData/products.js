@@ -8,7 +8,8 @@ const products = [
         image: {
             default: "/images/Pd/Ca-default.svg",
             hover: "/images/Pd/Ca-hover.svg"
-        }
+        },
+        detailImage:"/images/Pd/pd-ShopPage-ca.jpg"
     },
     {
         id: 2, tags:"植萃綜合維他命配方", name: "素超群膠囊", 
@@ -17,7 +18,8 @@ const products = [
         image: {
             default: "./images/Pd/N-default.svg",
             hover: "./images/Pd/N-hover.svg",
-        }
+        },
+        detailImage:"/images/Pd/pd-ShopPage-mt.jpg"
     },
     {
         id: 3,tags:"幫植萃維生素D（藻類D3）膠囊", name: "素D速補D",
@@ -26,7 +28,8 @@ const products = [
         image: {
             default: "./images/Pd/D-default.svg",
             hover: "./images/Pd/D-hover.svg"
-        }
+        },
+        detailImage:"/images/Pd/pd-ShopPage-D.jpg"
     },
     {
         id: 4,tags:"純素海藻OMEG3", name: "油你真好植物膠囊", 
@@ -35,7 +38,8 @@ const products = [
         image: {
             default: "./images/Pd/Omg3-default.svg",
             hover: "./images/Pd/Omg3-hover.svg"
-        }
+        },
+        detailImage:"/images/Pd/pd-ShopPage-omg3.jpg"
     },
     {
         id: 5,tags:"嚴選100%植物來源維生素B12", name: "補B不累口含錠", 
@@ -44,7 +48,8 @@ const products = [
         image: {
             default: "./images/Pd/B12-default.svg",
             hover: "./images/Pd/B12-hover.svg"
-        }
+        },
+        detailImage:"/images/Pd/pd-ShopPage-B12.jpg"
     },
     { id: 6,tags:"嚴選100%植物來源 植萃鐵+B群補給", name: "鐵了心膠囊", 
         desc: "本產品特別為素食者設計，嚴選100%植物來源鐵質，並添加維生素C，幫助提升鐵的吸收與利用，支持紅血球生成與能量代謝。溫和純淨的全素配方，適合長期食用，有助於維持正常的血紅素水平，改善體力，提升活力，並支持免疫系統健康。", 
@@ -52,7 +57,9 @@ const products = [
         image:{
             default:"./images/Pd/Fe-default.svg",
             hover:"./images/Pd/Fe-hover.svg"
-        }  },
+        },
+        detailImage:"/images/Pd/pd-ShopPage-Fe.jpg"
+      },
 ];
 
 export default products;

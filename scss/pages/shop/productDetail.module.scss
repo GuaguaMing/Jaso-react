@@ -13,6 +13,28 @@
   font-family: 'Noto Sans TC', 'Arial', sans-serif;
 }
 
+.backButton {
+  top: 92px;     /* 距離頂部 */
+  left: 100px;    /* 距離左側 */
+  z-index: 100;  /* 保證在最上層 */
+  padding: 8px 12px;
+  background-color: #fff;
+  border:none;
+  cursor: pointer;
+  font-size: 14px;
+  
+  /* 滑鼠hover時效果（選擇性） */
+  &:hover {
+    color: $color-primary;
+    
+  }
+
+}
+  .productName{
+   font-size: 14px;
+}
+
+
 .productDetailTop {
   display: flex;
   gap: 48px;
@@ -43,7 +65,7 @@
 
 .tag {
   background: #e6fbf3;
-  color: #37b683;
+  color: $color-primary;
   border-radius: 999px;
   padding: 4px 16px;
   font-size: 1rem;

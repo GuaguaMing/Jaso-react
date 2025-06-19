@@ -5,8 +5,17 @@ import { Link } from 'react-router-dom';
 function ProductCard({ product, onAddToCart }) {
   const [isHover, setIsHover] = useState(false);
   const [liked, setLiked] = useState(false);
+  const [isAdded, setIsAdded] = useState(false);
+
   const likeDefault = `${import.meta.env.BASE_URL}images/icons/btn-like-default.svg`;
   const likeActive = `${import.meta.env.BASE_URL}images/icons/btn-like-hover.svg`;
+
+   const handleToggle = () => {
+    if (onAddToCart) {
+      onAddToCart(product); // 讓父層處理加入或移除 + localStorage
+    }
+    setIsAdded((prev) => !prev);
+  };
 
   return (
     <div
@@ -31,12 +40,13 @@ function ProductCard({ product, onAddToCart }) {
           <div className={styles.productDesc}>{product.desc}</div>
         </div>
       </Link>
+
       <div className={styles.productBtnGroup}>
         <button
-          className={styles.addToCartBtn}
-          onClick={() => onAddToCart(product)}
+          className={`${styles.addToCartBtn} ${isAdded ? 'btn-RV-disabled' : ''}`}
+          onClick={handleToggle}
         >
-          加入購物車
+          {isAdded ? '取消加入' : '加入素購車'}
         </button>
         <button
           className={liked ? `${styles.likeBtn} ${styles.active}` : styles.likeBtn}
