@@ -43,13 +43,14 @@
 }
 
 .productLeft {
-  width: 420px;
+  max-width: 550px;
+  padding-left: 6rem;
   flex-shrink: 0;
 }
 
 .productImage {
   width: 100%;
-  height: 420px;
+  height: 500px;
   border-radius: 24px;
   object-fit: contain;
   background: #f8f8f8;
@@ -141,7 +142,7 @@
 
 .originalPrice {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   h3 {
     font-size: 1.1rem;
     color: #aaa;
@@ -208,4 +209,214 @@
     width: 24px;
     height: 24px;
   }
+}
+
+.productTags {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  display: -webkit-box;
+}
+
+.productTitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.4;
+  color: $color-dark;
+}
+
+.productSubtitle {
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 8px;
+  color: $color-dark;
+}
+
+
+.productPoints {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  margin-bottom: 8px;
+  height: calc(3*14px*1.6);
+}
+
+.productLink {
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  color: $color-primary;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  margin: 12px 0 0 12px;
+
+  .arrow,
+  .text {
+    display: inline-block;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+
+  .arrow {
+    transform: translateX(-8px);
+    opacity: 1;
+  }
+
+  .text {
+    transform: translateX(-8px);
+    opacity: 1;
+  }
+
+  &:hover .arrow {
+    transform: translateX(100px);
+    opacity: 2;
+  }
+
+  &:hover .text {
+    transform: translateX(-20px);
+    opacity: 1;
+  }
+
+}
+
+
+.shopMedicineTagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.shopMedicineTagList .shopLi {
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  background-color: #8FE3C1;
+  color: #2A2324;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.2;
+  justify-content: center;
+}
+.shopMedicineTagList .shopLi:nth-child(1) {
+  background-color: #8FE3C1;
+  color: #2A2324;
+}
+
+.ingredientIcons {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+  justify-content: flex-start;
+
+  li {
+    width: 4rem;
+    height: 4rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; // 或 cover，看需求
+    }
+  }
+}
+
+
+.productMedicineLink {
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #3DCE94;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  margin: 12px 0 0 12px;
+}
+
+.productMedicineLink .arrow,
+.productMedicineLink .text {
+  display: inline-block;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  transform: translateX(-8px);
+  opacity: 1;
+}
+
+.productMedicineLink:hover .arrow {
+  transform: translateX(100px);
+  opacity: 0;
+}
+
+.productMedicineLink:hover .text {
+  transform: translateX(-20px);
+  opacity: 1;
+}
+
+
+
+.shopPrice {
+  margin-top: 20px;
+}
+.shopPrice h1 {
+  font-size: 32px;
+  color: black;
+}
+.shopPrice .originalPrice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.shopPrice .originalPrice h3 {
+  font-size: 18px;
+  color: #aaa;
+  text-decoration: line-through;
+}
+.shopPrice .originalPrice p {
+  font-size: 14px;
+  color: #3DCE94;
+  background-color: #e0f5e9;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+
+.shopQuantity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.shopQuantity p {
+  font-size: 16px;
+}
+.shopQuantity input[type=number] {
+  width: 60px;
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+  border: 2px solid #AAA6A8;
+  border-radius: 8px;
+}
+.shopQuantity button {
+  display: flex;
+  background-color: #3DCE94;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.shopQuantity button:hover {
+  background-color: #37b683;
 }
