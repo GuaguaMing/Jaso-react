@@ -1,5 +1,5 @@
-import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import products from '../../productData/products';
 import styles from '../../../scss/pages/shop/productDetail.module.scss';
 
@@ -7,6 +7,13 @@ export default function ProductDetail() {
   const { id } = useParams();
   const product = products.find(p => p.id === Number(id));
   const navigate = useNavigate();
+  const isLoggedIn = !!localStorage.getItem('token');
+  const [liked, setLiked] = useState(false);
+  const [isAdded, setIsAdded] = useState(false);
+  const handleToggle = () => {
+    setIsAdded(prev => !prev);
+  };
+
 
   if (!product) return <div>找不到商品</div>;
 
@@ -23,6 +30,7 @@ export default function ProductDetail() {
       <span className={styles.productName}>{product.name}</span>
 
       <div className={styles.productDetailTop}>
+        {/* 左側圖片 */}
         <div className={styles.productLeft}>
           <img
             src={`${import.meta.env.BASE_URL}${product.image.default.replace(/^\.*\//, '')}`}
@@ -31,11 +39,12 @@ export default function ProductDetail() {
           />
         </div>
 
+        {/* 右側資訊 */}
         <div className={styles.productRight}>
           <span className={styles.tag}>{product.tags}</span>
           <h2 className={styles.shopTitle}>{product.name}</h2>
 
-          {/* 商品特點：用換行 split 顯示段落 */}
+          {/* 商品特點 */}
           <div className={styles.productPoints}>
             {product.productPoints.split('\n').map((line, index) => (
               <p key={index}>{line}</p>
@@ -50,23 +59,23 @@ export default function ProductDetail() {
             <li className={styles.shopLi}>維生素C</li>
           </ul>
 
-          {/* 食材小圖示 */}
-          <ul className={styles.ingredientIcons}>
-            {Object.values(product.friendImage).map((src, index) => (
-              <li key={index}>
-                <img
-                  src={`${import.meta.env.BASE_URL}${src.replace(/^\.*\//, '')}`}
-                  alt={`friend-${index}`}
-                />
-              </li>
-            ))}
-          </ul>
-
-          {/* 查看更多連結 */}
-          <a href="#" className={styles.productMedicineLink}>
-            <span className={styles.text}>查看更多素食成分</span>
-            <span className={styles.arrow}>&gt;</span>
-          </a>
+          {/* 食材圖 + 查看素食庫 */}
+          <div className={styles.ingredientRow}>
+            <ul className={styles.ingredientIcons}>
+              {Object.values(product.friendImage).map((src, index) => (
+                <li key={index}>
+                  <img
+                    src={`${import.meta.env.BASE_URL}${src.replace(/^\.*\//, '')}`}
+                    alt={`friend-${index}`}
+                  />
+                </li>
+              ))}
+            </ul>
+            <Link to="/Guide" className={styles.productMedicineLink}>
+              <span className={styles.text}>查看完整素食庫</span>
+              <span className={styles.arrow}>&gt;</span>
+            </Link>
+          </div>
 
           {/* 價格 */}
           <div className={styles.shopPrice}>
@@ -77,26 +86,66 @@ export default function ProductDetail() {
             </div>
           </div>
 
-          {/* 數量與購物車 */}
+          {/* 數量 + 購物車 + 收藏 */}
           <div className={styles.shopQuantity}>
-            <p>數量</p>
-            <input type="number" defaultValue="1" min="1" />
-            <button className="add-to-cart">加入購物車</button>
-          </div>
+            <div className={styles.cartActionGroup}>
+              <label>數量</label>
+              <input type="number" defaultValue="1" min="1" />
+              <button
+                className={`${styles.addToCartBtn} ${isAdded ? styles.disabledBtn : ''}`}
+                onClick={() => {
+                  if (!isLoggedIn) {
+                    navigate('/login');
+                  } else {
+                    handleToggle();
+                  }
+                }}
+              >
+                {isAdded ? '取消加入' : '加入素購車'}
+              </button>
 
-          {/* 收藏按鈕 */}
-          <button
-            className="shop-medicine-shop-btn"
-            onClick={() => navigate('/login')}
-          >
-            <img src="/icons/img/like-btn-hover.svg" alt="Like Icon" />
-            登入會員收藏
-          </button>
+              {isLoggedIn && (
+                <button
+                  className={`${styles.likeBtn} ${liked ? styles.active : ''}`}
+                  aria-label="收藏"
+                  onClick={() => setLiked(prev => !prev)}
+                >
+                  <img
+                    src={
+                      liked
+                        ? `${import.meta.env.BASE_URL}images/icons/btn-like-hover.svg`
+                        : `${import.meta.env.BASE_URL}images/icons/btn-like-default.svg`
+                    }
+                    alt={liked ? '已收藏' : '加入收藏'}
+                    style={{ width: 30, height: 30 }}
+                  />
+                </button>
+              )}
+            </div>
+
+            {!isLoggedIn && (
+              <div className={styles.loginRow}>
+                <button
+                  className={styles.shopMedicineShopBtn}
+                  onClick={() => navigate('/login')}
+                >
+                  <img
+                    src={`${import.meta.env.BASE_URL}images/icons/btn-like-hover.svg`}
+                    alt="Like Icon"
+                  />
+                  登入會員收藏
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* 評論與細節圖 */}
-      <img src={`${import.meta.env.BASE_URL}images/Pd/section-Comment.png`} alt="評論" />
+      {/* 評論與產品細節圖 */}
+      <img
+        src={`${import.meta.env.BASE_URL}images/Pd/section-Comment.png`}
+        alt="評論"
+      />
       <img
         src={`${import.meta.env.BASE_URL}${product.detailImage.replace(/^\.*\//, '')}`}
         alt="產品細節"
