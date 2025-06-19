@@ -39,11 +39,10 @@ export default function AppLogin() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // 模擬登入（這裡你可以改成 fetch 發送 API）
         if (account && password) {
             localStorage.setItem("token", "fake-token");
             localStorage.setItem("userName", account);
-            window.location.href = "/"; // 登入成功導回首頁
+            navigate("/MemberCenter"); // ✅ 登入成功導頁
         } else {
             alert("請輸入帳號與密碼");
         }
@@ -91,7 +90,10 @@ export default function AppLogin() {
                         </div>
 
                         <div className={styles.loginActions}>
-                            <button type="submit" className={`${styles.btnBrand} ${styles.primary}`} onClick={() => navigate('/member')}>登入</button>
+
+                            <button type="submit" className={`${styles.btnBrand} ${styles.primary}`}>
+                                登入
+                            </button>
                         </div>
 
                         <p className={styles.signupTip}>
