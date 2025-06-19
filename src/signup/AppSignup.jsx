@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../scss/pages/member/memberCenter.module.css";
+import styles from '../../scss/pages/member/MemberCenter.module.scss'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function AppSignup() {
@@ -9,13 +9,13 @@ export default function AppSignup() {
             <section className={styles.signupSection}>
                 <div className={styles.signupTitleWrapper}>
                     <img
-                        src={`${import.meta.env.BASE_URL}icons/img/icon-face.svg`}
+                        src={`${import.meta.env.BASE_URL}images/icons/icon-face.svg`}
                         alt="icon left"
                         className={styles.iconLeft}
                     />
                     <h1>Join us!</h1>
                     <img
-                        src={`${import.meta.env.BASE_URL}icons/img/plus_icon.svg`}
+                        src={`${import.meta.env.BASE_URL}images/icons/plus_icon.svg`}
                         alt="icon right"
                         className={styles.iconRight}
                     />
@@ -57,7 +57,7 @@ export default function AppSignup() {
                     <div className={styles.signupLoginTip}>
                         你素會員？
                         <Link to="/login">
-                            <button className={styles.loginLink}>登入</button>
+                            <a className={styles.loginLink}>登入</a>
                         </Link>
                     </div>
 

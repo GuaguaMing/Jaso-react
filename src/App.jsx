@@ -99,7 +99,7 @@ function AppWrapper() {
 
         <Route path="/memberCenter" element={<MemberCenter />} />
         <Route path="/login" element={<AppLogin />} />
-        <Route path="/singup" element= {<AppSignup/>} />
+        <Route path="/signup" element= {<AppSignup/>} />
         <Route 
           path="/shop" 
           element={
