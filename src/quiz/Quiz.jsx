@@ -119,7 +119,6 @@ const Quiz = ({ cartItems = [], cartAnimation = false, onToggleCart }) => {
   const handleIntroSelection = (value) => {
     if (value.includes("不同意")) {
       alert("若不同意隱私政策，將無法進行評估，感謝您的理解！");
-      window.location.href = "/";
     } else {
       setCurrentQuestion((prev) => prev + 1);
     }

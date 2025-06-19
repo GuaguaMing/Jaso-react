@@ -169,6 +169,7 @@ letter-spacing: 1.8px;
         }
 
         .aRight {
+
             // 也可以做整塊右區塊左右滑動（視覺上更明顯）
           transition: transform 0.3s ease;
 
@@ -244,6 +245,8 @@ letter-spacing: 1.8px;
   }
   
   .aRight {
+          margin-right: 2rem;
+
       height: 24px;
       display: flex;
       justify-content: flex-end;

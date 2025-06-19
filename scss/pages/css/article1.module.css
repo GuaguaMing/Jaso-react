@@ -231,6 +231,7 @@ input, select, option {
   background: #E6FBF3;
 }
 .otherPage .aRight {
+  margin-right: 2rem;
   height: 24px;
   display: flex;
   justify-content: flex-end;
