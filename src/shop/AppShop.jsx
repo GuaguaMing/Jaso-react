@@ -1,8 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import styles from '../../scss/pages/shop/shop.module.scss';
 import ConveyorAni from './components/ConveyorAni';
-import RecentViewed from '../shop-cart/components/RecentViewed';
+import products from '../productData/products';
+import ProductCardList from './components/ProductCardList';
+/* import RecentViewed from '../shop-cart/components/RecentViewed'; */
 /* import Test from './test.jsx'; */
 
 export default function AppShop() {
@@ -10,16 +13,17 @@ export default function AppShop() {
     const [activeCategory, setActiveCategory] = useState('全部');
     const [cartItems, setCartItems] = useState([]);
     const [cartAnimation, setCartAnimation] = useState(false);
+  const navigate = useNavigate();
+  // 這裡假設你用 localStorage 判斷登入
+  const isLoggedIn = !!localStorage.getItem('token'); // 依你專案實際情況調整
 
-    const products = [
-        { id: 1, name: "鈣心定植物鈣", desc: "維鈣+D3雙效配方", price: 365, image: "./images/Pd/Ca-default.png" },
-        { id: 2, name: "素超群膠囊", desc: "植萃綜合維他命配方", price: 420, image: "./images/Pd/N-default.png" },
-        { id: 3, name: "素D速補D", desc: "幫植萃維生素D（藻類D3）膠囊", price: 380, image: "./images/Pd/D-default.png" },
-        { id: 4, name: "油你真好植物膠囊", desc: "純素海藻OMEG3。", price: 250, image: "./images/Pd/Omg3-default.png" },
-        { id: 5, name: "補B不累口含錠", desc: "嚴選100%植物來源維生素B12", price: 520, image: "./images/Pd/B12-default.png" },
-        { id: 6, name: "鐵了心膠囊", desc: "嚴選100%植物來源 植萃鐵+B群補給", price: 490, image: "./images/Pd/Fe-default.png" },
-    ];
-
+  const handleBannerClick = () => {
+    if (isLoggedIn) {
+      navigate('/membercenter');
+    } else {
+      navigate('/login');
+    }
+  };
     useEffect(() => {
         if (cartItems.length === 0) return;
         setCartAnimation(true);
@@ -51,11 +55,12 @@ export default function AppShop() {
                     <ConveyorAni />
                 </div>
             </section>
-            <div className={styles.shopCTA}>
+            <div className={styles.shopCTA} onClick={handleBannerClick} style={{ cursor: 'pointer' }}>
                 <img src={`${import.meta.env.BASE_URL}images/shop-banner.svg`} width="48" alt="" />
             </div>
 
-            <RecentViewed products={products} cartItems={cartItems} onAddToCart={handleAddToCart} />
+            <ProductCardList products={products} onAddToCart={handleAddToCart} />
+           {/*  <RecentViewed products={products} cartItems={cartItems} onAddToCart={handleAddToCart} /> */}
         </>
 
     )
