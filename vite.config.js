@@ -8,13 +8,13 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            if (id.includes('html2canvas')) return 'html2canvas';
-            if (id.includes('recharts')) return 'recharts';
-            return 'vendor';
-          }
-        },
+        // manualChunks(id) {
+        //   if (id.includes('node_modules')) {
+        //     if (id.includes('html2canvas')) return 'html2canvas';
+        //     if (id.includes('recharts')) return 'recharts';
+        //     return 'vendor';
+        //   }
+        // },
       },
     },
   },

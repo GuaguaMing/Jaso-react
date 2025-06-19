@@ -39,7 +39,7 @@ const productData = [
     id: 'omega',
     product: `${import.meta.env.BASE_URL}assets/product_Omg.png`, 
     role: `${import.meta.env.BASE_URL}assets/omega3.svg`,
-    speech: '老是感覺疲倦又心情低落，是不是缺Omega-3？',
+    speech: '老是感覺疲倦又心情低落，可能缺乏這個營養素!',
     name: 'Omega-3植物膠囊',
     subtitle: '海藻Omega-3 DHA與EPA',
     description: '植物性DHA，促進大腦健康與情緒穩定',
