@@ -467,3 +467,192 @@ input, select, option {
     transform: translateY(-6px);
   }
 }
+@media (max-width: 768px) {
+  .questionContainer {
+    flex-direction: column;
+    padding: 20px 16px;
+    gap: 1rem;
+    min-height: auto;
+  }
+  .questionContainer .questionLeft {
+    margin-right: 0;
+    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+  }
+  .questionContainer .questionLeft .backButton {
+    width: 40px;
+    height: 40px;
+  }
+  .questionContainer .questionCenter {
+    width: 100%;
+  }
+  .questionContainer .questionCenter h4 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+  }
+  .questionContainer .questionCenter h2 {
+    font-size: 1.5rem;
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+  .questionContainer .questionCenter h1 {
+    font-size: 1.875rem;
+    margin-top: 8px;
+    line-height: 1.3;
+  }
+  .questionContainer .questionCenter .titleIcon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
+  .questionContainer .questionCenter .options {
+    margin-top: 20px;
+  }
+  .questionContainer .questionCenter .options .option {
+    padding: 12px 20px;
+    margin-bottom: 12px;
+    font-size: 1.25rem;
+    border-radius: 20px;
+    text-align: center;
+    justify-content: center;
+  }
+  .questionContainer .questionCenter .form-group-1 {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    gap: 12px;
+  }
+  .questionContainer .questionCenter .form-group-1 .field-label {
+    width: 100%;
+    margin-right: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  .questionContainer .questionCenter .form-group-1 .option-group {
+    width: 50%;
+    display: flex;
+    gap: 8px;
+  }
+  .questionContainer .questionCenter .form-group-1 .option-group .option-1 {
+    flex: 1;
+    min-width: calc(50% - 4px);
+    justify-content: center;
+    padding: 12px 8px;
+    font-size: 0.875rem;
+  }
+  .questionContainer .questionCenter .form-group {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    gap: 12px;
+  }
+  .questionContainer .questionCenter .form-group .field-label {
+    width: 100%;
+    margin-right: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  .questionContainer .questionCenter .form-group .container {
+    width: 100%;
+  }
+  .questionContainer .questionCenter .form-group .drop {
+    width: 100%;
+  }
+  .questionContainer .questionCenter .form-group .drop .dropOption {
+    padding: 12px 15px;
+    font-size: 0.875rem;
+  }
+  .questionContainer .questionCenter .form-group .drop .dropdown li {
+    padding: 12px 15px;
+    font-size: 0.875rem;
+  }
+  .questionContainer .questionCenter .form-group .form-input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 0.875rem;
+    border-radius: 12px;
+  }
+  .questionContainer .questionCenter .form-group .form-input::placeholder {
+    font-size: 0.875rem;
+  }
+  .questionContainer .questionRight {
+    display: none;
+  }
+  .navigationButtons {
+    margin: 20px auto;
+    width: 100%;
+    padding: 0 16px;
+  }
+  .navigationButtons button {
+    width: 100%;
+    max-width: 280px;
+    margin: 0;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+  .progressBar {
+    width: calc(100% - 32px);
+    margin: 0 auto 30px;
+    height: 6px;
+  }
+  .loadingContainer {
+    padding: 0 16px;
+  }
+  .loadingContainer .faceImage {
+    width: 150px;
+  }
+  .loadingContainer .text {
+    font-size: 1.5rem;
+    margin: 1rem 0.5rem;
+  }
+  .loadingContainer .subtext {
+    font-size: 1.25rem;
+  }
+  .error-message {
+    font-size: 1.25rem;
+    margin-top: 8px;
+  }
+  .success-message {
+    font-size: 1.25rem;
+    margin-top: 8px;
+  }
+}
+@media (max-width: 480px) {
+  .questionContainer {
+    padding: 16px 12px;
+  }
+  .questionContainer .questionCenter h2 {
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+  .questionContainer .questionCenter h1 {
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+  .questionContainer .questionCenter .options .option {
+    padding: 10px 16px;
+    font-size: 0.875rem;
+  }
+  .questionContainer .questionCenter .form-group-1 .option-group .option-1 {
+    min-width: 100%;
+    padding: 10px;
+  }
+  .navigationButtons {
+    padding: 0 12px;
+  }
+  .navigationButtons button {
+    padding: 10px;
+    font-size: 1.1rem;
+  }
+  .loadingContainer {
+    padding: 0 12px;
+  }
+  .loadingContainer .faceImage {
+    width: 120px;
+  }
+  .loadingContainer .text {
+    font-size: 1.25rem;
+  }
+}

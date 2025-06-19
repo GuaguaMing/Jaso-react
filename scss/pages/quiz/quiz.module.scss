@@ -534,3 +534,250 @@ input::placeholder {
 }
 
 
+// ========== RWD Mobile Styles ==========
+@media (max-width: 768px) {
+  .questionContainer {
+    flex-direction: column;
+    padding: 20px 16px;
+    gap: 1rem;
+    min-height: auto;
+
+    .questionLeft {
+      margin-right: 0;
+      width: 100%;
+      justify-content: flex-start;
+      margin-bottom: 1rem;
+
+      .backButton {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .questionCenter {
+      width: 100%;
+
+      h4 {
+        font-size: map.get($font-size, s);
+        margin-bottom: 8px;
+      }
+
+      h2 {
+        font-size: map.get($font-size, m);
+        margin-top: 8px;
+        line-height: 1.4;
+      }
+
+      h1 {
+        font-size: map.get($font-size, lg);
+        margin-top: 8px;
+        line-height: 1.3;
+      }
+
+      .titleIcon {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+      }
+
+      .options {
+        margin-top: 20px;
+
+        .option {
+          padding: 12px 20px;
+          margin-bottom: 12px;
+          font-size: map.get($font-size, s);
+          border-radius: 20px;
+          text-align: center;
+          justify-content: center;
+        }
+      }
+
+      // Form 相關手機版樣式
+      .form-group-1 {
+
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 24px;
+        gap: 12px;
+
+        .field-label {
+          width: 100%;
+          margin-right: 0;
+          font-size: map.get($font-size, s);
+          font-weight: 600;
+        }
+
+        .option-group {
+          width: 50%;
+          display: flex;
+          gap: 8px;
+
+          .option-1 {
+            flex: 1;
+            min-width: calc(50% - 4px);
+            justify-content: center;
+            padding: 12px 8px;
+            font-size: map.get($font-size, 3xs);
+
+          }
+        }
+      }
+
+      .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 24px;
+        gap: 12px;
+
+        .field-label {
+          width: 100%;
+          margin-right: 0;
+          font-size: map.get($font-size, s);
+          font-weight: 600;
+        }
+
+        .container {
+          width: 100%;
+        }
+
+        .drop {
+          width: 100%;
+
+          .dropOption {
+            padding: 12px 15px;
+            font-size: map.get($font-size, 3xs);
+
+          }
+
+          .dropdown {
+            li {
+              padding: 12px 15px;
+              font-size: map.get($font-size, 3xs);
+
+            }
+          }
+        }
+
+        .form-input {
+          width: 100%;
+          padding: 12px 15px;
+          font-size: map.get($font-size, 3xs);
+
+          border-radius: 12px;
+
+          &::placeholder {
+            font-size: map.get($font-size, 3xs);
+
+          }
+        }
+      }
+    }
+
+    // 手機版隱藏動畫區域
+    .questionRight {
+      display: none;
+    }
+  }
+
+  .navigationButtons {
+    margin: 20px auto;
+    width: 100%;
+    padding: 0 16px;
+
+    button {
+      width: 100%;
+      max-width: 280px;
+      margin: 0;
+      padding: 10px;
+      // font-size: map.get($font-size, s);
+      border-radius: 20px;
+      font-weight: 600;
+    }
+  }
+
+  .progressBar {
+    width: calc(100% - 32px);
+    margin: 0 auto 30px;
+    height: 6px;
+  }
+
+  // Loading 頁面手機版
+  .loadingContainer {
+    padding: 0 16px;
+
+    .faceImage {
+      width: 150px;
+    }
+
+    .text {
+      font-size: map.get($font-size, m);
+      margin: 1rem 0.5rem;
+    }
+
+    .subtext {
+      font-size: map.get($font-size, s);
+    }
+  }
+
+  // 錯誤訊息手機版
+  .error-message {
+    font-size: map.get($font-size, s);
+    margin-top: 8px;
+  }
+
+  .success-message {
+    font-size: map.get($font-size, s);
+    margin-top: 8px;
+  }
+}
+
+// 超小屏幕 (小於 480px)
+@media (max-width: 480px) {
+  .questionContainer {
+    padding: 16px 12px;
+
+    .questionCenter {
+      h2 {
+        font-size: map.get($font-size, s);
+        line-height: 1.5;
+      }
+
+      h1 {
+        font-size: map.get($font-size, m);
+        line-height: 1.4;
+      }
+
+      .options .option {
+        padding: 10px 16px;
+        font-size: map.get($font-size, 3xs);
+      }
+
+      .form-group-1 .option-group .option-1 {
+        min-width: 100%;
+        padding: 10px;
+      }
+    }
+  }
+
+  .navigationButtons {
+    padding: 0 12px;
+
+    button {
+      padding: 10px ;
+      font-size: map.get($font-size, xs);
+    }
+  }
+
+  .loadingContainer {
+    padding: 0 12px;
+
+    .faceImage {
+      width: 120px;
+    }
+
+    .text {
+      font-size: map.get($font-size, s);
+    }
+  }
+}

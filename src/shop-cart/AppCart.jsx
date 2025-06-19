@@ -1,7 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-// import Navbar from "../1components/Navbar";
-// import NavbarHidden from "../1components/NavbarHidden";
 import './Appcart.css';
 
 import CheckoutProgress from './components/CheckoutProgress';
@@ -143,13 +141,6 @@ function AppCart({ cartItems = [], setCartItems = () => {} }) {
 
   return (
     <>
-      {/* 傳遞購物車資料給 Navbar */}
-      {/* <Navbar 
-        cartItems={currentCartItems} 
-        cartAnimation={cartAnimation}
-        onToggleCart={() => setIsCartOpen(!isCartOpen)}
-      /> */}
-      {/* <NavbarHidden /> */}
       <div className="container py-4">
         <div className="mb-3" style={{ height: "1.5rem", visibility: "hidden" }}>
           <div className='container-fluid'>

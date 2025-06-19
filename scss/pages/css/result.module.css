@@ -384,3 +384,274 @@ input, select, option {
   border-radius: 25px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
 }
+
+@media (max-width: 768px) {
+  .result {
+    margin: 60px auto;
+    padding: 0 1rem;
+  }
+  .result .title {
+    font-size: 18px;
+    letter-spacing: 1.8px;
+    line-height: 140%;
+  }
+  .result .subtitle {
+    font-size: 16px;
+    letter-spacing: 1.6px;
+    line-height: 140%;
+  }
+  .result .header {
+    padding-left: 1rem;
+    text-align: center;
+  }
+  .result .radarSection {
+    margin: 2rem 1rem;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .result .radarSection .radarLeft {
+    order: 2;
+    gap: 1.5rem;
+  }
+  .result .radarSection .radarLeft .radarCharacter {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 24px 12px;
+  }
+  .result .radarSection .radarLeft .radarCharacter .characterBox .characterImgWrapper {
+    width: 100px;
+    height: 100px;
+  }
+  .result .radarSection .radarLeft .radarCharacter .characterBox .characterImgWrapper .bubble {
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+    font-size: 8px;
+  }
+  .result .radarSection .radarLeft p {
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    line-height: 160%;
+  }
+  .result .radarSection .radarChart {
+    order: 1;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .result .radarSection .radarChart > div {
+    transform: scale(0.75);
+    transform-origin: center;
+    width: 300px !important;
+    height: 270px !important;
+  }
+  .result .radarSection .radarChart .chartText {
+    padding-left: 0;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  .result .radarSection .radarChart .chartText .chartTitle {
+    justify-content: center;
+    font-size: 11px;
+  }
+  .result .radarSection .radarChart .chartText .chartTitle .circle {
+    width: 18px;
+    height: 18px;
+  }
+  .result .radarSection .radarChart .chartText .chartNote {
+    font-size: 9px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+  .result .summary {
+    padding: 1.5rem 1rem;
+  }
+  .result .summary h4 {
+    font-size: 18px;
+    letter-spacing: 3px;
+    width: 100%;
+    padding-bottom: 2rem;
+    line-height: 140%;
+  }
+  .result .summary h3 {
+    font-size: 24px;
+    letter-spacing: 2px;
+    padding-bottom: 1.5rem;
+  }
+  .result .summary .barGroup {
+    width: 100%;
+    gap: 0.8rem;
+  }
+  .result .summary .barGroup label {
+    font-size: 14px;
+    letter-spacing: 1.2px;
+    padding-left: 1rem;
+  }
+  .result .summary .barGroup .bar {
+    height: 25px;
+    padding-right: 0.3rem;
+    font-size: 14px;
+  }
+  .result .summary .barGroup .fill {
+    line-height: 25px;
+    font-size: 12px;
+  }
+  .result .summary .protein {
+    padding-top: 0.8rem;
+    font-size: 24px;
+    letter-spacing: 2px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .result .summary .protein p {
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
+  .result .productList {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+  .result .productList .card {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 1.2rem;
+  }
+  .result .productList .card .needWhat {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+    text-align: center;
+  }
+  .result .productList .card .needWhat .needLeft h4 {
+    font-size: 36px;
+  }
+  .result .productList .card .needWhat .needLeft span {
+    font-size: 20px;
+    letter-spacing: 1.8px;
+  }
+  .result .productList .card .needWhat .needRight {
+    text-align: center;
+  }
+  .result .productList .card .needWhat .needRight span {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+  .result .productList .card .needWhat .needRight p {
+    font-size: 16px;
+    letter-spacing: 3px;
+  }
+  .result .actions {
+    margin-top: 1.5rem;
+    gap: 0.8rem;
+  }
+  .result .actions .retry,
+  .result .actions .share {
+    width: 180px;
+    font-size: 16px;
+    letter-spacing: 1.4px;
+    padding: 0.6rem 1.2rem;
+  }
+}
+@media (max-width: 480px) {
+  .result {
+    margin: 40px auto;
+    padding: 0 0.8rem;
+  }
+  .result .title {
+    font-size: 16px;
+    letter-spacing: 1.4px;
+  }
+  .result .subtitle {
+    font-size: 14px;
+    letter-spacing: 1.2px;
+  }
+  .result .radarSection {
+    margin: 1.5rem 0.5rem;
+  }
+  .result .radarSection .radarLeft .radarCharacter {
+    gap: 16px 8px;
+  }
+  .result .radarSection .radarLeft .radarCharacter .characterBox .characterImgWrapper {
+    width: 80px;
+    height: 80px;
+  }
+  .result .radarSection .radarLeft .radarCharacter .characterBox .characterImgWrapper .bubble {
+    width: 25px;
+    height: 25px;
+    padding: 4px;
+    font-size: 7px;
+  }
+  .result .radarSection .radarChart .chartText .chartNote {
+    width: 100%;
+    max-width: 250px;
+  }
+  .result .radarSection .radarChart > div {
+    transform: scale(0.65);
+    width: 250px !important;
+    height: 225px !important;
+  }
+  .result .summary {
+    padding: 1rem 0.8rem;
+  }
+  .result .summary h4 {
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+  .result .summary h3 {
+    font-size: 20px;
+    letter-spacing: 1.5px;
+  }
+  .result .summary .barGroup label {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  .result .summary .barGroup .bar {
+    height: 22px;
+    font-size: 12px;
+  }
+  .result .summary .barGroup .fill {
+    line-height: 22px;
+    font-size: 11px;
+  }
+  .result .summary .protein {
+    font-size: 20px;
+    letter-spacing: 1.5px;
+  }
+  .result .summary .protein p {
+    font-size: 18px;
+    letter-spacing: 2.5px;
+  }
+  .result .productList {
+    padding: 0 0.5rem;
+  }
+  .result .productList .card {
+    padding: 1rem;
+  }
+  .result .productList .card .needWhat .needLeft h4 {
+    font-size: 32px;
+  }
+  .result .productList .card .needWhat .needLeft span {
+    font-size: 18px;
+    letter-spacing: 1.5px;
+  }
+  .result .productList .card .needWhat .needRight span {
+    font-size: 11px;
+    letter-spacing: 1.8px;
+  }
+  .result .productList .card .needWhat .needRight p {
+    font-size: 14px;
+    letter-spacing: 2.5px;
+  }
+  .result .actions .retry,
+  .result .actions .share {
+    width: 160px;
+    font-size: 14px;
+    letter-spacing: 1.2px;
+    padding: 0.5rem 1rem;
+  }
+}

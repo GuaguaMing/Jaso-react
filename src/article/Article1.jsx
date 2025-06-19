@@ -113,6 +113,7 @@ const Article1 = () => {
       </p>
 
     </div>
+    
                    <section className={styles.otherPage}>
                 <div className={styles.articles}>
                 <CustomHR />
