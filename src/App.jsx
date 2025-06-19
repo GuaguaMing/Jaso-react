@@ -23,6 +23,7 @@ import OrderSuccess from './shop-cart/components/OrderSuccess';
 import AppFaq from "./faq/AppFaq";
 import Layout from './1components/Layout'; // 首頁＋footer
 import AppSignup from './signup/AppSignup';
+import AppOrder from './order/AppOrder';
 
 // 創建一個包裝組件來處理 URL 參數
 function AppWrapper() {
@@ -100,6 +101,7 @@ function AppWrapper() {
         <Route path="/memberCenter" element={<MemberCenter />} />
         <Route path="/login" element={<AppLogin />} />
         <Route path="/signup" element= {<AppSignup/>} />
+         <Route path="/order" element= {<AppOrder/>} />
         <Route 
           path="/shop" 
           element={
