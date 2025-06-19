@@ -57,6 +57,7 @@ export default function AppShop() {
 
             <RecentViewed products={products} cartItems={cartItems} onAddToCart={handleAddToCart} />
         </>
+        
 
     )
 }
