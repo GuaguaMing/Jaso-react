@@ -1,147 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef, lazy, Suspense } from "react";
 import styles from "../../scss/pages/quiz/result.module.scss";
 import { useLocation, useNavigate } from "react-router-dom";
 import DownloadOk from "./DownloadOk";
 
-// 動態載入圖表組件
-const LazyRadarChart = ({ radarData }) => {
-  const [chartComponents, setChartComponents] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const loadChart = async () => {
-      try {
-        const module = await import('recharts');
-        const { RadarChart, PolarGrid, PolarAngleAxis, Radar, ResponsiveContainer } = module;
-        
-        setChartComponents(() => (
-          <ResponsiveContainer width={400} height={360}>
-            <RadarChart
-              data={radarData}
-              cx="50%"
-              cy="50%"
-              outerRadius="80%"
-              startAngle={0}
-              endAngle={-360}
-            >
-              <PolarGrid stroke="#AAA6A8" />
-              <PolarAngleAxis dataKey="nutrient" tick={{ fontSize: 12 }} />
-              <Radar
-                name="營養分數"
-                dataKey="score"
-                stroke="#3DCE94"
-                fill="#3DCE94"
-                fillOpacity={0.75}
-              />
-            </RadarChart>
-          </ResponsiveContainer>
-        ));
-        setIsLoading(false);
-      } catch (error) {
-        console.error('Failed to load chart:', error);
-        setIsLoading(false);
-      }
-    };
-
-    loadChart();
-  }, [radarData]);
-
-  if (isLoading) {
-    return (
-      <div style={{ 
-        width: 400, 
-        height: 360, 
-        backgroundColor: '#f0f0f0', 
-        borderRadius: '8px', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'center' 
-      }}>
-        <span>圖表載入中...</span>
-      </div>
-    );
-  }
-
-  return chartComponents;
-};
+// 真正的 Lazy Loading - 分離成獨立組件
+const LazyRadarChart = lazy(() => import('./RadarChartComponent'));
 
 const Result = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [showDownload, setShowDownload] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
-  const [html2canvas, setHtml2canvas] = useState(null);
+  const [showChart, setShowChart] = useState(false);
   const resultRef = useRef(null);
-
-  // Lazy load html2canvas when needed
-  const loadHtml2Canvas = async () => {
-    if (!html2canvas) {
-      try {
-        const module = await import('html2canvas');
-        const html2canvasFunc = module.default;
-        setHtml2canvas(() => html2canvasFunc);
-        return html2canvasFunc;
-      } catch (error) {
-        console.error('Failed to load html2canvas:', error);
-        throw error;
-      }
-    }
-    return html2canvas;
-  };
-
-  const handleShareClick = async () => {
-    setIsDownloading(true);
-    
-    try {
-      // Lazy load html2canvas
-      const html2canvasModule = await loadHtml2Canvas();
-      
-      // 等待一小段時間確保所有元素都已渲染
-      await new Promise(resolve => setTimeout(resolve, 100));
-      
-      const canvas = await html2canvasModule(resultRef.current, {
-        backgroundColor: '#ffffff',
-        scale: 2, // 提高清晰度
-        useCORS: true, // 允許跨域圖片
-        allowTaint: true,
-        scrollX: 0,
-        scrollY: 0,
-        windowWidth: window.innerWidth,
-        windowHeight: window.innerHeight,
-        onclone: (clonedDoc) => {
-          // 確保克隆的文檔中的圖片正確載入
-          const images = clonedDoc.querySelectorAll('img');
-          images.forEach(img => {
-            if (img.src.startsWith('blob:')) {
-              img.style.display = 'none';
-            }
-          });
-        }
-      });
-
-      // 創建下載連結
-      const link = document.createElement('a');
-      link.download = `營養分析結果_${new Date().toLocaleDateString('zh-TW')}.png`;
-      link.href = canvas.toDataURL('image/png');
-      
-      // 觸發下載
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
-      // 顯示成功提示
-      setShowDownload(true);
-      setTimeout(() => {
-        setShowDownload(false);
-      }, 2000);
-      
-    } catch (error) {
-      console.error('下載失敗:', error);
-      alert('下載失敗，請稍後再試');
-    } finally {
-      setIsDownloading(false);
-    }
-  };
 
   const resultData = location.state;
   if (!resultData) {
@@ -214,11 +85,6 @@ const Result = () => {
 
   // 蛋白質建議與三大營養素分配（以 TDEE 推算）
   const proteinNeed = Math.round(tdee * 0.15 / 4);
-  const nutritionSplit = {
-    carb: Math.round(tdee * 0.5 / 4),
-    protein: proteinNeed,
-    fat: Math.round(tdee * 0.35 / 9),
-  };
 
   const recommendedProducts = {
     fatigue: [
@@ -265,15 +131,63 @@ const Result = () => {
     navigate("/quiz");
   };
 
-  const handleShare = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: "營養分析結果",
-        text: `我的營養分析結果：TDEE: ${tdee}，BMR: ${bmr}，BMI: ${bmi}`,
-        url: window.location.href,
+  // 只有在用戶點擊時才載入圖表
+  const handleShowChart = () => {
+    setShowChart(true);
+  };
+
+  // 處理下載 - 使用 lazy loading
+  const handleShareClick = async () => {
+    setIsDownloading(true);
+    
+    try {
+      // 動態導入 html2canvas
+      const html2canvas = await import('html2canvas');
+      const html2canvasFunc = html2canvas.default;
+      
+      // 等待一小段時間確保所有元素都已渲染
+      await new Promise(resolve => setTimeout(resolve, 100));
+      
+      const canvas = await html2canvasFunc(resultRef.current, {
+        backgroundColor: '#ffffff',
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        scrollX: 0,
+        scrollY: 0,
+        windowWidth: window.innerWidth,
+        windowHeight: window.innerHeight,
+        onclone: (clonedDoc) => {
+          const images = clonedDoc.querySelectorAll('img');
+          images.forEach(img => {
+            if (img.src.startsWith('blob:')) {
+              img.style.display = 'none';
+            }
+          });
+        }
       });
-    } else {
-      alert("分享功能在此設備上不可用");
+
+      // 創建下載連結
+      const link = document.createElement('a');
+      link.download = `營養分析結果_${new Date().toLocaleDateString('zh-TW')}.png`;
+      link.href = canvas.toDataURL('image/png');
+      
+      // 觸發下載
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // 顯示成功提示
+      setShowDownload(true);
+      setTimeout(() => {
+        setShowDownload(false);
+      }, 2000);
+      
+    } catch (error) {
+      console.error('下載失敗:', error);
+      alert('下載失敗，請稍後再試');
+    } finally {
+      setIsDownloading(false);
     }
   };
 
@@ -317,9 +231,42 @@ const Result = () => {
           </div>
         </div>
 
-        {/* 右：雷達圖 - 使用自定義 Lazy Loading */}
+        {/* 右：雷達圖 - 真正的 Lazy Loading */}
         <div className={styles.radarChart}>
-          <LazyRadarChart radarData={radarData} />
+          {!showChart ? (
+            <div 
+              style={{ 
+                width: 400, 
+                height: 360, 
+                backgroundColor: '#f0f0f0', 
+                borderRadius: '8px', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center',
+                cursor: 'pointer'
+              }}
+              onClick={handleShowChart}
+            >
+              <span>點擊載入圖表</span>
+            </div>
+          ) : (
+            <Suspense fallback={
+              <div style={{ 
+                width: 400, 
+                height: 360, 
+                backgroundColor: '#f0f0f0', 
+                borderRadius: '8px', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center' 
+              }}>
+                <span>圖表載入中...</span>
+              </div>
+            }>
+              <LazyRadarChart radarData={radarData} />
+            </Suspense>
+          )}
+          
           {/* 右下：雷達小語 */}
           <div className={styles.chartText}>
             <h4 className={styles.chartTitle}><div className={styles.circle}></div>實際攝取量</h4>
