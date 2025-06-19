@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from '../../scss/pages/member/MemberCenter.module.scss'
 export default function OrdersTab() {
   return (
@@ -26,7 +27,9 @@ export default function OrdersTab() {
                   <td>已付款</td>
                   <td>
                     <button className={styles.orderBtn}>
-                      <a href="order.html">查詢</a>
+                      <Link to="/order">
+                        <a>查詢</a>
+                      </Link>
                     </button>
                   </td>
                 </tr>
@@ -37,10 +40,12 @@ export default function OrdersTab() {
 
         <div className={styles.orderNote}>
           <span>＊ 最多顯示3個月內點數資訊</span>
-          <a href="#" className={styles.orderMore}>
-            <span className={styles.text}>MORE</span>
-            <span className={styles.arrow}>&gt;</span>
-          </a>
+          <Link to="/order">
+            <a href="#" className={styles.orderMore}>
+              <span className={styles.text}>MORE</span>
+              <span className={styles.arrow}>&gt;</span>
+            </a>
+          </Link>
         </div>
       </div>
     </div>
