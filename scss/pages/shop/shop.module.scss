@@ -314,6 +314,7 @@
   padding: 0;
   cursor: pointer;
   transition: all 0.3s ease;
+  
 
   &.active {
     transform: scale(1.05);
@@ -439,4 +440,46 @@
     opacity: 1;
   }
 
+}
+// 會員頁面
+.ppPage{
+  display: flex;
+  flex-direction: column;
+  margin: auto ;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1374px;
+  width: 100%;
+}
+.cnppSection {
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+margin: auto;
+}
+.noResults {
+  padding-right: 60px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #666;
+  
+  p {
+    margin: 0.5rem 0;
+    
+    &:first-child {
+      font-weight: 500;
+      color: #333;
+    }
+  }
+}
+.column {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  // gap: 3rem 2.5rem;
 }

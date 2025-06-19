@@ -124,7 +124,7 @@ export default function Navbar({ cartItems = [], cartAnimation = false, onToggle
       {menuOpen && (
         <div className={styles.mobileMenu}>
           <ul>
-            <li><Link to="/guide">食物庫</Link></li>
+            <li><Link to="/guide">素食庫</Link></li>
             <li><Link to="/article">素食知識</Link></li>
             <li><Link to="/quiz">營養素算</Link></li>
             <li><Link to="/shop">素購</Link></li>

@@ -72,7 +72,7 @@ export default function GuidesTab() {
 
   return (
     <main className={styles.articlePage}>
-      <section className={styles.cardSection}>
+      <section className={styles.cnppSection}>
         {likedArticles.length === 0 ? (
           <div className={styles.noResults}>
             <p>你還沒有收藏任何文章唷！</p>

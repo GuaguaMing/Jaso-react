@@ -146,6 +146,13 @@ input, select, option {
   margin: auto;
 }
 
+.cnppSection {
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+  margin: auto;
+}
+
 .cardOutline {
   width: 25rem;
   height: 30rem;
