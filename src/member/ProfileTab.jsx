@@ -30,7 +30,7 @@ export default function ProfileTab() {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userName");
-    window.location.href = "/";
+    navigate("/");
   };
 
   const handleChange = (e) => {

@@ -207,24 +207,7 @@ const [showErrors, setShowErrors] = useState({});
   const handleMouseLeave = () => setIsDropdownOpen(false);
 
   const [isHovered, setIsHovered] = useState(false);
-  // const next = () => {
-  //   if (questions[currentQuestion].type === "form") {
-  //     const requiredFields = questions[currentQuestion].fields.map(f => f.name);
-  //     const isAllFilled = requiredFields.every(field => answers[field] !== undefined && answers[field] !== "");
 
-  //     if (!isAllFilled) {
-  //       alert("請填入全部欄位");
-  //       return;
-  //     }
-  //   }
-
-  //   if (currentQuestion < questions.length - 1) {
-  //     setCurrentQuestion(currentQuestion + 1);
-  //   } else {
-  //     console.log("問卷完成", answers);
-  //     navigate("/result", { state: { answers } }); // 假設你用的是 React Router 的 navigate
-  //   }
-  // };
   const next = () => {
   if (questions[currentQuestion].type === "form") {
     const requiredFields = questions[currentQuestion].fields.map(f => f.name);
