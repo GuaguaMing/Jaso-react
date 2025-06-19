@@ -1,20 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../../../scss/pages/shop/shop.module.scss';
 import { Link } from 'react-router-dom';
 
-function ProductCard({ product, onAddToCart }) {
+function ProductCard({ product, onToggleCartItem }) {
   const [isHover, setIsHover] = useState(false);
   const [liked, setLiked] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
 
-  const likeDefault = `${import.meta.env.BASE_URL}images/icons/btn-like-default.svg`;
-  const likeActive = `${import.meta.env.BASE_URL}images/icons/btn-like-hover.svg`;
+  useEffect(() => {
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const exists = cart.some(item => item.id === product.id);
+    setIsAdded(exists);
+  }, [product.id]);
 
-   const handleToggle = () => {
-    if (onAddToCart) {
-      onAddToCart(product); // 讓父層處理加入或移除 + localStorage
+  const handleToggle = () => {
+    if (onToggleCartItem) {
+      onToggleCartItem(product);
+      setIsAdded(prev => !prev); // 本地同步按鈕狀態
     }
-    setIsAdded((prev) => !prev);
   };
 
   return (
@@ -51,10 +54,12 @@ function ProductCard({ product, onAddToCart }) {
         <button
           className={liked ? `${styles.likeBtn} ${styles.active}` : styles.likeBtn}
           aria-label="加入收藏"
-          onClick={() => setLiked((prev) => !prev)}
+          onClick={() => setLiked(prev => !prev)}
         >
           <img
-            src={liked ? likeActive : likeDefault}
+            src={liked
+              ? `${import.meta.env.BASE_URL}images/icons/btn-like-hover.svg`
+              : `${import.meta.env.BASE_URL}images/icons/btn-like-default.svg`}
             alt={liked ? "已收藏" : "加入收藏"}
             style={{ width: 30, height: 30 }}
           />

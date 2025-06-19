@@ -5,7 +5,6 @@ import styles from '../../scss/pages/shop/shop.module.scss';
 import ConveyorAni from './components/ConveyorAni';
 import products from '../productData/products';
 import ProductCardList from './components/ProductCardList';
-/* import RecentViewed from '../shop-cart/components/RecentViewed'; */
 /* import Test from './test.jsx'; */
 
 export default function AppShop() {
@@ -18,6 +17,23 @@ export default function AppShop() {
 
 
     const isLoggedIn = !!localStorage.getItem('token');
+
+    const handleToggleCartItem = (product) => {
+        const currentCart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const exists = currentCart.find(item => item.id === product.id);
+
+        let updatedCart;
+        if (exists) {
+            // 若已存在：取消加入（移除）
+            updatedCart = currentCart.filter(item => item.id !== product.id);
+        } else {
+            // 若不存在：加入購物車
+            updatedCart = [...currentCart, { ...product, qty: 1 }];
+        }
+
+        // 更新 localStorage
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+    };
 
     const handleBannerClick = () => {
         if (isLoggedIn) {
@@ -75,9 +91,12 @@ export default function AppShop() {
             </div>
 
             <div ref={productListRef}>
-                <ProductCardList products={products} onAddToCart={handleAddToCart} />
+                <ProductCardList
+                    products={products}
+                    onToggleCartItem={handleToggleCartItem}
+                />
+
             </div>
-            {/*  <RecentViewed products={products} cartItems={cartItems} onAddToCart={handleAddToCart} /> */}
         </>
 
 
